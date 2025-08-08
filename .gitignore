@@ -36,5 +36,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+<<<<<<< HEAD
 /public/assets/
 .vercel
+=======
+/public/assets/
+.vercel
+>>>>>>> c738fe018b0dc76da0bb6a3c14f0fc4f1ab94568
