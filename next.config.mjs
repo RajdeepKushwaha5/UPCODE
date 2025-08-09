@@ -2,11 +2,9 @@
 const nextConfig = {
     staticPageGenerationTimeout: 150,
     serverExternalPackages: ['mongoose', 'bcrypt'],
-    experimental: {
-        serverComponentsExternalPackages: ['mongoose', 'bcrypt'],
-    },
-    // Disable static optimization for dynamic pages
+    // Optimize for deployment
     output: 'standalone',
+    poweredByHeader: false,
     async redirects() {
         return [
             {

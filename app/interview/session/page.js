@@ -1,8 +1,11 @@
 "use client";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, Suspense } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast, Toaster } from "react-hot-toast";
+
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
 import { useWebSocket } from "../../../hooks/useWebSocket";
 import { useWebRTC } from "../../../hooks/useWebRTC";
 import {
@@ -29,7 +32,7 @@ import {
   FaPhoneSlash
 } from 'react-icons/fa';
 
-export default function InterviewSession() {
+function InterviewSessionContent() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -1683,5 +1686,20 @@ export default function InterviewSession() {
 
       <Toaster />
     </div>
+  );
+}
+
+export default function InterviewSession() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+        <div className="text-center">
+          <FaSpinner className="animate-spin text-4xl text-blue-600 mx-auto mb-4" />
+          <p className="text-lg text-gray-700">Loading interview session...</p>
+        </div>
+      </div>
+    }>
+      <InterviewSessionContent />
+    </Suspense>
   );
 }
