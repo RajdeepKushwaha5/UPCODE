@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -13,6 +13,7 @@ export default function RegisterPage() {
   });
   const [registerInProgress, setRegisterInProgress] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [usernameAvailable, setUsernameAvailable] = useState(null);
   const [checkingUsername, setCheckingUsername] = useState(false);
   const router = useRouter();
@@ -36,6 +37,9 @@ export default function RegisterPage() {
     }
   };
 
+  // Debounce timer ref
+  const debounceTimer = useRef(null);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -45,10 +49,18 @@ export default function RegisterPage() {
 
     // Check username availability when typing
     if (name === "username") {
-      const debounceTimer = setTimeout(() => {
+      // Clear previous timer
+      if (debounceTimer.current) {
+        clearTimeout(debounceTimer.current);
+      }
+      
+      // Reset username availability state
+      setUsernameAvailable(null);
+      
+      // Set new timer
+      debounceTimer.current = setTimeout(() => {
         checkUsername(value);
       }, 500);
-      return () => clearTimeout(debounceTimer);
     }
   };
 
@@ -57,18 +69,35 @@ export default function RegisterPage() {
       setError("Username must be at least 3 characters long");
       return false;
     }
+    
+    // Username format validation
+    if (!/^[a-zA-Z0-9_]+$/.test(formData.username)) {
+      setError("Username can only contain letters, numbers, and underscores");
+      return false;
+    }
+    
     if (!formData.email) {
       setError("Email is required");
       return false;
     }
+    
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError("Please enter a valid email address");
+      return false;
+    }
+    
     if (!formData.password || formData.password.length < 6) {
       setError("Password must be at least 6 characters long");
       return false;
     }
+    
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
       return false;
     }
+    
     if (usernameAvailable === false) {
       setError("Username is already taken");
       return false;
@@ -79,6 +108,7 @@ export default function RegisterPage() {
   async function handleRegister(ev) {
     ev.preventDefault();
     setError("");
+    setSuccess("");
 
     if (!validateForm()) {
       return;
@@ -100,16 +130,37 @@ export default function RegisterPage() {
       const data = await response.json();
 
       if (response.ok) {
+        // Show success message first
+        setSuccess("Account created successfully! Logging you in...");
+        setError("");
+        
         // Auto-login after successful registration
-        await signIn('credentials', {
-          email: formData.email,
-          password: formData.password,
-          callbackUrl: '/'
-        });
+        try {
+          const signInResult = await signIn('credentials', {
+            email: formData.email,
+            password: formData.password,
+            callbackUrl: '/dashboard',
+            redirect: false
+          });
+
+          if (signInResult?.ok) {
+            // Success - redirect will happen automatically
+            router.push('/dashboard');
+          } else {
+            // Registration successful but auto-login failed
+            setError("Account created successfully! Please log in manually.");
+            router.push('/login');
+          }
+        } catch (signInError) {
+          console.error('Auto-login failed:', signInError);
+          setError("Account created successfully! Please log in manually.");
+          router.push('/login');
+        }
       } else {
         setError(data.message || "Registration failed. Please try again.");
       }
     } catch (error) {
+      console.error('Registration network error:', error);
       setError("Network error. Please try again.");
     }
 
@@ -151,6 +202,13 @@ export default function RegisterPage() {
         {error && (
           <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-xl text-red-300 text-center backdrop-blur-sm">
             {error}
+          </div>
+        )}
+
+        {/* Success Message */}
+        {success && (
+          <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-xl text-green-300 text-center backdrop-blur-sm">
+            {success}
           </div>
         )}
 

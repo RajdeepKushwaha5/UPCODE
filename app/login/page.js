@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { toast, Toaster } from "react-hot-toast";
@@ -11,7 +11,29 @@ export default function LoginPage() {
   const [loginInProgress, setLoginInProgress] = useState(false);
   const [error, setError] = useState("");
   const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [oauthStatus, setOauthStatus] = useState({
+    google: false,
+    github: false,
+    configured: false,
+    loading: true
+  });
   const router = useRouter();
+
+  useEffect(() => {
+    // Check OAuth configuration status
+    const checkOAuthStatus = async () => {
+      try {
+        const response = await fetch('/api/auth/oauth-status');
+        const status = await response.json();
+        setOauthStatus({ ...status, loading: false });
+      } catch (error) {
+        console.error('Failed to check OAuth status:', error);
+        setOauthStatus(prev => ({ ...prev, loading: false }));
+      }
+    };
+
+    checkOAuthStatus();
+  }, []);
 
   async function handleLogin(ev) {
     ev.preventDefault();

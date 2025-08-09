@@ -16,12 +16,21 @@ export async function POST(req) {
       hasOtp: !!body.otp 
     });
     
-    await dbConnect();
-    console.log('✅ Database connected');
+    // Connect to database with error handling
+    try {
+      await dbConnect();
+      console.log('✅ Database connected');
+    } catch (dbError) {
+      console.error('❌ Database connection failed:', dbError);
+      return Response.json(
+        { message: 'Database connection failed. Please try again later.' },
+        { status: 503 }
+      );
+    }
 
     const { username, email, password, otp } = body;
 
-    // Validation
+    // Enhanced validation
     if (!username || username.length < 3) {
       console.log('❌ Username validation failed:', username);
       return Response.json(
@@ -30,10 +39,29 @@ export async function POST(req) {
       );
     }
 
+    // Username format validation
+    if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+      console.log('❌ Username format validation failed:', username);
+      return Response.json(
+        { message: 'Username can only contain letters, numbers, and underscores' },
+        { status: 400 }
+      );
+    }
+
     if (!email) {
       console.log('❌ Email validation failed:', email);
       return Response.json(
         { message: 'Email is required' },
+        { status: 400 }
+      );
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      console.log('❌ Email format validation failed:', email);
+      return Response.json(
+        { message: 'Please enter a valid email address' },
         { status: 400 }
       );
     }
@@ -99,40 +127,67 @@ export async function POST(req) {
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(password, salt);
 
-    // Create user info
-    const userInfo = new UserInfo();
-    const userInfoDoc = await userInfo.save();
-
-    // Check if this email should have admin privileges
-    const adminEmails = ['admin@upcode.com', 'sarah@upcode.com', 'rajdeepsingh10789@gmail.com'];
-    const isAdmin = adminEmails.includes(email);
-
-    // Create user
-    const userData = {
-      username,
-      email,
-      password: hashedPassword,
-      userInfo: userInfoDoc._id,
-      isAdmin: isAdmin
-    };
-
-    const createdUser = await User.create(userData);
-
-    // Send registration confirmation email
+    // Create user info with better error handling
+    console.log('🔧 Creating UserInfo...');
     try {
-      await sendRegistrationConfirmationEmail(email, username, username);
-    } catch (emailError) {
-      console.error('Failed to send registration confirmation email:', emailError);
-      // Don't fail the registration if email fails
+      const userInfo = new UserInfo({
+        name: username, // Use username as default name
+        petEmoji: "🐱",
+        currentRating: 800,
+        problemsSolved: { total: 0, easy: 0, medium: 0, hard: 0 }
+      });
+      const userInfoDoc = await userInfo.save();
+      console.log('✅ UserInfo created:', userInfoDoc._id);
+
+      // Check if this email should have admin privileges
+      const adminEmails = ['admin@upcode.com', 'sarah@upcode.com', 'rajdeepsingh10789@gmail.com'];
+      const isAdmin = adminEmails.includes(email);
+
+      // Create user
+      console.log('🔧 Creating User...');
+      const userData = {
+        username,
+        email,
+        password: hashedPassword,
+        userInfo: userInfoDoc._id,
+        isAdmin: isAdmin
+      };
+
+      const createdUser = await User.create(userData);
+      console.log('✅ User created:', createdUser._id);
+
+      // Send registration confirmation email (non-blocking and safe)
+      process.nextTick(async () => {
+        try {
+          // Check if SendGrid is configured
+          if (process.env.SENDGRID_API_KEY && process.env.SENDGRID_API_KEY.startsWith('SG.')) {
+            await sendRegistrationConfirmationEmail(email, username, username);
+            console.log('✅ Registration email sent');
+          } else {
+            console.log('⚠️ Email service not configured, skipping email send');
+          }
+        } catch (emailError) {
+          console.error('⚠️ Failed to send registration confirmation email:', emailError);
+          // Don't fail the registration if email fails
+        }
+      });
+
+      // Remove password from response
+      const { password: _, ...userResponse } = createdUser.toObject();
+
+      console.log('🎉 Registration successful for:', username);
+      return Response.json({
+        message: 'User created successfully',
+        user: userResponse
+      });
+
+    } catch (userCreationError) {
+      console.error('❌ Error creating user or userInfo:', userCreationError);
+      return Response.json(
+        { message: 'Failed to create user account. Please try again.' },
+        { status: 500 }
+      );
     }
-
-    // Remove password from response
-    const { password: _, ...userResponse } = createdUser.toObject();
-
-    return Response.json({
-      message: 'User created successfully',
-      user: userResponse
-    });
 
   } catch (error) {
     console.error('Registration error:', error);
