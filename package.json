@@ -52,7 +52,6 @@
     "mongoose": "^8.17.1",
     "next": "^15.4.5",
     "next-auth": "^4.24.11",
-    "node-fetch": "^3.3.2",
     "nodemailer": "^6.10.1",
     "nodemon": "^3.1.10",
     "razorpay": "^2.9.6",
