@@ -541,7 +541,3 @@ export default function QuickSortVisualizer() {
     </div>
   );
 }
-      </div>
-    </div>
-  );
-}
