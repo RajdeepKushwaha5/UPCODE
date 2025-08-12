@@ -55,7 +55,7 @@
     "nodemailer": "^6.10.1",
     "nodemon": "^3.1.10",
     "razorpay": "^2.9.6",
-    "react": "^18",
+    "react": "^19",
     "react-ace": "^14.0.1",
     "react-chartjs-2": "^5.3.0",
     "react-confetti": "^6.4.0",
