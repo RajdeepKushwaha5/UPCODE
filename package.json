@@ -33,7 +33,7 @@
     "@radix-ui/react-slider": "^1.3.5",
     "@sendgrid/mail": "^8.1.5",
     "@uiw/codemirror-theme-eclipse": "^4.24.2",
-    "@uiw/codemirror-theme-vscode": "^4.24.2",
+    "@uiw/codemirror-theme-vscode": "^4.25.1",
     "@uiw/react-codemirror": "^4.24.2",
     "axios": "^1.11.0",
     "bcrypt": "^6.0.0",
