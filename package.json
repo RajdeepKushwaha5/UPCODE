@@ -1,7 +1,6 @@
 {
   "name": "upcode",
   "version": "0.2.0",
-  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
@@ -18,7 +17,13 @@
     "check-oauth": "node scripts/check-oauth.js",
     "setup-demo-oauth": "node scripts/setup-demo-oauth.js",
     "check-google": "node scripts/check-google-oauth.js",
-    "create-sample-users": "node scripts/create-sample-users.js"
+    "create-sample-users": "node scripts/create-sample-users.js",
+    "fix-deployment": "chmod +x fix-deployment-issues.sh && ./fix-deployment-issues.sh",
+    "fix-imports": "chmod +x fix-all-imports.sh && ./fix-all-imports.sh",
+    "remove-debug": "chmod +x remove-all-debug.sh && ./remove-all-debug.sh",
+    "check-status": "chmod +x check-deployment-status.sh && ./check-deployment-status.sh",
+    "create-indexes": "node scripts/create-indexes.js create",
+    "clean-logs": "node scripts/clean-logs.js"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.10.0",
@@ -44,7 +49,8 @@
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "framer-motion": "^12.23.12",
-    "fs": "^0.0.1-security",
+    "helmet": "^8.0.0",
+    "isomorphic-dompurify": "^2.18.0",
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.541.0",
     "monaco-editor": "^0.52.2",

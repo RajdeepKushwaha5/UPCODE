@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server'
-import { getServerSession } from 'next-auth'
-import dbConnect from '../../../../utils/dbConnect.js'
-import { User } from '../../../../models/User.js'
-import { getNewProblems } from '../../../../lib/newProblemsData.js'
+import { getServerSession } from "next-auth/next"
+import dbConnect from '../../../../utils/dbConnect'
+import { User } from '../../../../models/User'
+import { getNewProblems } from '../../../../lib/newProblemsData'
+import { authOptions } from "../../auth/[...nextauth]/route"
 
 export async function GET(request) {
   try {

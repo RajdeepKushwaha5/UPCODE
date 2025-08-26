@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "functions": {
+    "app/api/**/*.js": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "env": {
+    "MONGODB_URI": "@mongodb_uri",
+    "NEXTAUTH_URL": "@nextauth_url",
+    "NEXTAUTH_SECRET": "@nextauth_secret",
+    "GOOGLE_CLIENT_ID": "@google_client_id",
+    "GOOGLE_CLIENT_SECRET": "@google_client_secret",
+    "GITHUB_ID": "@github_id", 
+    "GITHUB_SECRET": "@github_secret",
+    "SENDGRID_API_KEY": "@sendgrid_api_key",
+    "FROM_EMAIL": "@from_email",
+    "RAZORPAY_KEY_ID": "@razorpay_key_id",
+    "RAZORPAY_KEY_SECRET": "@razorpay_key_secret",
+    "GEMINI_API_KEY": "@gemini_api_key",
+    "JUDGE0_API_URL": "@judge0_api_url",
+    "JUDGE0_API_KEY": "@judge0_api_key"
+  }
+}

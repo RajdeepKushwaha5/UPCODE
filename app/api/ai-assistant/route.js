@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getAIKnowledge, getContextualHints } from '../../../lib/newProblemsData.js';
+import { getAIKnowledge, getContextualHints } from '../../../lib/newProblemsData';
 
 export async function POST(request) {
   try {

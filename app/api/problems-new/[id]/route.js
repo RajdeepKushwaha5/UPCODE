@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import Problem from '../../../../models/Problem.js';
-import dbConnect from '../../../../utils/dbConnect.js';
+import Problem from '../../../../models/Problem';
+import dbConnect from '../../../../utils/dbConnect';
 
 export async function GET(request, { params }) {
   try {
@@ -32,7 +32,19 @@ export async function GET(request, { params }) {
     // Check if user has access to premium problems
     const { searchParams } = new URL(request.url);
     const userId = searchParams.get('userId');
-    const hasPremium = userId === 'premium-user' || Math.random() > 0.5; // Mock premium check
+    
+    // TODO: Implement proper premium subscription check
+    // This is a placeholder - replace with actual subscription validation
+    let hasPremium = false;
+    if (userId) {
+      try {
+        const user = await User.findById(userId).populate('subscription');
+        hasPremium = user?.subscription?.status === 'active' && user?.subscription?.plan !== 'free';
+      } catch (error) {
+        console.error('Premium check error:', error);
+        hasPremium = false;
+      }
+    }
 
     // If problem is premium and user doesn't have access, return limited info
     if (problem.isPremium && !hasPremium) {

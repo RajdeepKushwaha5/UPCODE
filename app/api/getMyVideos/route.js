@@ -1,13 +1,13 @@
 import dbConnect from '@/utils/dbConnect';
 import {User} from "@/models/User";
-import {UserInfo} from "@/models/UserInfo.js";
+import {UserInfo} from "@/models/UserInfo";
 
-import {peerVideo} from "@/models/PeerVideo.js";
-import {peerVideoReview} from "@/models/PeerVideoReview.js";
-import {Question} from "@/models/Question.js";
+import {peerVideo} from "@/models/PeerVideo";
+import {peerVideoReview} from "@/models/PeerVideoReview";
+import {Question} from "@/models/Question";
 
 import { getServerSession } from "next-auth/next"
-import { authOptions } from "../auth/[...nextauth]/route.js"
+import { authOptions } from "../auth/[...nextauth]/route"
 
 export async function GET() {
     await dbConnect();

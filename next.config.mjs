@@ -5,6 +5,18 @@ const nextConfig = {
     // Optimize for deployment
     output: 'standalone',
     poweredByHeader: false,
+    experimental: {
+        serverComponentsExternalPackages: ['mongoose', 'bcrypt']
+    },
+    webpack: (config, { isServer }) => {
+        if (isServer) {
+            config.externals.push({
+                'utf-8-validate': 'commonjs utf-8-validate',
+                'bufferutil': 'commonjs bufferutil',
+            })
+        }
+        return config
+    },
     async redirects() {
         return [
             {

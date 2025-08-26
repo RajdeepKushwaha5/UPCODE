@@ -2,14 +2,14 @@ import path from "path";
 import { writeFile } from "fs/promises";
 const { v4: uuidv4 } = require('uuid');
 import {User} from "@/models/User";
-import {UserInfo} from "@/models/UserInfo.js";
+import {UserInfo} from "@/models/UserInfo";
 import dbConnect from '@/utils/dbConnect';
-import {Queue} from "@/models/Queue.js";
-import {peerVideo} from "@/models/PeerVideo.js";
-import {Question} from "@/models/Question.js";
-import {peerVideoReview} from "@/models/PeerVideoReview.js";
+import {Queue} from "@/models/Queue";
+import {peerVideo} from "@/models/PeerVideo";
+import {Question} from "@/models/Question";
+import {peerVideoReview} from "@/models/PeerVideoReview";
 import { getServerSession } from "next-auth/next"
-import { authOptions } from "../auth/[...nextauth]/route.js"
+import { authOptions } from "../auth/[...nextauth]/route"
 
 async function QueueCheck(peerVideo, user, paid){
     const oguserdata = await UserInfo.findById(user.userInfo)
