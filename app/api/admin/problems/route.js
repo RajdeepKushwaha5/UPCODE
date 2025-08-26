@@ -18,11 +18,11 @@ export async function GET(request) {
 
     await dbConnect();
     
-    // Check admin permissions
+    // Check admin permissions using checkAdminAccess utility
     const adminEmails = ['admin@upcode.com', 'your-email@gmail.com', 'rajdeepsingh10789@gmail.com'];
     const adminUser = await User.findOne({ email: session.user.email });
     
-    if (!adminUser?.isAdmin && !adminEmails.includes(session.user.email)) {
+    if (!adminUser || (!adminUser.isAdmin && !adminUser.role === 'admin' && !adminEmails.includes(session.user.email))) {
       return NextResponse.json({ 
         success: false, 
         message: "Admin access required" 
@@ -218,9 +218,10 @@ export async function POST(request) {
     }
 
     await dbConnect();
+    const adminEmails = ['admin@upcode.com', 'your-email@gmail.com', 'rajdeepsingh10789@gmail.com'];
     const adminUser = await User.findOne({ email: session.user.email });
     
-    if (!adminUser || adminUser.role !== 'admin') {
+    if (!adminUser || (!adminUser.isAdmin && adminUser.role !== 'admin' && !adminEmails.includes(session.user.email))) {
       return NextResponse.json({ 
         success: false, 
         message: "Admin access required" 
@@ -274,9 +275,10 @@ export async function DELETE(request) {
     }
 
     await dbConnect();
+    const adminEmails = ['admin@upcode.com', 'your-email@gmail.com', 'rajdeepsingh10789@gmail.com'];
     const adminUser = await User.findOne({ email: session.user.email });
     
-    if (!adminUser || adminUser.role !== 'admin') {
+    if (!adminUser || (!adminUser.isAdmin && adminUser.role !== 'admin' && !adminEmails.includes(session.user.email))) {
       return NextResponse.json({ 
         success: false, 
         message: "Admin access required" 

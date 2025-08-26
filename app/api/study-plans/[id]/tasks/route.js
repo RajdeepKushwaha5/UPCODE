@@ -8,7 +8,6 @@ import { User } from '@/models/User';
 // GET /api/study-plans/[id]/tasks - Get daily tasks for a study plan
 export async function GET(request, { params }) {
   try {
-    console.log('GET /api/study-plans/[id]/tasks - Starting...');
 
     const session = await getServerSession(authOptions);
     if (!session?.user?.email) {
@@ -53,7 +52,6 @@ export async function GET(request, { params }) {
 // POST /api/study-plans/[id]/tasks - Update task completion
 export async function POST(request, { params }) {
   try {
-    console.log('POST /api/study-plans/[id]/tasks - Starting...');
 
     const session = await getServerSession(authOptions);
     if (!session?.user?.email) {

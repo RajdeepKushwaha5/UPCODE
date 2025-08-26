@@ -102,7 +102,6 @@ export async function POST(request) {
     const timestamp = new Date().toISOString();
     
     // In a real app, you'd save this to a database
-    console.log(`User action recorded: ${action} on problem ${problemId} by user ${userId} at ${timestamp}`);
     
     // Return updated stats
     const stats = generateProblemStats(problemId, 'Medium'); // You'd get actual difficulty from DB

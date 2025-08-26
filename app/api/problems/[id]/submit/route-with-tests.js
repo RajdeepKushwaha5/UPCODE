@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import dbConnect from '../../../../../utils/dbConnect.js';
-import { User } from '../../../../../models/User.js';
-import { Problem } from '../../../../../models/Problem.js';
+import dbConnect from '../../../../../utils/dbConnect';
+import { User } from '../../../../../models/User';
+import { Problem } from '../../../../../models/Problem';
 
 // Code execution function
 async function executeCodeWithTests(code, language, problem) {

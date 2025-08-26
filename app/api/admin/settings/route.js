@@ -86,7 +86,6 @@ export async function PUT(request) {
 
     // In a real application, you would update the settings in the database
     // For now, we'll just return success
-    console.log("Settings updated by admin:", adminUser.email, settings);
     
     return NextResponse.json({
       success: true,

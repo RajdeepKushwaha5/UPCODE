@@ -171,7 +171,6 @@ export default function ComprehensiveContestManagement() {
   const handleCreateContest = async (e) => {
     e.preventDefault();
     try {
-      console.log("Creating contest:", formData);
       // Simulate API call
       setTimeout(() => {
         setShowCreateModal(false);
@@ -186,7 +185,6 @@ export default function ComprehensiveContestManagement() {
   const handleEditContest = async (e) => {
     e.preventDefault();
     try {
-      console.log("Updating contest:", selectedContest._id, formData);
       // Simulate API call
       setTimeout(() => {
         setShowEditModal(false);
@@ -200,7 +198,6 @@ export default function ComprehensiveContestManagement() {
 
   const handleDeleteContest = async () => {
     try {
-      console.log("Deleting contest:", selectedContest._id);
       // Simulate API call
       setTimeout(() => {
         setShowDeleteModal(false);

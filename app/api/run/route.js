@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import dbConnect from '../../../utils/dbConnect.js';
-import Problem from '../../../models/Problem.js';
+import dbConnect from '../../../utils/dbConnect';
+import Problem from '../../../models/Problem';
 
 // Judge0 language mapping
 const LANGUAGE_MAP = {

@@ -1,18 +1,17 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../../auth/[...nextauth]/route.js';
-import dbConnect from '../../../../utils/dbConnect.js';
-import Problem from '../../../../models/Problem.js';
-import { User } from '../../../../models/User.js';
-import { SolvedProblem } from '../../../../models/SolvedProblem.js';
-import { Submission } from '../../../../models/Submission.js';
+import { authOptions } from '../../auth/[...nextauth]/route';
+import dbConnect from '../../../../utils/dbConnect';
+import Problem from '../../../../models/Problem';
+import { User } from '../../../../models/User';
+import { SolvedProblem } from '../../../../models/SolvedProblem';
+import { Submission } from '../../../../models/Submission';
 
 export async function GET(request, { params }) {
   try {
     await dbConnect();
     
     const problemId = params.id;
-    console.log('Looking for problem:', problemId);
 
     // Find problem by id, slug, or _id
     const problem = await Problem.findOne({

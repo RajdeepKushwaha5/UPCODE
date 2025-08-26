@@ -48,7 +48,6 @@ const Form = () => {
   const router = useRouter();
 
   const handleChange = (event) => {
-    console.log("Handle change called");
     if (formData) {
       setFormData({ ...formData, [event.target.name]: event.target.value });
     }

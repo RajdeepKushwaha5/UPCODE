@@ -9,7 +9,6 @@ export async function POST(request) {
     await dbConnect();
     
     const body = await request.json();
-    console.log('Newsletter signup received:', body);
 
     const { email, name, preferences } = body;
 
@@ -65,11 +64,9 @@ export async function POST(request) {
     });
 
     await newSubscriber.save();
-    console.log('New subscriber saved:', newSubscriber.email);
 
     // Send welcome email
     const emailResult = await sendGridService.sendWelcomeEmail(email, name);
-    console.log('Welcome email result:', emailResult);
 
     return NextResponse.json({
       success: true,

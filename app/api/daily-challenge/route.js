@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import Problem from '../../../models/Problem.js';
-import dbConnect from '../../../utils/dbConnect.js';
+import Problem from '../../../models/Problem';
+import dbConnect from '../../../utils/dbConnect';
 
 export async function GET() {
   try {

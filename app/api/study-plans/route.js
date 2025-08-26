@@ -55,32 +55,26 @@ export async function GET() {
 // POST /api/study-plans - Create new study plan
 export async function POST(request) {
   try {
-    console.log('POST /api/study-plans - Starting...');
 
     const session = await getServerSession(authOptions);
-    console.log('Session:', session?.user?.email);
 
     if (!session?.user?.email) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     const body = await request.json();
-    console.log('Request body:', JSON.stringify(body, null, 2));
 
     const { goal, timeAvailability, focusAreas, customization } = body;
 
     await dbConnect();
-    console.log('Database connected successfully');
 
     // Find user
     const user = await User.findOne({ email: session.user.email });
-    console.log('User found:', user ? user.email : 'User not found');
 
     if (!user) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    console.log('Checking premium features...');
 
     // Check if user has premium for premium features
     const isPremiumPlan = customization?.aiPersonalization ||
@@ -88,7 +82,6 @@ export async function POST(request) {
       customization?.mentorship ||
       (focusAreas && focusAreas.length > 3);
 
-    console.log('isPremiumPlan:', isPremiumPlan, 'user.isPremium:', user.isPremium);
 
     if (isPremiumPlan && !user.isPremium) {
       return NextResponse.json({
@@ -97,7 +90,6 @@ export async function POST(request) {
       }, { status: 403 });
     }
 
-    console.log('Generating study plan structure...');
     // Generate study plan structure
     const studyPlanData = await generateStudyPlanStructure({
       goal,
@@ -105,15 +97,11 @@ export async function POST(request) {
       focusAreas,
       customization,
       userLevel: user.level || 'beginner',
-      isPremium: user.isPremium
-    });
-
-    console.log('Study plan data generated:', {
+      isPremium: user.isPremium,
       topicsCount: studyPlanData.topics.length,
       hasAiInsights: !!studyPlanData.aiInsights
     });
 
-    console.log('Creating StudyPlan instance...');
     // Create study plan
     const studyPlan = new StudyPlan({
       userId: user._id,
@@ -140,9 +128,7 @@ export async function POST(request) {
       }
     });
 
-    console.log('Saving StudyPlan to database...');
     await studyPlan.save();
-    console.log('StudyPlan saved successfully with ID:', studyPlan._id);
 
     return NextResponse.json({
       success: true,
@@ -160,7 +146,8 @@ export async function POST(request) {
 
 // Helper function to generate study plan structure
 async function generateStudyPlanStructure({ goal, timeAvailability, focusAreas, customization, userLevel, isPremium }) {
-  console.log('generateStudyPlanStructure called with:', {
+  // Log generation parameters for debugging
+  console.log('Generating study plan with:', {
     goalType: goal?.type,
     company: goal?.company,
     timeline: goal?.timeline,

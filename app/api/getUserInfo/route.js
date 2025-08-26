@@ -1,7 +1,7 @@
 import dbConnect from "../../../utils/dbConnect";
 import { getServerSession } from "next-auth/next"
-import { authOptions } from "../auth/[...nextauth]/route.js"
-import { UserInfo } from "../../../models/UserInfo.js";
+import { authOptions } from '../auth/[...nextauth]/route'
+import { UserInfo } from '../../../models/UserInfo';
 import { User } from "../../../models/User";
 
 export async function GET() {

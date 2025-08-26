@@ -14,7 +14,6 @@ export async function POST(request) {
     } = await request.json();
 
     if (!process.env.GEMINI_API_KEY) {
-      console.log('Gemini API key not configured, using fallback evaluation');
       return getFallbackEvaluation(mode, userResponse, currentQuestion, codeSubmission, language);
     }
 
@@ -144,7 +143,6 @@ export async function POST(request) {
 
   } catch (error) {
     console.error('Error evaluating response:', error);
-    console.log('Falling back to mock evaluation');
     return getFallbackEvaluation(mode, userResponse, currentQuestion, codeSubmission, language);
   }
 }

@@ -228,7 +228,7 @@ function solution() {
 
 // Test your solution
 console.log(solution());`,
-
+    
     'python': `# ${question}
 def solution():
     """
@@ -246,25 +246,11 @@ import React, { useState, useEffect } from 'react';
 
 const Solution = () => {
     // Your implementation here
-    
-    return (
-        <div>
-            {/* Your JSX here */}
-        </div>
-    );
+    return <div>Solution</div>;
 };
 
 export default Solution;`
   };
 
-  const topicKey = topic.toLowerCase();
-  if (topicKey.includes('javascript') || topicKey.includes('algorithms') || topicKey.includes('data-structures')) {
-    return templates.javascript;
-  } else if (topicKey.includes('python')) {
-    return templates.python;
-  } else if (topicKey.includes('react')) {
-    return templates.react;
-  }
-
-  return templates.javascript; // Default fallback
+  return templates[language] || templates.javascript;
 }

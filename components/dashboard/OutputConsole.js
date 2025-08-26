@@ -407,7 +407,6 @@ export default function OutputConsole({
                 <button
                   onClick={() => {
                     // Clear results (this would be handled by parent component)
-                    console.log('Clear console requested')
                   }}
                   className="text-gray-400 hover:text-white transition-colors"
                 >

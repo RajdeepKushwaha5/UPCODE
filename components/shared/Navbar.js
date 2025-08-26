@@ -45,7 +45,6 @@ const Navbar = () => {
             }
           } else {
             // If profile API fails, use fallback data from session
-            console.log('Profile API failed, using session data');
             setUserProfile({
               name: session.user.name || 'User',
               petEmoji: '🐱', // Default pet emoji

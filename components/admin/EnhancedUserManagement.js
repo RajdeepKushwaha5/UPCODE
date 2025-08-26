@@ -20,6 +20,9 @@ import {
 export default function EnhancedUserManagement() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+  const [autoRefresh, setAutoRefresh] = useState(true);
+  const [lastUpdated, setLastUpdated] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
@@ -44,8 +47,26 @@ export default function EnhancedUserManagement() {
     fetchUserStats();
   }, [currentPage, searchQuery, filterRole, filterStatus, filterPremium]);
 
-  const fetchUsers = async () => {
-    setLoading(true);
+  // Auto-refresh effect
+  useEffect(() => {
+    let interval;
+    if (autoRefresh) {
+      interval = setInterval(() => {
+        fetchUsers(false); // Refresh without showing loader
+        fetchUserStats(false);
+      }, 30000); // Refresh every 30 seconds
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [autoRefresh, currentPage, searchQuery, filterRole, filterStatus, filterPremium]);
+
+  const fetchUsers = async (showLoader = true) => {
+    if (showLoader) {
+      setLoading(true);
+    } else {
+      setRefreshing(true);
+    }
     try {
       const params = new URLSearchParams({
         page: currentPage,
@@ -87,6 +108,7 @@ export default function EnhancedUserManagement() {
           totalUsers: data.pagination.total
         }));
         setTotalPages(data.pagination.pages);
+        setLastUpdated(new Date());
       } else {
         console.error('Failed to fetch users:', data.error);
         setUsers([]);
@@ -96,9 +118,10 @@ export default function EnhancedUserManagement() {
       setUsers([]);
     }
     setLoading(false);
+    setRefreshing(false);
   };
 
-  const fetchUserStats = async () => {
+  const fetchUserStats = async (showLoader = false) => {
     try {
       const response = await fetch('/api/admin/users/stats');
       const data = await response.json();

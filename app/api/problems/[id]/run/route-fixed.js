@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import dbConnect from '../../../../../utils/dbConnect.js';
-import Problem from '../../../../../models/Problem.js';
+import dbConnect from '../../../../../utils/dbConnect';
+import Problem from '../../../../../models/Problem';
 
 // Code execution function for Run button (public test cases only)
 async function executeCodeWithPublicTests(code, language, problem, customInput = null) {

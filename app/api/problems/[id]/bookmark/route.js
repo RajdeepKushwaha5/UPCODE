@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../../../auth/[...nextauth]/route';
-import { User } from '../../../../../models/User.js';
-import Problem from '../../../../../models/Problem.js';
-import dbConnect from '../../../../../utils/dbConnect.js';
+import { User } from '../../../../../models/User';
+import Problem from '../../../../../models/Problem';
+import dbConnect from '../../../../../utils/dbConnect';
 
 export async function GET(request, { params }) {
   try {
@@ -79,7 +79,6 @@ export async function POST(request, { params }) {
     // Find problem (optional check - can bookmark even if problem doesn't exist in DB)
     const problem = await Problem.findById(problemId);
     if (!problem) {
-      console.log(`Problem ${problemId} not found in database, but allowing bookmark`);
     }
 
     // Initialize bookmarkedProblems if it doesn't exist

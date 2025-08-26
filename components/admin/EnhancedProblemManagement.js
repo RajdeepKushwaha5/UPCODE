@@ -13,14 +13,17 @@ import {
   MagnifyingGlassIcon,
   FunnelIcon,
   CloudArrowUpIcon,
-  CodeBracketSquareIcon
+  CodeBracketSquareIcon,
+  ArrowPathIcon
 } from "@heroicons/react/24/outline";
+import { formatDate } from "../../utils/dateUtils";
 
 export default function EnhancedProblemManagement() {
   const [problems, setProblems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [autoRefresh, setAutoRefresh] = useState(false);
+  const [autoRefresh, setAutoRefresh] = useState(true);
+  const [lastUpdated, setLastUpdated] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
@@ -102,6 +105,7 @@ export default function EnhancedProblemManagement() {
       if (data.success) {
         setProblems(data.problems || []);
         setTotalPages(data.pagination?.totalPages || 1);
+        setLastUpdated(new Date());
       } else {
         console.error("Failed to fetch problems:", data.message);
         // Fallback to empty state instead of mock data
@@ -117,6 +121,30 @@ export default function EnhancedProblemManagement() {
       setLoading(false);
       setRefreshing(false);
     }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      title: "",
+      description: "",
+      difficulty: "Easy",
+      tags: [],
+      companyTags: [],
+      constraints: "",
+      examples: [{ input: "", output: "", explanation: "" }],
+      testCases: [{ input: "", expectedOutput: "", isHidden: false }],
+      codeTemplates: {
+        javascript: "",
+        python: "",
+        java: "",
+        cpp: ""
+      },
+      isPremium: false,
+      hints: [],
+      solution: "",
+      timeComplexity: "",
+      spaceComplexity: ""
+    });
   };
 
   const handleAddProblem = async (e) => {
@@ -136,7 +164,6 @@ export default function EnhancedProblemManagement() {
         setShowAddModal(false);
         resetForm();
         fetchProblems(); // Refresh the problems list
-        console.log("Problem added successfully");
       } else {
         console.error("Failed to add problem:", data.message);
         alert(`Failed to add problem: ${data.message}`);
@@ -167,7 +194,6 @@ export default function EnhancedProblemManagement() {
         setShowEditModal(false);
         resetForm();
         fetchProblems(); // Refresh the problems list
-        console.log("Problem updated successfully");
       } else {
         console.error("Failed to update problem:", data.message);
         alert(`Failed to update problem: ${data.message}`);
@@ -196,7 +222,6 @@ export default function EnhancedProblemManagement() {
         setShowDeleteModal(false);
         setSelectedProblem(null);
         fetchProblems(); // Refresh the problems list
-        console.log("Problem deleted successfully");
       } else {
         console.error("Failed to delete problem:", data.message);
         alert(`Failed to delete problem: ${data.message}`);
@@ -205,30 +230,6 @@ export default function EnhancedProblemManagement() {
       console.error("Error deleting problem:", error);
       alert("Error deleting problem. Please try again.");
     }
-  };
-
-  const resetForm = () => {
-    setFormData({
-      title: "",
-      description: "",
-      difficulty: "Easy",
-      tags: [],
-      companyTags: [],
-      constraints: "",
-      examples: [{ input: "", output: "", explanation: "" }],
-      testCases: [{ input: "", expectedOutput: "", isHidden: false }],
-      codeTemplates: {
-        javascript: "",
-        python: "",
-        java: "",
-        cpp: ""
-      },
-      isPremium: false,
-      hints: [],
-      solution: "",
-      timeComplexity: "",
-      spaceComplexity: ""
-    });
   };
 
   const openEditModal = (problem) => {
@@ -291,14 +292,41 @@ export default function EnhancedProblemManagement() {
         <div>
           <h2 className="text-2xl font-bold text-white">Problem Management</h2>
           <p className="text-gray-400">Create, edit, and manage coding problems</p>
+          {lastUpdated && (
+            <p className="text-xs text-gray-500 mt-1">
+              Last updated: {lastUpdated.toLocaleTimeString()}
+            </p>
+          )}
         </div>
-        <button
-          onClick={() => setShowAddModal(true)}
-          className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
-        >
-          <PlusIcon className="w-5 h-5" />
-          <span>Add New Problem</span>
-        </button>
+        <div className="flex items-center gap-3">
+          <label className="flex items-center gap-2 text-sm text-gray-400">
+            <input
+              type="checkbox"
+              checked={autoRefresh}
+              onChange={(e) => setAutoRefresh(e.target.checked)}
+              className="rounded border-slate-600 bg-slate-700 text-purple-600 focus:ring-purple-500 focus:ring-offset-slate-800"
+            />
+            Auto-refresh
+          </label>
+          <button
+            onClick={() => fetchProblems(true)}
+            disabled={refreshing}
+            className={`px-3 py-2 rounded-lg transition-colors flex items-center gap-2 ${
+              refreshing 
+                ? 'bg-slate-600/50 text-gray-300 cursor-not-allowed' 
+                : 'bg-slate-600 hover:bg-slate-700 text-white'
+            }`}
+          >
+            <ArrowPathIcon className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
+          </button>
+          <button
+            onClick={() => setShowAddModal(true)}
+            className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+          >
+            <PlusIcon className="w-5 h-5" />
+            <span>Add New Problem</span>
+          </button>
+        </div>
       </div>
 
       {/* Search and Filters */}
@@ -365,9 +393,9 @@ export default function EnhancedProblemManagement() {
                           </span>
                         )}
                       </div>
-                      <p className="text-gray-400 text-sm mt-1">
-                        Created: {problem.createdAt.toLocaleDateString()}
-                      </p>
+                      <span className="text-xs text-gray-500 block mt-1">
+                                Created: {formatDate(problem.createdAt)}
+                              </span>
                     </div>
                   </td>
                   <td className="px-6 py-4">
@@ -502,6 +530,324 @@ export default function EnhancedProblemManagement() {
                 Delete
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Add Problem Modal */}
+      {showAddModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-slate-800 rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <form onSubmit={handleAddProblem}>
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-semibold text-white">Add New Problem</h3>
+                <button
+                  type="button"
+                  onClick={() => setShowAddModal(false)}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  <XCircleIcon className="w-6 h-6" />
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Basic Information */}
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Problem Title *
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.title}
+                      onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="Enter problem title"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Difficulty *
+                    </label>
+                    <select
+                      value={formData.difficulty}
+                      onChange={(e) => setFormData({ ...formData, difficulty: e.target.value })}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500"
+                      required
+                    >
+                      {difficulties.map(diff => (
+                        <option key={diff} value={diff}>{diff}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Tags
+                    </label>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {formData.tags.map((tag, index) => (
+                        <span
+                          key={index}
+                          className="px-2 py-1 bg-purple-600 text-white text-xs rounded-full flex items-center gap-1"
+                        >
+                          {tag}
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const newTags = [...formData.tags];
+                              newTags.splice(index, 1);
+                              setFormData({ ...formData, tags: newTags });
+                            }}
+                            className="text-purple-300 hover:text-white"
+                          >
+                            ×
+                          </button>
+                        </span>
+                      ))}
+                    </div>
+                    <select
+                      onChange={(e) => {
+                        if (e.target.value && !formData.tags.includes(e.target.value)) {
+                          setFormData({
+                            ...formData,
+                            tags: [...formData.tags, e.target.value]
+                          });
+                        }
+                        e.target.value = '';
+                      }}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500"
+                    >
+                      <option value="">Add a tag...</option>
+                      {popularTags.map(tag => (
+                        <option key={tag} value={tag}>{tag}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Company Tags
+                    </label>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {formData.companyTags.map((tag, index) => (
+                        <span
+                          key={index}
+                          className="px-2 py-1 bg-blue-600 text-white text-xs rounded-full flex items-center gap-1"
+                        >
+                          {tag}
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const newTags = [...formData.companyTags];
+                              newTags.splice(index, 1);
+                              setFormData({ ...formData, companyTags: newTags });
+                            }}
+                            className="text-blue-300 hover:text-white"
+                          >
+                            ×
+                          </button>
+                        </span>
+                      ))}
+                    </div>
+                    <select
+                      onChange={(e) => {
+                        if (e.target.value && !formData.companyTags.includes(e.target.value)) {
+                          setFormData({
+                            ...formData,
+                            companyTags: [...formData.companyTags, e.target.value]
+                          });
+                        }
+                        e.target.value = '';
+                      }}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500"
+                    >
+                      <option value="">Add a company tag...</option>
+                      {companyTags.map(tag => (
+                        <option key={tag} value={tag}>{tag}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Problem Description */}
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Problem Description *
+                    </label>
+                    <textarea
+                      value={formData.description}
+                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                      rows={6}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="Enter problem description..."
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Constraints
+                    </label>
+                    <textarea
+                      value={formData.constraints}
+                      onChange={(e) => setFormData({ ...formData, constraints: e.target.value })}
+                      rows={3}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="Enter problem constraints..."
+                    />
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <label className="flex items-center">
+                      <input
+                        type="checkbox"
+                        checked={formData.isPremium}
+                        onChange={(e) => setFormData({ ...formData, isPremium: e.target.checked })}
+                        className="mr-2 rounded border-slate-600 bg-slate-700 text-purple-600 focus:ring-purple-500"
+                      />
+                      <span className="text-gray-300">Premium Problem</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              {/* Code Templates */}
+              <div className="mt-6">
+                <h4 className="text-lg font-medium text-white mb-4">Code Templates</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {Object.entries(formData.codeTemplates).map(([lang, code]) => (
+                    <div key={lang}>
+                      <label className="block text-sm font-medium text-gray-300 mb-2 capitalize">
+                        {lang} Template
+                      </label>
+                      <textarea
+                        value={code}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          codeTemplates: {
+                            ...formData.codeTemplates,
+                            [lang]: e.target.value
+                          }
+                        })}
+                        rows={4}
+                        className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white font-mono text-sm focus:ring-2 focus:ring-purple-500"
+                        placeholder={`Enter ${lang} code template...`}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Form Actions */}
+              <div className="flex justify-end space-x-3 mt-8 pt-6 border-t border-slate-700">
+                <button
+                  type="button"
+                  onClick={() => setShowAddModal(false)}
+                  className="px-6 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                >
+                  Add Problem
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Problem Modal */}
+      {showEditModal && selectedProblem && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-slate-800 rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <form onSubmit={handleEditProblem}>
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-semibold text-white">Edit Problem</h3>
+                <button
+                  type="button"
+                  onClick={() => setShowEditModal(false)}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  <XCircleIcon className="w-6 h-6" />
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Basic Information */}
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Problem Title *
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.title}
+                      onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="Enter problem title"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Difficulty *
+                    </label>
+                    <select
+                      value={formData.difficulty}
+                      onChange={(e) => setFormData({ ...formData, difficulty: e.target.value })}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500"
+                      required
+                    >
+                      {difficulties.map(diff => (
+                        <option key={diff} value={diff}>{diff}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Problem Description */}
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Problem Description *
+                    </label>
+                    <textarea
+                      value={formData.description}
+                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                      rows={6}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="Enter problem description..."
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Form Actions */}
+              <div className="flex justify-end space-x-3 mt-8 pt-6 border-t border-slate-700">
+                <button
+                  type="button"
+                  onClick={() => setShowEditModal(false)}
+                  className="px-6 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                >
+                  Update Problem
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}

@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import Problem from '../../../models/Problem.js';
-import { User } from '../../../models/User.js';
-import { SolvedProblem } from '../../../models/SolvedProblem.js';
-import { Submission } from '../../../models/Submission.js';
-import dbConnect from '../../../utils/dbConnect.js';
+import Problem from '../../../models/Problem';
+import { User } from '../../../models/User';
+import { SolvedProblem } from '../../../models/SolvedProblem';
+import { Submission } from '../../../models/Submission';
+import dbConnect from '../../../utils/dbConnect';
 import { getServerSession } from 'next-auth';
 
 export async function GET(request) {

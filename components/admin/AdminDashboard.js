@@ -61,6 +61,9 @@ export default function AdminDashboard() {
 
   const [recentActivity, setRecentActivity] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState(null);
+  const [autoRefresh, setAutoRefresh] = useState(true);
   const [chartData, setChartData] = useState({
     userGrowth: [],
     submissionTrends: [],
@@ -69,13 +72,30 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     fetchDashboardData();
-    // Set up real-time updates
-    const interval = setInterval(fetchDashboardData, 30000); // Update every 30 seconds
-    return () => clearInterval(interval);
-  }, []);
+    
+    // Set up real-time updates with interval
+    let interval;
+    if (autoRefresh) {
+      interval = setInterval(() => {
+        fetchDashboardData(false); // Fetch without showing main loading state
+      }, 30000); // Update every 30 seconds
+    }
+    
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [autoRefresh]);
 
-  const fetchDashboardData = async () => {
+  const fetchDashboardData = async (showMainLoader = true) => {
     try {
+      if (showMainLoader) {
+        setLoading(true);
+      } else {
+        setRefreshing(true);
+      }
+      
       // Fetch real dashboard data from API
       const response = await fetch('/api/admin/dashboard');
       const data = await response.json();
@@ -84,6 +104,7 @@ export default function AdminDashboard() {
         setStats(data.stats);
         setRecentActivity(data.recentActivity);
         setChartData(data.chartData);
+        setLastUpdated(new Date());
       } else {
         console.error('Dashboard API error:', data.message);
         // Set empty state instead of mock data
@@ -106,7 +127,11 @@ export default function AdminDashboard() {
         setRecentActivity([]);
         setChartData({ userGrowth: [], submissionTrends: [], difficultyStats: [] });
       }
-      setLoading(false);
+      
+      if (showMainLoader) {
+        setLoading(false);
+      }
+      setRefreshing(false);
     } catch (error) {
       console.error("Error fetching dashboard data:", error);
       // Set error state instead of mock data
@@ -133,7 +158,11 @@ export default function AdminDashboard() {
         priority: "high"
       }]);
       setChartData({ userGrowth: [], submissionTrends: [], difficultyStats: [] });
-      setLoading(false);
+      
+      if (showMainLoader) {
+        setLoading(false);
+      }
+      setRefreshing(false);
     }
   };
 
@@ -256,17 +285,41 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-white">Admin Dashboard</h1>
           <p className="text-gray-400">Overview of platform statistics and activity</p>
+          {lastUpdated && (
+            <p className="text-xs text-gray-500 mt-1">
+              Last updated: {lastUpdated.toLocaleTimeString()}
+            </p>
+          )}
         </div>
-        <button
-          onClick={fetchDashboardData}
-          className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
-        >
-          Refresh Data
-        </button>
+        <div className="flex items-center gap-3">
+          <label className="flex items-center gap-2 text-sm text-gray-400">
+            <input
+              type="checkbox"
+              checked={autoRefresh}
+              onChange={(e) => setAutoRefresh(e.target.checked)}
+              className="rounded border-slate-600 bg-slate-700 text-purple-600 focus:ring-purple-500 focus:ring-offset-slate-800"
+            />
+            Auto-refresh (30s)
+          </label>
+          <button
+            onClick={() => fetchDashboardData(true)}
+            disabled={refreshing}
+            className={`px-4 py-2 rounded-lg transition-colors flex items-center gap-2 ${
+              refreshing 
+                ? 'bg-purple-600/50 text-gray-300 cursor-not-allowed' 
+                : 'bg-purple-600 hover:bg-purple-700 text-white'
+            }`}
+          >
+            {refreshing && (
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+            )}
+            {refreshing ? 'Refreshing...' : 'Refresh Data'}
+          </button>
+        </div>
       </div>
 
       {/* Stats Grid */}

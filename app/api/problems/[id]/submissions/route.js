@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import dbConnect from '../../../../../utils/dbConnect.js';
-import { User } from '../../../../../models/User.js';
-import { SolvedProblem } from '../../../../../models/SolvedProblem.js';
+import dbConnect from '../../../../../utils/dbConnect';
+import { User } from '../../../../../models/User';
+import { SolvedProblem } from '../../../../../models/SolvedProblem';
 
 export async function GET(request, { params }) {
   try {

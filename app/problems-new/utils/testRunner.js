@@ -1,6 +1,6 @@
 // Test runner utility for executing and validating test cases
 
-import CodeExecutor from './codeExecutor.js';
+import CodeExecutor from './codeExecutor';
 
 export class TestRunner {
   constructor() {

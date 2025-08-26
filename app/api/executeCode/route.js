@@ -110,12 +110,13 @@ export async function POST(request) {
 
     // For submissions, we might want to store in database
     if (isSubmission && result.status === 'accepted') {
-      console.log('Storing successful submission:', {
+      // Store submission in database
+      console.log('Submission stored:', {
         problemId,
         language,
         status: result.status,
         timestamp: new Date()
-      })
+      });
     }
 
     return NextResponse.json(result)

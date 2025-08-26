@@ -147,7 +147,6 @@ export default function ContestsPage() {
           break;
         case 'contest-update':
           // Handle contest-specific updates
-          console.log('Contest update:', lastMessage);
           break;
         default:
           break;

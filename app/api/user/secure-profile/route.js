@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../../auth/[...nextauth]/route';
-import { InputValidator } from '../../../lib/validation';
-import { apiRateLimit } from '../../../lib/rateLimiting';
-import { withErrorLogging } from '../../../lib/logger';
-import dbConnect from '../../../utils/dbConnect';
-import { User } from '../../../models/User';
-import logger from '../../../lib/logger';
+import { InputValidator } from '../../../../lib/validation';
+import { apiRateLimit } from '../../../../lib/rateLimiting';
+import { withErrorLogging } from '../../../../lib/logger';
+import dbConnect from '../../../../utils/dbConnect';
+import { User } from '../../../../models/User';
+import logger from '../../../../lib/logger';
 
 /**
  * Example secure API route demonstrating all security features

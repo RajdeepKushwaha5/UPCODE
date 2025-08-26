@@ -319,7 +319,6 @@ function InterviewSessionContent() {
         toast.success(message);
       } else {
         // Handle API errors gracefully
-        console.log('API error:', data.error || 'Unknown error');
         throw new Error(data.error || 'Failed to load question');
       }
     } catch (error) {
@@ -335,7 +334,6 @@ function InterviewSessionContent() {
         if (randomProblem.startingCode) {
           setUserCode(randomProblem.startingCode[selectedLanguage] || '');
         }
-        console.log('Loaded fallback question:', randomProblem.title);
       } else {
         // Ultimate fallback
         const defaultProblem = {
@@ -492,7 +490,6 @@ function InterviewSessionContent() {
           }
           break;
         default:
-          console.log('Unknown WebRTC signaling message type:', data.type);
       }
     } catch (error) {
       console.error('Error handling signaling message:', error);

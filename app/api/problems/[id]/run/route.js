@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../../../auth/[...nextauth]/route.js';
-import dbConnect from '../../../../../utils/dbConnect.js';
-import Problem from '../../../../../models/Problem.js';
-import Judge0Service from '../../../../../lib/judge0Service.js';
+import { authOptions } from '../../../auth/[...nextauth]/route';
+import dbConnect from '../../../../../utils/dbConnect';
+import Problem from '../../../../../models/Problem';
+import Judge0Service from '../../../../../lib/judge0Service';
 
 // Initialize Judge0 service
 const judge0Service = new Judge0Service();
@@ -40,19 +40,12 @@ export async function POST(request, { params }) {
       );
     }
 
-    console.log(`🏃‍♂️ RUN REQUEST - Problem ${id}: ${problem.title}`);
-    console.log(`📝 Language: ${language}`);
-    console.log(`🧪 Test Mode: ${customInput ? 'Custom Input' : 'Public Test Cases'}`);
 
     // Execute code with public test cases only (first 2-3 test cases)
     const result = await executeCodeWithPublicTests(code, language, problem, customInput);
 
     if (result.success) {
-      console.log(`✅ Run completed: ${result.message}`);
-      console.log(`⏱️  Runtime: ${result.testResults?.runtime || 0}ms`);
-      console.log(`💾 Memory: ${result.testResults?.memory || 0}KB`);
     } else {
-      console.log(`❌ Run failed: ${result.error}`);
     }
 
     return NextResponse.json(result);

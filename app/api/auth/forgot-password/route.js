@@ -64,7 +64,6 @@ export async function POST(req) {
       );
     }
 
-    console.log('✅ Password reset email sent successfully to:', email);
 
     return NextResponse.json({
       message: 'If an account with that email exists, a reset code has been sent.',

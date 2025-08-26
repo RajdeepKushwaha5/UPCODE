@@ -7,7 +7,6 @@ const Modules = ({modules, setData}) => {
     const [open, setOpen] = useState(false);
 
     const handleModuleClick = (module) => {
-        console.log(module);
         const data = module;
         setData(data);
     }

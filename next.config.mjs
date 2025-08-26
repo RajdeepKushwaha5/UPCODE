@@ -5,9 +5,8 @@ const nextConfig = {
     // Optimize for deployment
     output: 'standalone',
     poweredByHeader: false,
-    experimental: {
-        serverComponentsExternalPackages: ['mongoose', 'bcrypt']
-    },
+    serverExternalPackages: ['mongoose', 'bcrypt'],
+    experimental: {},
     webpack: (config, { isServer }) => {
         if (isServer) {
             config.externals.push({

@@ -105,7 +105,6 @@ export async function POST(request) {
             
             return Response.json({ Message: "Success, Video Saved", status: 201 });
         } catch (error) {
-            console.log("Error occured ", error);
             return Response.json({ Message: "Failed", status: 500 });
         }
     }  

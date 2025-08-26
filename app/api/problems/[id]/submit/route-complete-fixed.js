@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import dbConnect from '../../../../../utils/dbConnect.js';
-import { User } from '../../../../../models/User.js';
-import Problem from '../../../../../models/Problem.js';
-import { SolvedProblem } from '../../../../../models/SolvedProblem.js';
-import { authOptions } from '../../../auth/[...nextauth]/route.js';
+import dbConnect from '../../../../../utils/dbConnect';
+import { User } from '../../../../../models/User';
+import Problem from '../../../../../models/Problem';
+import { SolvedProblem } from '../../../../../models/SolvedProblem';
+import { authOptions } from '../../../auth/[...nextauth]/route';
 
 // Code execution function for Submit button (all test cases + database updates)
 async function executeCodeWithAllTests(code, language, problem) {

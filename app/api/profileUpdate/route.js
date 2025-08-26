@@ -1,8 +1,8 @@
 import dbConnect from '@/utils/dbConnect';
 import { User } from "@/models/User";
-import { UserInfo } from "@/models/UserInfo.js";
+import { UserInfo } from '@/models/UserInfo';
 import { getServerSession } from "next-auth/next"
-import { authOptions } from "../auth/[...nextauth]/route.js"
+import { authOptions } from '../auth/[...nextauth]/route'
 
 export async function POST(req) {
 

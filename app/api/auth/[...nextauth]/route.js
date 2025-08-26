@@ -2,15 +2,15 @@ import { UserInfo } from "../../../../models/UserInfo";
 import bcrypt from "bcrypt";
 import dbConnect from '../../../../utils/dbConnect';
 import { User } from '../../../../models/User';
-import NextAuthModule, { getServerSession } from "next-auth";
+import NextAuth, { getServerSession } from "next-auth";
 import CredentialsProviderModule from "next-auth/providers/credentials";
 import GoogleProviderModule from "next-auth/providers/google";
 import GitHubProviderModule from "next-auth/providers/github";
 
-const NextAuth = NextAuthModule.default;
-const CredentialsProvider = CredentialsProviderModule.default;
-const GoogleProvider = GoogleProviderModule.default;
-const GitHubProvider = GitHubProviderModule.default;
+// Handle ES module / CommonJS compatibility
+const CredentialsProvider = CredentialsProviderModule.default || CredentialsProviderModule;
+const GoogleProvider = GoogleProviderModule.default || GoogleProviderModule;
+const GitHubProvider = GitHubProviderModule.default || GitHubProviderModule;
 
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,

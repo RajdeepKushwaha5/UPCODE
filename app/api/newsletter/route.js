@@ -31,7 +31,6 @@ export async function POST(request) {
     const body = await request.json();
     const { email, name, preferences } = body;
 
-    console.log('Newsletter subscription request:', { email, name, preferences });
 
     // Basic email validation
     if (!email || !email.includes('@')) {
@@ -58,7 +57,6 @@ export async function POST(request) {
         }
       };
 
-      console.log('Newsletter subscription successful (simulation):', response);
       return NextResponse.json(response);
     }
 
@@ -119,7 +117,6 @@ export async function POST(request) {
         }
       };
 
-      console.log('Newsletter subscription successful with email:', response);
       return NextResponse.json(response);
 
     } catch (emailError) {
@@ -157,7 +154,6 @@ export async function DELETE(request) {
     const body = await request.json();
     const { email } = body;
 
-    console.log('Newsletter unsubscribe request:', { email });
 
     if (!email) {
       return NextResponse.json(
@@ -176,7 +172,6 @@ export async function DELETE(request) {
       }
     };
 
-    console.log('Newsletter unsubscribe successful:', response);
 
     return NextResponse.json(response);
 

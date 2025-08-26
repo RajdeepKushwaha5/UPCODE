@@ -95,7 +95,6 @@ export default function UserManagement() {
   };
 
   const handleUserAction = (userId, action) => {
-    console.log(`Performing ${action} on user ${userId}`);
     // Implement actual user actions here
   };
 

@@ -10,7 +10,6 @@ export async function POST(request) {
     ({ mode, company, difficulty, questionHistory = [] } = await request.json());
 
     if (!process.env.GEMINI_API_KEY) {
-      console.log('Gemini API key not configured, using fallback questions');
       // Use fallback questions when API key is not available
       return getFallbackQuestion(mode, company, difficulty);
     }
@@ -147,7 +146,6 @@ export async function POST(request) {
     console.error('Error generating question:', error);
 
     // Fallback to mock questions on any error
-    console.log('Falling back to mock questions due to error');
     return getFallbackQuestion(mode, company, difficulty);
   }
 }

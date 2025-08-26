@@ -1,10 +1,10 @@
 import Problem from '../../../models/Problem';
 import dbConnect from '../../../utils/dbConnect';
 import { User } from "../../../models/User";
-import { UserInfo } from "../../../models/UserInfo.js";
+import { UserInfo } from '../../../models/UserInfo';
 import { SolvedProblem } from "../../../models/SolvedProblem";
 import { getServerSession } from "next-auth/next"
-import { authOptions } from "../auth/[...nextauth]/route.js"
+import { authOptions } from '../auth/[...nextauth]/route'
 import { submitCodeExecution, getExecutionResult } from '@/lib/judge0Service.dev';
 
 export async function POST(req) {
@@ -14,7 +14,7 @@ export async function POST(req) {
     if (userID) {
 
         const { code, problem, language, contest } = await req.json()
-        // console.log(code,problem,language,contest)
+        // 
         const user = await User.findById(userID)
         const userdata = await UserInfo.findById(user.userInfo).populate('solved')
         const prob = await Problem.findOne({ id: problem })

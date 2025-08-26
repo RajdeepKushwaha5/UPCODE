@@ -13,7 +13,6 @@ export async function POST(request) {
     } = await request.json();
 
     if (!process.env.GEMINI_API_KEY) {
-      console.log('Gemini API key not configured, using fallback AI chat');
       return getFallbackChatResponse(mode, currentQuestion, userMessage);
     }
 
@@ -79,7 +78,6 @@ export async function POST(request) {
 
   } catch (error) {
     console.error('Error generating AI response:', error);
-    console.log('Falling back to mock AI chat response');
     return getFallbackChatResponse(mode, currentQuestion, userMessage);
   }
 }

@@ -91,7 +91,6 @@ const StudyPlanDashboard = () => {
         }
       };
 
-      console.log('Sending to API:', apiData); // Debug log
 
       const response = await fetch('/api/study-plans', {
         method: 'POST',

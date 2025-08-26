@@ -24,7 +24,6 @@ const ContestLeaderboard = () => {
       { rank: 10, name: 'RecursiveKing', rating: 2289, tier: 'Diamond', change: '+44', contests: 123, winRate: 86 }
     ];
     
-    console.log('🚀 Force setting leaderboard data');
     setLeaderboard(mockData);
     setStats({ totalPlayers: 15847, onlinePlayers: 1247, activeContests: 12 });
     setLastUpdated(new Date());
@@ -42,17 +41,14 @@ const ContestLeaderboard = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Leaderboard API response:', data); // Debug log
         if (data && data.success && Array.isArray(data.leaderboard) && data.leaderboard.length > 0) {
           setLeaderboard(data.leaderboard);
           setStats(data.stats || {});
           setLastUpdated(new Date());
         } else {
           // API response doesn't have valid data structure
-          console.log('API response invalid or empty, keeping mock data');
         }
       } else {
-        console.log('API response not ok, keeping mock data');
       }
     } catch (error) {
       console.error('Error fetching leaderboard:', error);

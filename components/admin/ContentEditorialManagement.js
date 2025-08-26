@@ -287,7 +287,6 @@ The recursive approach is more elegant but uses O(log n) space...
   const handleCreateSolution = async (e) => {
     e.preventDefault();
     try {
-      console.log("Creating solution:", solutionFormData);
       setShowSolutionModal(false);
       resetSolutionForm();
       fetchContentData();
@@ -299,7 +298,6 @@ The recursive approach is more elegant but uses O(log n) space...
   const handleCreateVideo = async (e) => {
     e.preventDefault();
     try {
-      console.log("Creating video solution:", videoFormData);
       setShowVideoModal(false);
       resetVideoForm();
       fetchContentData();
@@ -311,7 +309,6 @@ The recursive approach is more elegant but uses O(log n) space...
   const handleCreateHint = async (e) => {
     e.preventDefault();
     try {
-      console.log("Creating hints:", hintFormData);
       setShowHintModal(false);
       resetHintForm();
       fetchContentData();
@@ -323,7 +320,6 @@ The recursive approach is more elegant but uses O(log n) space...
   const handleCreateEditorial = async (e) => {
     e.preventDefault();
     try {
-      console.log("Creating editorial:", editorialFormData);
       setShowEditorialModal(false);
       resetEditorialForm();
       fetchContentData();

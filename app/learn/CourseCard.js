@@ -161,7 +161,6 @@ const CourseCard = ({
                 onClose={() => setIsChatbotOpen(false)}
                 onProgressUpdate={(progress) => {
                     // Update progress in real-time
-                    console.log(`Progress updated for ${name}: ${progress}%`);
                 }}
             />
         </div>

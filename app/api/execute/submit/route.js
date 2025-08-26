@@ -1,4 +1,4 @@
-import dbConnect from '../../../../utils/dbConnect.js'
+import dbConnect from '../../../../utils/dbConnect'
 import Problem from '../../../../models/Problem'
 import User from '../../../../models/User'
 

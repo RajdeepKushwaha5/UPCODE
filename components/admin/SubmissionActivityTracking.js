@@ -249,7 +249,6 @@ export default function SubmissionActivityTracking() {
 
   const handleManualStreakUpdate = async (userId, action, value = null) => {
     try {
-      console.log(`Manual streak update: ${action} for user ${userId}`, value);
       // Simulate API call
       setTimeout(() => {
         fetchData();
@@ -261,7 +260,6 @@ export default function SubmissionActivityTracking() {
 
   const handleSetProblemOfDay = async (problemId) => {
     try {
-      console.log("Setting problem of the day:", problemId);
       // Simulate API call
       setTimeout(() => {
         fetchData();
