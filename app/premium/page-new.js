@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { motion } from 'framer-motion'
+import PaymentModal from '../../components/PaymentModal'
 import {
   FaCrown,
   FaCheck,
@@ -131,6 +132,9 @@ export default function PremiumPage() {
   const router = useRouter()
   const [selectedPlan, setSelectedPlan] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [showPaymentModal, setShowPaymentModal] = useState(false)
+  const [selectedPaymentPlan, setSelectedPaymentPlan] = useState(null)
+  const [selectedBilling, setSelectedBilling] = useState('monthly')
 
   const plans = [
     {
@@ -169,25 +173,22 @@ export default function PremiumPage() {
 
   const handlePlanSelect = async (plan) => {
     setSelectedPlan(plan)
-    setIsLoading(true)
 
     if (plan.price === 0) {
       // Handle free plan
-      setIsLoading(false)
       return
     }
 
-    try {
-      // Simulate payment processing
-      setTimeout(() => {
-        alert('Premium upgrade successful! You now have access to all premium features.')
-        setIsLoading(false)
-        router.push('/problems')
-      }, 2000)
-    } catch (error) {
-      console.error('Payment error:', error)
-      setIsLoading(false)
+    if (!session) {
+      alert('Please login to upgrade to premium')
+      router.push('/login')
+      return
     }
+
+    // Set up payment modal
+    setSelectedPaymentPlan('Premium')
+    setSelectedBilling(plan.period === 'month' ? 'monthly' : 'yearly')
+    setShowPaymentModal(true)
   }
 
   return (
@@ -347,6 +348,14 @@ export default function PremiumPage() {
           </motion.div>
         </div>
       </div>
+
+      {/* Payment Modal */}
+      <PaymentModal
+        isOpen={showPaymentModal}
+        onClose={() => setShowPaymentModal(false)}
+        plan={selectedPaymentPlan}
+        billing={selectedBilling}
+      />
     </div>
   )
 }

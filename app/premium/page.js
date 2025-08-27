@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import toast, { Toaster } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
+import PaymentModal from '../../components/PaymentModal'
 import {
   FaCrown,
   FaCheck,
@@ -45,6 +46,9 @@ export default function PremiumPage() {
   const router = useRouter()
   const [selectedPlan, setSelectedPlan] = useState('annual')
   const [expandedFaq, setExpandedFaq] = useState(null)
+  const [showPaymentModal, setShowPaymentModal] = useState(false)
+  const [selectedPaymentPlan, setSelectedPaymentPlan] = useState(null)
+  const [selectedBilling, setSelectedBilling] = useState('monthly')
 
   // FAQ Data with dropdown functionality
   const faqs = [
@@ -192,15 +196,16 @@ export default function PremiumPage() {
     setExpandedFaq(expandedFaq === faqId ? null : faqId)
   }
 
-  const handleUpgrade = (plan) => {
+  const handleUpgrade = (plan, billing = 'monthly') => {
     if (!session) {
       toast.error('Please login to upgrade to premium')
       router.push('/login')
       return
     }
     
-    toast.success(`Starting ${plan} plan upgrade...`)
-    // Here you would integrate with your payment provider
+    setSelectedPaymentPlan(plan)
+    setSelectedBilling(billing)
+    setShowPaymentModal(true)
   }
 
   return (
@@ -240,7 +245,7 @@ export default function PremiumPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleUpgrade('annual')}
+                onClick={() => handleUpgrade('Premium', 'yearly')}
                 className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold rounded-xl shadow-2xl hover:shadow-yellow-400/25 transition-all duration-300 flex items-center gap-2"
               >
                 <FaCrown />
@@ -428,7 +433,7 @@ export default function PremiumPage() {
                   </li>
                 </ul>
                 <button
-                  onClick={() => handleUpgrade('monthly')}
+                  onClick={() => handleUpgrade('Premium', 'monthly')}
                   className="w-full py-3 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-xl transition-all duration-300"
                 >
                   Choose Monthly
@@ -496,7 +501,7 @@ export default function PremiumPage() {
                 </ul>
                 
                 <button
-                  onClick={() => handleUpgrade('annual')}
+                  onClick={() => handleUpgrade('Premium', 'yearly')}
                   className="w-full py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold rounded-xl hover:shadow-lg hover:shadow-yellow-400/25 transition-all duration-300"
                 >
                   Choose Yearly
@@ -763,7 +768,7 @@ export default function PremiumPage() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => handleUpgrade('annual')}
+              onClick={() => handleUpgrade('Premium', 'yearly')}
               className="px-12 py-5 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xl font-bold rounded-2xl shadow-2xl hover:shadow-yellow-400/25 transition-all duration-300 flex items-center gap-3 mx-auto"
             >
               <FaCrown className="text-2xl" />
@@ -777,6 +782,14 @@ export default function PremiumPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Payment Modal */}
+      <PaymentModal
+        isOpen={showPaymentModal}
+        onClose={() => setShowPaymentModal(false)}
+        plan={selectedPaymentPlan}
+        billing={selectedBilling}
+      />
     </div>
   )
 }
