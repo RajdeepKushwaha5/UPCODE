@@ -12,12 +12,15 @@ export async function GET(req) {
     await dbConnect();
 
     const session = await getServerSession();
-    if (!session) {
+    
+    // Development bypass for testing
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    if (!isDevelopment && !session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     const adminEmails = ['admin@upcode.com', 'your-email@gmail.com', 'rajdeepsingh10789@gmail.com'];
-    if (!adminEmails.includes(session.user.email)) {
+    if (!isDevelopment && session && !adminEmails.includes(session.user.email)) {
       return NextResponse.json({ error: 'Admin access required' }, { status: 403 });
     }
 

@@ -24,16 +24,26 @@ export default function Analytics() {
       setError(null);
       
       const response = await fetch('/api/admin/analytics');
+      console.log('Analytics API response status:', response.status); // Debug log
+      
       if (!response.ok) {
-        throw new Error('Failed to fetch analytics data');
+        if (response.status === 401) {
+          throw new Error('Please login as an admin to view analytics');
+        } else if (response.status === 403) {
+          throw new Error('Admin privileges required to view analytics');
+        } else {
+          throw new Error(`Failed to fetch analytics data (${response.status})`);
+        }
       }
       
       const data = await response.json();
-      setAnalytics(data.analytics || {});
+      console.log('Analytics data received:', data); // Debug log
+      
+      setAnalytics(data.analytics || data || {}); // Handle different response formats
     } catch (error) {
       console.error('Error fetching analytics:', error);
       setError(error.message);
-      // Set fallback data
+      // Set fallback data on error
       setAnalytics({
         totalUsers: 0,
         totalProblems: 0,

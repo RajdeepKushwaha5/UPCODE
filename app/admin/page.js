@@ -37,6 +37,15 @@ export default function AdminPanel() {
 
   const checkAdminStatus = async () => {
     try {
+      // Development bypass - remove in production
+      const isDevelopment = process.env.NODE_ENV === 'development';
+      if (isDevelopment && !session) {
+        console.log('Development mode: bypassing admin check');
+        setIsAdmin(true);
+        setLoading(false);
+        return;
+      }
+
       const response = await fetch("/api/admin/check-admin");
       const data = await response.json();
 
@@ -47,7 +56,13 @@ export default function AdminPanel() {
       }
     } catch (error) {
       console.error("Error checking admin status:", error);
-      router.push("/");
+      // In development, allow access for testing
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Development mode: allowing admin access for testing');
+        setIsAdmin(true);
+      } else {
+        router.push("/");
+      }
     } finally {
       setLoading(false);
     }
