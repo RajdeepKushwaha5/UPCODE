@@ -20,6 +20,7 @@ export default function QuickSortVisualizer() {
   const [swapCount, setSwapCount] = useState(0);
   const [comparisonCount, setComparisonCount] = useState(0);
   const [recursionDepth, setRecursionDepth] = useState(0);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   // Generate random array
   const generateArray = useCallback((size = 20) => {
@@ -254,8 +255,11 @@ export default function QuickSortVisualizer() {
 
   // Initialize array on component mount
   useEffect(() => {
-    generateArray();
-  }, [generateArray]);
+    if (!isInitialized) {
+      generateArray(20); // Initialize with default size
+      setIsInitialized(true);
+    }
+  }, []); // Remove generateArray dependency to avoid infinite loops
 
   const playPause = () => {
     if (isPlaying) {

@@ -1,3 +1,12 @@
+#!/bin/bash
+
+# This script will fix all placeholder DSA visualizations by replacing them with functional ones
+
+echo "🔧 FIXING ALL PLACEHOLDER DSA VISUALIZATIONS..."
+
+# Fix Linear Search
+echo "1. Creating Linear Search visualizer..."
+cat > "/workspaces/UPCODE/app/dsa-visualizer/arrays/linear-search/page.js" << 'EOF'
 'use client';
 import Link from 'next/link';
 import { useState, useEffect, useCallback } from 'react';
@@ -208,3 +217,13 @@ export default function LinearSearchVisualizer() {
     </div>
   );
 }
+EOF
+
+echo "✅ Linear Search created successfully!"
+
+# Test that the previous command worked
+if [ -f "/workspaces/UPCODE/app/dsa-visualizer/arrays/linear-search/page.js" ]; then
+    echo "✅ Linear Search file verified!"
+else
+    echo "❌ Linear Search file creation failed!"
+fi

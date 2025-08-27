@@ -13,6 +13,7 @@ export default function BinarySearchVisualizer() {
   const [searchSteps, setSearchSteps] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [comparisons, setComparisons] = useState(0);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   // Generate sorted array
   const generateArray = useCallback((size = 15) => {
@@ -110,8 +111,11 @@ export default function BinarySearchVisualizer() {
 
   // Initialize array on component mount
   useEffect(() => {
-    generateArray();
-  }, [generateArray]);
+    if (!isInitialized) {
+      generateArray(15); // Initialize with default size
+      setIsInitialized(true);
+    }
+  }, []); // Remove generateArray dependency to avoid infinite loops
 
   // Get bar color based on state
   const getBarColor = (index) => {
