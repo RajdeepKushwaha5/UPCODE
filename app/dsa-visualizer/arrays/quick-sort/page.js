@@ -43,10 +43,10 @@ export default function QuickSortVisualizer() {
     setComparisonCount(0);
     setRecursionDepth(0);
     generateQuickSortSteps(newArray);
-  }, []);
+  }, [generateQuickSortSteps]);
 
   // Generate quick sort algorithm steps
-  const generateQuickSortSteps = (arr) => {
+  const generateQuickSortSteps = useCallback((arr) => {
     const steps = [];
     const tempArray = [...arr];
     let swaps = 0;
@@ -184,7 +184,7 @@ export default function QuickSortVisualizer() {
     setAlgorithm(steps);
     setTotalSteps(steps.length);
     setRecursionDepth(maxDepth);
-  };
+  }, []);
 
   // Execute algorithm step by step
   const executeStep = useCallback(() => {
@@ -259,7 +259,7 @@ export default function QuickSortVisualizer() {
       generateArray(20); // Initialize with default size
       setIsInitialized(true);
     }
-  }, []); // Remove generateArray dependency to avoid infinite loops
+  }, [generateArray, isInitialized]); // Fixed dependency array
 
   const playPause = () => {
     if (isPlaying) {

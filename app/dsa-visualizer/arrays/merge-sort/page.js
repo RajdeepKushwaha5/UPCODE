@@ -37,10 +37,10 @@ export default function MergeSortVisualizer() {
     setComparisonCount(0);
     setRecursionDepth(0);
     generateMergeSortSteps(newArray);
-  }, []);
+  }, [generateMergeSortSteps]);
 
   // Generate merge sort algorithm steps
-  const generateMergeSortSteps = (arr) => {
+  const generateMergeSortSteps = useCallback((arr) => {
     const steps = [];
     let comparisons = 0;
     let swaps = 0;
@@ -203,7 +203,8 @@ export default function MergeSortVisualizer() {
     setAlgorithm(steps);
     setTotalSteps(steps.length);
     setRecursionDepth(maxDepth);
-  };
+  }, []);
+  
   // Execute algorithm step by step
   const executeStep = useCallback(() => {
     if (currentStep >= algorithm.length) {
@@ -267,7 +268,7 @@ export default function MergeSortVisualizer() {
       generateArray(16);
       setIsInitialized(true);
     }
-  }, []);
+  }, [generateArray, isInitialized]);
 
   const playPause = () => {
     if (isPlaying) {
