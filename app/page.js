@@ -415,19 +415,19 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap justify-center items-center gap-6 opacity-70">
                 <div className="flex items-center gap-2 text-xl text-gray-300">
-                  <span>🌐</span>
+                  <img src="/google.svg" alt="Google" className="w-6 h-6" />
                   <span className="font-semibold">Google</span>
                 </div>
                 <div className="flex items-center gap-2 text-xl text-gray-300">
-                  <span>📦</span>
+                  <img src="/amazon.svg" alt="Amazon" className="w-6 h-6" />
                   <span className="font-semibold">Amazon</span>
                 </div>
                 <div className="flex items-center gap-2 text-xl text-gray-300">
-                  <span>🔷</span>
+                  <img src="/microsoft.svg" alt="Microsoft" className="w-6 h-6" />
                   <span className="font-semibold">Microsoft</span>
                 </div>
                 <div className="flex items-center gap-2 text-xl text-gray-300">
-                  <span>🍎</span>
+                  <img src="/apple.svg" alt="Apple" className="w-6 h-6" />
                   <span className="font-semibold">Apple</span>
                 </div>
               </div>
