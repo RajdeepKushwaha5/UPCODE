@@ -524,7 +524,7 @@ export default function PremiumPage() {
             <div className="flex items-center justify-center gap-6 text-gray-500">
               <FaCreditCard className="text-2xl" />
               <FaPaypal className="text-2xl" />
-              <span className="text-sm">Secure payment powered by Stripe</span>
+              <span className="text-sm">Secure payment powered by Razorpay</span>
             </div>
           </motion.div>
         </div>
