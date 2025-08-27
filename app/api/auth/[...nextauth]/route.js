@@ -15,39 +15,50 @@ const GitHubProvider = GitHubProviderModule.default || GitHubProviderModule;
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: '/login',
-    error: '/login',
+    signIn: "/login",
+    error: "/auth/error",
+    signOut: "/login",
   },
   session: { 
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
   },
-  pages: {
-    signIn: "/login",
-    error: "/auth/error",
-  },
-  debug: false, // Disable debug mode to reduce console noise
+  debug: process.env.NODE_ENV === 'development', // Enable debug mode in development
   logger: {
     error(code, metadata) {
-      if (code !== 'CLIENT_FETCH_ERROR') {
-        console.error('NextAuth Error:', code, metadata);
-      }
+      console.error('NextAuth Error:', code, metadata);
     },
     warn(code) {
-      if (code !== 'DEBUG_ENABLED') {
-        console.warn('NextAuth Warning:', code);
+      console.warn('NextAuth Warning:', code);
+    },
+    debug(code, metadata) {
+      if (process.env.NODE_ENV === 'development') {
+        console.log('NextAuth Debug:', code, metadata);
       }
     },
-    debug: () => {}, // Disable debug logs
   },
   callbacks: {
     async redirect({ url, baseUrl }) {
-      // Always redirect to home page after sign in
+      // Allows relative callback URLs
+      if (url.startsWith("/")) return `${baseUrl}${url}`;
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) return url;
+      
+      // For OAuth callbacks, check if we need to redirect new users to profile setup
+      if (url.includes('/api/auth/callback/')) {
+        // Default redirect for OAuth
+        return `${baseUrl}/dashboard`;
+      }
+      
       return baseUrl;
     },
     async jwt({ token, user, account }) {
       if (user?._id) token._id = user._id;
+      if (user?.username) token.username = user.username;
       if (user?.isAdmin) token.isAdmin = user.isAdmin;
+      if (user?.isNewUser !== undefined) token.isNewUser = user.isNewUser;
+      if (user?.needsProfileSetup !== undefined) token.needsProfileSetup = user.needsProfileSetup;
+      if (user?.hasProfile !== undefined) token.hasProfile = user.hasProfile;
       if (account?.provider && account.provider !== 'credentials') {
         token.provider = account.provider;
       }
@@ -55,8 +66,12 @@ export const authOptions = {
     },
     async session({ session, token }) {
       if (token?._id) session.user._id = token._id;
+      if (token?.username) session.user.username = token.username;
       if (token?.isAdmin) session.user.isAdmin = token.isAdmin;
       if (token?.provider) session.user.provider = token.provider;
+      if (token?.isNewUser !== undefined) session.user.isNewUser = token.isNewUser;
+      if (token?.needsProfileSetup !== undefined) session.user.needsProfileSetup = token.needsProfileSetup;
+      if (token?.hasProfile !== undefined) session.user.hasProfile = token.hasProfile;
       return session;
     },
     async signIn({ user, account, profile }) {
@@ -64,11 +79,13 @@ export const authOptions = {
         try {
           await dbConnect();
 
-          // Check if user already exists
+          // Check if user already exists by email
           let existingUser = await User.findOne({ email: user.email });
 
           if (!existingUser) {
-            // Create new user for OAuth
+            // NEW USER SCENARIO - Sign Up via OAuth
+            console.log(`Creating new user for ${account.provider} OAuth: ${user.email}`);
+            
             const username = user.email.split('@')[0] + '_' + account.provider;
             let finalUsername = username;
 
@@ -86,15 +103,23 @@ export const authOptions = {
               image: user.image,
               provider: account.provider,
               providerId: account.providerAccountId,
-              password: null // OAuth users don't have passwords
+              password: null, // OAuth users don't have passwords
+              isEmailVerified: true, // OAuth emails are already verified
+              createdAt: new Date()
             });
 
-            // Create basic UserInfo for new OAuth users
+            // Create comprehensive UserInfo for new OAuth users
             const userInfo = await UserInfo.create({
               name: user.name || user.email.split('@')[0],
               petEmoji: "🐱",
               currentRating: 800,
-              problemsSolved: { total: 0, easy: 0, medium: 0, hard: 0 }
+              problemsSolved: { total: 0, easy: 0, medium: 0, hard: 0 },
+              achievements: [],
+              streak: { current: 0, longest: 0 },
+              preferences: {
+                theme: "dark",
+                language: "javascript"
+              }
             });
 
             existingUser.userInfo = userInfo._id;
@@ -102,26 +127,63 @@ export const authOptions = {
 
             // Mark as new user for profile setup redirect
             user.isNewUser = true;
-          } else if (!existingUser.provider) {
-            // Update existing user to include OAuth info
-            existingUser.provider = account.provider;
-            existingUser.providerId = account.providerAccountId;
-            if (user.image && !existingUser.image) {
-              existingUser.image = user.image;
+            user.needsProfileSetup = true;
+            
+            console.log(`Successfully created new user: ${existingUser.username}`);
+            
+          } else {
+            // EXISTING USER SCENARIO - Sign In via OAuth
+            console.log(`Existing user signing in via ${account.provider}: ${user.email}`);
+            
+            // If user exists but doesn't have OAuth info, link the accounts
+            if (!existingUser.provider || existingUser.provider !== account.provider) {
+              // Update existing user to include OAuth info (account linking)
+              if (!existingUser.provider) {
+                existingUser.provider = account.provider;
+                existingUser.providerId = account.providerAccountId;
+              }
+              
+              // Update profile image if not set
+              if (user.image && !existingUser.image) {
+                existingUser.image = user.image;
+              }
+              
+              // Update name if not set or empty
+              if (user.name && (!existingUser.name || existingUser.name.trim() === '')) {
+                existingUser.name = user.name;
+              }
+              
+              existingUser.lastLoginAt = new Date();
+              await existingUser.save();
+              
+              console.log(`Linked ${account.provider} account to existing user: ${existingUser.username}`);
+            } else {
+              // Just update last login time for existing OAuth user
+              existingUser.lastLoginAt = new Date();
+              await existingUser.save();
             }
-            await existingUser.save();
+            
+            user.isNewUser = false;
+            user.needsProfileSetup = false;
           }
 
-          // Store user ID for JWT
+          // Store user data for JWT and session
           user._id = existingUser._id;
+          user.username = existingUser.username;
           user.isAdmin = existingUser.isAdmin || false;
-
+          user.hasProfile = !!existingUser.userInfo;
+          
+          console.log(`OAuth sign-in successful for ${account.provider}: ${user.email}`);
           return true;
+          
         } catch (error) {
-          console.error('OAuth sign in error:', error);
+          console.error(`OAuth sign-in error for ${account.provider}:`, error);
+          // Return false to show error page
           return false;
         }
       }
+      
+      // For credentials provider, continue with existing flow
       return true;
     }
   },

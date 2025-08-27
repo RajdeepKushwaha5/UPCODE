@@ -169,8 +169,25 @@ export default function RegisterPage() {
 
   const handleSocialAuth = async (provider) => {
     try {
-      await signIn(provider, { callbackUrl: '/' });
+      console.log(`Attempting ${provider} authentication for sign up...`);
+      setError(''); // Clear any existing errors
+      
+      // For register page, we're creating new accounts or signing in existing ones
+      const result = await signIn(provider, { 
+        callbackUrl: '/setup-profile', // New users should go to profile setup
+        redirect: true 
+      });
+
+      console.log(`${provider} registration result:`, result);
+
+      // If there's an error in the result, show it
+      if (result?.error) {
+        console.error(`${provider} registration error:`, result.error);
+        setError(`${provider} registration failed: ${result.error}`);
+      }
+
     } catch (error) {
+      console.error(`${provider} registration error:`, error);
       setError(`${provider} authentication failed. Please try again.`);
     }
   };

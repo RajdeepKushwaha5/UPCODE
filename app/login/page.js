@@ -82,27 +82,26 @@ export default function LoginPage() {
 
   const handleSocialAuth = async (provider) => {
     try {
+      console.log(`Attempting ${provider} authentication for sign in...`);
+      setError(''); // Clear any existing errors
+      
+      // For login page, we expect existing users or will create new ones
       const result = await signIn(provider, {
         callbackUrl: '/dashboard',
-        redirect: false
+        redirect: true // Allow redirect for OAuth flow
       });
 
-      if (result?.ok) {
-        toast.success(`${provider.charAt(0).toUpperCase() + provider.slice(1)} login successful! Redirecting...`, {
-          duration: 2000,
-          position: 'top-center',
-          style: {
-            background: '#10B981',
-            color: '#ffffff',
-            fontWeight: 'bold',
-          },
-        });
+      console.log(`${provider} auth result:`, result);
 
-        setTimeout(() => {
-          router.push('/dashboard');
-        }, 1500);
+      // If there's an error in the result, show it
+      if (result?.error) {
+        console.error(`${provider} authentication error:`, result.error);
+        setError(`${provider} authentication failed: ${result.error}`);
+        toast.error(`${provider} authentication failed. Please try again.`);
       }
+
     } catch (error) {
+      console.error(`${provider} authentication error:`, error);
       setError(`${provider} authentication failed. Please try again.`);
       toast.error(`${provider} authentication failed. Please try again.`);
     }
