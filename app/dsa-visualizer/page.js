@@ -73,7 +73,7 @@ export default function DSAVisualizer() {
         { name: "Stack Operations", path: "/dsa-visualizer/stacks-queues/stack", status: "✅" },
         { name: "Queue Operations", path: "/dsa-visualizer/stacks-queues/queue", status: "✅" },
         { name: "Priority Queue", path: "/dsa-visualizer/stacks-queues/priority-queue", status: "✅" },
-        { name: "Dequeue", path: "/dsa-visualizer/stacks-queues/dequeue", status: "✅" }
+        { name: "Double-ended Queue", path: "/dsa-visualizer/stacks-queues/deque", status: "✅" }
       ]
     },
     {
@@ -85,12 +85,12 @@ export default function DSAVisualizer() {
       color: "indigo",
       visualizations: 6,
       topics: [
-        { name: "Graph Representation", path: "/dsa-visualizer/graphs/representation", status: "✅" },
-        { name: "BFS Traversal", path: "/dsa-visualizer/graphs/bfs", status: "✅" },
-        { name: "DFS Traversal", path: "/dsa-visualizer/graphs/dfs", status: "✅" },
-        { name: "Dijkstra's Algorithm", path: "/dsa-visualizer/graphs/dijkstra", status: "✅" },
-        { name: "Kruskal's MST", path: "/dsa-visualizer/graphs/kruskal", status: "✅" },
-        { name: "A* Pathfinding", path: "/dsa-visualizer/graphs/astar", status: "✅" }
+        { name: "Depth First Search", path: "/dsa-visualizer/graphs/depth-first-search", status: "✅" },
+        { name: "Breadth First Search", path: "/dsa-visualizer/graphs/breadth-first-search", status: "✅" },
+        { name: "Dijkstra's Algorithm", path: "/dsa-visualizer/graphs/dijkstra-algorithm", status: "✅" },
+        { name: "Kruskal's MST", path: "/dsa-visualizer/graphs/kruskal-algorithm", status: "✅" },
+        { name: "Prim's MST", path: "/dsa-visualizer/graphs/prim-algorithm", status: "✅" },
+        { name: "Floyd-Warshall", path: "/dsa-visualizer/graphs/floyd-warshall-algorithm", status: "✅" }
       ]
     },
     {
@@ -102,11 +102,11 @@ export default function DSAVisualizer() {
       color: "pink",
       visualizations: 5,
       topics: [
-        { name: "Fibonacci Sequence", path: "/dsa-visualizer/dp/fibonacci", status: "✅" },
-        { name: "Longest Common Subsequence", path: "/dsa-visualizer/dp/lcs", status: "✅" },
-        { name: "Knapsack Problem", path: "/dsa-visualizer/dp/knapsack", status: "✅" },
-        { name: "Coin Change", path: "/dsa-visualizer/dp/coin-change", status: "✅" },
-        { name: "Edit Distance", path: "/dsa-visualizer/dp/edit-distance", status: "✅" }
+        { name: "0/1 Knapsack", path: "/dsa-visualizer/dynamic-programming/knapsack-01", status: "✅" },
+        { name: "Longest Common Subsequence", path: "/dsa-visualizer/dynamic-programming/longest-common-subsequence", status: "✅" },
+        { name: "Fibonacci Sequence", path: "/dsa-visualizer/dynamic-programming/fibonacci", status: "✅" },
+        { name: "Coin Change", path: "/dsa-visualizer/dynamic-programming/coin-change", status: "✅" },
+        { name: "Edit Distance", path: "/dsa-visualizer/dynamic-programming/edit-distance", status: "✅" }
       ]
     }
   ];
