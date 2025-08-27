@@ -100,6 +100,90 @@ const ModulesData = {
             
         }
         
+    ],
+
+    "rust": [
+        {
+            id: 1,
+            title: "Introduction to Rust",
+            desc: "Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.",
+            lessons: ["What is Rust?", "Why Learn Rust?", "Setting up Rust Environment"]
+        },
+        {
+            id: 2,
+            title: "Ownership and Borrowing",
+            desc: "Rust's ownership system ensures memory safety without garbage collection through unique concepts of ownership and borrowing.",
+            lessons: ["Ownership and Borrowing", "References and Lifetimes", "The Borrow Checker"]
+        },
+        {
+            id: 3,
+            title: "Structs and Enums",
+            desc: "Learn how to create custom data types using structs and enums, which are fundamental building blocks in Rust.",
+            lessons: ["Structs and Enums", "Pattern Matching", "Methods and Associated Functions"]
+        }
+    ],
+
+    "go": [
+        {
+            id: 1,
+            title: "Introduction to Go",
+            desc: "Go (Golang) is an open-source programming language developed by Google, designed for simplicity and efficiency.",
+            lessons: ["What is Go?", "Why Learn Go?", "Setting up Go Environment"]
+        },
+        {
+            id: 2,
+            title: "Goroutines and Channels",
+            desc: "Learn Go's powerful concurrency features with goroutines and channels for building concurrent applications.",
+            lessons: ["Goroutines and Channels", "Channel Communication", "Select Statement"]
+        },
+        {
+            id: 3,
+            title: "Web Development with Go",
+            desc: "Build web applications and APIs using Go's standard library and popular frameworks.",
+            lessons: ["Web Development with Go", "HTTP Handlers", "JSON APIs and Middleware"]
+        }
+    ],
+
+    "solidity": [
+        {
+            id: 1,
+            title: "Introduction to Solidity",
+            desc: "Solidity is a statically-typed programming language designed for developing smart contracts on Ethereum.",
+            lessons: ["What is Solidity?", "Why Learn Solidity?", "Blockchain and Smart Contracts Basics"]
+        },
+        {
+            id: 2,
+            title: "Smart Contract Basics",
+            desc: "Learn the fundamental concepts of smart contract development including data types, functions, and modifiers.",
+            lessons: ["Smart Contract Basics", "Data Types and Variables", "Functions and Modifiers"]
+        },
+        {
+            id: 3,
+            title: "DeFi and NFT Development",
+            desc: "Build decentralized finance applications and non-fungible tokens using industry standards.",
+            lessons: ["DeFi and NFT Development", "ERC-20 Tokens", "ERC-721 NFTs", "DeFi Protocols"]
+        }
+    ],
+
+    "csharp": [
+        {
+            id: 1,
+            title: "Introduction to C#",
+            desc: "C# is a modern, object-oriented programming language developed by Microsoft as part of the .NET ecosystem.",
+            lessons: ["What is C#?", "Why Learn C#", "Setting up .NET Environment"]
+        },
+        {
+            id: 2,
+            title: "Object-Oriented Programming",
+            desc: "Master OOP concepts in C# including classes, inheritance, polymorphism, and encapsulation.",
+            lessons: ["Object-Oriented Programming in C#", "Classes and Objects", "Inheritance and Polymorphism"]
+        },
+        {
+            id: 3,
+            title: "Web Development with ASP.NET Core",
+            desc: "Build modern web applications and APIs using ASP.NET Core framework.",
+            lessons: ["Web Development with ASP.NET Core", "Creating Web APIs", "Dependency Injection and Services"]
+        }
     ]
 }
 

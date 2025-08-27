@@ -3160,6 +3160,1053 @@ In this example, the variable \`x\` is defined in one file and referenced in ano
 
 `
         },
+    ],
+
+    "rust": [
+        {
+            title: "What is Rust?",
+            content: `
+# Introduction to Rust
+&nbsp;
+
+---
+&nbsp;
+
+## Overview
+&nbsp;
+
+Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety. Developed by Mozilla, Rust aims to be fast and safe, providing zero-cost abstractions without sacrificing performance.
+
+&nbsp;
+
+Here's a simple Rust program that calculates the sum of two numbers:
+
+\`\`\`rust
+fn main() {
+    let x = 5;
+    let y = 10;
+    let sum = x + y;
+    
+    println!("The sum of {} and {} is: {}", x, y, sum);
+}
+\`\`\`
+
+&nbsp;
+
+## Key Features
+
+- **Memory Safety**: No null pointers, buffer overflows, or memory leaks
+- **Zero-cost Abstractions**: High-level features with no runtime overhead
+- **Ownership System**: Unique approach to memory management
+- **Concurrent Programming**: Safe concurrency without data races
+- **Cross-platform**: Runs on many platforms and architectures
+`
+        },
+        {
+            title: "Why Learn Rust?",
+            content: `
+# Why Learn Rust?
+&nbsp;
+
+---
+&nbsp;
+
+## Performance and Safety
+&nbsp;
+
+Rust offers the performance of C and C++ with the safety of high-level languages like Java or Python. This makes it ideal for:
+
+- **Systems Programming**: Operating systems, game engines, browsers
+- **Web Assembly**: High-performance web applications
+- **Blockchain**: Cryptocurrency and DeFi protocols
+- **Network Services**: Fast, reliable server applications
+
+&nbsp;
+
+## Growing Industry Demand
+
+Rust is one of the most loved programming languages according to Stack Overflow surveys, and major companies like Microsoft, Facebook, Dropbox, and Mozilla are using it in production.
+
+&nbsp;
+
+## Memory Management Without Garbage Collection
+
+Unlike other safe languages, Rust achieves memory safety without a garbage collector, making it suitable for real-time systems and embedded programming.
+`
+        },
+        {
+            title: "Ownership and Borrowing",
+            content: `
+# Ownership and Borrowing
+&nbsp;
+
+---
+&nbsp;
+
+## The Ownership System
+&nbsp;
+
+Rust's ownership system is what makes it unique. It ensures memory safety without garbage collection through three main concepts:
+
+1. **Ownership**: Each value has a single owner
+2. **Borrowing**: References that don't take ownership
+3. **Lifetimes**: How long references are valid
+
+&nbsp;
+
+## Example of Ownership
+
+\`\`\`rust
+fn main() {
+    let s1 = String::from("Hello");
+    let s2 = s1; // s1 is moved to s2, s1 is no longer valid
+    
+    println!("{}", s2); // This works
+    // println!("{}", s1); // This would cause an error
+}
+\`\`\`
+
+&nbsp;
+
+## Borrowing Example
+
+\`\`\`rust
+fn main() {
+    let s = String::from("Hello");
+    let len = calculate_length(&s); // Borrowing s
+    println!("The length of '{}' is {}.", s, len); // s is still valid
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}
+\`\`\`
+`
+        },
+        {
+            title: "Structs and Enums",
+            content: `
+# Structs and Enums
+&nbsp;
+
+---
+&nbsp;
+
+## Structs
+&nbsp;
+
+Structs let you create custom data types:
+
+\`\`\`rust
+struct Person {
+    name: String,
+    age: u32,
+    email: String,
+}
+
+impl Person {
+    fn new(name: String, age: u32, email: String) -> Person {
+        Person { name, age, email }
+    }
+    
+    fn greet(&self) {
+        println!("Hello, my name is {}", self.name);
+    }
+}
+
+fn main() {
+    let person = Person::new(
+        String::from("Alice"),
+        30,
+        String::from("alice@example.com")
+    );
+    person.greet();
+}
+\`\`\`
+
+&nbsp;
+
+## Enums
+&nbsp;
+
+Enums are powerful in Rust and can hold data:
+
+\`\`\`rust
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+fn process_message(msg: Message) {
+    match msg {
+        Message::Quit => println!("Quit message received"),
+        Message::Move { x, y } => println!("Move to ({}, {})", x, y),
+        Message::Write(text) => println!("Text message: {}", text),
+        Message::ChangeColor(r, g, b) => println!("Change color to RGB({}, {}, {})", r, g, b),
+    }
+}
+\`\`\`
+`
+        }
+    ],
+
+    "go": [
+        {
+            title: "What is Go?",
+            content: `
+# Introduction to Go (Golang)
+&nbsp;
+
+---
+&nbsp;
+
+## Overview
+&nbsp;
+
+Go, also known as Golang, is an open-source programming language developed by Google. It's designed for simplicity, efficiency, and excellent support for concurrent programming.
+
+&nbsp;
+
+Here's a simple Go program:
+
+\`\`\`go
+package main
+
+import "fmt"
+
+func main() {
+    name := "Go"
+    fmt.Printf("Hello, %s!\\n", name)
+    
+    // Calling a function
+    result := add(5, 3)
+    fmt.Printf("5 + 3 = %d\\n", result)
+}
+
+func add(a, b int) int {
+    return a + b
+}
+\`\`\`
+
+&nbsp;
+
+## Key Features
+
+- **Simple Syntax**: Easy to learn and read
+- **Fast Compilation**: Quick build times
+- **Garbage Collection**: Automatic memory management
+- **Concurrency**: Built-in support for concurrent programming
+- **Standard Library**: Rich standard library
+- **Cross-platform**: Compiles to multiple platforms
+`
+        },
+        {
+            title: "Why Learn Go?",
+            content: `
+# Why Learn Go?
+&nbsp;
+
+---
+&nbsp;
+
+## Industry Adoption
+&nbsp;
+
+Go is widely used in the tech industry for:
+
+- **Cloud Computing**: Docker, Kubernetes, Terraform
+- **Microservices**: Fast, lightweight services
+- **DevOps Tools**: Many popular tools are written in Go
+- **Network Programming**: High-performance servers and APIs
+
+&nbsp;
+
+## Performance and Simplicity
+
+Go combines the performance of compiled languages with the simplicity of interpreted languages. It's designed to be easy to learn while being powerful enough for large-scale systems.
+
+&nbsp;
+
+## Excellent Concurrency Support
+
+Go's goroutines and channels make concurrent programming much easier than in other languages:
+
+\`\`\`go
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func sayHello(name string) {
+    for i := 0; i < 3; i++ {
+        fmt.Printf("Hello, %s!\\n", name)
+        time.Sleep(1 * time.Second)
+    }
+}
+
+func main() {
+    go sayHello("Alice")   // Run in goroutine
+    go sayHello("Bob")     // Run in another goroutine
+    
+    time.Sleep(4 * time.Second)
+    fmt.Println("Done!")
+}
+\`\`\`
+`
+        },
+        {
+            title: "Goroutines and Channels",
+            content: `
+# Goroutines and Channels
+&nbsp;
+
+---
+&nbsp;
+
+## Goroutines
+&nbsp;
+
+Goroutines are lightweight threads managed by the Go runtime. They're much cheaper than OS threads:
+
+\`\`\`go
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func worker(id int) {
+    fmt.Printf("Worker %d starting\\n", id)
+    time.Sleep(time.Second)
+    fmt.Printf("Worker %d done\\n", id)
+}
+
+func main() {
+    // Start 5 goroutines
+    for i := 1; i <= 5; i++ {
+        go worker(i)
+    }
+    
+    // Wait for goroutines to finish
+    time.Sleep(2 * time.Second)
+}
+\`\`\`
+
+&nbsp;
+
+## Channels
+&nbsp;
+
+Channels are used for communication between goroutines:
+
+\`\`\`go
+package main
+
+import "fmt"
+
+func sum(numbers []int, ch chan int) {
+    total := 0
+    for _, num := range numbers {
+        total += num
+    }
+    ch <- total // Send result to channel
+}
+
+func main() {
+    numbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+    
+    ch := make(chan int)
+    
+    // Split work between two goroutines
+    go sum(numbers[:len(numbers)/2], ch)
+    go sum(numbers[len(numbers)/2:], ch)
+    
+    // Receive results
+    x := <-ch
+    y := <-ch
+    
+    fmt.Printf("Total sum: %d\\n", x+y)
+}
+\`\`\`
+`
+        },
+        {
+            title: "Web Development with Go",
+            content: `
+# Web Development with Go
+&nbsp;
+
+---
+&nbsp;
+
+## HTTP Server
+&nbsp;
+
+Go's standard library makes it easy to create web servers:
+
+\`\`\`go
+package main
+
+import (
+    "fmt"
+    "net/http"
+    "log"
+)
+
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Welcome to Go Web Server!")
+}
+
+func aboutHandler(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "This is the about page")
+}
+
+func main() {
+    http.HandleFunc("/", homeHandler)
+    http.HandleFunc("/about", aboutHandler)
+    
+    fmt.Println("Server starting on :8080")
+    log.Fatal(http.ListenAndServe(":8080", nil))
+}
+\`\`\`
+
+&nbsp;
+
+## JSON API Example
+
+\`\`\`go
+package main
+
+import (
+    "encoding/json"
+    "net/http"
+    "log"
+)
+
+type User struct {
+    ID   int    \`json:"id"\`
+    Name string \`json:"name"\`
+    Age  int    \`json:"age"\`
+}
+
+func usersHandler(w http.ResponseWriter, r *http.Request) {
+    users := []User{
+        {ID: 1, Name: "Alice", Age: 30},
+        {ID: 2, Name: "Bob", Age: 25},
+    }
+    
+    w.Header().Set("Content-Type", "application/json")
+    json.NewEncoder(w).Encode(users)
+}
+
+func main() {
+    http.HandleFunc("/users", usersHandler)
+    log.Fatal(http.ListenAndServe(":8080", nil))
+}
+\`\`\`
+`
+        }
+    ],
+
+    "solidity": [
+        {
+            title: "What is Solidity?",
+            content: `
+# Introduction to Solidity
+&nbsp;
+
+---
+&nbsp;
+
+## Overview
+&nbsp;
+
+Solidity is a statically-typed programming language designed for developing smart contracts that run on the Ethereum Virtual Machine (EVM). It's influenced by C++, Python, and JavaScript.
+
+&nbsp;
+
+Here's a simple smart contract:
+
+\`\`\`solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+contract HelloWorld {
+    string public message;
+    
+    constructor(string memory _message) {
+        message = _message;
+    }
+    
+    function setMessage(string memory _newMessage) public {
+        message = _newMessage;
+    }
+    
+    function getMessage() public view returns (string memory) {
+        return message;
+    }
+}
+\`\`\`
+
+&nbsp;
+
+## Key Features
+
+- **Smart Contracts**: Self-executing contracts with terms directly written into code
+- **EVM Compatible**: Runs on Ethereum and EVM-compatible blockchains
+- **Static Typing**: Type safety at compile time
+- **Inheritance**: Support for contract inheritance
+- **Libraries**: Reusable code libraries
+- **Event Logging**: Efficient logging mechanism
+`
+        },
+        {
+            title: "Why Learn Solidity?",
+            content: `
+# Why Learn Solidity?
+&nbsp;
+
+---
+&nbsp;
+
+## The Web3 Revolution
+&nbsp;
+
+Solidity is the primary language for blockchain development:
+
+- **DeFi (Decentralized Finance)**: Financial applications without intermediaries
+- **NFTs (Non-Fungible Tokens)**: Unique digital assets
+- **DAOs (Decentralized Autonomous Organizations)**: Community-governed organizations
+- **DApps (Decentralized Applications)**: Applications that run on blockchain
+
+&nbsp;
+
+## High Demand and Earning Potential
+
+Blockchain developers are among the highest-paid developers in the tech industry, with Solidity being the most in-demand blockchain programming language.
+
+&nbsp;
+
+## Innovation and Future Technology
+
+Working with Solidity means being at the forefront of technological innovation, building the infrastructure for the decentralized web.
+
+&nbsp;
+
+## Example: Simple Token Contract
+
+\`\`\`solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+contract SimpleToken {
+    mapping(address => uint256) public balances;
+    uint256 public totalSupply;
+    
+    constructor(uint256 _totalSupply) {
+        totalSupply = _totalSupply;
+        balances[msg.sender] = _totalSupply;
+    }
+    
+    function transfer(address _to, uint256 _amount) public {
+        require(balances[msg.sender] >= _amount, "Insufficient balance");
+        balances[msg.sender] -= _amount;
+        balances[_to] += _amount;
+    }
+}
+\`\`\`
+`
+        },
+        {
+            title: "Smart Contract Basics",
+            content: `
+# Smart Contract Basics
+&nbsp;
+
+---
+&nbsp;
+
+## Contract Structure
+&nbsp;
+
+A Solidity contract is similar to a class in object-oriented languages:
+
+\`\`\`solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+contract MyContract {
+    // State variables
+    uint256 public number;
+    address public owner;
+    
+    // Events
+    event NumberChanged(uint256 newNumber);
+    
+    // Constructor
+    constructor() {
+        owner = msg.sender;
+        number = 0;
+    }
+    
+    // Modifier
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Not the owner");
+        _;
+    }
+    
+    // Function
+    function setNumber(uint256 _number) public onlyOwner {
+        number = _number;
+        emit NumberChanged(_number);
+    }
+}
+\`\`\`
+
+&nbsp;
+
+## Data Types
+
+Solidity has various data types:
+
+\`\`\`solidity
+contract DataTypes {
+    // Integers
+    uint256 public positiveNumber = 100;
+    int256 public signedNumber = -50;
+    
+    // Boolean
+    bool public isActive = true;
+    
+    // Address
+    address public userAddress;
+    
+    // String
+    string public name = "Solidity";
+    
+    // Arrays
+    uint256[] public numbers;
+    
+    // Mapping
+    mapping(address => uint256) public balances;
+    
+    // Struct
+    struct User {
+        string name;
+        uint256 age;
+    }
+}
+\`\`\`
+`
+        },
+        {
+            title: "DeFi and NFT Development",
+            content: `
+# DeFi and NFT Development
+&nbsp;
+
+---
+&nbsp;
+
+## ERC-20 Token Standard
+&nbsp;
+
+The most common token standard on Ethereum:
+
+\`\`\`solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+interface IERC20 {
+    function totalSupply() external view returns (uint256);
+    function balanceOf(address account) external view returns (uint256);
+    function transfer(address recipient, uint256 amount) external returns (bool);
+    function allowance(address owner, address spender) external view returns (uint256);
+    function approve(address spender, uint256 amount) external returns (bool);
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+    
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+}
+
+contract MyToken is IERC20 {
+    mapping(address => uint256) private _balances;
+    mapping(address => mapping(address => uint256)) private _allowances;
+    
+    uint256 private _totalSupply;
+    string public name;
+    string public symbol;
+    uint8 public decimals;
+    
+    constructor(string memory _name, string memory _symbol) {
+        name = _name;
+        symbol = _symbol;
+        decimals = 18;
+        _totalSupply = 1000000 * 10**decimals;
+        _balances[msg.sender] = _totalSupply;
+    }
+    
+    // Implementation of IERC20 functions...
+}
+\`\`\`
+
+&nbsp;
+
+## NFT (ERC-721) Example
+
+\`\`\`solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+
+contract MyNFT is ERC721 {
+    uint256 private _tokenIds;
+    
+    constructor() ERC721("MyNFT", "MNFT") {}
+    
+    function mintNFT(address recipient, string memory tokenURI) 
+        public returns (uint256) {
+        _tokenIds++;
+        uint256 newItemId = _tokenIds;
+        _mint(recipient, newItemId);
+        _setTokenURI(newItemId, tokenURI);
+        
+        return newItemId;
+    }
+}
+\`\`\`
+`
+        }
+    ],
+
+    "csharp": [
+        {
+            title: "What is C#?",
+            content: `
+# Introduction to C#
+&nbsp;
+
+---
+&nbsp;
+
+## Overview
+&nbsp;
+
+C# (pronounced "C-sharp") is a modern, object-oriented programming language developed by Microsoft. It's part of the .NET ecosystem and is designed for building a wide variety of applications.
+
+&nbsp;
+
+Here's a simple C# program:
+
+\`\`\`csharp
+using System;
+
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string name = "C#";
+            Console.WriteLine($"Hello, {name}!");
+            
+            // Call a method
+            int result = AddNumbers(5, 3);
+            Console.WriteLine($"5 + 3 = {result}");
+            
+            Console.ReadKey();
+        }
+        
+        static int AddNumbers(int a, int b)
+        {
+            return a + b;
+        }
+    }
+}
+\`\`\`
+
+&nbsp;
+
+## Key Features
+
+- **Object-Oriented**: Full OOP support with classes, inheritance, polymorphism
+- **Type Safe**: Strong typing prevents many common errors
+- **Memory Management**: Automatic garbage collection
+- **Cross-platform**: Runs on Windows, macOS, and Linux
+- **Rich Ecosystem**: Extensive .NET libraries and frameworks
+- **Modern Syntax**: Latest language features and syntax sugar
+`
+        },
+        {
+            title: "Why Learn C#?",
+            content: `
+# Why Learn C#
+&nbsp;
+
+---
+&nbsp;
+
+## Versatility and Applications
+&nbsp;
+
+C# is used for various types of development:
+
+- **Desktop Applications**: WPF, WinForms, .NET MAUI
+- **Web Development**: ASP.NET Core, Blazor
+- **Mobile Development**: Xamarin, .NET MAUI
+- **Game Development**: Unity game engine
+- **Cloud Applications**: Azure, microservices
+- **APIs and Web Services**: RESTful APIs, gRPC
+
+&nbsp;
+
+## Industry Demand
+
+C# is widely used in enterprise environments and has strong job market demand. Microsoft's continued investment in .NET ensures long-term viability.
+
+&nbsp;
+
+## Modern Language Features
+
+C# regularly receives updates with modern features like pattern matching, async/await, and more:
+
+\`\`\`csharp
+// Modern C# features
+public class Person
+{
+    public string Name { get; init; }
+    public int Age { get; init; }
+    
+    // Pattern matching
+    public string GetAgeCategory() => Age switch
+    {
+        < 13 => "Child",
+        < 20 => "Teenager",
+        < 65 => "Adult",
+        _ => "Senior"
+    };
+}
+
+// Records (C# 9+)
+public record Student(string Name, int Grade, string School);
+\`\`\`
+`
+        },
+        {
+            title: "Object-Oriented Programming",
+            content: `
+# Object-Oriented Programming in C#
+&nbsp;
+
+---
+&nbsp;
+
+## Classes and Objects
+&nbsp;
+
+C# is built around object-oriented principles:
+
+\`\`\`csharp
+public class Car
+{
+    // Properties
+    public string Brand { get; set; }
+    public string Model { get; set; }
+    public int Year { get; set; }
+    private bool _isEngineOn;
+    
+    // Constructor
+    public Car(string brand, string model, int year)
+    {
+        Brand = brand;
+        Model = model;
+        Year = year;
+        _isEngineOn = false;
+    }
+    
+    // Methods
+    public void StartEngine()
+    {
+        _isEngineOn = true;
+        Console.WriteLine($"{Brand} {Model} engine started!");
+    }
+    
+    public void StopEngine()
+    {
+        _isEngineOn = false;
+        Console.WriteLine($"{Brand} {Model} engine stopped!");
+    }
+    
+    public override string ToString()
+    {
+        return $"{Year} {Brand} {Model}";
+    }
+}
+
+// Usage
+class Program
+{
+    static void Main()
+    {
+        Car myCar = new Car("Toyota", "Camry", 2023);
+        Console.WriteLine(myCar);
+        myCar.StartEngine();
+    }
+}
+\`\`\`
+
+&nbsp;
+
+## Inheritance and Polymorphism
+
+\`\`\`csharp
+public abstract class Animal
+{
+    public string Name { get; set; }
+    
+    public Animal(string name)
+    {
+        Name = name;
+    }
+    
+    public abstract void MakeSound();
+    
+    public virtual void Sleep()
+    {
+        Console.WriteLine($"{Name} is sleeping");
+    }
+}
+
+public class Dog : Animal
+{
+    public Dog(string name) : base(name) { }
+    
+    public override void MakeSound()
+    {
+        Console.WriteLine($"{Name} says Woof!");
+    }
+}
+
+public class Cat : Animal
+{
+    public Cat(string name) : base(name) { }
+    
+    public override void MakeSound()
+    {
+        Console.WriteLine($"{Name} says Meow!");
+    }
+    
+    public override void Sleep()
+    {
+        Console.WriteLine($"{Name} is napping in a sunny spot");
+    }
+}
+\`\`\`
+`
+        },
+        {
+            title: "Web Development with ASP.NET Core",
+            content: `
+# Web Development with ASP.NET Core
+&nbsp;
+
+---
+&nbsp;
+
+## Creating a Web API
+&nbsp;
+
+ASP.NET Core makes it easy to create web APIs:
+
+\`\`\`csharp
+using Microsoft.AspNetCore.Mvc;
+
+[ApiController]
+[Route("api/[controller]")]
+public class UsersController : ControllerBase
+{
+    private static List<User> _users = new List<User>
+    {
+        new User { Id = 1, Name = "Alice", Email = "alice@example.com" },
+        new User { Id = 2, Name = "Bob", Email = "bob@example.com" }
+    };
+    
+    [HttpGet]
+    public ActionResult<IEnumerable<User>> Get()
+    {
+        return Ok(_users);
+    }
+    
+    [HttpGet("{id}")]
+    public ActionResult<User> Get(int id)
+    {
+        var user = _users.FirstOrDefault(u => u.Id == id);
+        if (user == null)
+            return NotFound();
+        
+        return Ok(user);
+    }
+    
+    [HttpPost]
+    public ActionResult<User> Post([FromBody] User user)
+    {
+        user.Id = _users.Max(u => u.Id) + 1;
+        _users.Add(user);
+        return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
+    }
+}
+
+public class User
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+}
+\`\`\`
+
+&nbsp;
+
+## Dependency Injection
+
+\`\`\`csharp
+public interface IUserService
+{
+    Task<List<User>> GetUsersAsync();
+    Task<User> GetUserByIdAsync(int id);
+}
+
+public class UserService : IUserService
+{
+    private readonly IUserRepository _repository;
+    
+    public UserService(IUserRepository repository)
+    {
+        _repository = repository;
+    }
+    
+    public async Task<List<User>> GetUsersAsync()
+    {
+        return await _repository.GetAllAsync();
+    }
+    
+    public async Task<User> GetUserByIdAsync(int id)
+    {
+        return await _repository.GetByIdAsync(id);
+    }
+}
+
+// In Program.cs or Startup.cs
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+\`\`\`
+`
+        }
     ]
 }
 
