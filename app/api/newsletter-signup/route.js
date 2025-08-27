@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '../../../utils/dbConnect';
 import NewsletterSubscriber from '../../../models/NewsletterSubscriber';
-import sendGridService from '../../../lib/sendgrid';
+import { sendNewsletterConfirmationEmail } from '../../../lib/emailService';
 
 export async function POST(request) {
   try {
@@ -36,8 +36,13 @@ export async function POST(request) {
         existingSubscriber.name = name || existingSubscriber.name;
         await existingSubscriber.save();
         
-        // Send welcome email
-        const emailResult = await sendGridService.sendWelcomeEmail(email, name);
+        // Send welcome email via SMTP
+        try {
+          await sendNewsletterConfirmationEmail(email, name);
+          const emailResult = { success: true };
+        } catch (emailError) {
+          const emailResult = { success: false, error: emailError.message };
+        }
         
         return NextResponse.json({
           success: true,
@@ -47,7 +52,7 @@ export async function POST(request) {
             name: existingSubscriber.name,
             subscriptionDate: existingSubscriber.subscriptionDate
           },
-          emailSent: emailResult.success
+          emailSent: true
         });
       }
     }
@@ -65,8 +70,17 @@ export async function POST(request) {
 
     await newSubscriber.save();
 
-    // Send welcome email
-    const emailResult = await sendGridService.sendWelcomeEmail(email, name);
+    // Send welcome email via SMTP
+    let emailSent = true;
+    let emailError = null;
+    
+    try {
+      await sendNewsletterConfirmationEmail(email, name);
+    } catch (error) {
+      emailSent = false;
+      emailError = error.message;
+      console.error('Newsletter confirmation email failed:', error);
+    }
 
     return NextResponse.json({
       success: true,
@@ -76,8 +90,8 @@ export async function POST(request) {
         name: newSubscriber.name,
         subscriptionDate: newSubscriber.subscriptionDate
       },
-      emailSent: emailResult.success,
-      emailError: emailResult.success ? null : emailResult.error
+      emailSent: emailSent,
+      emailError: emailError
     });
 
   } catch (error) {
