@@ -57,92 +57,18 @@ export default function ComprehensiveContestManagement() {
   const fetchContests = async () => {
     setLoading(true);
     try {
-      // Mock data for demonstration
-      setTimeout(() => {
-        const mockContests = [
-          {
-            _id: "1",
-            title: "Weekly Challenge #45",
-            description: "Test your skills with array and string manipulation problems",
-            startTime: new Date("2024-02-01T18:00:00Z"),
-            endTime: new Date("2024-02-01T21:00:00Z"),
-            duration: 180,
-            type: "public",
-            status: "completed",
-            participants: 1247,
-            maxParticipants: null,
-            problems: [
-              { problemId: "p1", title: "Two Sum", difficulty: "Easy", points: 100 },
-              { problemId: "p2", title: "Valid Parentheses", difficulty: "Easy", points: 150 },
-              { problemId: "p3", title: "Longest Palindrome", difficulty: "Medium", points: 300 },
-              { problemId: "p4", title: "Merge Intervals", difficulty: "Hard", points: 500 }
-            ],
-            prizes: [
-              { position: 1, prize: "$100 Gift Card" },
-              { position: 2, prize: "$50 Gift Card" },
-              { position: 3, prize: "$25 Gift Card" }
-            ],
-            createdAt: new Date("2024-01-25"),
-            registrationOpen: false,
-            totalSubmissions: 4523
-          },
-          {
-            _id: "2",
-            title: "Algorithm Masters Championship",
-            description: "Monthly championship for advanced programmers",
-            startTime: new Date("2024-02-15T16:00:00Z"),
-            endTime: new Date("2024-02-15T20:00:00Z"),
-            duration: 240,
-            type: "premium",
-            status: "upcoming",
-            participants: 89,
-            maxParticipants: 500,
-            problems: [
-              { problemId: "p5", title: "Binary Tree Traversal", difficulty: "Medium", points: 250 },
-              { problemId: "p6", title: "Graph Algorithms", difficulty: "Hard", points: 400 },
-              { problemId: "p7", title: "Dynamic Programming", difficulty: "Hard", points: 600 }
-            ],
-            prizes: [
-              { position: 1, prize: "$500 Cash Prize" },
-              { position: 2, prize: "$300 Cash Prize" },
-              { position: 3, prize: "$200 Cash Prize" }
-            ],
-            createdAt: new Date("2024-01-20"),
-            registrationOpen: true,
-            totalSubmissions: 0
-          },
-          {
-            _id: "3",
-            title: "Beginner's Programming Contest",
-            description: "Perfect for newcomers to competitive programming",
-            startTime: new Date("2024-02-10T14:00:00Z"),
-            endTime: new Date("2024-02-10T16:00:00Z"),
-            duration: 120,
-            type: "public",
-            status: "active",
-            participants: 567,
-            maxParticipants: null,
-            problems: [
-              { problemId: "p8", title: "Hello World", difficulty: "Easy", points: 50 },
-              { problemId: "p9", title: "Simple Math", difficulty: "Easy", points: 100 },
-              { problemId: "p10", title: "Basic Loops", difficulty: "Easy", points: 150 }
-            ],
-            prizes: [
-              { position: 1, prize: "Certificate + Badge" },
-              { position: 2, prize: "Certificate + Badge" },
-              { position: 3, prize: "Certificate + Badge" }
-            ],
-            createdAt: new Date("2024-02-05"),
-            registrationOpen: true,
-            totalSubmissions: 1234
-          }
-        ];
-        
-        setContests(mockContests);
-        setLoading(false);
-      }, 1000);
+      const response = await fetch('/api/admin/contests?limit=50');
+      if (response.ok) {
+        const data = await response.json();
+        setContests(data.contests || []);
+      } else {
+        console.error('Failed to fetch contests');
+        setContests([]);
+      }
     } catch (error) {
       console.error("Error fetching contests:", error);
+      setContests([]);
+    } finally {
       setLoading(false);
     }
   };
@@ -170,42 +96,119 @@ export default function ComprehensiveContestManagement() {
 
   const handleCreateContest = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    
     try {
-      // Simulate API call
-      setTimeout(() => {
+      const contestData = {
+        title: formData.title,
+        description: formData.description,
+        startTime: new Date(formData.startTime),
+        endTime: new Date(formData.endTime),
+        duration: parseInt(formData.duration),
+        type: formData.type,
+        maxParticipants: formData.maxParticipants ? parseInt(formData.maxParticipants) : null,
+        problems: formData.problems || [],
+        prizes: formData.prizes || []
+      };
+
+      const response = await fetch('/api/admin/contests', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contestData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
         setShowCreateModal(false);
         resetForm();
-        fetchContests();
-      }, 1000);
+        await fetchContests();
+      } else {
+        const errorData = await response.json();
+        console.error('Failed to create contest:', errorData.error);
+        alert('Failed to create contest: ' + (errorData.error || 'Unknown error'));
+      }
     } catch (error) {
       console.error("Error creating contest:", error);
+      alert('Failed to create contest. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleEditContest = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    
     try {
-      // Simulate API call
-      setTimeout(() => {
+      const contestData = {
+        title: formData.title,
+        description: formData.description,
+        startTime: new Date(formData.startTime),
+        endTime: new Date(formData.endTime),
+        duration: parseInt(formData.duration),
+        type: formData.type,
+        maxParticipants: formData.maxParticipants ? parseInt(formData.maxParticipants) : null,
+        problems: formData.problems || [],
+        prizes: formData.prizes || []
+      };
+
+      const response = await fetch(`/api/admin/contests`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contestId: selectedContest._id,
+          ...contestData
+        }),
+      });
+
+      if (response.ok) {
         setShowEditModal(false);
         resetForm();
-        fetchContests();
-      }, 1000);
+        await fetchContests();
+      } else {
+        const errorData = await response.json();
+        console.error('Failed to update contest:', errorData.error);
+        alert('Failed to update contest: ' + (errorData.error || 'Unknown error'));
+      }
     } catch (error) {
       console.error("Error updating contest:", error);
+      alert('Failed to update contest. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleDeleteContest = async () => {
+    if (!selectedContest) return;
+    
+    setLoading(true);
     try {
-      // Simulate API call
-      setTimeout(() => {
+      const response = await fetch(`/api/admin/contests`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ contestId: selectedContest._id }),
+      });
+
+      if (response.ok) {
         setShowDeleteModal(false);
         setSelectedContest(null);
-        fetchContests();
-      }, 1000);
+        await fetchContests();
+      } else {
+        const errorData = await response.json();
+        console.error('Failed to delete contest:', errorData.error);
+        alert('Failed to delete contest: ' + (errorData.error || 'Unknown error'));
+      }
     } catch (error) {
       console.error("Error deleting contest:", error);
+      alert('Failed to delete contest. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 

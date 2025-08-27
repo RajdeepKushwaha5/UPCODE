@@ -123,7 +123,7 @@ export async function GET(req) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const adminEmails = ['admin@upcode.com', 'your-email@gmail.com'];
+    const adminEmails = ['admin@upcode.com', 'your-email@gmail.com', 'rajdeepsingh10789@gmail.com'];
     if (!adminEmails.includes(session.user.email)) {
       return NextResponse.json({ error: 'Admin access required' }, { status: 403 });
     }
@@ -194,7 +194,7 @@ export async function PUT(req) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const adminEmails = ['admin@upcode.com', 'your-email@gmail.com'];
+    const adminEmails = ['admin@upcode.com', 'your-email@gmail.com', 'rajdeepsingh10789@gmail.com'];
     if (!adminEmails.includes(session.user.email)) {
       return NextResponse.json({ error: 'Admin access required' }, { status: 403 });
     }
@@ -261,7 +261,7 @@ export async function DELETE(req) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const adminEmails = ['admin@upcode.com', 'your-email@gmail.com'];
+    const adminEmails = ['admin@upcode.com', 'your-email@gmail.com', 'rajdeepsingh10789@gmail.com'];
     if (!adminEmails.includes(session.user.email)) {
       return NextResponse.json({ error: 'Admin access required' }, { status: 403 });
     }
