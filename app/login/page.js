@@ -146,26 +146,26 @@ export default function LoginPage() {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex flex-col justify-center items-center py-8 px-4">
+    <section className="min-h-screen theme-bg flex flex-col justify-center items-center py-8 px-4">
       <div className="w-full max-w-md">
         {/* Logo and Branding */}
-        <Link href='/' className='flex justify-center items-center mb-8 gap-4'>
-          <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+        <Link href='/' className='flex justify-center items-center mb-8 gap-4 animate-fade-in-down'>
+          <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
             <img
               src='/logo.png'
               alt='upcode_logo'
               className='w-10 h-10 object-contain filter brightness-0 invert'
             />
           </div>
-          <h1 className='font-black text-4xl bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent'>
+          <h1 className='font-black text-4xl theme-text'>
             UPCODE
           </h1>
         </Link>
 
         {/* Welcome Message */}
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-white mb-2">Welcome Back</h2>
-          <p className="text-gray-400">Sign in to continue your coding journey</p>
+        <div className="text-center mb-8 animate-fade-in-up animation-delay-200">
+          <h2 className="text-3xl font-bold theme-text mb-2">Welcome Back! 👋</h2>
+          <p className="theme-text-secondary">Sign in to continue your coding journey</p>
         </div>
 
         {/* Error Message */}
@@ -176,10 +176,10 @@ export default function LoginPage() {
         )}
 
         {/* Login Form */}
-        <form className="space-y-6" onSubmit={handleLogin}>
+        <form className="space-y-6 animate-fade-in-up animation-delay-300" onSubmit={handleLogin}>
           {/* Email or Username Field */}
           <div>
-            <label className="block text-sm font-semibold text-gray-300 mb-2">
+            <label className="block text-sm font-semibold theme-text mb-2">
               Email or Username
             </label>
             <input
@@ -189,7 +189,7 @@ export default function LoginPage() {
               value={emailOrUsername}
               disabled={loginInProgress}
               onChange={(ev) => setEmailOrUsername(ev.target.value)}
-              className="w-full p-4 bg-slate-800/50 backdrop-blur-sm border border-slate-600 rounded-xl text-white placeholder-gray-400 font-medium focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
+              className="w-full p-4 theme-surface backdrop-blur-sm border theme-border rounded-xl theme-text placeholder-gray-400 font-medium focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 hover:border-blue-400"
               required
             />
           </div>
@@ -197,13 +197,13 @@ export default function LoginPage() {
           {/* Password Field */}
           <div>
             <div className="flex justify-between items-center mb-2">
-              <label className="block text-sm font-semibold text-gray-300">
+              <label className="block text-sm font-semibold theme-text">
                 Password
               </label>
               <button
                 type="button"
                 onClick={() => setShowForgotPassword(true)}
-                className="text-sm text-purple-400 hover:text-purple-300 transition-colors duration-300"
+                className="text-sm theme-accent hover:theme-text-secondary transition-colors duration-300"
               >
                 Forgot password?
               </button>
@@ -215,7 +215,7 @@ export default function LoginPage() {
               value={password}
               disabled={loginInProgress}
               onChange={(ev) => setPassword(ev.target.value)}
-              className="w-full p-4 bg-slate-800/50 backdrop-blur-sm border border-slate-600 rounded-xl text-white placeholder-gray-400 font-medium focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
+              className="w-full p-4 theme-surface backdrop-blur-sm border theme-border rounded-xl theme-text placeholder-gray-400 font-medium focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 hover:border-blue-400"
               required
             />
           </div>
@@ -224,7 +224,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loginInProgress}
-            className="w-full py-4 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 text-white font-bold rounded-xl hover:from-purple-600 hover:via-pink-600 hover:to-purple-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+            className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-blue-500/50"
           >
             {loginInProgress ? (
               <div className="flex items-center justify-center">
@@ -239,16 +239,16 @@ export default function LoginPage() {
 
         {/* Divider */}
         <div className="flex items-center my-8">
-          <div className="flex-1 border-t border-slate-600"></div>
-          <span className="px-4 text-gray-400 text-sm font-medium">Or continue with</span>
-          <div className="flex-1 border-t border-slate-600"></div>
+          <div className="flex-1 border-t theme-border"></div>
+          <span className="px-4 theme-text-secondary text-sm font-medium">Or continue with</span>
+          <div className="flex-1 border-t theme-border"></div>
         </div>
 
         {/* Social Authentication */}
         <div className="space-y-3">
           <button
             onClick={() => handleSocialAuth('google')}
-            className="w-full p-4 bg-white text-gray-800 font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl"
+            className="w-full p-4 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
           >
             <img src="/google.png" alt="Google" className="w-5 h-5" />
             <span>Continue with Google</span>
@@ -256,7 +256,7 @@ export default function LoginPage() {
 
           <button
             onClick={() => handleSocialAuth('github')}
-            className="w-full p-4 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl border border-gray-700"
+            className="w-full p-4 theme-surface text-white font-semibold rounded-xl hover:theme-surface-elevated transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl border theme-border hover:scale-105 active:scale-95"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
@@ -267,9 +267,9 @@ export default function LoginPage() {
 
         {/* Register Link */}
         <div className="text-center mt-8">
-          <p className="text-gray-400">
+          <p className="theme-text-secondary">
             Don't have an account?{' '}
-            <Link href="/register" className="text-purple-400 hover:text-purple-300 font-semibold transition-colors duration-300">
+            <Link href="/register" className="theme-accent hover:underline font-semibold transition-all duration-300">
               Create account here
             </Link>
           </p>
@@ -279,18 +279,18 @@ export default function LoginPage() {
       {/* Forgot Password Modal */}
       {showForgotPassword && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-purple-500/30 rounded-2xl p-8 max-w-md w-full">
+          <div className="theme-surface border theme-border rounded-2xl p-8 max-w-md w-full shadow-2xl animate-scale-in">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-white">Reset Password</h2>
+              <h2 className="text-2xl font-bold theme-text">Reset Password</h2>
               <button
                 onClick={() => setShowForgotPassword(false)}
-                className="text-gray-400 hover:text-white text-2xl"
+                className="theme-text-secondary hover:theme-text text-2xl transition-colors"
               >
                 ×
               </button>
             </div>
 
-            <p className="text-gray-300 mb-6">
+            <p className="theme-text-secondary mb-6">
               Enter your email address and we'll send you a link to reset your password.
             </p>
 
@@ -300,12 +300,12 @@ export default function LoginPage() {
                 placeholder="Enter your email address"
                 value={emailOrUsername.includes('@') ? emailOrUsername : ''}
                 onChange={(e) => setEmailOrUsername(e.target.value)}
-                className="w-full p-4 bg-slate-800 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none"
+                className="w-full p-4 theme-surface border theme-border rounded-xl theme-text placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
               />
 
               <button
                 onClick={handleForgotPassword}
-                className="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all duration-300"
+                className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-blue-500/50"
               >
                 Send Reset Link
               </button>

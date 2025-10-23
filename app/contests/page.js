@@ -696,7 +696,7 @@ export default function ContestsPage() {
       // Days of the month (without date string comparisons)
       for (let day = 1; day <= daysInMonth; day++) {
         days.push(
-          <div key={day} className="h-8 lg:h-10 flex items-center justify-center text-xs lg:text-sm cursor-pointer rounded-lg transition-all hover:bg-purple-500/20 text-purple-100">
+          <div key={day} className="h-8 lg:h-10 flex items-center justify-center text-xs lg:text-sm cursor-pointer rounded-lg transition-all hover:bg-blue-500/20 theme-text-secondary">
             {day}
           </div>
         );
@@ -729,12 +729,12 @@ export default function ContestsPage() {
           whileTap={{ scale: 0.95 }}
           className={`h-8 lg:h-10 flex flex-col items-center justify-center text-xs lg:text-sm cursor-pointer rounded-lg transition-all relative group
             ${isToday 
-              ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold shadow-lg' 
+              ? 'bg-blue-600 text-white font-bold shadow-lg' 
               : isPast 
-                ? 'text-purple-400/50 hover:text-purple-300' 
-                : 'text-purple-100 hover:bg-purple-500/20'
+                ? 'theme-accent/50 hover:theme-text-secondary' 
+                : 'theme-text-secondary hover:bg-blue-500/20'
             }
-            ${contestsForDay.length > 0 ? 'ring-2 ring-purple-400/50' : ''}
+            ${contestsForDay.length > 0 ? 'ring-2 ring-blue-400/50' : ''}
           `}
           title={contestsForDay.length > 0 ? `${contestsForDay.length} contest(s) on this day` : ''}
         >
@@ -748,20 +748,20 @@ export default function ContestsPage() {
                     contest.status === 'live' 
                       ? 'bg-green-400 animate-pulse' 
                       : contest.status === 'upcoming'
-                        ? 'bg-purple-400'
+                        ? 'bg-blue-500'
                         : 'bg-gray-500'
                   }`}
                 />
               ))}
               {contestsForDay.length > 3 && (
-                <span className="text-xs text-purple-300">+{contestsForDay.length - 3}</span>
+                <span className="text-xs theme-text-secondary">+{contestsForDay.length - 3}</span>
               )}
             </div>
           )}
           
           {/* Tooltip on hover */}
           {contestsForDay.length > 0 && (
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-slate-800 text-white text-xs rounded-lg px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity z-10 whitespace-nowrap">
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 theme-surface text-white text-xs rounded-lg px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity z-10 whitespace-nowrap">
               {contestsForDay.map(contest => (
                 <div key={contest.id} className="truncate max-w-32">
                   {contest.title}
@@ -777,12 +777,11 @@ export default function ContestsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-0 right-0 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-200"></div>
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-500"></div>
+    <div className="min-h-screen theme-bg relative overflow-hidden">
+      {/* Subtle Background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl"></div>
       </div>
       
       <div className="relative z-10">
@@ -793,32 +792,32 @@ export default function ContestsPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-8"
           >
-            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent mb-4">
+            <h1 className="text-5xl md:text-6xl font-bold theme-text mb-4">
               Programming Contests
             </h1>
-            <p className="text-purple-200 text-lg md:text-xl max-w-3xl mx-auto">
+            <p className="theme-text-secondary text-lg md:text-xl max-w-3xl mx-auto">
               Compete with the best minds around the world • Live contests & Real-time updates
             </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-purple-300">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm theme-text-secondary">
               <motion.div 
-                className="flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-full border border-purple-400/30"
+                className="flex items-center gap-2 theme-surface px-4 py-2 rounded-full border border theme-border"
                 whileHover={{ scale: 1.05 }}
               >
-                <FaClock className="text-purple-400" />
+                <FaClock className="theme-accent" />
                 <span>{isMounted ? currentTime.toLocaleString() : '...'}</span>
               </motion.div>
               <motion.div 
-                className="flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-full border border-purple-400/30"
+                className="flex items-center gap-2 theme-surface px-4 py-2 rounded-full border border theme-border"
                 whileHover={{ scale: 1.05 }}
               >
-                <FaUsers className="text-purple-400" />
+                <FaUsers className="theme-accent" />
                 <span>{isMounted ? realtimeStats.activeUsers.toLocaleString() : '...'} Active Users</span>
               </motion.div>
               <motion.div 
-                className="flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-full border border-purple-400/30"
+                className="flex items-center gap-2 theme-surface px-4 py-2 rounded-full border border theme-border"
                 whileHover={{ scale: 1.05 }}
               >
-                <FaFire className="text-purple-400" />
+                <FaFire className="theme-accent" />
                 <span>{realtimeStats.liveContests} Live Contests</span>
               </motion.div>
             </div>
@@ -831,7 +830,7 @@ export default function ContestsPage() {
             transition={{ delay: 0.2 }}
             className="mb-8"
           >
-            <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 rounded-3xl p-8 text-center text-white mb-6 border border-purple-400/30 shadow-2xl">
+            <div className="bg-blue-600 rounded-3xl p-8 text-center text-white mb-6 border border theme-border shadow-2xl">
               <motion.div
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
@@ -842,7 +841,7 @@ export default function ContestsPage() {
                   Real-Time Battle Modes
                   <FaCrown className="text-yellow-400" />
                 </h2>
-                <p className="text-lg md:text-xl text-purple-100 mb-6 max-w-3xl mx-auto">
+                <p className="text-lg md:text-xl theme-text-secondary mb-6 max-w-3xl mx-auto">
                   Challenge coders worldwide in epic real-time battles! Choose your arena and prove your coding supremacy.
                 </p>
 
@@ -853,8 +852,8 @@ export default function ContestsPage() {
                   >
                     <FaCode className="text-4xl text-orange-400 mx-auto mb-3" />
                     <h3 className="text-xl font-bold mb-2">CodeDuel</h3>
-                    <p className="text-purple-100 text-sm mb-3">1v1 epic showdowns</p>
-                    <div className="text-xs text-purple-200">⚡ 30min • 🎯 1 Problem</div>
+                    <p className="theme-text-secondary text-sm mb-3">1v1 epic showdowns</p>
+                    <div className="text-xs theme-text-secondary">⚡ 30min • 🎯 1 Problem</div>
                   </motion.div>
 
                   <motion.div
@@ -863,8 +862,8 @@ export default function ContestsPage() {
                   >
                     <FaUsers className="text-4xl text-blue-400 mx-auto mb-3" />
                     <h3 className="text-xl font-bold mb-2">QuadRush</h3>
-                    <p className="text-purple-100 text-sm mb-3">4-player squad battles</p>
-                    <div className="text-xs text-purple-200">⚡ 45min • 🎯 2 Problems</div>
+                    <p className="theme-text-secondary text-sm mb-3">4-player squad battles</p>
+                    <div className="text-xs theme-text-secondary">⚡ 45min • 🎯 2 Problems</div>
                   </motion.div>
 
                   <motion.div
@@ -873,8 +872,8 @@ export default function ContestsPage() {
                   >
                     <FaCrown className="text-4xl text-yellow-400 mx-auto mb-3" />
                     <h3 className="text-xl font-bold mb-2">CodeBattleground</h3>
-                    <p className="text-purple-100 text-sm mb-3">100-player code royale</p>
-                    <div className="text-xs text-purple-200">⚡ 60min • 🎯 3 Problems</div>
+                    <p className="theme-text-secondary text-sm mb-3">100-player code royale</p>
+                    <div className="text-xs theme-text-secondary">⚡ 60min • 🎯 3 Problems</div>
                   </motion.div>
                 </div>
 
@@ -882,7 +881,7 @@ export default function ContestsPage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setShowContestModes(!showContestModes)}
-                  className="bg-white text-purple-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-purple-50 transition-all duration-300 shadow-xl hover:shadow-2xl"
+                  className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl"
                 >
                   <FaBolt className="inline mr-2" />
                   {showContestModes ? 'Hide Battle Modes' : 'Enter Battle Arena'}
@@ -913,13 +912,13 @@ export default function ContestsPage() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-purple-400/30"
+                className="theme-surface backdrop-blur-sm rounded-xl p-6 shadow-lg border border theme-border"
               >
                 <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full md:w-auto">
                     <div className="flex items-center gap-2">
-                      <FaFilter className="text-purple-400" />
-                      <span className="text-purple-200 font-medium">Filter:</span>
+                      <FaFilter className="theme-accent" />
+                      <span className="theme-text-secondary font-medium">Filter:</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {['all', 'live', 'upcoming', 'completed'].map((filter) => (
@@ -929,8 +928,8 @@ export default function ContestsPage() {
                           whileTap={{ scale: 0.95 }}
                           onClick={() => setSelectedFilter(filter)}
                           className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${selectedFilter === filter
-                            ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
-                            : 'bg-slate-700/50 text-purple-200 hover:bg-slate-600/50 border border-purple-400/30'
+                            ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg'
+                            : 'theme-surface-elevated/50 theme-text-secondary hover:bg-slate-600/50 border border theme-border'
                             }`}
                         >
                           {filter.charAt(0).toUpperCase() + filter.slice(1)}
@@ -939,13 +938,13 @@ export default function ContestsPage() {
                     </div>
                   </div>
                   <div className="relative w-full md:w-auto">
-                    <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400" />
+                    <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 theme-accent" />
                     <input
                       type="text"
                       placeholder="Search contests..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10 pr-4 py-2 w-full md:w-64 bg-slate-700/50 border border-purple-400/30 rounded-lg text-white placeholder-purple-300/70 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300"
+                      className="pl-10 pr-4 py-2 w-full md:w-64 theme-surface-elevated/50 border border theme-border rounded-lg theme-text placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
                     />
                 </div>
               </div>
@@ -961,7 +960,7 @@ export default function ContestsPage() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ delay: index * 0.1 }}
-                      className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-400/30 hover:border-purple-400/50"
+                      className="theme-surface backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border theme-border hover:border theme-border"
                     >
                       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                         <div className="flex-1 w-full">
@@ -973,7 +972,7 @@ export default function ContestsPage() {
                               <h3 className="text-xl font-bold text-white">
                                 {contest.title}
                               </h3>
-                              <div className="flex flex-wrap items-center gap-4 text-sm text-purple-300">
+                              <div className="flex flex-wrap items-center gap-4 text-sm theme-text-secondary">
                                 <span className="flex items-center gap-1">
                                   <FaGlobe />
                                   {contest.host}
@@ -991,32 +990,32 @@ export default function ContestsPage() {
                           </div>
 
                           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                            <div className="bg-slate-700/50 rounded-lg p-3 border border-purple-400/30">
-                              <div className="text-sm text-purple-300 mb-1">Start Time</div>
+                            <div className="theme-surface-elevated/50 rounded-lg p-3 border border theme-border">
+                              <div className="text-sm theme-text-secondary mb-1">Start Time</div>
                               <div className="font-semibold text-white text-sm">
                                 {safeDateFormat(contest.startTime)}
                               </div>
-                              <div className="text-xs text-purple-200">
+                              <div className="text-xs theme-text-secondary">
                                 {safeTimeFormat(contest.startTime)}
                               </div>
                             </div>
 
-                            <div className="bg-slate-700/50 rounded-lg p-3 border border-purple-400/30">
-                              <div className="text-sm text-purple-300 mb-1">Duration</div>
+                            <div className="theme-surface-elevated/50 rounded-lg p-3 border border theme-border">
+                              <div className="text-sm theme-text-secondary mb-1">Duration</div>
                               <div className="font-semibold text-white">
                                 {Math.floor(contest.duration / 60)}h {contest.duration % 60}m
                               </div>
                             </div>
 
-                            <div className="bg-slate-700/50 rounded-lg p-3 border border-purple-400/30">
-                              <div className="text-sm text-purple-300 mb-1">Participants</div>
+                            <div className="theme-surface-elevated/50 rounded-lg p-3 border border theme-border">
+                              <div className="text-sm theme-text-secondary mb-1">Participants</div>
                               <div className="font-semibold text-white">
                                 {isMounted ? contest.participants.toLocaleString() : '...'}
                               </div>
                             </div>
 
-                            <div className="bg-slate-700/50 rounded-lg p-3 border border-purple-400/30">
-                              <div className="text-sm text-purple-300 mb-1">Prize Pool</div>
+                            <div className="theme-surface-elevated/50 rounded-lg p-3 border border theme-border">
+                              <div className="text-sm theme-text-secondary mb-1">Prize Pool</div>
                               <div className="font-semibold text-green-400">
                                 {contest.prize}
                               </div>
@@ -1113,7 +1112,7 @@ export default function ContestsPage() {
                               onClick={() => handleRegister(contest)}
                               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg w-full ${registeredContests.has(contest.id)
                                 ? 'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white'
-                                : 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white'
+                                : 'bg-blue-600 hover:bg-blue-700 text-white'
                                 }`}
                             >
                               {registeredContests.has(contest.id) ? (
@@ -1134,7 +1133,7 @@ export default function ContestsPage() {
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                               <Link
                                 href={`/contests/${contest.id}/results`}
-                                className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 shadow-lg hover:shadow-xl block"
+                                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 shadow-lg hover:shadow-xl block"
                               >
                                 <FaTrophy className="inline mr-2" />
                                 View Results
@@ -1145,7 +1144,7 @@ export default function ContestsPage() {
                           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                             <Link
                               href={`/contests/${contest.id}`}
-                              className="bg-slate-700/50 hover:bg-slate-600/50 text-purple-200 px-6 py-2 rounded-lg text-center transition-all duration-300 border border-purple-400/30 hover:border-purple-400/50 block"
+                              className="theme-surface-elevated/50 hover:bg-slate-600/50 theme-text-secondary px-6 py-2 rounded-lg text-center transition-all duration-300 border border theme-border hover:border theme-border block"
                             >
                               View Details
                             </Link>
@@ -1183,10 +1182,10 @@ export default function ContestsPage() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-purple-400/30"
+                className="theme-surface backdrop-blur-sm rounded-xl p-6 shadow-lg border border theme-border"
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <FaBell className="text-purple-400" />
+                  <FaBell className="theme-accent" />
                   <h3 className="text-lg font-bold text-white">Live Updates</h3>
                 </div>
                 <div className="space-y-3 max-h-80 overflow-y-auto scrollbar-hide">
@@ -1198,7 +1197,7 @@ export default function ContestsPage() {
                       className={`p-3 rounded-lg border transition-all duration-300 hover:scale-[1.02] ${
                         update.urgent
                           ? 'bg-red-900/30 border-red-400/30 text-red-100'
-                          : 'bg-slate-700/50 border-purple-400/30 text-purple-100'
+                          : 'theme-surface-elevated/50 border theme-border theme-text-secondary'
                       }`}
                     >
                       <div>
@@ -1222,11 +1221,11 @@ export default function ContestsPage() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 lg:p-6 shadow-lg border border-purple-400/30"
+                className="theme-surface backdrop-blur-sm rounded-xl p-4 lg:p-6 shadow-lg border border theme-border"
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
-                    <FaCalendarAlt className="text-purple-400" />
+                    <FaCalendarAlt className="theme-accent" />
                     <h3 className="text-base lg:text-lg font-bold text-white">Contest Calendar</h3>
                   </div>
                   <div className="flex items-center gap-1 lg:gap-2">
@@ -1234,7 +1233,7 @@ export default function ContestsPage() {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1))}
-                      className="p-1 lg:p-2 hover:bg-slate-700/50 rounded-lg text-purple-300 hover:text-white transition-colors"
+                      className="p-1 lg:p-2 hover:theme-surface-elevated/50 rounded-lg theme-text-secondary hover:text-white transition-colors"
                     >
                       <FaChevronLeft className="w-3 h-3 lg:w-4 lg:h-4" />
                     </motion.button>
@@ -1245,7 +1244,7 @@ export default function ContestsPage() {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1))}
-                      className="p-1 lg:p-2 hover:bg-slate-700/50 rounded-lg text-purple-300 hover:text-white transition-colors"
+                      className="p-1 lg:p-2 hover:theme-surface-elevated/50 rounded-lg theme-text-secondary hover:text-white transition-colors"
                     >
                       <FaChevronRight className="w-3 h-3 lg:w-4 lg:h-4" />
                     </motion.button>
@@ -1255,7 +1254,7 @@ export default function ContestsPage() {
                 {/* Calendar Grid */}
                 <div className="grid grid-cols-7 gap-1 mb-2">
                   {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                    <div key={day} className="h-6 lg:h-8 flex items-center justify-center text-xs font-semibold text-purple-300">
+                    <div key={day} className="h-6 lg:h-8 flex items-center justify-center text-xs font-semibold theme-text-secondary">
                       {day}
                     </div>
                   ))}
@@ -1266,14 +1265,14 @@ export default function ContestsPage() {
                 </div>
 
                 {/* Calendar Legend */}
-                <div className="space-y-2 text-xs text-purple-300">
+                <div className="space-y-2 text-xs theme-text-secondary">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded"></div>
+                      <div className="w-3 h-3 bg-blue-600 rounded"></div>
                       <span>Today</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 bg-purple-500 rounded"></div>
+                      <div className="w-3 h-3 bg-blue-500 rounded"></div>
                       <span>Upcoming Contest</span>
                     </div>
                   </div>
@@ -1283,7 +1282,7 @@ export default function ContestsPage() {
                       <span>Live Contest</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 border-2 border-purple-400 rounded"></div>
+                      <div className="w-3 h-3 border-2 border-blue-400 rounded"></div>
                       <span>Contest Day</span>
                     </div>
                   </div>
@@ -1291,7 +1290,7 @@ export default function ContestsPage() {
 
                 {/* Quick Stats for current month */}
                 <div className="mt-4 pt-4 border-t border-slate-700/50">
-                  <div className="text-xs text-purple-300">
+                  <div className="text-xs theme-text-secondary">
                     <div className="flex items-center justify-between">
                       <span>Contests this month:</span>
                       <span className="font-semibold text-white">
@@ -1311,45 +1310,45 @@ export default function ContestsPage() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-purple-400/30"
+                className="theme-surface backdrop-blur-sm rounded-xl p-6 shadow-lg border border theme-border"
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <FaTrophy className="text-purple-400" />
+                  <FaTrophy className="theme-accent" />
                   <h3 className="text-lg font-bold text-white">Live Stats</h3>
                 </div>
                 <div className="space-y-3">
                   <motion.div 
-                    className="flex justify-between items-center p-2 rounded-lg bg-slate-700/30"
+                    className="flex justify-between items-center p-2 rounded-lg theme-surface-elevated/30"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <span className="text-purple-200">Live Contests</span>
+                    <span className="theme-text-secondary">Live Contests</span>
                     <span className="font-bold text-green-400 text-lg">
                       {realtimeStats.liveContests}
                     </span>
                   </motion.div>
                   <motion.div 
-                    className="flex justify-between items-center p-2 rounded-lg bg-slate-700/30"
+                    className="flex justify-between items-center p-2 rounded-lg theme-surface-elevated/30"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <span className="text-purple-200">Upcoming</span>
+                    <span className="theme-text-secondary">Upcoming</span>
                     <span className="font-bold text-blue-400 text-lg">
                       {contests.filter(c => c.status === 'upcoming').length}
                     </span>
                   </motion.div>
                   <motion.div 
-                    className="flex justify-between items-center p-2 rounded-lg bg-slate-700/30"
+                    className="flex justify-between items-center p-2 rounded-lg theme-surface-elevated/30"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <span className="text-purple-200">Total Prize Pool</span>
+                    <span className="theme-text-secondary">Total Prize Pool</span>
                     <span className="font-bold text-yellow-400 text-lg">
                       ${isMounted ? realtimeStats.totalPrizePool.toLocaleString() : '...'}
                     </span>
                   </motion.div>
                   <motion.div 
-                    className="flex justify-between items-center p-2 rounded-lg bg-slate-700/30"
+                    className="flex justify-between items-center p-2 rounded-lg theme-surface-elevated/30"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <span className="text-purple-200">Active Users</span>
+                    <span className="theme-text-secondary">Active Users</span>
                     <span className="font-bold text-orange-400 text-lg">
                       {isMounted ? realtimeStats.activeUsers.toLocaleString() : '...'}
                     </span>
@@ -1364,14 +1363,14 @@ export default function ContestsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-purple-400/30"
+            className="mt-8 theme-surface backdrop-blur-sm rounded-xl p-6 shadow-lg border border theme-border"
           >
             <h3 className="text-lg font-bold text-white mb-4">Quick Actions</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   href="/problems"
-                  className="flex items-center gap-3 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white p-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   <FaCode className="text-xl" />
                   <div>

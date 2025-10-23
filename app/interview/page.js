@@ -72,7 +72,7 @@ export default function InterviewPage() {
         { name: "Google", icon: FaGoogle, color: "from-blue-500 to-green-500", problems: 245 },
         { name: "Amazon", icon: FaAmazon, color: "from-orange-500 to-yellow-500", problems: 189 },
         { name: "Microsoft", icon: FaMicrosoft, color: "from-blue-600 to-cyan-500", problems: 156 },
-        { name: "Meta", icon: FaFacebook, color: "from-blue-500 to-purple-600", problems: 134 },
+        { name: "Meta", icon: FaFacebook, color: "from-blue-500 to-blue-700", problems: 134 },
         { name: "Apple", icon: FaApple, color: "from-gray-600 to-gray-800", problems: 98 }
     ];
 
@@ -82,7 +82,7 @@ export default function InterviewPage() {
             title: "Technical Coding",
             description: "Time-limited coding problems with AI evaluation",
             icon: FaCode,
-            color: "from-purple-600 to-pink-600",
+            color: "from-blue-600 to-blue-700",
             features: ["Easy, Medium, Hard problems", "Real-time AI feedback", "Code optimization tips"],
             premium: false
         },
@@ -383,9 +383,9 @@ export default function InterviewPage() {
 
     if (status === "loading") {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+            <div className="min-h-screen theme-bg flex items-center justify-center">
                 <div className="relative">
-                    <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-purple-500"></div>
+                    <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-blue-500"></div>
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                         <div className="text-4xl animate-bounce">🤖</div>
                     </div>
@@ -395,7 +395,7 @@ export default function InterviewPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+        <div className="min-h-screen theme-bg relative overflow-hidden">
 
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
@@ -412,11 +412,11 @@ export default function InterviewPage() {
                 {/* Header Section */}
                 <div className="text-center mb-12 animate-fade-in-up">
                     <div className="flex items-center justify-center gap-4 mb-6">
-                        <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center text-4xl">
+                        <div className="w-20 h-20 bg-blue-600 rounded-3xl flex items-center justify-center text-4xl">
                             🤖
                         </div>
                         <div>
-                            <h1 className="text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            <h1 className="text-5xl font-black theme-text">
                                 AI Mock Interviews
                             </h1>
                             <p className="text-gray-400 text-xl mt-2">
@@ -427,25 +427,25 @@ export default function InterviewPage() {
 
                     {/* Quick Stats */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
-                        <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-4">
-                            <div className="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        <div className="theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-4">
+                            <div className="text-2xl font-black theme-accent">
                                 {stats.totalInterviews}
                             </div>
                             <p className="text-gray-400 text-sm">Interviews Taken</p>
                         </div>
-                        <div className="bg-slate-800/50 backdrop-blur-sm border border-green-500/20 rounded-2xl p-4">
+                        <div className="theme-surface backdrop-blur-sm border border-green-500/20 rounded-2xl p-4">
                             <div className="text-2xl font-black text-green-400">
                                 {stats.avgScore}%
                             </div>
                             <p className="text-gray-400 text-sm">Average Score</p>
                         </div>
-                        <div className="bg-slate-800/50 backdrop-blur-sm border border-yellow-500/20 rounded-2xl p-4">
+                        <div className="theme-surface backdrop-blur-sm border border-yellow-500/20 rounded-2xl p-4">
                             <div className="text-2xl font-black text-yellow-400">
                                 {stats.bestScore}%
                             </div>
                             <p className="text-gray-400 text-sm">Best Score</p>
                         </div>
-                        <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-4">
+                        <div className="theme-surface backdrop-blur-sm border border-blue-500/20 rounded-2xl p-4">
                             <div className="text-2xl font-black text-blue-400">
                                 {stats.completionRate}%
                             </div>
@@ -456,14 +456,14 @@ export default function InterviewPage() {
 
                 {/* Navigation Tabs */}
                 <div className="flex justify-center mb-8 animate-fade-in-up animation-delay-200">
-                    <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-2 flex gap-2">
+                    <div className="theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-2 flex gap-2">
                         {["modes", "companies", "history"].map((tab) => (
                             <button
                                 key={tab}
                                 onClick={() => setActiveTab(tab)}
                                 className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${activeTab === tab
-                                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                                    : "text-gray-400 hover:text-white hover:bg-slate-700/50"
+                                    ? "bg-blue-600 hover:bg-blue-700 text-white"
+                                    : "text-gray-400 hover:text-white hover:theme-surface-elevated/50"
                                     }`}
                             >
                                 {tab === "modes" && <FaRobot className="inline mr-2" />}
@@ -507,7 +507,7 @@ export default function InterviewPage() {
                                     <div className="flex flex-wrap justify-center gap-4">
                                         <button
                                             onClick={() => router.push('/ai-interview')}
-                                            className="bg-white text-purple-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 flex items-center gap-3"
+                                            className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 flex items-center gap-3"
                                         >
                                             <FaPlay />
                                             Start AI Interview
@@ -528,7 +528,7 @@ export default function InterviewPage() {
                             {interviewModes.map((mode, index) => (
                                 <div
                                     key={index}
-                                    className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-3xl p-8 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 group"
+                                    className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-8 hover:border theme-border transition-all duration-300 hover:scale-105 group"
                                 >
                                     <div className={`w-16 h-16 bg-gradient-to-r ${mode.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                                         <mode.icon className="text-2xl text-white" />
@@ -559,7 +559,7 @@ export default function InterviewPage() {
                                         onClick={() => handleStartInterview(mode, null, mode.premium)}
                                         className={`w-full py-3 rounded-xl font-bold transition-all duration-300 hover:scale-105 ${mode.premium
                                             ? "bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
-                                            : "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                                            : "bg-blue-600 hover:bg-blue-700 text-white"
                                             }`}
                                     >
                                         <FaPlay className="inline mr-2" />
@@ -580,7 +580,7 @@ export default function InterviewPage() {
                                 {hostingOptions.map((option, index) => (
                                     <div
                                         key={index}
-                                        className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-3xl p-8 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 group"
+                                        className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-8 hover:border theme-border transition-all duration-300 hover:scale-105 group"
                                     >
                                         <div className={`w-16 h-16 bg-gradient-to-r ${option.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                                             <option.icon className="text-2xl text-white" />
@@ -611,16 +611,16 @@ export default function InterviewPage() {
                         </div>
 
                         {/* Quick Start Section */}
-                        <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-3xl p-8">
+                        <div className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-8">
                             <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                                <FaRocket className="text-purple-400" />
+                                <FaRocket className="theme-accent" />
                                 Quick Start
                             </h2>
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 <button
                                     onClick={() => router.push('/ai-interview')}
-                                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-2xl p-6 transition-all duration-300 hover:scale-105 group"
+                                    className="bg-blue-600 hover:bg-blue-700 rounded-2xl p-6 transition-all duration-300 hover:scale-105 group"
                                 >
                                     <div className="flex items-center gap-4">
                                         <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
@@ -628,7 +628,7 @@ export default function InterviewPage() {
                                         </div>
                                         <div className="text-left">
                                             <h3 className="text-xl font-bold text-white">AI Voice Interview</h3>
-                                            <p className="text-purple-100 text-sm">Voice-powered AI interview</p>
+                                            <p className="theme-text-secondary text-sm">Voice-powered AI interview</p>
                                         </div>
                                     </div>
                                 </button>
@@ -687,7 +687,7 @@ export default function InterviewPage() {
                     <div className="animate-fade-in-up animation-delay-300">
                         <div className="mb-8">
                             <h2 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
-                                <FaGoogle className="text-purple-400" />
+                                <FaGoogle className="theme-accent" />
                                 Company-Specific Interviews
                             </h2>
                             <p className="text-gray-400 text-lg">
@@ -699,7 +699,7 @@ export default function InterviewPage() {
                             {companies.map((company, index) => (
                                 <div
                                     key={index}
-                                    className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-3xl p-6 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 group"
+                                    className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-6 hover:border theme-border transition-all duration-300 hover:scale-105 group"
                                 >
                                     <div className="flex items-center gap-4 mb-6">
                                         <div className={`w-16 h-16 bg-gradient-to-r ${company.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
@@ -712,15 +712,15 @@ export default function InterviewPage() {
                                     </div>
 
                                     <div className="space-y-3 mb-6">
-                                        <div className="flex justify-between items-center bg-slate-700/30 rounded-lg p-3">
+                                        <div className="flex justify-between items-center theme-surface-elevated/30 rounded-lg p-3">
                                             <span className="text-gray-300">DSA Problems</span>
-                                            <span className="text-purple-400 font-bold">{Math.floor(company.problems * 0.6)}</span>
+                                            <span className="theme-accent font-bold">{Math.floor(company.problems * 0.6)}</span>
                                         </div>
-                                        <div className="flex justify-between items-center bg-slate-700/30 rounded-lg p-3">
+                                        <div className="flex justify-between items-center theme-surface-elevated/30 rounded-lg p-3">
                                             <span className="text-gray-300">System Design</span>
                                             <span className="text-blue-400 font-bold">{Math.floor(company.problems * 0.3)}</span>
                                         </div>
-                                        <div className="flex justify-between items-center bg-slate-700/30 rounded-lg p-3">
+                                        <div className="flex justify-between items-center theme-surface-elevated/30 rounded-lg p-3">
                                             <span className="text-gray-300">Behavioral</span>
                                             <span className="text-green-400 font-bold">{Math.floor(company.problems * 0.1)}</span>
                                         </div>
@@ -728,7 +728,7 @@ export default function InterviewPage() {
 
                                     <button
                                         onClick={() => handleStartInterview({ title: "Company Interview" }, company.name)}
-                                        className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105"
+                                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105"
                                     >
                                         <FaPlay className="inline mr-2" />
                                         Start {company.name} Interview
@@ -763,7 +763,7 @@ export default function InterviewPage() {
                                     <p className="text-gray-400 text-sm">AI-powered resume optimization for each company</p>
                                 </div>
                                 <div className="text-center">
-                                    <FaVideo className="text-4xl text-purple-400 mx-auto mb-3" />
+                                    <FaVideo className="text-4xl theme-accent mx-auto mb-3" />
                                     <h4 className="text-xl font-bold text-white mb-2">Video Interviews</h4>
                                     <p className="text-gray-400 text-sm">Practice with video-based mock interviews</p>
                                 </div>
@@ -788,7 +788,7 @@ export default function InterviewPage() {
                         <div className="flex justify-between items-center mb-8">
                             <div>
                                 <h2 className="text-3xl font-bold text-white mb-2 flex items-center gap-3">
-                                    <FaHistory className="text-purple-400" />
+                                    <FaHistory className="theme-accent" />
                                     Interview History
                                 </h2>
                                 <p className="text-gray-400">
@@ -800,7 +800,7 @@ export default function InterviewPage() {
                                 <select
                                     value={selectedCompany}
                                     onChange={(e) => setSelectedCompany(e.target.value)}
-                                    className="bg-slate-800 border border-purple-500/20 rounded-xl px-4 py-2 text-white focus:border-purple-400 focus:outline-none"
+                                    className="theme-surface border border theme-border rounded-xl px-4 py-2 theme-text focus:border-blue-500 focus:outline-none"
                                 >
                                     <option value="all">All Companies</option>
                                     {companies.map(company => (
@@ -813,7 +813,7 @@ export default function InterviewPage() {
                                 <select
                                     value={selectedDifficulty}
                                     onChange={(e) => setSelectedDifficulty(e.target.value)}
-                                    className="bg-slate-800 border border-purple-500/20 rounded-xl px-4 py-2 text-white focus:border-purple-400 focus:outline-none"
+                                    className="theme-surface border border theme-border rounded-xl px-4 py-2 theme-text focus:border-blue-500 focus:outline-none"
                                 >
                                     <option value="all">All Types</option>
                                     <option value="technical">Technical</option>
@@ -830,7 +830,7 @@ export default function InterviewPage() {
                                                     return (
                                                         <div
                                                             key={interview.sessionId || interview.id}
-                                                            className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6 hover:border-purple-400/50 transition-all duration-300 hover:scale-[1.02]"
+                                                            className="theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-6 hover:border theme-border transition-all duration-300 hover:scale-[1.02]"
                                                         >
                                                             <div className="flex items-center justify-between">
                                                                 <div className="flex items-center gap-4">
@@ -870,7 +870,7 @@ export default function InterviewPage() {
 
                                                                     <div className="flex gap-2">
                                                                         <button 
-                                                                            className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
+                                                                            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
                                                                             onClick={() => toast.info('Review feature coming soon!')}
                                                                         >
                                                                             <FaEye />
@@ -898,7 +898,7 @@ export default function InterviewPage() {
                                 <p className="text-gray-400 mb-6">Start your first mock interview to track your progress</p>
                                 <button
                                     onClick={() => setActiveTab("modes")}
-                                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 hover:scale-105"
+                                    className="bg-blue-600 hover:bg-blue-700 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 hover:scale-105"
                                 >
                                     <FaPlay className="inline mr-2" />
                                     Start Your First Interview
@@ -909,9 +909,9 @@ export default function InterviewPage() {
                 )}
 
                 {/* AI Features Section */}
-                <div className="mt-16 bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-3xl p-8 animate-fade-in-up animation-delay-600">
+                <div className="mt-16 theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-8 animate-fade-in-up animation-delay-600">
                     <h2 className="text-3xl font-bold text-white mb-8 text-center flex items-center justify-center gap-3">
-                        <FaRobot className="text-purple-400" />
+                        <FaRobot className="theme-accent" />
                         AI-Powered Features
                     </h2>
 
@@ -954,7 +954,7 @@ export default function InterviewPage() {
             {/* Premium Modal */}
             {showPremiumModal && (
                 <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-                    <div className="bg-slate-900 border border-purple-500/30 rounded-3xl p-8 max-w-md w-full">
+                    <div className="theme-bg border border-purple-500/30 rounded-3xl p-8 max-w-md w-full">
                         <div className="text-center">
                             <div className="w-20 h-20 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-3xl flex items-center justify-center mx-auto mb-6">
                                 <FaCrown className="text-3xl text-white" />
@@ -968,7 +968,7 @@ export default function InterviewPage() {
                             <div className="flex gap-3">
                                 <button
                                     onClick={() => setShowPremiumModal(false)}
-                                    className="flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 rounded-xl transition-colors"
+                                    className="flex-1 theme-surface-elevated hover:bg-slate-600 text-white font-bold py-3 rounded-xl transition-colors"
                                 >
                                     Cancel
                                 </button>
