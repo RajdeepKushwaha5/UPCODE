@@ -22,29 +22,6 @@ export default function QuickSortVisualizer() {
   const [recursionDepth, setRecursionDepth] = useState(0);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // Generate random array
-  const generateArray = useCallback((size = 20) => {
-    const newArray = Array.from({ length: size }, (_, i) => ({
-      value: Math.floor(Math.random() * 300) + 10,
-      id: i
-    }));
-    setArray(newArray);
-    setPivotIndex(null);
-    setLeftPointer(null);
-    setRightPointer(null);
-    setComparing([]);
-    setSwapping([]);
-    setCompleted([]);
-    setPartitions([]);
-    setCurrentStep(0);
-    setIsPlaying(false);
-    setIsPaused(false);
-    setSwapCount(0);
-    setComparisonCount(0);
-    setRecursionDepth(0);
-    generateQuickSortSteps(newArray);
-  }, [generateQuickSortSteps]);
-
   // Generate quick sort algorithm steps
   const generateQuickSortSteps = useCallback((arr) => {
     const steps = [];
@@ -186,6 +163,29 @@ export default function QuickSortVisualizer() {
     setRecursionDepth(maxDepth);
   }, []);
 
+  // Generate random array
+  const generateArray = useCallback((size = 20) => {
+    const newArray = Array.from({ length: size }, (_, i) => ({
+      value: Math.floor(Math.random() * 300) + 10,
+      id: i
+    }));
+    setArray(newArray);
+    setPivotIndex(null);
+    setLeftPointer(null);
+    setRightPointer(null);
+    setComparing([]);
+    setSwapping([]);
+    setCompleted([]);
+    setPartitions([]);
+    setCurrentStep(0);
+    setIsPlaying(false);
+    setIsPaused(false);
+    setSwapCount(0);
+    setComparisonCount(0);
+    setRecursionDepth(0);
+    generateQuickSortSteps(newArray);
+  }, [generateQuickSortSteps]);
+
   // Execute algorithm step by step
   const executeStep = useCallback(() => {
     if (currentStep >= algorithm.length) {
@@ -307,11 +307,11 @@ export default function QuickSortVisualizer() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <Link href="/dsa-visualizer" className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-4 transition-colors duration-200">
+          <Link href="/dsa-visualizer" className="inline-flex items-center theme-accent hover:theme-text-secondary mb-4 transition-colors duration-200">
             ← Back to DSA Visualizer
           </Link>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
@@ -325,32 +325,32 @@ export default function QuickSortVisualizer() {
 
         {/* Algorithm Info */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Time Complexity</h3>
             <p className="text-slate-300 text-sm">Best: O(n log n)</p>
             <p className="text-slate-300 text-sm">Average: O(n log n)</p>
             <p className="text-slate-300 text-sm">Worst: O(n²)</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Space Complexity</h3>
             <p className="text-slate-300">O(log n)</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Comparisons</h3>
-            <p className="text-purple-400 text-2xl font-bold">{comparisonCount}</p>
+            <p className="theme-accent text-2xl font-bold">{comparisonCount}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Swaps</h3>
             <p className="text-pink-400 text-2xl font-bold">{swapCount}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Max Depth</h3>
             <p className="text-blue-400 text-2xl font-bold">{recursionDepth}</p>
           </div>
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
           <div className="flex flex-wrap items-center gap-4 mb-4">
             <button
               onClick={playPause}
@@ -360,14 +360,14 @@ export default function QuickSortVisualizer() {
             </button>
             <button
               onClick={reset}
-              className="bg-slate-700 text-white px-6 py-3 rounded-lg hover:bg-slate-600 transition-colors duration-200 font-semibold"
+              className="theme-surface-elevated text-white px-6 py-3 rounded-lg hover:bg-slate-600 transition-colors duration-200 font-semibold"
             >
               🔄 Reset
             </button>
             <button
               onClick={stepForward}
               disabled={currentStep >= algorithm.length}
-              className="bg-slate-700 text-white px-4 py-3 rounded-lg hover:bg-slate-600 transition-colors duration-200 disabled:opacity-50 font-semibold"
+              className="theme-surface-elevated text-white px-4 py-3 rounded-lg hover:bg-slate-600 transition-colors duration-200 disabled:opacity-50 font-semibold"
             >
               ⏭️ Step Forward
             </button>
@@ -413,7 +413,7 @@ export default function QuickSortVisualizer() {
               <span>Progress: {currentStep} / {totalSteps}</span>
               <span>{totalSteps > 0 ? Math.round((currentStep / totalSteps) * 100) : 0}%</span>
             </div>
-            <div className="w-full bg-slate-700 rounded-full h-3">
+            <div className="w-full theme-surface-elevated rounded-full h-3">
               <div
                 className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full transition-all duration-300"
                 style={{ width: `${totalSteps > 0 ? (currentStep / totalSteps) * 100 : 0}%` }}
@@ -455,7 +455,7 @@ export default function QuickSortVisualizer() {
         </div>
 
         {/* Visualization */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="flex items-end justify-center gap-1 h-80 overflow-x-auto pb-4 relative">
             {/* Partition indicators */}
             {partitions.map((partition, idx) => (
@@ -485,7 +485,7 @@ export default function QuickSortVisualizer() {
                 }}
               >
                 {/* Value label */}
-                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-slate-900 px-2 py-1 rounded">
+                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200 theme-bg px-2 py-1 rounded">
                   {item.value}
                 </div>
                 {/* Index label */}
@@ -509,18 +509,18 @@ export default function QuickSortVisualizer() {
 
         {/* Current Step Info */}
         {currentStep > 0 && algorithm[currentStep - 1] && (
-          <div className="mt-6 bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="mt-6 theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h4 className="text-lg font-semibold text-white mb-2">Current Step:</h4>
             <p className="text-slate-300">{algorithm[currentStep - 1].message}</p>
           </div>
         )}
 
         {/* Algorithm Explanation */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <h3 className="text-2xl font-bold text-white mb-4">How Quick Sort Works</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h4 className="text-lg font-semibold text-purple-400 mb-3">Algorithm Steps:</h4>
+              <h4 className="text-lg font-semibold theme-accent mb-3">Algorithm Steps:</h4>
               <ol className="text-slate-300 space-y-2">
                 <li>1. Choose a pivot element (usually last element)</li>
                 <li>2. Partition array around pivot</li>
