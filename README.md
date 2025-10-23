@@ -1,24 +1,35 @@
-# 🚀 UPCODE - Advanced Coding Platform
+# 🚀 UPCODE - Modern Coding & Interview Platform
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Next.js-15.4.6-black?style=for-the-badge&logo=next.js" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react" alt="React" />
+  <img src="https://img.shields.io/badge/Next.js-15.5.0-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react" alt="React" />
   <img src="https://img.shields.io/badge/MongoDB-6.18.0-green?style=for-the-badge&logo=mongodb" alt="MongoDB" />
-  <img src="https://img.shields.io/badge/TailwindCSS-3.4.17-06B6D4?style=for-the-badge&logo=tailwindcss" alt="TailwindCSS" />
+  <img src="https://img.shields.io/badge/TailwindCSS-3.4.15-06B6D4?style=for-the-badge&logo=tailwindcss" alt="TailwindCSS" />
   <img src="https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Deployed-Vercel-000000?style=for-the-badge&logo=vercel" alt="Vercel" />
 </div>
 
 <p align="center">
-  <strong>A comprehensive coding education platform with interactive DSA visualizations, live interviews, contest management, and AI-powered assistance.</strong>
+  <strong>🎯 A comprehensive full-stack coding education platform featuring interactive DSA visualizations, real-time coding interviews, competitive programming contests, AI-powered assistance, and structured learning paths.</strong>
 </p>
 
 <div align="center">
-  <a href="#-features">Features</a> •
-  <a href="#-tech-stack">Tech Stack</a> •
-  <a href="#-installation">Installation</a> •
-  <a href="#-usage">Usage</a> •
-  <a href="#-api-documentation">API</a> •
-  <a href="#-contributing">Contributing</a>
+  <h3>
+    <a href="https://upcode-coding-and-interview-platfor.vercel.app/">🌐 Live Demo</a> •
+    <a href="#-features">Features</a> •
+    <a href="#-tech-stack">Tech Stack</a> •
+    <a href="#-installation">Installation</a> •
+    <a href="#-screenshots">Screenshots</a> •
+    <a href="#-contributing">Contributing</a>
+  </h3>
+</div>
+
+<div align="center">
+  <p>
+    <a href="https://upcode-coding-and-interview-platfor.vercel.app/">
+      <img src="https://img.shields.io/badge/🚀_Live_Platform-Visit_Now-blue?style=for-the-badge" alt="Live Platform" />
+    </a>
+  </p>
 </div>
 
 ---
@@ -40,16 +51,21 @@
 ## 🌟 Features
 
 ### 🎯 Core Features
-- **Interactive Problem Solving**: Comprehensive coding problems with multiple difficulty levels
-- **Live Code Execution**: Support for Python, JavaScript, Java, and C++ with real-time testing
-- **AI-Powered Assistance**: Integrated AI chatbot for coding help and explanations
-- **User Authentication**: Secure OAuth integration with Google and GitHub
+- **🎨 Modern UI/UX**: Beautiful blue/cyan/teal themed interface with dark/light mode support
+- **Interactive Problem Solving**: 500+ coding problems with Easy, Medium, and Hard difficulty levels
+- **Live Code Execution**: Support for Python, JavaScript, Java, and C++ with real-time testing and instant feedback
+- **AI-Powered Assistance**: Integrated Google Gemini AI chatbot for coding help, explanations, and debugging
+- **User Authentication**: Secure NextAuth.js with OAuth integration (Google & GitHub) and email/password login
+- **Premium Membership**: Razorpay payment integration for premium features and exclusive content
 
-### 🔍 DSA Visualizer
-- **Array Algorithms**: Interactive visualizations for Bubble Sort, Quick Sort, Binary Search
-- **Tree Data Structures**: Binary Trees, BST, AVL Trees, Heaps with step-by-step animations
-- **Graph Algorithms**: Pathfinding and traversal visualizations
-- **Real-time Controls**: Play/pause, step-through, speed adjustment for all algorithms
+### 🔍 DSA Visualizer (32+ Algorithms)
+- **Array Algorithms**: Bubble Sort, Quick Sort, Merge Sort, Heap Sort, Insertion Sort, Selection Sort, Binary Search, Linear Search
+- **Tree Data Structures**: Binary Trees, BST, AVL Trees, Red-Black Trees, Heaps with step-by-step animations
+- **Graph Algorithms**: DFS, BFS, Dijkstra, Floyd-Warshall, Kruskal, Prim's Algorithm
+- **Dynamic Programming**: Fibonacci, Knapsack, Coin Change, LCS, Edit Distance
+- **Linked Lists**: Singly, Doubly, Circular Linked Lists
+- **Stacks & Queues**: Stack, Queue, Deque, Priority Queue
+- **Real-time Controls**: Play/pause, step-through, speed adjustment, and animation customization
 
 ### 🎓 Interview & Assessment
 - **Live Interview System**: Real-time coding interviews with video/audio support
@@ -72,12 +88,14 @@
 ## 🛠️ Tech Stack
 
 ### **Frontend**
-- **Framework**: Next.js 15.4.6 (React 18)
-- **Styling**: TailwindCSS 3.4.17
+- **Framework**: Next.js 15.5.0 (React 19)
+- **Styling**: TailwindCSS 3.4.15 with custom blue/cyan/teal theme
 - **UI Components**: Custom components with Radix UI primitives
-- **Animations**: Framer Motion
-- **Code Editor**: Monaco Editor, CodeMirror
-- **Charts**: Chart.js, React Chart.js 2
+- **Animations**: Framer Motion 12.23.12 with custom keyframe animations
+- **Code Editor**: Monaco Editor, CodeMirror with syntax highlighting
+- **Charts**: Chart.js 4.5.0, React Chart.js 2
+- **Icons**: Lucide React 0.542.0
+- **State Management**: React Context API with custom hooks
 
 ### **Backend**
 - **Runtime**: Node.js with Express.js
