@@ -220,7 +220,7 @@ export default function EnhancedOutputConsole({
                     </div>
                     
                     {result.isSubmission && (
-                      <span className="px-2 py-1 bg-purple-900/30 text-purple-300 text-xs rounded border border-purple-500/30">
+                      <span className="px-2 py-1 bg-purple-900/30 theme-text-secondary text-xs rounded border border-purple-500/30">
                         Submission
                       </span>
                     )}

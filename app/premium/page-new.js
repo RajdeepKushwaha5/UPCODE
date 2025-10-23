@@ -238,7 +238,7 @@ export default function PremiumPage() {
                 description: 'Exclusive challenging problems from top companies'
               },
               {
-                icon: <FaRobot className="text-3xl text-purple-400" />,
+                icon: <FaRobot className="text-3xl theme-accent" />,
                 title: 'AI Assistant',
                 description: '1-second response time with smart problem-specific help'
               },

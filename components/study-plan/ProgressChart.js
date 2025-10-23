@@ -159,7 +159,7 @@ const ProgressChart = ({ studyPlan, timeRange = '7d' }) => {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-white font-semibold text-xl flex items-center gap-2">
-            <FaChartLine className="text-purple-400" />
+            <FaChartLine className="theme-accent" />
             Progress Analytics
           </h3>
           <p className="text-gray-400 text-sm mt-1">Track your learning journey</p>
@@ -169,7 +169,7 @@ const ProgressChart = ({ studyPlan, timeRange = '7d' }) => {
           <select
             value={viewType}
             onChange={(e) => setViewType(e.target.value)}
-            className="bg-gray-700 text-white text-sm rounded-lg px-3 py-2 border border-gray-600 focus:border-purple-500 focus:outline-none"
+            className="bg-gray-700 text-white text-sm rounded-lg px-3 py-2 border border-gray-600 focus:border-blue-500 focus:outline-none"
           >
             <option value="chart">Chart View</option>
             <option value="stats">Stats View</option>
@@ -219,7 +219,7 @@ const ProgressChart = ({ studyPlan, timeRange = '7d' }) => {
                 <div className="text-gray-400 text-sm">Target</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-purple-400">
+                <div className="text-2xl font-bold theme-accent">
                   {Math.round((currentData.total / currentData.target) * 100)}%
                 </div>
                 <div className="text-gray-400 text-sm">Progress</div>

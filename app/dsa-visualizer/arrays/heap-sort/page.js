@@ -380,11 +380,11 @@ export default function HeapSortVisualizer() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <Link href="/dsa-visualizer/arrays" className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-4 transition-colors duration-200">
+          <Link href="/dsa-visualizer/arrays" className="inline-flex items-center theme-accent hover:theme-text-secondary mb-4 transition-colors duration-200">
             ← Back to Arrays
           </Link>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
@@ -398,37 +398,37 @@ export default function HeapSortVisualizer() {
 
         {/* Algorithm Info */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Time Complexity</h3>
             <p className="text-slate-300 text-sm">Best: O(n log n)</p>
             <p className="text-slate-300 text-sm">Average: O(n log n)</p>
             <p className="text-slate-300 text-sm">Worst: O(n log n)</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Space</h3>
             <p className="text-slate-300">O(1)</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Comparisons</h3>
-            <p className="text-purple-400 text-2xl font-bold">{comparisonCount}</p>
+            <p className="theme-accent text-2xl font-bold">{comparisonCount}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Swaps</h3>
             <p className="text-pink-400 text-2xl font-bold">{swapCount}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Phase</h3>
             <p className="text-blue-400 text-sm font-medium">{currentPhase || 'Ready'}</p>
           </div>
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 mb-8 border border-slate-700/50">
+        <div className="theme-surface/30 backdrop-blur-sm rounded-xl p-6 mb-8 border border-slate-700/50">
           <div className="flex flex-wrap gap-4 items-center justify-center mb-4">
             <button
               onClick={playPause}
               disabled={currentStep >= algorithm.length && !isPaused}
-              className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
               {isPlaying && !isPaused ? 'Pause' : 'Play'}
             </button>
@@ -436,7 +436,7 @@ export default function HeapSortVisualizer() {
             <button
               onClick={stepBackward}
               disabled={currentStep <= 0}
-              className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+              className="px-4 py-2 theme-surface-elevated text-white rounded-lg hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
             >
               ← Step
             </button>
@@ -444,7 +444,7 @@ export default function HeapSortVisualizer() {
             <button
               onClick={stepForward}
               disabled={currentStep >= algorithm.length}
-              className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+              className="px-4 py-2 theme-surface-elevated text-white rounded-lg hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
             >
               Step →
             </button>
@@ -483,7 +483,7 @@ export default function HeapSortVisualizer() {
               <select
                 value={array.length}
                 onChange={(e) => generateArray(Number(e.target.value))}
-                className="ml-2 px-2 py-1 bg-slate-700 text-white rounded"
+                className="ml-2 px-2 py-1 theme-surface-elevated text-white rounded"
                 disabled={isPlaying}
               >
                 <option value={8}>8</option>
@@ -499,14 +499,14 @@ export default function HeapSortVisualizer() {
               <div className="text-sm text-slate-400 mb-2">
                 Step {currentStep} of {totalSteps}
               </div>
-              <div className="w-full bg-slate-700 rounded-full h-2">
+              <div className="w-full theme-surface-elevated rounded-full h-2">
                 <div
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 h-2 rounded-full transition-all duration-300"
+                  className="bg-blue-600 hover:bg-blue-700 h-2 rounded-full transition-all duration-300"
                   style={{ width: `${(currentStep / totalSteps) * 100}%` }}
                 ></div>
               </div>
               {currentStep > 0 && algorithm[currentStep - 1]?.description && (
-                <div className="mt-2 text-sm text-slate-300 bg-slate-800/50 rounded-lg p-2">
+                <div className="mt-2 text-sm text-slate-300 theme-surface rounded-lg p-2">
                   {algorithm[currentStep - 1].description}
                 </div>
               )}
@@ -515,7 +515,7 @@ export default function HeapSortVisualizer() {
         </div>
 
         {/* Visualization */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-6">
+        <div className="theme-surface/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-6">
           <h3 className="text-xl font-semibold text-white mb-4 text-center">Array Visualization</h3>
           
           {array.length > 0 && (
@@ -550,7 +550,7 @@ export default function HeapSortVisualizer() {
           {heapBoundary >= 0 && (
             <div className="text-center mb-4">
               <div className="text-sm text-slate-300">
-                <span className="text-purple-400">Heap elements:</span> 0 to {heapBoundary}
+                <span className="theme-accent">Heap elements:</span> 0 to {heapBoundary}
                 {heapBoundary < array.length - 1 && (
                   <>
                     {' | '}
@@ -563,7 +563,7 @@ export default function HeapSortVisualizer() {
         </div>
 
         {/* Legend */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <h3 className="text-xl font-semibold text-white mb-4">Legend</h3>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             <div className="flex items-center space-x-2">
@@ -590,11 +590,11 @@ export default function HeapSortVisualizer() {
         </div>
 
         {/* Algorithm Explanation */}
-        <div className="mt-8 bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="mt-8 theme-surface/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <h3 className="text-xl font-semibold text-white mb-4">How Heap Sort Works</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h4 className="text-lg font-medium text-purple-400 mb-2">Phase 1: Build Max Heap</h4>
+              <h4 className="text-lg font-medium theme-accent mb-2">Phase 1: Build Max Heap</h4>
               <ul className="text-sm text-slate-300 space-y-1">
                 <li>• Start from the last non-leaf node</li>
                 <li>• Apply heapify operation on each node</li>

@@ -115,7 +115,7 @@ const page = () => {
 
     if (loading) {
         return (
-            <div className="w-full px-4 h-[92vh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+            <div className="w-full px-4 h-[92vh] flex items-center justify-center theme-bg">
                 <div className="text-center">
                     <div className="relative w-24 h-24 mx-auto mb-4">
                         <div className="absolute top-0 left-0 w-full h-full border-4 border-purple-200 rounded-full animate-pulse"></div>
@@ -123,7 +123,7 @@ const page = () => {
                         <div className="absolute inset-0 flex items-center justify-center text-2xl">📚</div>
                     </div>
                     <div className="text-white text-xl font-semibold mb-2">Loading Course Content...</div>
-                    <div className="text-purple-300 text-sm">Preparing your learning experience</div>
+                    <div className="theme-text-secondary text-sm">Preparing your learning experience</div>
                 </div>
             </div>
         );
@@ -138,7 +138,7 @@ const page = () => {
                     <div className="text-red-300 text-lg mb-4">No content available for this course.</div>
                     <button 
                         onClick={() => window.history.back()} 
-                        className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                        className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
                     >
                         Go Back
                     </button>
@@ -148,7 +148,7 @@ const page = () => {
     }
 
     return (
-        <div className="w-full h-[92vh] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+        <div className="w-full h-[92vh] theme-bg relative overflow-hidden">
             {/* Background Animation Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -156,18 +156,18 @@ const page = () => {
             </div>
 
             {/* Progress Bar */}
-            <div className="relative z-10 w-full bg-slate-800/50 border-b border-purple-500/30">
+            <div className="relative z-10 w-full theme-surface border-b border-purple-500/30">
                 <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
                     <div className="flex items-center gap-4">
                         <h2 className="text-white font-bold text-lg capitalize">{courseId} Course</h2>
                         <div className="flex items-center gap-2">
-                            <div className="w-48 bg-slate-700 rounded-full h-2">
+                            <div className="w-48 theme-surface-elevated rounded-full h-2">
                                 <div 
                                     className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-500"
                                     style={{ width: `${progress}%` }}
                                 ></div>
                             </div>
-                            <span className="text-purple-300 text-sm font-semibold">{progress}%</span>
+                            <span className="theme-text-secondary text-sm font-semibold">{progress}%</span>
                         </div>
                     </div>
                     <div className="flex items-center gap-2">

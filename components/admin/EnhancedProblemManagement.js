@@ -304,7 +304,7 @@ export default function EnhancedProblemManagement() {
               type="checkbox"
               checked={autoRefresh}
               onChange={(e) => setAutoRefresh(e.target.checked)}
-              className="rounded border-slate-600 bg-slate-700 text-purple-600 focus:ring-purple-500 focus:ring-offset-slate-800"
+              className="rounded border-slate-600 theme-surface-elevated text-purple-600 focus:ring-blue-500 focus:ring-offset-slate-800"
             />
             Auto-refresh
           </label>
@@ -314,14 +314,14 @@ export default function EnhancedProblemManagement() {
             className={`px-3 py-2 rounded-lg transition-colors flex items-center gap-2 ${
               refreshing 
                 ? 'bg-slate-600/50 text-gray-300 cursor-not-allowed' 
-                : 'bg-slate-600 hover:bg-slate-700 text-white'
+                : 'bg-slate-600 hover:theme-surface-elevated text-white'
             }`}
           >
             <ArrowPathIcon className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
           </button>
           <button
             onClick={() => setShowAddModal(true)}
-            className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+            className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
           >
             <PlusIcon className="w-5 h-5" />
             <span>Add New Problem</span>
@@ -338,14 +338,14 @@ export default function EnhancedProblemManagement() {
             placeholder="Search problems..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-slate-700 border border-slate-600 text-white pl-10 pr-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full theme-surface-elevated border border-slate-600 text-white pl-10 pr-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
         
         <select
           value={filterDifficulty}
           onChange={(e) => setFilterDifficulty(e.target.value)}
-          className="bg-slate-700 border border-slate-600 text-white px-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          className="theme-surface-elevated border border-slate-600 text-white px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
           <option value="all">All Difficulties</option>
           {difficulties.map(diff => (
@@ -356,7 +356,7 @@ export default function EnhancedProblemManagement() {
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
-          className="bg-slate-700 border border-slate-600 text-white px-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          className="theme-surface-elevated border border-slate-600 text-white px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
           <option value="all">All Status</option>
           <option value="Published">Published</option>
@@ -366,10 +366,10 @@ export default function EnhancedProblemManagement() {
       </div>
 
       {/* Problems Table */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-600/50 overflow-hidden">
+      <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-slate-700/50">
+            <thead className="theme-surface-elevated/50">
               <tr>
                 <th className="text-left px-6 py-4 text-gray-300 font-medium">Problem</th>
                 <th className="text-left px-6 py-4 text-gray-300 font-medium">Difficulty</th>
@@ -382,7 +382,7 @@ export default function EnhancedProblemManagement() {
             </thead>
             <tbody className="divide-y divide-slate-600/50">
               {problems.map((problem) => (
-                <tr key={problem._id} className="hover:bg-slate-700/30 transition-colors">
+                <tr key={problem._id} className="hover:theme-surface-elevated/30 transition-colors">
                   <td className="px-6 py-4">
                     <div>
                       <div className="flex items-center space-x-2">
@@ -474,7 +474,7 @@ export default function EnhancedProblemManagement() {
             <button
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="flex items-center space-x-1 px-3 py-2 bg-slate-700 hover:bg-slate-600 disabled:bg-slate-800 disabled:text-gray-500 text-white rounded-lg transition-colors"
+              className="flex items-center space-x-1 px-3 py-2 theme-surface-elevated hover:bg-slate-600 disabled:theme-surface disabled:text-gray-500 text-white rounded-lg transition-colors"
             >
               <ChevronLeftIcon className="w-4 h-4" />
               <span>Previous</span>
@@ -487,8 +487,8 @@ export default function EnhancedProblemManagement() {
                   onClick={() => setCurrentPage(page)}
                   className={`px-3 py-2 rounded-lg transition-colors ${
                     currentPage === page
-                      ? "bg-purple-600 text-white"
-                      : "bg-slate-700 hover:bg-slate-600 text-white"
+                      ? "bg-blue-600 text-white"
+                      : "theme-surface-elevated hover:bg-slate-600 text-white"
                   }`}
                 >
                   {page}
@@ -499,7 +499,7 @@ export default function EnhancedProblemManagement() {
             <button
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="flex items-center space-x-1 px-3 py-2 bg-slate-700 hover:bg-slate-600 disabled:bg-slate-800 disabled:text-gray-500 text-white rounded-lg transition-colors"
+              className="flex items-center space-x-1 px-3 py-2 theme-surface-elevated hover:bg-slate-600 disabled:theme-surface disabled:text-gray-500 text-white rounded-lg transition-colors"
             >
               <span>Next</span>
               <ChevronRightIcon className="w-4 h-4" />
@@ -511,7 +511,7 @@ export default function EnhancedProblemManagement() {
       {/* Delete Confirmation Modal */}
       {showDeleteModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl p-6 max-w-md w-full">
+          <div className="theme-surface rounded-xl p-6 max-w-md w-full">
             <h3 className="text-xl font-semibold text-white mb-4">Delete Problem</h3>
             <p className="text-gray-400 mb-6">
               Are you sure you want to delete "{selectedProblem?.title}"? This action cannot be undone.
@@ -519,7 +519,7 @@ export default function EnhancedProblemManagement() {
             <div className="flex justify-end space-x-3">
               <button
                 onClick={() => setShowDeleteModal(false)}
-                className="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
               >
                 Cancel
               </button>
@@ -537,7 +537,7 @@ export default function EnhancedProblemManagement() {
       {/* Add Problem Modal */}
       {showAddModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="theme-surface rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <form onSubmit={handleAddProblem}>
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-2xl font-semibold text-white">Add New Problem</h3>
@@ -561,7 +561,7 @@ export default function EnhancedProblemManagement() {
                       type="text"
                       value={formData.title}
                       onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Enter problem title"
                       required
                     />
@@ -574,7 +574,7 @@ export default function EnhancedProblemManagement() {
                     <select
                       value={formData.difficulty}
                       onChange={(e) => setFormData({ ...formData, difficulty: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500"
                       required
                     >
                       {difficulties.map(diff => (
@@ -591,7 +591,7 @@ export default function EnhancedProblemManagement() {
                       {formData.tags.map((tag, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 bg-purple-600 text-white text-xs rounded-full flex items-center gap-1"
+                          className="px-2 py-1 bg-blue-600 text-white text-xs rounded-full flex items-center gap-1"
                         >
                           {tag}
                           <button
@@ -601,7 +601,7 @@ export default function EnhancedProblemManagement() {
                               newTags.splice(index, 1);
                               setFormData({ ...formData, tags: newTags });
                             }}
-                            className="text-purple-300 hover:text-white"
+                            className="theme-text-secondary hover:text-white"
                           >
                             ×
                           </button>
@@ -618,7 +618,7 @@ export default function EnhancedProblemManagement() {
                         }
                         e.target.value = '';
                       }}
-                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">Add a tag...</option>
                       {popularTags.map(tag => (
@@ -662,7 +662,7 @@ export default function EnhancedProblemManagement() {
                         }
                         e.target.value = '';
                       }}
-                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">Add a company tag...</option>
                       {companyTags.map(tag => (
@@ -682,7 +682,7 @@ export default function EnhancedProblemManagement() {
                       value={formData.description}
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                       rows={6}
-                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Enter problem description..."
                       required
                     />
@@ -696,7 +696,7 @@ export default function EnhancedProblemManagement() {
                       value={formData.constraints}
                       onChange={(e) => setFormData({ ...formData, constraints: e.target.value })}
                       rows={3}
-                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Enter problem constraints..."
                     />
                   </div>
@@ -707,7 +707,7 @@ export default function EnhancedProblemManagement() {
                         type="checkbox"
                         checked={formData.isPremium}
                         onChange={(e) => setFormData({ ...formData, isPremium: e.target.checked })}
-                        className="mr-2 rounded border-slate-600 bg-slate-700 text-purple-600 focus:ring-purple-500"
+                        className="mr-2 rounded border-slate-600 theme-surface-elevated text-purple-600 focus:ring-blue-500"
                       />
                       <span className="text-gray-300">Premium Problem</span>
                     </label>
@@ -734,7 +734,7 @@ export default function EnhancedProblemManagement() {
                           }
                         })}
                         rows={4}
-                        className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white font-mono text-sm focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white font-mono text-sm focus:ring-2 focus:ring-blue-500"
                         placeholder={`Enter ${lang} code template...`}
                       />
                     </div>
@@ -747,13 +747,13 @@ export default function EnhancedProblemManagement() {
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="px-6 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                  className="px-6 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                  className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
                 >
                   Add Problem
                 </button>
@@ -766,7 +766,7 @@ export default function EnhancedProblemManagement() {
       {/* Edit Problem Modal */}
       {showEditModal && selectedProblem && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="theme-surface rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <form onSubmit={handleEditProblem}>
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-2xl font-semibold text-white">Edit Problem</h3>
@@ -790,7 +790,7 @@ export default function EnhancedProblemManagement() {
                       type="text"
                       value={formData.title}
                       onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Enter problem title"
                       required
                     />
@@ -803,7 +803,7 @@ export default function EnhancedProblemManagement() {
                     <select
                       value={formData.difficulty}
                       onChange={(e) => setFormData({ ...formData, difficulty: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500"
                       required
                     >
                       {difficulties.map(diff => (
@@ -823,7 +823,7 @@ export default function EnhancedProblemManagement() {
                       value={formData.description}
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                       rows={6}
-                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Enter problem description..."
                       required
                     />
@@ -836,13 +836,13 @@ export default function EnhancedProblemManagement() {
                 <button
                   type="button"
                   onClick={() => setShowEditModal(false)}
-                  className="px-6 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                  className="px-6 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                  className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
                 >
                   Update Problem
                 </button>

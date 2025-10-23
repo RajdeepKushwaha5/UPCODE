@@ -92,11 +92,11 @@ export default function StackVisualizer() {
   const isFull = stack.length >= capacity;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <Link href="/dsa-visualizer/stacks-queues" className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-4 transition-colors duration-200">
+          <Link href="/dsa-visualizer/stacks-queues" className="inline-flex items-center theme-accent hover:theme-text-secondary mb-4 transition-colors duration-200">
             ← Back to Stacks & Queues
           </Link>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
@@ -110,21 +110,21 @@ export default function StackVisualizer() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Stack Size</h3>
-            <p className="text-purple-400 text-2xl font-bold">{stack.length}</p>
+            <p className="theme-accent text-2xl font-bold">{stack.length}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Capacity</h3>
             <p className="text-blue-400 text-2xl font-bold">{capacity}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Top Element</h3>
             <p className="text-green-400 text-2xl font-bold">
               {isEmpty ? 'Empty' : stack[stack.length - 1]}
             </p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Status</h3>
             <p className={`text-2xl font-bold ${isEmpty ? 'text-red-400' : isFull ? 'text-yellow-400' : 'text-green-400'}`}>
               {isEmpty ? 'Empty' : isFull ? 'Full' : 'Active'}
@@ -133,7 +133,7 @@ export default function StackVisualizer() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 mb-8 border border-slate-700/50">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Push Operation */}
             <div>
@@ -144,12 +144,12 @@ export default function StackVisualizer() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Enter value"
-                  className="w-full px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-500"
+                  className="w-full px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-blue-500"
                 />
                 <button
                   onClick={() => push(inputValue)}
                   disabled={isAnimating || !inputValue || isFull}
-                  className="w-full px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 disabled:opacity-50 transition-colors duration-200"
+                  className="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-purple-700 disabled:opacity-50 transition-colors duration-200"
                 >
                   Push
                 </button>
@@ -199,7 +199,7 @@ export default function StackVisualizer() {
                 <button
                   onClick={initializeStack}
                   disabled={isAnimating}
-                  className="w-full px-4 py-2 bg-slate-600 text-white rounded hover:bg-slate-700 disabled:opacity-50 transition-colors duration-200"
+                  className="w-full px-4 py-2 bg-slate-600 text-white rounded hover:theme-surface-elevated disabled:opacity-50 transition-colors duration-200"
                 >
                   Reset
                 </button>
@@ -218,7 +218,7 @@ export default function StackVisualizer() {
                     max="20"
                     value={capacity}
                     onChange={(e) => setCapacity(parseInt(e.target.value) || 10)}
-                    className="w-16 px-2 py-1 bg-slate-700 text-white rounded border border-slate-600 text-xs"
+                    className="w-16 px-2 py-1 theme-surface-elevated text-white rounded border border-slate-600 text-xs"
                   />
                 </div>
               </div>
@@ -234,7 +234,7 @@ export default function StackVisualizer() {
         )}
 
         {/* Stack Visualization */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 mb-8">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 mb-8">
           <div className="flex justify-center items-end" style={{ minHeight: `${stackHeight}px` }}>
             <div className="relative">
               {/* Stack Base */}
@@ -247,7 +247,7 @@ export default function StackVisualizer() {
                     key={index}
                     className={`w-40 h-12 border-2 border-purple-500 flex items-center justify-center font-bold text-lg transition-all duration-500 ${
                       index === stack.length - 1
-                        ? 'bg-purple-600 text-white' // Top element
+                        ? 'bg-blue-600 text-white' // Top element
                         : 'bg-purple-500/80 text-white'
                     }`}
                     style={{
@@ -256,7 +256,7 @@ export default function StackVisualizer() {
                   >
                     {value}
                     {index === stack.length - 1 && (
-                      <span className="absolute -right-16 text-purple-400 text-sm">← TOP</span>
+                      <span className="absolute -right-16 theme-accent text-sm">← TOP</span>
                     )}
                   </div>
                 ))}
@@ -284,7 +284,7 @@ export default function StackVisualizer() {
           {/* Legend */}
           <div className="mt-6 flex justify-center gap-6 text-sm">
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-purple-600 rounded"></div>
+              <div className="w-4 h-4 bg-blue-600 rounded"></div>
               <span className="text-slate-300">Top Element</span>
             </div>
             <div className="flex items-center gap-2">
@@ -300,11 +300,11 @@ export default function StackVisualizer() {
 
         {/* Algorithm Explanation */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-bold text-white mb-4">Stack Operations</h3>
             <div className="space-y-3 text-slate-300">
               <div>
-                <h4 className="font-semibold text-purple-400">Push(element)</h4>
+                <h4 className="font-semibold theme-accent">Push(element)</h4>
                 <p className="text-sm">Adds element to the top of the stack</p>
                 <p className="text-xs text-slate-400">Time: O(1), Space: O(1)</p>
               </div>
@@ -326,7 +326,7 @@ export default function StackVisualizer() {
             </div>
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-bold text-white mb-4">Applications</h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               <li>• <strong>Function Calls:</strong> Call stack management</li>

@@ -255,7 +255,7 @@ export default function ProfileSection() {
 
   if (status === "loading" || loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen theme-bg flex items-center justify-center">
         <div className="relative">
           <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-purple-500"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -273,7 +273,7 @@ export default function ProfileSection() {
   const progressPercentage = userData.weeklyGoal > 0 ? (userData.completedToday / userData.weeklyGoal) * 100 : 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen theme-bg relative overflow-hidden">
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -341,7 +341,7 @@ export default function ProfileSection() {
                         onClick={() => setIsEditingName(true)}
                         className="p-2 hover:bg-purple-500/20 rounded-lg transition-colors group"
                       >
-                        <FaEdit className="text-gray-400 group-hover:text-purple-400" />
+                        <FaEdit className="text-gray-400 group-hover:theme-accent" />
                       </button>
                     </>
                   )}
@@ -374,7 +374,7 @@ export default function ProfileSection() {
                 <p className="text-orange-100 text-sm font-medium">Day Streak</p>
               </div>
 
-              <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-4 text-center">
+              <div className="theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-4 text-center">
                 <div className="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-1">
                   {userData.currentRating}
                 </div>
@@ -391,9 +391,9 @@ export default function ProfileSection() {
           <div className="lg:col-span-2 space-y-6">
 
             {/* Problem Solving Progress */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-3xl p-6 hover:border-purple-400/50 transition-all duration-300 animate-fade-in-up animation-delay-200">
+            <div className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-6 hover:border theme-border transition-all duration-300 animate-fade-in-up animation-delay-200">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <FaCode className="text-purple-400" />
+                <FaCode className="theme-accent" />
                 Problem Solving Progress
               </h2>
 
@@ -428,10 +428,10 @@ export default function ProfileSection() {
               </div>
 
               {/* Weekly Goal Progress */}
-              <div className="bg-slate-700/30 rounded-2xl p-4">
+              <div className="theme-surface-elevated/30 rounded-2xl p-4">
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-white font-medium">Weekly Goal Progress</span>
-                  <span className="text-purple-400 font-bold">{userData.completedToday}/{userData.weeklyGoal}</span>
+                  <span className="theme-accent font-bold">{userData.completedToday}/{userData.weeklyGoal}</span>
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
                   <div
@@ -445,7 +445,7 @@ export default function ProfileSection() {
             {/* Strengths & Weaknesses */}
             <div className="grid md:grid-cols-2 gap-6">
               {/* Strong Areas */}
-              <div className="bg-slate-800/50 backdrop-blur-sm border border-green-500/20 rounded-3xl p-6 hover:border-green-400/50 transition-all duration-300 animate-fade-in-up animation-delay-400">
+              <div className="theme-surface backdrop-blur-sm border border-green-500/20 rounded-3xl p-6 hover:border-green-400/50 transition-all duration-300 animate-fade-in-up animation-delay-400">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                   <FaCheckCircle className="text-green-400" />
                   Strong Areas
@@ -468,7 +468,7 @@ export default function ProfileSection() {
               </div>
 
               {/* Weak Areas */}
-              <div className="bg-slate-800/50 backdrop-blur-sm border border-orange-500/20 rounded-3xl p-6 hover:border-orange-400/50 transition-all duration-300 animate-fade-in-up animation-delay-500">
+              <div className="theme-surface backdrop-blur-sm border border-orange-500/20 rounded-3xl p-6 hover:border-orange-400/50 transition-all duration-300 animate-fade-in-up animation-delay-500">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                   <FaChartLine className="text-orange-400" />
                   Areas to Improve
@@ -497,9 +497,9 @@ export default function ProfileSection() {
             </div>
 
             {/* Rating Chart */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-3xl p-6 hover:border-purple-400/50 transition-all duration-300 animate-fade-in-up animation-delay-600">
+            <div className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-6 hover:border theme-border transition-all duration-300 animate-fade-in-up animation-delay-600">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <FaChartLine className="text-purple-400" />
+                <FaChartLine className="theme-accent" />
                 Rating Progress
               </h2>
               <div className="w-full">
@@ -512,14 +512,14 @@ export default function ProfileSection() {
           <div className="space-y-6">
 
             {/* Quick Actions */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-3xl p-6 hover:border-purple-400/50 transition-all duration-300 animate-fade-in-up animation-delay-300">
+            <div className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-6 hover:border theme-border transition-all duration-300 animate-fade-in-up animation-delay-300">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <FaRocket className="text-purple-400" />
+                <FaRocket className="theme-accent" />
                 Quick Actions
               </h3>
 
               <div className="space-y-3">
-                <Link href="/problems" className="flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl p-3 transition-all duration-300 hover:scale-105 group">
+                <Link href="/problems" className="flex items-center gap-3 bg-blue-600 hover:bg-blue-700 hover:from-purple-700 hover:to-pink-700 rounded-xl p-3 transition-all duration-300 hover:scale-105 group">
                   <FaCode className="text-white" />
                   <span className="text-white font-medium">Resume Practice</span>
                   <FaRocket className="text-white ml-auto group-hover:animate-bounce" />
@@ -546,7 +546,7 @@ export default function ProfileSection() {
             </div>
 
             {/* Achievements & Badges */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-yellow-500/20 rounded-3xl p-6 hover:border-yellow-400/50 transition-all duration-300 animate-fade-in-up animation-delay-700">
+            <div className="theme-surface backdrop-blur-sm border border-yellow-500/20 rounded-3xl p-6 hover:border-yellow-400/50 transition-all duration-300 animate-fade-in-up animation-delay-700">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <FaTrophy className="text-yellow-400" />
                 Achievements
@@ -610,7 +610,7 @@ export default function ProfileSection() {
         </div>
 
         {/* Bookmarked Questions Section */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm border border-yellow-500/20 rounded-3xl p-6 hover:border-yellow-400/50 transition-all duration-300 animate-fade-in-up animation-delay-800">
+        <div className="mt-8 theme-surface backdrop-blur-sm border border-yellow-500/20 rounded-3xl p-6 hover:border-yellow-400/50 transition-all duration-300 animate-fade-in-up animation-delay-800">
           <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
             <FaHeart className="text-yellow-400" />
             Bookmarked Questions
@@ -622,7 +622,7 @@ export default function ProfileSection() {
                 <Link
                   key={index}
                   href={`/problems/${question.id}`}
-                  className="block p-4 bg-slate-700/50 hover:bg-slate-700/80 rounded-lg border border-slate-600/50 hover:border-yellow-400/50 transition-all duration-300 group"
+                  className="block p-4 theme-surface-elevated/50 hover:theme-surface-elevated/80 rounded-lg border border-slate-600/50 hover:border-yellow-400/50 transition-all duration-300 group"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-white font-medium group-hover:text-yellow-300 transition-colors">
@@ -660,7 +660,7 @@ export default function ProfileSection() {
         </div>
 
         {/* Next Contest Countdown */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-3xl p-6 hover:border-blue-400/50 transition-all duration-300 animate-fade-in-up animation-delay-900">
+        <div className="mt-8 theme-surface backdrop-blur-sm border border-blue-500/20 rounded-3xl p-6 hover:border-blue-400/50 transition-all duration-300 animate-fade-in-up animation-delay-900">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
@@ -686,7 +686,7 @@ export default function ProfileSection() {
       {/* Emoji Picker Modal */}
       {showEmojiPicker && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-purple-500/30 rounded-3xl p-8 max-w-md w-full">
+          <div className="theme-bg border border-purple-500/30 rounded-3xl p-8 max-w-md w-full">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold text-white">Choose Your Pet</h2>
               <button

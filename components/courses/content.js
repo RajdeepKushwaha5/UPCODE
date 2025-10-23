@@ -108,7 +108,7 @@ const Content = ({ content, title, isAnimating, currentModule, currentLesson, on
                     </SyntaxHighlighter>
                 </div>
             ) : (
-                <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm" {...props}>
+                <code className="bg-purple-500/20 theme-text-secondary px-2 py-1 rounded text-sm" {...props}>
                     {children}
                 </code>
             );
@@ -119,7 +119,7 @@ const Content = ({ content, title, isAnimating, currentModule, currentLesson, on
             </h1>
         ),
         h2: ({ children }) => (
-            <h2 className="text-2xl font-semibold text-purple-300 mb-4 mt-8">
+            <h2 className="text-2xl font-semibold theme-text-secondary mb-4 mt-8">
                 {children}
             </h2>
         ),
@@ -149,7 +149,7 @@ const Content = ({ content, title, isAnimating, currentModule, currentLesson, on
             </li>
         ),
         blockquote: ({ children }) => (
-            <blockquote className="border-l-4 border-purple-500 bg-purple-500/10 pl-4 py-2 mb-4 italic text-purple-200">
+            <blockquote className="border-l-4 border-purple-500 bg-purple-500/10 pl-4 py-2 mb-4 italic theme-text-secondary">
                 {children}
             </blockquote>
         ),
@@ -182,9 +182,9 @@ const Content = ({ content, title, isAnimating, currentModule, currentLesson, on
     };
 
     return (
-        <div className="flex-1 flex flex-col relative bg-slate-800/30 backdrop-blur-sm border border-purple-500/30 rounded-2xl overflow-hidden">
+        <div className="flex-1 flex flex-col relative theme-surface/30 backdrop-blur-sm border border-purple-500/30 rounded-2xl overflow-hidden">
             {/* Progress bar */}
-            <div className="w-full bg-slate-700 h-1">
+            <div className="w-full theme-surface-elevated h-1">
                 <div 
                     className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300"
                     style={{ width: `${scrollProgress}%` }}
@@ -253,7 +253,7 @@ const Content = ({ content, title, isAnimating, currentModule, currentLesson, on
                 </div>
 
                 {/* Lesson completion section */}
-                <div className="mt-12 p-6 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-xl">
+                <div className="mt-12 p-6 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border theme-border rounded-xl">
                     <div className="flex items-center justify-between">
                         <div>
                             <h3 className="text-white font-semibold mb-2">Lesson Complete?</h3>
@@ -306,7 +306,7 @@ const Content = ({ content, title, isAnimating, currentModule, currentLesson, on
                 <div className="absolute bottom-6 right-6 z-20">
                     <button
                         onClick={scrollToTop}
-                        className="w-12 h-12 bg-purple-600 text-white rounded-full shadow-lg hover:bg-purple-700 transition-all duration-200 flex items-center justify-center group animate-bounce"
+                        className="w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg hover:bg-purple-700 transition-all duration-200 flex items-center justify-center group animate-bounce"
                     >
                         <svg className="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />

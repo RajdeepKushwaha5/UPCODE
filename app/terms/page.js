@@ -95,7 +95,7 @@ export default function TermsOfServicePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen theme-bg relative overflow-hidden">
       
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -117,10 +117,10 @@ export default function TermsOfServicePage() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 px-8 py-3 rounded-full border border-purple-400/30 mb-8"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 px-8 py-3 rounded-full border border theme-border mb-8"
             >
-              <FaGavel className="text-purple-400 text-2xl animate-pulse" />
-              <span className="text-purple-300 font-semibold text-lg">Legal Agreement</span>
+              <FaGavel className="theme-accent text-2xl animate-pulse" />
+              <span className="theme-text-secondary font-semibold text-lg">Legal Agreement</span>
             </motion.div>
 
             <motion.h1
@@ -186,7 +186,7 @@ export default function TermsOfServicePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl rounded-2xl p-8 border border-purple-500/20 hover:border-purple-400/40 transition-all duration-500"
+                className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl rounded-2xl p-8 border border theme-border hover:border-purple-400/40 transition-all duration-500"
               >
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
@@ -198,8 +198,8 @@ export default function TermsOfServicePage() {
                   </div>
                 </div>
 
-                <div className="bg-slate-700/50 rounded-xl p-6 ml-16">
-                  <h4 className="text-purple-300 font-semibold mb-4">Key Requirements:</h4>
+                <div className="theme-surface-elevated/50 rounded-xl p-6 ml-16">
+                  <h4 className="theme-text-secondary font-semibold mb-4">Key Requirements:</h4>
                   <ul className="space-y-2">
                     {section.details.map((detail, detailIndex) => (
                       <motion.li
@@ -228,9 +228,9 @@ export default function TermsOfServicePage() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto mt-16"
           >
-            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-xl rounded-2xl p-8 border border-purple-400/30">
+            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-xl rounded-2xl p-8 border border theme-border">
               <div className="text-center">
-                <FaBalanceScale className="text-4xl text-purple-400 mx-auto mb-4" />
+                <FaBalanceScale className="text-4xl theme-accent mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-white mb-4">Questions About These Terms?</h3>
                 <p className="text-gray-300 mb-6 leading-relaxed">
                   Our legal team is here to help clarify any questions you may have about these Terms of Service.
@@ -238,13 +238,13 @@ export default function TermsOfServicePage() {
                 <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                   <a
                     href="mailto:legal@upcode.dev"
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
                   >
                     Contact Legal Team
                   </a>
                   <Link
                     href="/help-support"
-                    className="text-purple-400 hover:text-purple-300 font-semibold transition-colors"
+                    className="theme-accent hover:theme-text-secondary font-semibold transition-colors"
                   >
                     Visit Help Center →
                   </Link>
@@ -261,7 +261,7 @@ export default function TermsOfServicePage() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto mt-8"
           >
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-600/30">
+            <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-600/30">
               <p className="text-gray-400 text-sm leading-relaxed text-center">
                 <strong>Disclaimer:</strong> These Terms of Service are effective as of the date listed above. 
                 UPCODE reserves the right to modify these terms at any time. Users will be notified of significant changes via email or platform notification.
@@ -278,7 +278,7 @@ export default function TermsOfServicePage() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
+            className="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
           >
             <FaArrowUp />
           </motion.button>

@@ -225,7 +225,7 @@ const CommunitySection = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen theme-bg relative overflow-hidden">
       
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -241,7 +241,7 @@ const CommunitySection = () => {
         
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full border border-purple-400/30 backdrop-blur-sm animate-premium-glow">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full border border theme-border backdrop-blur-sm animate-premium-glow">
             <span className="text-3xl animate-spin-slow">🌟</span>
             <span className="text-white font-semibold font-space-grotesk">Community Hub</span>
           </div>
@@ -251,7 +251,7 @@ const CommunitySection = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-inter leading-relaxed animate-fade-in-up animation-delay-500">
-            Join our vibrant community of <span className="text-purple-400 font-semibold">developers</span>, 
+            Join our vibrant community of <span className="theme-accent font-semibold">developers</span>, 
             <span className="text-pink-400 font-semibold"> share knowledge</span>, and 
             <span className="text-blue-400 font-semibold"> grow together</span>
           </p>
@@ -260,7 +260,7 @@ const CommunitySection = () => {
             <div className="mt-8 animate-fade-in-up animation-delay-1000">
               <button
                 onClick={() => setShowCreatePost(true)}
-                className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 flex items-center gap-3 mx-auto transform hover:scale-105"
+                className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 flex items-center gap-3 mx-auto transform hover:scale-105"
               >
                 <FaPlus className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" />
                 <span className="font-semibold text-lg">Create Post</span>
@@ -270,17 +270,17 @@ const CommunitySection = () => {
         </div>
 
         {/* Filters and Search */}
-        <div className="bg-gradient-to-r from-slate-800/50 to-purple-800/50 backdrop-blur-lg border border-purple-500/20 rounded-3xl shadow-2xl p-8 mb-12 animate-fade-in-up animation-delay-700">
+        <div className="bg-gradient-to-r from-slate-800/50 to-purple-800/50 backdrop-blur-lg border border theme-border rounded-3xl shadow-2xl p-8 mb-12 animate-fade-in-up animation-delay-700">
           
           {/* Search */}
           <div className="relative mb-8">
-            <FaSearch className="absolute left-6 top-1/2 transform -translate-y-1/2 text-purple-400" />
+            <FaSearch className="absolute left-6 top-1/2 transform -translate-y-1/2 theme-accent" />
             <input
               type="text"
               placeholder="Search posts, tags, or content..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-16 pr-6 py-4 bg-slate-900/50 border border-purple-500/30 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400 font-inter"
+              className="w-full pl-16 pr-6 py-4 theme-bg/50 border border-purple-500/30 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 font-inter"
             />
           </div>
 
@@ -295,7 +295,7 @@ const CommunitySection = () => {
                   className={`group flex items-center gap-3 px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 ${
                     selectedCategory === category.id
                       ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                      : 'bg-slate-800/50 text-gray-300 hover:bg-slate-700/50 border border-slate-600/50'
+                      : 'theme-surface text-gray-300 hover:theme-surface-elevated/50 border border-slate-600/50'
                   }`}
                 >
                   <IconComponent className="w-4 h-4 group-hover:animate-bounce" />
@@ -307,11 +307,11 @@ const CommunitySection = () => {
 
           {/* Sort Options */}
           <div className="flex items-center gap-4">
-            <FaSort className="text-purple-400" />
+            <FaSort className="theme-accent" />
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="bg-slate-900/50 border border-purple-500/30 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent font-inter"
+              className="theme-bg/50 border border-purple-500/30 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent font-inter"
             >
               <option value="newest">🕒 Newest First</option>
               <option value="oldest">⏰ Oldest First</option>
@@ -324,7 +324,7 @@ const CommunitySection = () => {
         {/* Posts List */}
         <div className="space-y-8">
           {posts.map((post) => (
-            <div key={post._id} className="group bg-gradient-to-r from-slate-800/50 to-purple-800/30 backdrop-blur-lg border border-purple-500/20 rounded-3xl shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 p-8 transform hover:scale-[1.02] animate-fade-in-up">
+            <div key={post._id} className="group bg-gradient-to-r from-slate-800/50 to-purple-800/30 backdrop-blur-lg border border theme-border rounded-3xl shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 p-8 transform hover:scale-[1.02] animate-fade-in-up">
               
               {/* Post Header */}
               <div className="flex items-start justify-between mb-6">
@@ -382,14 +382,14 @@ const CommunitySection = () => {
               </div>
 
               {/* Post Content */}
-              <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-200 transition-colors">{post.title}</h2>
+              <h2 className="text-2xl font-bold text-white mb-4 group-hover:theme-text-secondary transition-colors">{post.title}</h2>
               <p className="text-gray-300 mb-6 leading-relaxed line-clamp-3">{post.content}</p>
 
               {/* Tags */}
               {post.tags && post.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-6">
                   {post.tags.map((tag, index) => (
-                    <span key={index} className="flex items-center gap-1 px-3 py-1 bg-purple-500/20 text-purple-300 rounded-lg text-sm border border-purple-500/30">
+                    <span key={index} className="flex items-center gap-1 px-3 py-1 bg-purple-500/20 theme-text-secondary rounded-lg text-sm border border-purple-500/30">
                       <FaTag className="w-3 h-3" />
                       {tag}
                     </span>
@@ -398,7 +398,7 @@ const CommunitySection = () => {
               )}
 
               {/* Post Actions */}
-              <div className="flex items-center justify-between pt-6 border-t border-purple-500/20">
+              <div className="flex items-center justify-between pt-6 border-t border theme-border">
                 <div className="flex items-center gap-8">
                   {/* Voting */}
                   <div className="flex items-center gap-3">
@@ -455,7 +455,7 @@ const CommunitySection = () => {
                 fetchPosts();
               }}
               disabled={loading}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105"
             >
               {loading ? '🔄 Loading...' : '📚 Load More Posts'}
             </button>
@@ -475,7 +475,7 @@ const CommunitySection = () => {
             {session && (
               <button
                 onClick={() => setShowCreatePost(true)}
-                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300"
               >
                 Create First Post
               </button>
@@ -510,7 +510,7 @@ const CommunitySection = () => {
                       type="text"
                       value={newPost.title}
                       onChange={(e) => setNewPost(prev => ({ ...prev, title: e.target.value }))}
-                      className="w-full px-4 py-3 bg-slate-900/50 border border-purple-500/30 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400"
+                      className="w-full px-4 py-3 theme-bg/50 border border-purple-500/30 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
                       placeholder="Enter your post title..."
                       required
                       maxLength={200}
@@ -526,7 +526,7 @@ const CommunitySection = () => {
                       <select
                         value={newPost.category}
                         onChange={(e) => setNewPost(prev => ({ ...prev, category: e.target.value }))}
-                        className="w-full px-4 py-3 bg-slate-900/50 border border-purple-500/30 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                        className="w-full px-4 py-3 theme-bg/50 border border-purple-500/30 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                       >
                         {categories.slice(1).map(cat => (
                           <option key={cat.id} value={cat.id}>{cat.label}</option>
@@ -541,7 +541,7 @@ const CommunitySection = () => {
                       <select
                         value={newPost.difficulty}
                         onChange={(e) => setNewPost(prev => ({ ...prev, difficulty: e.target.value }))}
-                        className="w-full px-4 py-3 bg-slate-900/50 border border-purple-500/30 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                        className="w-full px-4 py-3 theme-bg/50 border border-purple-500/30 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                       >
                         {difficultyLevels.map(level => (
                           <option key={level.id} value={level.id}>{level.label}</option>
@@ -558,7 +558,7 @@ const CommunitySection = () => {
                     <textarea
                       value={newPost.content}
                       onChange={(e) => setNewPost(prev => ({ ...prev, content: e.target.value }))}
-                      className="w-full px-4 py-3 bg-slate-900/50 border border-purple-500/30 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400 h-40 resize-none"
+                      className="w-full px-4 py-3 theme-bg/50 border border-purple-500/30 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 h-40 resize-none"
                       placeholder="Share your thoughts, ask for help, or start a discussion..."
                       required
                       maxLength={5000}
@@ -577,7 +577,7 @@ const CommunitySection = () => {
                       type="text"
                       value={newPost.tags}
                       onChange={(e) => setNewPost(prev => ({ ...prev, tags: e.target.value }))}
-                      className="w-full px-4 py-3 bg-slate-900/50 border border-purple-500/30 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400"
+                      className="w-full px-4 py-3 theme-bg/50 border border-purple-500/30 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
                       placeholder="javascript, react, help, beginner..."
                     />
                   </div>
@@ -594,7 +594,7 @@ const CommunitySection = () => {
                     <button
                       type="submit"
                       disabled={postingLoading}
-                      className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {postingLoading ? (
                         <span>🔄 Creating...</span>
@@ -614,7 +614,7 @@ const CommunitySection = () => {
 
         {/* Login prompt for non-authenticated users */}
         {!session && (
-          <div className="bg-gradient-to-r from-slate-800/50 to-purple-800/50 backdrop-blur-lg border border-purple-500/20 rounded-3xl shadow-2xl p-8 text-center mt-12 animate-fade-in-up">
+          <div className="bg-gradient-to-r from-slate-800/50 to-purple-800/50 backdrop-blur-lg border border theme-border rounded-3xl shadow-2xl p-8 text-center mt-12 animate-fade-in-up">
             <div className="text-6xl mb-4">🔐</div>
             <h3 className="text-2xl font-bold text-white mb-3">Join the Community</h3>
             <p className="text-gray-300 mb-6 text-lg">
@@ -622,7 +622,7 @@ const CommunitySection = () => {
             </p>
             <button
               onClick={() => window.location.href = '/login'}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:scale-105"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:scale-105"
             >
               🚀 Sign In to Join
             </button>

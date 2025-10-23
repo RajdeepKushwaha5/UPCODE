@@ -56,19 +56,19 @@ export default function StacksQueuesVisualizer() {
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Total Algorithms</h3>
             <p className="text-3xl font-bold text-orange-400">{algorithms.length}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Data Structures</h3>
             <p className="text-3xl font-bold text-red-400">2</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Difficulty Range</h3>
             <p className="text-lg text-slate-300">Easy - Medium</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Key Concepts</h3>
             <p className="text-lg text-slate-300">LIFO & FIFO</p>
           </div>
@@ -80,7 +80,7 @@ export default function StacksQueuesVisualizer() {
             <Link 
               key={index}
               href={algorithm.path}
-              className="group bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-orange-500/50 transition-all duration-300 hover:scale-105"
+              className="group theme-surface/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-orange-500/50 transition-all duration-300 hover:scale-105"
             >
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-xl font-semibold text-white group-hover:text-orange-400 transition-colors duration-200">
@@ -113,7 +113,7 @@ export default function StacksQueuesVisualizer() {
                 {algorithm.concepts.map((concept, idx) => (
                   <span 
                     key={idx}
-                    className="px-2 py-1 bg-slate-700/50 text-slate-300 rounded text-xs"
+                    className="px-2 py-1 theme-surface-elevated/50 text-slate-300 rounded text-xs"
                   >
                     {concept}
                   </span>
@@ -132,7 +132,7 @@ export default function StacksQueuesVisualizer() {
 
         {/* Comparison Section */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
               <span className="mr-2">📚</span>
               Stack (LIFO)
@@ -144,7 +144,7 @@ export default function StacksQueuesVisualizer() {
               <li>• Memory: Call stack, expression evaluation</li>
             </ul>
           </div>
-          <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
               <span className="mr-2">➡️</span>
               Queue (FIFO)
@@ -159,7 +159,7 @@ export default function StacksQueuesVisualizer() {
         </div>
 
         {/* Learning Path */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <h2 className="text-2xl font-semibold text-white mb-4">📚 Recommended Learning Path</h2>
           <div className="space-y-4">
             <div className="flex items-start space-x-4">

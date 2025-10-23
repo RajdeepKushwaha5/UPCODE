@@ -49,7 +49,7 @@ export default function InterviewHistory() {
       case 'system-design':
         return <FaDesktop className="text-green-400" />;
       case 'behavioral':
-        return <FaComments className="text-purple-400" />;
+        return <FaComments className="theme-accent" />;
       default:
         return <FaCode className="text-blue-400" />;
     }
@@ -87,7 +87,7 @@ export default function InterviewHistory() {
 
   if (status === 'loading' || loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen theme-bg flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-purple-500 mx-auto mb-4"></div>
           <p className="text-white text-xl">Loading interview history...</p>
@@ -97,12 +97,12 @@ export default function InterviewHistory() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4">
+    <div className="min-h-screen theme-bg p-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-2 flex items-center gap-3">
-            <FaClock className="text-purple-400" />
+            <FaClock className="theme-accent" />
             Interview History
           </h1>
           <p className="text-slate-300">Track your interview progress and performance</p>
@@ -121,8 +121,8 @@ export default function InterviewHistory() {
               onClick={() => setFilter(filterOption.key)}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 filter === filterOption.key
-                  ? 'bg-purple-600 text-white'
-                  : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                  ? 'bg-blue-600 text-white'
+                  : 'theme-surface text-slate-300 hover:theme-surface-elevated'
               }`}
             >
               {filterOption.label}
@@ -138,7 +138,7 @@ export default function InterviewHistory() {
             <p className="text-slate-400 mb-6">Start your first interview to see your history here</p>
             <button
               onClick={() => router.push('/interview')}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               Start First Interview
             </button>
@@ -148,7 +148,7 @@ export default function InterviewHistory() {
             {filteredInterviews.map((interview, index) => (
               <div
                 key={interview._id || index}
-                className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:bg-slate-800/70 transition-colors cursor-pointer"
+                className="theme-surface border border-slate-700 rounded-xl p-6 hover:theme-surface/70 transition-colors cursor-pointer"
                 onClick={() => router.push(`/interview/results/${interview._id}`)}
               >
                 <div className="flex items-center justify-between mb-4">
@@ -188,7 +188,7 @@ export default function InterviewHistory() {
                   <div>
                     <p className="text-slate-400 mb-1">Performance</p>
                     <div className="flex items-center gap-2">
-                      <div className="w-20 bg-slate-700 rounded-full h-2">
+                      <div className="w-20 theme-surface-elevated rounded-full h-2">
                         <div
                           className={`h-2 rounded-full ${
                             (interview.evaluation?.overallScore || 0) >= 80
@@ -221,11 +221,11 @@ export default function InterviewHistory() {
 
         {/* Summary Stats */}
         {filteredInterviews.length > 0 && (
-          <div className="mt-8 bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+          <div className="mt-8 theme-surface border border-slate-700 rounded-xl p-6">
             <h3 className="text-lg font-semibold text-white mb-4">Performance Summary</h3>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="text-center">
-                <p className="text-2xl font-bold text-purple-400">
+                <p className="text-2xl font-bold theme-accent">
                   {filteredInterviews.length}
                 </p>
                 <p className="text-slate-400 text-sm">Total Interviews</p>

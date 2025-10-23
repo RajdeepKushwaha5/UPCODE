@@ -110,7 +110,7 @@ export default function Analytics() {
         </div>
         <button 
           onClick={fetchAnalytics}
-          className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm transition-colors"
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm transition-colors"
         >
           Refresh
         </button>
@@ -118,19 +118,19 @@ export default function Analytics() {
 
       {/* Main Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="text-2xl font-bold text-blue-400">{analytics.totalUsers || 0}</div>
           <div className="text-gray-400">Total Users</div>
         </div>
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="text-2xl font-bold text-green-400">{analytics.totalProblems || 0}</div>
           <div className="text-gray-400">Total Problems</div>
         </div>
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-          <div className="text-2xl font-bold text-purple-400">{analytics.totalContests || 0}</div>
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="text-2xl font-bold theme-accent">{analytics.totalContests || 0}</div>
           <div className="text-gray-400">Total Contests</div>
         </div>
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="text-2xl font-bold text-yellow-400">{analytics.activeContests || 0}</div>
           <div className="text-gray-400">Active Contests</div>
         </div>
@@ -138,19 +138,19 @@ export default function Analytics() {
 
       {/* Secondary Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="text-2xl font-bold text-cyan-400">{analytics.dailyActiveUsers || 0}</div>
           <div className="text-gray-400">Daily Active Users</div>
         </div>
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="text-2xl font-bold text-emerald-400">{analytics.problemsSolvedToday || 0}</div>
           <div className="text-gray-400">Problems Solved Today</div>
         </div>
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="text-2xl font-bold text-indigo-400">{analytics.newRegistrations || 0}</div>
           <div className="text-gray-400">New Registrations</div>
         </div>
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="text-2xl font-bold text-orange-400">{analytics.serverUptime || "99.9%"}</div>
           <div className="text-gray-400">Server Uptime</div>
         </div>
@@ -158,19 +158,19 @@ export default function Analytics() {
 
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <h2 className="text-xl font-semibold text-white mb-4">Contest Participation</h2>
           <div className="h-64">
             {analytics.contestParticipation && analytics.contestParticipation.length > 0 ? (
               <div className="space-y-3">
                 {analytics.contestParticipation.slice(0, 5).map((contest, index) => (
-                  <div key={index} className="flex justify-between items-center p-3 bg-slate-700/30 rounded-lg">
+                  <div key={index} className="flex justify-between items-center p-3 theme-surface-elevated/30 rounded-lg">
                     <div>
                       <div className="text-white font-medium">{contest.title}</div>
                       <div className="text-sm text-gray-400">{new Date(contest.start).toLocaleDateString()}</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-lg font-bold text-purple-400">{contest.participants || 0}</div>
+                      <div className="text-lg font-bold theme-accent">{contest.participants || 0}</div>
                       <div className="text-xs text-gray-400">participants</div>
                     </div>
                   </div>
@@ -184,7 +184,7 @@ export default function Analytics() {
           </div>
         </div>
 
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <h2 className="text-xl font-semibold text-white mb-4">Problem Difficulty Distribution</h2>
           <div className="h-64">
             {analytics.problemDifficulty && Object.keys(analytics.problemDifficulty).length > 0 ? (
@@ -204,7 +204,7 @@ export default function Analytics() {
                         <span className="text-gray-300">{difficulty}</span>
                         <span className="text-gray-400">{count} ({percentage}%)</span>
                       </div>
-                      <div className="w-full bg-slate-700 rounded-full h-2">
+                      <div className="w-full theme-surface-elevated rounded-full h-2">
                         <div 
                           className={`h-2 rounded-full ${colors[difficulty] || 'bg-gray-500'}`}
                           style={{ width: `${percentage}%` }}
@@ -224,7 +224,7 @@ export default function Analytics() {
       </div>
 
       {/* User Growth Chart */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
         <h2 className="text-xl font-semibold text-white mb-4">User Growth Trends</h2>
         <div className="h-64">
           {analytics.userGrowth && analytics.userGrowth.length > 0 ? (

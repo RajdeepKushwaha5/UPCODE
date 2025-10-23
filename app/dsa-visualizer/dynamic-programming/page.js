@@ -72,7 +72,7 @@ export default function DynamicProgramming() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen theme-bg relative overflow-hidden">
       {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -82,7 +82,7 @@ export default function DynamicProgramming() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
         {/* Header */}
         <div className={`mb-12 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <Link href="/dsa-visualizer" className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-6 transition-colors duration-200">
+          <Link href="/dsa-visualizer" className="inline-flex items-center theme-accent hover:theme-text-secondary mb-6 transition-colors duration-200">
             ← Back to DSA Visualizer
           </Link>
           <div className="text-center">
@@ -98,19 +98,19 @@ export default function DynamicProgramming() {
 
         {/* Statistics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50 text-center">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50 text-center">
             <div className="text-2xl font-bold text-pink-400">{algorithms.length}</div>
             <div className="text-slate-400 text-sm">Algorithms</div>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50 text-center">
-            <div className="text-2xl font-bold text-purple-400">5</div>
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50 text-center">
+            <div className="text-2xl font-bold theme-accent">5</div>
             <div className="text-slate-400 text-sm">Visualizations</div>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50 text-center">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50 text-center">
             <div className="text-2xl font-bold text-blue-400">100%</div>
             <div className="text-slate-400 text-sm">Complete</div>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50 text-center">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50 text-center">
             <div className="text-2xl font-bold text-green-400">Ready</div>
             <div className="text-slate-400 text-sm">Status</div>
           </div>
@@ -125,7 +125,7 @@ export default function DynamicProgramming() {
               className={`group block transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/20 h-full">
+              <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/20 h-full">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="text-3xl">{algorithm.icon}</div>
@@ -138,7 +138,7 @@ export default function DynamicProgramming() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-200">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:theme-accent transition-colors duration-200">
                   {algorithm.name}
                 </h3>
                 <p className="text-slate-400 text-sm mb-4 leading-relaxed">
@@ -149,7 +149,7 @@ export default function DynamicProgramming() {
                 <div className="space-y-2 text-xs">
                   <div className="flex justify-between items-center">
                     <span className="text-slate-500">Time Complexity:</span>
-                    <span className="text-purple-400 font-mono">{algorithm.timeComplexity}</span>
+                    <span className="theme-accent font-mono">{algorithm.timeComplexity}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-slate-500">Space Complexity:</span>
@@ -158,7 +158,7 @@ export default function DynamicProgramming() {
                 </div>
 
                 {/* Hover Effect */}
-                <div className="mt-4 flex items-center text-purple-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <div className="mt-4 flex items-center theme-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <span>Explore Visualization</span>
                   <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -171,7 +171,7 @@ export default function DynamicProgramming() {
 
         {/* Info Section */}
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-8 border border-slate-700/50">
             <h3 className="text-2xl font-bold text-white mb-6">What is Dynamic Programming?</h3>
             <div className="space-y-4 text-slate-300">
               <p>
@@ -179,7 +179,7 @@ export default function DynamicProgramming() {
                 into simpler subproblems and storing the results to avoid redundant calculations.
               </p>
               <div className="space-y-2">
-                <h4 className="font-semibold text-purple-400">Key Principles:</h4>
+                <h4 className="font-semibold theme-accent">Key Principles:</h4>
                 <ul className="space-y-1 text-sm">
                   <li>• <strong>Overlapping Subproblems:</strong> Same subproblems solved multiple times</li>
                   <li>• <strong>Optimal Substructure:</strong> Optimal solution contains optimal solutions to subproblems</li>
@@ -190,7 +190,7 @@ export default function DynamicProgramming() {
             </div>
           </div>
 
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-8 border border-slate-700/50">
             <h3 className="text-2xl font-bold text-white mb-6">Learning Path</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -202,7 +202,7 @@ export default function DynamicProgramming() {
                 <span className="text-slate-300">Try Coin Change - Understand tabulation</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-sm font-bold">3</div>
+                <div className="w-8 h-8 rounded-full bg-purple-500/20 theme-accent flex items-center justify-center text-sm font-bold">3</div>
                 <span className="text-slate-300">Explore LCS - Work with 2D problems</span>
               </div>
               <div className="flex items-center gap-3">

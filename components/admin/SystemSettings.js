@@ -167,7 +167,7 @@ export default function SystemSettings() {
       </div>
 
       {/* General Settings */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
         <h2 className="text-xl font-semibold text-white mb-4">General Settings</h2>
         <div className="space-y-4">
           <div>
@@ -176,11 +176,11 @@ export default function SystemSettings() {
               type="text"
               value={settings.siteName || ''}
               onChange={(e) => handleInputChange('siteName', e.target.value)}
-              className="w-full px-4 py-2 bg-slate-700/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
             />
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg">
+          <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
               <h3 className="text-white font-medium">Maintenance Mode</h3>
               <p className="text-gray-400 text-sm">Enable to temporarily disable site access</p>
@@ -192,11 +192,11 @@ export default function SystemSettings() {
                 checked={settings.maintenanceMode || false}
                 onChange={(e) => handleInputChange('maintenanceMode', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg">
+          <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
               <h3 className="text-white font-medium">User Registration</h3>
               <p className="text-gray-400 text-sm">Allow new users to register</p>
@@ -208,17 +208,17 @@ export default function SystemSettings() {
                 checked={settings.registrationEnabled || false}
                 onChange={(e) => handleInputChange('registrationEnabled', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
         </div>
       </div>
 
       {/* Platform Features */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
         <h2 className="text-xl font-semibold text-white mb-4">Platform Features</h2>
         <div className="space-y-4">
-          <div className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg">
+          <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
               <h3 className="text-white font-medium">Contest Registration</h3>
               <p className="text-gray-400 text-sm">Allow users to register for contests</p>
@@ -230,11 +230,11 @@ export default function SystemSettings() {
                 checked={settings.contestRegistrationEnabled || false}
                 onChange={(e) => handleInputChange('contestRegistrationEnabled', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg">
+          <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
               <h3 className="text-white font-medium">Premium Features</h3>
               <p className="text-gray-400 text-sm">Enable premium subscription features</p>
@@ -246,11 +246,11 @@ export default function SystemSettings() {
                 checked={settings.premiumFeaturesEnabled || false}
                 onChange={(e) => handleInputChange('premiumFeaturesEnabled', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg">
+          <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
               <h3 className="text-white font-medium">Community Features</h3>
               <p className="text-gray-400 text-sm">Enable discussions and community interactions</p>
@@ -262,11 +262,11 @@ export default function SystemSettings() {
                 checked={settings.communityFeaturesEnabled || false}
                 onChange={(e) => handleInputChange('communityFeaturesEnabled', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg">
+          <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
               <h3 className="text-white font-medium">Problem Submissions</h3>
               <p className="text-gray-400 text-sm">Allow users to submit solutions to problems</p>
@@ -278,11 +278,11 @@ export default function SystemSettings() {
                 checked={settings.problemSubmissionEnabled || false}
                 onChange={(e) => handleInputChange('problemSubmissionEnabled', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg">
+          <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
               <h3 className="text-white font-medium">Public Leaderboards</h3>
               <p className="text-gray-400 text-sm">Display public ranking and leaderboards</p>
@@ -294,14 +294,14 @@ export default function SystemSettings() {
                 checked={settings.publicLeaderboards || false}
                 onChange={(e) => handleInputChange('publicLeaderboards', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
         </div>
       </div>
 
       {/* System Limits */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
         <h2 className="text-xl font-semibold text-white mb-4">System Limits</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
@@ -310,7 +310,7 @@ export default function SystemSettings() {
               type="number"
               value={settings.maxSubmissionsPerDay || 100}
               onChange={(e) => handleInputChange('maxSubmissionsPerDay', parseInt(e.target.value))}
-              className="w-full px-4 py-2 bg-slate-700/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
             />
           </div>
 
@@ -320,17 +320,17 @@ export default function SystemSettings() {
               type="number"
               value={settings.passwordMinLength || 8}
               onChange={(e) => handleInputChange('passwordMinLength', parseInt(e.target.value))}
-              className="w-full px-4 py-2 bg-slate-700/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
             />
           </div>
         </div>
       </div>
 
       {/* Security Settings */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
         <h2 className="text-xl font-semibold text-white mb-4">Security Settings</h2>
         <div className="space-y-4">
-          <div className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg">
+          <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
               <h3 className="text-white font-medium">Email Verification Required</h3>
               <p className="text-gray-400 text-sm">Require email verification for new accounts</p>
@@ -342,11 +342,11 @@ export default function SystemSettings() {
                 checked={settings.requireEmailVerification || false}
                 onChange={(e) => handleInputChange('requireEmailVerification', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg">
+          <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
               <h3 className="text-white font-medium">Two-Factor Authentication</h3>
               <p className="text-gray-400 text-sm">Enable 2FA option for enhanced security</p>
@@ -358,11 +358,11 @@ export default function SystemSettings() {
                 checked={settings.enableTwoFactorAuth || false}
                 onChange={(e) => handleInputChange('enableTwoFactorAuth', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg">
+          <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
               <h3 className="text-white font-medium">Guest Access</h3>
               <p className="text-gray-400 text-sm">Allow guests to browse problems without registration</p>
@@ -374,11 +374,11 @@ export default function SystemSettings() {
                 checked={settings.allowGuestAccess || false}
                 onChange={(e) => handleInputChange('allowGuestAccess', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg">
+          <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
               <h3 className="text-white font-medium">Email Notifications</h3>
               <p className="text-gray-400 text-sm">Send system notifications via email</p>
@@ -390,7 +390,7 @@ export default function SystemSettings() {
                 checked={settings.emailNotifications || false}
                 onChange={(e) => handleInputChange('emailNotifications', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
         </div>
@@ -400,7 +400,7 @@ export default function SystemSettings() {
         <button 
           onClick={handleSaveSettings}
           disabled={saving}
-          className={`px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors ${
+          className={`px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors ${
             saving ? 'opacity-50 cursor-not-allowed' : ''
           }`}
         >

@@ -67,7 +67,7 @@ const HelpSupport = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <FaHeadset className="text-4xl text-purple-400" />
+            <FaHeadset className="text-4xl theme-accent" />
             <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
               Help & Support
             </h1>
@@ -82,7 +82,7 @@ const HelpSupport = () => {
           <div className="lg:col-span-2" id="faq">
             <div className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700">
               <div className="flex items-center gap-3 mb-8">
-                <FaQuestionCircle className="text-2xl text-purple-400" />
+                <FaQuestionCircle className="text-2xl theme-accent" />
                 <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
               </div>
 
@@ -98,7 +98,7 @@ const HelpSupport = () => {
                     >
                       <span className="text-white font-medium text-lg">{faq.question}</span>
                       {openFaq === index ? (
-                        <FaChevronUp className="text-purple-400 transition-transform duration-300" />
+                        <FaChevronUp className="theme-accent transition-transform duration-300" />
                       ) : (
                         <FaChevronDown className="text-gray-400 transition-transform duration-300" />
                       )}
@@ -122,18 +122,18 @@ const HelpSupport = () => {
             {/* Contact Information */}
             <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
               <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                <FaHeadset className="text-purple-400" />
+                <FaHeadset className="theme-accent" />
                 Contact Support
               </h3>
 
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <FaEnvelope className="text-purple-400 mt-1" />
+                  <FaEnvelope className="theme-accent mt-1" />
                   <div>
                     <p className="text-white font-medium">Email Support</p>
                     <Link
                       href="mailto:support@upcode.com"
-                      className="text-gray-400 hover:text-purple-400 transition-colors"
+                      className="text-gray-400 hover:theme-accent transition-colors"
                     >
                       support@upcode.com
                     </Link>
@@ -141,7 +141,7 @@ const HelpSupport = () => {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <FaClock className="text-purple-400 mt-1" />
+                  <FaClock className="theme-accent mt-1" />
                   <div>
                     <p className="text-white font-medium">Response Time</p>
                     <p className="text-gray-400">Within 24 hours</p>
@@ -157,7 +157,7 @@ const HelpSupport = () => {
               <div className="space-y-4">
                 <Link
                   href="/register"
-                  className="block w-full px-4 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all duration-300 text-center font-medium"
+                  className="block w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 text-center font-medium"
                 >
                   Create Account
                 </Link>
@@ -197,7 +197,7 @@ const HelpSupport = () => {
                   <input
                     type="text"
                     id="name"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500 transition-colors"
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
                     placeholder="Your name"
                   />
                 </div>
@@ -209,7 +209,7 @@ const HelpSupport = () => {
                   <input
                     type="email"
                     id="email"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500 transition-colors"
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -220,7 +220,7 @@ const HelpSupport = () => {
                   </label>
                   <select
                     id="subject"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500 transition-colors"
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
                   >
                     <option value="">Select a topic</option>
                     <option value="technical">Technical Issue</option>
@@ -238,14 +238,14 @@ const HelpSupport = () => {
                   <textarea
                     id="message"
                     rows={4}
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
                     placeholder="Describe your issue or question..."
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full px-4 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all duration-300 font-medium"
+                  className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 font-medium"
                 >
                   Send Message
                 </button>
@@ -262,7 +262,7 @@ const HelpSupport = () => {
             <p className="text-gray-400 mb-4">Comprehensive guides and tutorials</p>
             <Link
               href="/courses"
-              className="text-purple-400 hover:text-purple-300 transition-colors font-medium"
+              className="theme-accent hover:theme-text-secondary transition-colors font-medium"
             >
               View Courses →
             </Link>
@@ -274,7 +274,7 @@ const HelpSupport = () => {
             <p className="text-gray-400 mb-4">Connect with other developers</p>
             <Link
               href="/contests"
-              className="text-purple-400 hover:text-purple-300 transition-colors font-medium"
+              className="theme-accent hover:theme-text-secondary transition-colors font-medium"
             >
               Join Contests →
             </Link>
@@ -286,7 +286,7 @@ const HelpSupport = () => {
             <p className="text-gray-400 mb-4">Improve your coding skills</p>
             <Link
               href="/interview"
-              className="text-purple-400 hover:text-purple-300 transition-colors font-medium"
+              className="theme-accent hover:theme-text-secondary transition-colors font-medium"
             >
               Interview Prep →
             </Link>

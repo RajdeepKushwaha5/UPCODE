@@ -214,7 +214,7 @@ export default function KnapsackVisualization() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -227,7 +227,7 @@ export default function KnapsackVisualization() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Add Item */}
             <div>
@@ -239,7 +239,7 @@ export default function KnapsackVisualization() {
                     value={inputName}
                     onChange={(e) => setInputName(e.target.value)}
                     placeholder="Item name"
-                    className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                    className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                     disabled={animating}
                   />
                 </div>
@@ -250,7 +250,7 @@ export default function KnapsackVisualization() {
                     onChange={(e) => setInputWeight(e.target.value)}
                     placeholder="Weight"
                     min="1"
-                    className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                    className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                     disabled={animating}
                   />
                   <input
@@ -259,13 +259,13 @@ export default function KnapsackVisualization() {
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Value"
                     min="1"
-                    className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                    className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                     disabled={animating}
                   />
                   <button
                     onClick={addItem}
                     disabled={!inputName.trim() || !inputWeight.trim() || !inputValue.trim() || animating}
-                    className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 disabled:opacity-50 transition-colors"
+                    className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 transition-colors"
                   >
                     Add
                   </button>
@@ -283,7 +283,7 @@ export default function KnapsackVisualization() {
                   onChange={(e) => setCapacity(parseInt(e.target.value) || 0)}
                   min="1"
                   max="20"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                   disabled={animating}
                 />
                 <span className="text-slate-400">units</span>
@@ -297,7 +297,7 @@ export default function KnapsackVisualization() {
               <h3 className="text-white font-bold mb-3">Items</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                 {items.map((item, index) => (
-                  <div key={index} className="flex items-center justify-between bg-slate-700/50 rounded-lg p-3">
+                  <div key={index} className="flex items-center justify-between theme-surface-elevated/50 rounded-lg p-3">
                     <div>
                       <div className="text-white font-semibold">{item.name}</div>
                       <div className="text-slate-400 text-sm">
@@ -351,7 +351,7 @@ export default function KnapsackVisualization() {
         {dpTable.length > 0 && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             {/* Value Table */}
-            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h2 className="text-xl font-bold text-white mb-4 text-center">DP Value Table</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
@@ -359,7 +359,7 @@ export default function KnapsackVisualization() {
                     <tr>
                       <th className="p-1 text-slate-400 font-bold">Item/W</th>
                       {Array.from({ length: capacity + 1 }, (_, i) => (
-                        <th key={i} className="p-1 text-purple-400 font-bold min-w-8">
+                        <th key={i} className="p-1 theme-accent font-bold min-w-8">
                           {i}
                         </th>
                       ))}
@@ -368,7 +368,7 @@ export default function KnapsackVisualization() {
                   <tbody>
                     {dpTable.map((row, i) => (
                       <tr key={i}>
-                        <td className="p-1 text-purple-400 font-bold">
+                        <td className="p-1 theme-accent font-bold">
                           {i === 0 ? '∅' : items[i - 1]?.name || `Item ${i}`}
                         </td>
                         {row.map((value, j) => (
@@ -389,7 +389,7 @@ export default function KnapsackVisualization() {
             </div>
 
             {/* Keep Table */}
-            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h2 className="text-xl font-bold text-white mb-4 text-center">Keep Table</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
@@ -397,7 +397,7 @@ export default function KnapsackVisualization() {
                     <tr>
                       <th className="p-1 text-slate-400 font-bold">Item/W</th>
                       {Array.from({ length: capacity + 1 }, (_, i) => (
-                        <th key={i} className="p-1 text-purple-400 font-bold min-w-8">
+                        <th key={i} className="p-1 theme-accent font-bold min-w-8">
                           {i}
                         </th>
                       ))}
@@ -406,7 +406,7 @@ export default function KnapsackVisualization() {
                   <tbody>
                     {keepTable.map((row, i) => (
                       <tr key={i}>
-                        <td className="p-1 text-purple-400 font-bold">
+                        <td className="p-1 theme-accent font-bold">
                           {i === 0 ? '∅' : items[i - 1]?.name || `Item ${i}`}
                         </td>
                         {row.map((keep, j) => (
@@ -430,7 +430,7 @@ export default function KnapsackVisualization() {
 
         {/* Current Operation Display */}
         {currentOperation && currentOperation.operation && (
-          <div className="mb-6 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="mb-6 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-white font-bold mb-3 text-center">Current Decision</h3>
             <div className="text-center">
               <div className={`
@@ -481,11 +481,11 @@ export default function KnapsackVisualization() {
         )}
 
         {/* Algorithm Info */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-white font-bold mb-4">0/1 Knapsack Algorithm Properties</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="text-center">
-              <div className="text-purple-400 font-bold mb-2">Time Complexity</div>
+              <div className="theme-accent font-bold mb-2">Time Complexity</div>
               <div className="text-slate-300 text-sm">O(n × W)</div>
             </div>
             <div className="text-center">

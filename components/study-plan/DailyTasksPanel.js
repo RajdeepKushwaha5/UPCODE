@@ -179,7 +179,7 @@ const DailyTasksPanel = ({ studyPlan, onTaskComplete, onTaskStart }) => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={fetchDailyTasks}
-            className="mt-4 bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition-all"
+            className="mt-4 bg-purple-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all"
           >
             Refresh Tasks
           </motion.button>
@@ -194,7 +194,7 @@ const DailyTasksPanel = ({ studyPlan, onTaskComplete, onTaskStart }) => {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-white font-semibold text-xl flex items-center gap-2">
-            <FaCalendarAlt className="text-purple-400" />
+            <FaCalendarAlt className="theme-accent" />
             Today's Tasks
           </h3>
           <p className="text-gray-400 text-sm mt-1">
@@ -206,7 +206,7 @@ const DailyTasksPanel = ({ studyPlan, onTaskComplete, onTaskStart }) => {
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            className="bg-gray-700 text-white text-sm rounded-lg px-3 py-2 border border-gray-600 focus:border-purple-500 focus:outline-none"
+            className="bg-gray-700 text-white text-sm rounded-lg px-3 py-2 border border-gray-600 focus:border-blue-500 focus:outline-none"
           >
             <option value="all">All Tasks</option>
             <option value="pending">Pending</option>
@@ -310,7 +310,7 @@ const DailyTasksPanel = ({ studyPlan, onTaskComplete, onTaskStart }) => {
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={() => onTaskStart?.(task.id)}
-                          className="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded-lg text-sm flex items-center gap-1 transition-all"
+                          className="bg-purple-500 hover:bg-blue-600 text-white px-3 py-1 rounded-lg text-sm flex items-center gap-1 transition-all"
                         >
                           <FaPlay className="text-xs" />
                           Start
@@ -385,7 +385,7 @@ const DailyTasksPanel = ({ studyPlan, onTaskComplete, onTaskStart }) => {
                               <ul className="space-y-1">
                                 {task.skills.map((skill, idx) => (
                                   <li key={idx} className="text-gray-400 text-sm flex items-center gap-2">
-                                    <FaStar className="text-xs text-purple-400" />
+                                    <FaStar className="text-xs theme-accent" />
                                     {skill}
                                   </li>
                                 ))}

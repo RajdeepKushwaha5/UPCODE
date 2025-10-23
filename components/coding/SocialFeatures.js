@@ -331,7 +331,7 @@ function DiscussionCard({ discussion }) {
             <span>{discussion.author}</span>
             <span className={`px-2 py-1 rounded text-xs ${
               discussion.authorRank === 'Expert' 
-                ? 'bg-purple-900/50 text-purple-300'
+                ? 'bg-purple-900/50 theme-text-secondary'
                 : discussion.authorRank === 'Master'
                 ? 'bg-yellow-900/50 text-yellow-300'
                 : 'bg-blue-900/50 text-blue-300'
@@ -477,7 +477,7 @@ function SolutionCard({ solution }) {
         {/* Complexity */}
         <div className="flex gap-4 text-xs mb-3">
           <span className="text-blue-400">Time: {solution.complexity.time}</span>
-          <span className="text-purple-400">Space: {solution.complexity.space}</span>
+          <span className="theme-accent">Space: {solution.complexity.space}</span>
         </div>
       </div>
 

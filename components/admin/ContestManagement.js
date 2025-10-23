@@ -47,15 +47,15 @@ export default function ContestManagement() {
           <h1 className="text-2xl font-bold text-white">Contest Management</h1>
           <p className="text-gray-400">Create and manage programming contests</p>
         </div>
-        <button className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors">
+        <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
           Create Contest
         </button>
       </div>
 
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden">
+      <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-slate-700/50">
+            <thead className="theme-surface-elevated/50">
               <tr>
                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Contest</th>
                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Status</th>
@@ -67,7 +67,7 @@ export default function ContestManagement() {
             </thead>
             <tbody className="divide-y divide-slate-700/50">
               {contests.map((contest) => (
-                <tr key={contest.id} className="hover:bg-slate-700/30 transition-colors">
+                <tr key={contest.id} className="hover:theme-surface-elevated/30 transition-colors">
                   <td className="px-6 py-4">
                     <div className="text-white font-medium">{contest.title}</div>
                   </td>

@@ -450,7 +450,7 @@ The recursive approach is more elegant but uses O(log n) space...
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {data.map((item) => (
-          <div key={item._id} className="bg-slate-700/50 rounded-lg p-6 border border-slate-600/50 hover:border-slate-500/50 transition-colors">
+          <div key={item._id} className="theme-surface-elevated/50 rounded-lg p-6 border border-slate-600/50 hover:border-slate-500/50 transition-colors">
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
                 <h4 className="text-white font-semibold mb-1">
@@ -615,7 +615,7 @@ The recursive approach is more elegant but uses O(log n) space...
               onClick={() => setActiveTab(tab.id)}
               className={`py-2 px-1 border-b-2 font-medium text-sm flex items-center space-x-2 transition-colors ${
                 activeTab === tab.id
-                  ? "border-purple-500 text-purple-400"
+                  ? "border-purple-500 theme-accent"
                   : "border-transparent text-gray-400 hover:text-gray-300 hover:border-gray-300"
               }`}
             >
@@ -645,7 +645,7 @@ The recursive approach is more elegant but uses O(log n) space...
                 break;
             }
           }}
-          className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+          className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
         >
           <PlusIcon className="w-4 h-4" />
           <span>Add {tabs.find(t => t.id === activeTab)?.label.slice(0, -1)}</span>
@@ -653,14 +653,14 @@ The recursive approach is more elegant but uses O(log n) space...
       </div>
 
       {/* Content Cards */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-600/50 p-6">
+      <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 p-6">
         {renderContentCards()}
       </div>
 
       {/* Solution Modal */}
       {showSolutionModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="theme-surface rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b border-slate-700">
               <h3 className="text-xl font-semibold text-white">Add Code Solution</h3>
             </div>
@@ -675,7 +675,7 @@ The recursive approach is more elegant but uses O(log n) space...
                     type="text"
                     value={solutionFormData.problemId}
                     onChange={(e) => setSolutionFormData(prev => ({ ...prev, problemId: e.target.value }))}
-                    className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -687,7 +687,7 @@ The recursive approach is more elegant but uses O(log n) space...
                   <select
                     value={solutionFormData.language}
                     onChange={(e) => setSolutionFormData(prev => ({ ...prev, language: e.target.value }))}
-                    className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     {languages.map(lang => (
                       <option key={lang.value} value={lang.value}>{lang.label}</option>
@@ -704,7 +704,7 @@ The recursive approach is more elegant but uses O(log n) space...
                     value={solutionFormData.timeComplexity}
                     onChange={(e) => setSolutionFormData(prev => ({ ...prev, timeComplexity: e.target.value }))}
                     placeholder="e.g., O(n)"
-                    className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -718,7 +718,7 @@ The recursive approach is more elegant but uses O(log n) space...
                     value={solutionFormData.spaceComplexity}
                     onChange={(e) => setSolutionFormData(prev => ({ ...prev, spaceComplexity: e.target.value }))}
                     placeholder="e.g., O(1)"
-                    className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -732,7 +732,7 @@ The recursive approach is more elegant but uses O(log n) space...
                   value={solutionFormData.code}
                   onChange={(e) => setSolutionFormData(prev => ({ ...prev, code: e.target.value }))}
                   rows={12}
-                  className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent font-mono text-sm"
+                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
                   required
                 />
               </div>
@@ -745,7 +745,7 @@ The recursive approach is more elegant but uses O(log n) space...
                   value={solutionFormData.explanation}
                   onChange={(e) => setSolutionFormData(prev => ({ ...prev, explanation: e.target.value }))}
                   rows={4}
-                  className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -760,7 +760,7 @@ The recursive approach is more elegant but uses O(log n) space...
                       type="text"
                       value={insight}
                       onChange={(e) => updateKeyInsight(index, e.target.value)}
-                      className="flex-1 bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="flex-1 theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Enter key insight"
                     />
                     <button
@@ -775,7 +775,7 @@ The recursive approach is more elegant but uses O(log n) space...
                 <button
                   type="button"
                   onClick={addKeyInsight}
-                  className="text-purple-400 hover:text-purple-300 text-sm transition-colors"
+                  className="theme-accent hover:theme-text-secondary text-sm transition-colors"
                 >
                   + Add Key Insight
                 </button>
@@ -800,13 +800,13 @@ The recursive approach is more elegant but uses O(log n) space...
                     setShowSolutionModal(false);
                     resetSolutionForm();
                   }}
-                  className="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                  className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
                 >
                   Create Solution
                 </button>
@@ -819,7 +819,7 @@ The recursive approach is more elegant but uses O(log n) space...
       {/* Video Modal */}
       {showVideoModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="theme-surface rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b border-slate-700">
               <h3 className="text-xl font-semibold text-white">Add Video Solution</h3>
             </div>
@@ -834,7 +834,7 @@ The recursive approach is more elegant but uses O(log n) space...
                     type="text"
                     value={videoFormData.problemId}
                     onChange={(e) => setVideoFormData(prev => ({ ...prev, problemId: e.target.value }))}
-                    className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -848,7 +848,7 @@ The recursive approach is more elegant but uses O(log n) space...
                     value={videoFormData.duration}
                     onChange={(e) => setVideoFormData(prev => ({ ...prev, duration: e.target.value }))}
                     placeholder="e.g., 12:30"
-                    className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -862,7 +862,7 @@ The recursive approach is more elegant but uses O(log n) space...
                   type="text"
                   value={videoFormData.title}
                   onChange={(e) => setVideoFormData(prev => ({ ...prev, title: e.target.value }))}
-                  className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -875,7 +875,7 @@ The recursive approach is more elegant but uses O(log n) space...
                   type="url"
                   value={videoFormData.videoUrl}
                   onChange={(e) => setVideoFormData(prev => ({ ...prev, videoUrl: e.target.value }))}
-                  className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -888,7 +888,7 @@ The recursive approach is more elegant but uses O(log n) space...
                   value={videoFormData.description}
                   onChange={(e) => setVideoFormData(prev => ({ ...prev, description: e.target.value }))}
                   rows={4}
-                  className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -901,7 +901,7 @@ The recursive approach is more elegant but uses O(log n) space...
                   type="text"
                   value={videoFormData.instructor}
                   onChange={(e) => setVideoFormData(prev => ({ ...prev, instructor: e.target.value }))}
-                  className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -925,13 +925,13 @@ The recursive approach is more elegant but uses O(log n) space...
                     setShowVideoModal(false);
                     resetVideoForm();
                   }}
-                  className="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                  className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
                 >
                   Create Video Solution
                 </button>
@@ -944,7 +944,7 @@ The recursive approach is more elegant but uses O(log n) space...
       {/* Hint Modal */}
       {showHintModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="theme-surface rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b border-slate-700">
               <h3 className="text-xl font-semibold text-white">Add Problem Hints</h3>
             </div>
@@ -958,7 +958,7 @@ The recursive approach is more elegant but uses O(log n) space...
                   type="text"
                   value={hintFormData.problemId}
                   onChange={(e) => setHintFormData(prev => ({ ...prev, problemId: e.target.value }))}
-                  className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -976,7 +976,7 @@ The recursive approach is more elegant but uses O(log n) space...
                       value={hint}
                       onChange={(e) => updateHint(index, e.target.value)}
                       rows={3}
-                      className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder={`Enter hint ${index + 1} (should be ${index === 0 ? 'subtle' : index === 1 ? 'more specific' : 'most revealing'})`}
                     />
                   </div>
@@ -1002,13 +1002,13 @@ The recursive approach is more elegant but uses O(log n) space...
                     setShowHintModal(false);
                     resetHintForm();
                   }}
-                  className="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                  className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
                 >
                   Create Hints
                 </button>
@@ -1021,7 +1021,7 @@ The recursive approach is more elegant but uses O(log n) space...
       {/* Editorial Modal */}
       {showEditorialModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="theme-surface rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b border-slate-700">
               <h3 className="text-xl font-semibold text-white">Create Editorial</h3>
             </div>
@@ -1036,7 +1036,7 @@ The recursive approach is more elegant but uses O(log n) space...
                     type="text"
                     value={editorialFormData.problemId}
                     onChange={(e) => setEditorialFormData(prev => ({ ...prev, problemId: e.target.value }))}
-                    className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -1049,7 +1049,7 @@ The recursive approach is more elegant but uses O(log n) space...
                     type="text"
                     value={editorialFormData.author}
                     onChange={(e) => setEditorialFormData(prev => ({ ...prev, author: e.target.value }))}
-                    className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -1063,7 +1063,7 @@ The recursive approach is more elegant but uses O(log n) space...
                   type="text"
                   value={editorialFormData.title}
                   onChange={(e) => setEditorialFormData(prev => ({ ...prev, title: e.target.value }))}
-                  className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -1076,7 +1076,7 @@ The recursive approach is more elegant but uses O(log n) space...
                   value={editorialFormData.content}
                   onChange={(e) => setEditorialFormData(prev => ({ ...prev, content: e.target.value }))}
                   rows={16}
-                  className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent font-mono text-sm"
+                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
                   placeholder="Write your editorial content using Markdown formatting..."
                   required
                 />
@@ -1101,13 +1101,13 @@ The recursive approach is more elegant but uses O(log n) space...
                     setShowEditorialModal(false);
                     resetEditorialForm();
                   }}
-                  className="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                  className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
                 >
                   Create Editorial
                 </button>

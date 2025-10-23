@@ -183,7 +183,7 @@ export default function EnhancedPremiumControl() {
               type="checkbox"
               checked={autoRefresh}
               onChange={(e) => setAutoRefresh(e.target.checked)}
-              className="rounded border-slate-600 bg-slate-700 text-purple-600 focus:ring-purple-500 focus:ring-offset-slate-800"
+              className="rounded border-slate-600 theme-surface-elevated text-purple-600 focus:ring-blue-500 focus:ring-offset-slate-800"
             />
             Auto-refresh (30s)
           </label>
@@ -192,8 +192,8 @@ export default function EnhancedPremiumControl() {
             disabled={refreshing}
             className={`px-4 py-2 rounded-lg transition-colors flex items-center gap-2 ${
               refreshing 
-                ? 'bg-purple-600/50 text-gray-300 cursor-not-allowed' 
-                : 'bg-purple-600 hover:bg-purple-700 text-white'
+                ? 'bg-blue-600/50 text-gray-300 cursor-not-allowed' 
+                : 'bg-blue-600 hover:bg-blue-700 text-white'
             }`}
           >
             {refreshing && (
@@ -206,7 +206,7 @@ export default function EnhancedPremiumControl() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-400">Total Premium Users</p>
@@ -216,7 +216,7 @@ export default function EnhancedPremiumControl() {
           </div>
         </div>
 
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-400">Active Premium</p>
@@ -226,7 +226,7 @@ export default function EnhancedPremiumControl() {
           </div>
         </div>
 
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-400">Monthly Revenue</p>
@@ -236,7 +236,7 @@ export default function EnhancedPremiumControl() {
           </div>
         </div>
 
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-400">Conversion Rate</p>
@@ -248,7 +248,7 @@ export default function EnhancedPremiumControl() {
       </div>
 
       {/* Users Table */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden">
+      <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden">
         <div className="p-6 border-b border-slate-700/50">
           <h3 className="text-lg font-semibold text-white">Premium Users</h3>
           <p className="text-gray-400">Manage premium subscriptions</p>
@@ -262,13 +262,13 @@ export default function EnhancedPremiumControl() {
                 placeholder="Search users..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full theme-surface-elevated border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
             <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              className="bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="theme-surface-elevated border border-slate-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               {filters.map(filter => (
                 <option key={filter.value} value={filter.value}>{filter.label}</option>
@@ -316,7 +316,7 @@ export default function EnhancedPremiumControl() {
                           setActionType(user.status === 'active' ? 'revoke' : 'grant');
                           setShowActionModal(true);
                         }}
-                        className="text-purple-400 hover:text-purple-300 text-sm"
+                        className="theme-accent hover:theme-text-secondary text-sm"
                       >
                         {user.status === 'active' ? 'Revoke' : 'Grant'}
                       </button>
@@ -332,7 +332,7 @@ export default function EnhancedPremiumControl() {
       {/* Action Modal */}
       {showActionModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl p-6 max-w-md w-full">
+          <div className="theme-surface rounded-xl p-6 max-w-md w-full">
             <h3 className="text-xl font-semibold text-white mb-4">
               {actionType === 'grant' ? 'Grant Premium' : 'Revoke Premium'}
             </h3>
@@ -345,7 +345,7 @@ export default function EnhancedPremiumControl() {
                     type="number"
                     value={actionData.duration}
                     onChange={(e) => setActionData(prev => ({...prev, duration: parseInt(e.target.value)}))}
-                    className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white"
+                    className="w-full theme-surface-elevated border border-slate-600 rounded-lg px-3 py-2 text-white"
                   />
                 </div>
                 <div>
@@ -353,7 +353,7 @@ export default function EnhancedPremiumControl() {
                   <select
                     value={actionData.plan}
                     onChange={(e) => setActionData(prev => ({...prev, plan: e.target.value}))}
-                    className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white"
+                    className="w-full theme-surface-elevated border border-slate-600 rounded-lg px-3 py-2 text-white"
                   >
                     <option value="monthly">Monthly</option>
                     <option value="yearly">Yearly</option>
@@ -365,7 +365,7 @@ export default function EnhancedPremiumControl() {
             <div className="flex justify-end space-x-3">
               <button
                 onClick={() => setShowActionModal(false)}
-                className="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
               >
                 Cancel
               </button>

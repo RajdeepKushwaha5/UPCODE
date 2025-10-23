@@ -101,7 +101,7 @@ function ResetPasswordContent() {
 
   if (isValidToken === false) {
     return (
-      <section className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex flex-col justify-center items-center py-8 px-4">
+      <section className="min-h-screen theme-bg flex flex-col justify-center items-center py-8 px-4">
         <Toaster />
         <div className="w-full max-w-md">
           <div className="bg-white rounded-lg shadow-lg p-8 text-center">
@@ -123,7 +123,7 @@ function ResetPasswordContent() {
   }
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex flex-col justify-center items-center py-8 px-4">
+    <section className="min-h-screen theme-bg flex flex-col justify-center items-center py-8 px-4">
       <Toaster />
       <div className="w-full max-w-md">
         {/* Logo and Branding */}

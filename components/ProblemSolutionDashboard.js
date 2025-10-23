@@ -334,7 +334,7 @@ export default function ProblemSolutionDashboard({ problem }) {
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors ${activeTab === tab.id
-                      ? 'bg-purple-600 text-white border-b-2 border-purple-400'
+                      ? 'bg-blue-600 text-white border-b-2 border-purple-400'
                       : 'text-gray-300 hover:text-white hover:bg-gray-700'
                     }`}
                 >
@@ -454,7 +454,7 @@ export default function ProblemSolutionDashboard({ problem }) {
                 <select
                   value={selectedLanguage}
                   onChange={(e) => setSelectedLanguage(e.target.value)}
-                  className="bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   {languages.map(lang => (
                     <option key={lang.value} value={lang.value}>
@@ -510,7 +510,7 @@ export default function ProblemSolutionDashboard({ problem }) {
                 <button
                   onClick={() => setShowTestCase(false)}
                   className={`px-4 py-2 text-sm font-medium transition-colors ${!showTestCase
-                      ? 'bg-purple-600 text-white'
+                      ? 'bg-blue-600 text-white'
                       : 'text-gray-300 hover:text-white hover:bg-gray-700'
                     }`}
                 >
@@ -520,7 +520,7 @@ export default function ProblemSolutionDashboard({ problem }) {
                 <button
                   onClick={() => setShowTestCase(true)}
                   className={`px-4 py-2 text-sm font-medium transition-colors ${showTestCase
-                      ? 'bg-purple-600 text-white'
+                      ? 'bg-blue-600 text-white'
                       : 'text-gray-300 hover:text-white hover:bg-gray-700'
                     }`}
                 >
@@ -574,7 +574,7 @@ export default function ProblemSolutionDashboard({ problem }) {
                           key={index}
                           onClick={() => setSelectedTestCase(index)}
                           className={`px-3 py-1 rounded text-sm font-medium transition-colors ${selectedTestCase === index
-                              ? 'bg-purple-600 text-white'
+                              ? 'bg-blue-600 text-white'
                               : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                             }`}
                         >
@@ -643,7 +643,7 @@ export default function ProblemSolutionDashboard({ problem }) {
                 <button
                   onClick={submitCode}
                   disabled={isSubmitting}
-                  className="flex items-center gap-2 px-6 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 text-white rounded-lg transition-colors font-medium"
+                  className="flex items-center gap-2 px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 text-white rounded-lg transition-colors font-medium"
                 >
                   {isSubmitting ? (
                     <>

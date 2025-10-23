@@ -64,23 +64,23 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-t border-purple-500/20">
-      <div className="max-w-6xl mx-auto px-4 py-12">
+    <footer className="theme-surface border-t theme-border mt-auto">
+      <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-5 gap-8 mb-8">
 
           {/* Company Info */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-mono mb-4">
+            <h3 className="text-2xl font-black theme-text font-space mb-4">
               UPCODE
             </h3>
-            <p className="text-gray-400 leading-relaxed mb-6 max-w-md">
+            <p className="theme-text-secondary leading-relaxed mb-6 max-w-md">
               Master coding challenges, compete in contests, and accelerate your programming journey with the most comprehensive coding platform.
             </p>
 
             {/* Newsletter Subscription */}
             <div className="mb-6">
-              <h4 className="text-white font-semibold mb-3">Stay Updated</h4>
+              <h4 className="theme-text font-semibold mb-3">Stay Updated</h4>
               <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3">
                 <div className="relative flex-1">
                   <input
@@ -88,14 +88,14 @@ const Footer = () => {
                     value={newsletterEmail}
                     onChange={(e) => setNewsletterEmail(e.target.value)}
                     placeholder="Enter your email"
-                    className="w-full bg-slate-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 transition-all duration-300"
+                    className="w-full theme-surface-elevated border theme-border rounded-lg px-4 py-3 theme-text placeholder:theme-text-tertiary focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
                     disabled={newsletterLoading}
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={newsletterLoading || !newsletterEmail}
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
                 >
                   {newsletterLoading ? (
                     <span className="flex items-center gap-2">
@@ -122,64 +122,74 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Platform</h4>
+            <h4 className="theme-text font-semibold mb-4">Platform</h4>
             <ul className="space-y-2">
-              <li><Link href="/problems" className="text-gray-400 hover:text-purple-400 transition-colors">Problems</Link></li>
-              <li><Link href="/contests" className="text-gray-400 hover:text-purple-400 transition-colors">Contests</Link></li>
-              <li><Link href="/courses" className="text-gray-400 hover:text-purple-400 transition-colors">Courses</Link></li>
-              <li><Link href="/interview" className="text-gray-400 hover:text-purple-400 transition-colors">Interview</Link></li>
-              <li><Link href="/learn" className="text-gray-400 hover:text-purple-400 transition-colors">Learn</Link></li>
-              <li><Link href="/profile" className="text-gray-400 hover:text-purple-400 transition-colors">Profile</Link></li>
+              <li><Link href="/problems-new" className="theme-text-secondary hover:theme-accent transition-colors">Problems</Link></li>
+              <li><Link href="/contests" className="theme-text-secondary hover:theme-accent transition-colors">Contests</Link></li>
+              <li><Link href="/courses" className="theme-text-secondary hover:theme-accent transition-colors">Courses</Link></li>
+              <li><Link href="/interview" className="theme-text-secondary hover:theme-accent transition-colors">Interview</Link></li>
+              <li><Link href="/learn" className="theme-text-secondary hover:theme-accent transition-colors">Learn</Link></li>
+              <li><Link href="/profile" className="theme-text-secondary hover:theme-accent transition-colors">Profile</Link></li>
             </ul>
           </div>
 
           {/* Resources */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Resources</h4>
+            <h4 className="theme-text font-semibold mb-4">Resources</h4>
             <ul className="space-y-2">
-              <li><Link href="/courses" className="text-gray-400 hover:text-purple-400 transition-colors">Docs</Link></li>
-              <li><Link href="/courses" className="text-gray-400 hover:text-purple-400 transition-colors">Tutorials</Link></li>
-              <li><Link href="/news" className="text-gray-400 hover:text-purple-400 transition-colors">Blog</Link></li>
-              <li><Link href="/help-support#faq" className="text-gray-400 hover:text-purple-400 transition-colors">FAQ</Link></li>
-              <li><Link href="/contests" className="text-gray-400 hover:text-purple-400 transition-colors">Community</Link></li>
-              <li><Link href="/help-support" className="text-gray-400 hover:text-purple-400 transition-colors">Support</Link></li>
+              <li><Link href="/dsa-visualizer" className="theme-text-secondary hover:theme-accent transition-colors">DSA Visualizer</Link></li>
+              <li><Link href="/courses" className="theme-text-secondary hover:theme-accent transition-colors">Tutorials</Link></li>
+              <li><Link href="/news" className="theme-text-secondary hover:theme-accent transition-colors">Blog</Link></li>
+              <li><Link href="/help-support#faq" className="theme-text-secondary hover:theme-accent transition-colors">FAQ</Link></li>
+              <li><Link href="/premium" className="theme-text-secondary hover:theme-accent transition-colors">Premium</Link></li>
+              <li><Link href="/help-support" className="theme-text-secondary hover:theme-accent transition-colors">Support</Link></li>
             </ul>
           </div>
 
           {/* Connect */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Connect</h4>
+            <h4 className="theme-text font-semibold mb-4">Connect</h4>
             <div className="flex gap-3 flex-wrap">
               <Link href='https://github.com/RajdeepKushwaha5' target="_blank" rel="noopener noreferrer" title="GitHub">
-                <FaGithub className="w-6 h-6 text-gray-400 hover:text-purple-400 transition-colors cursor-pointer" />
+                <FaGithub className="w-6 h-6 theme-text-secondary hover:theme-text transition-colors cursor-pointer" />
               </Link>
               <Link href='mailto:rajdeepsingh10789@gmail.com' title="Gmail">
-                <FaEnvelope className="w-6 h-6 text-gray-400 hover:text-red-400 transition-colors cursor-pointer" />
+                <FaEnvelope className="w-6 h-6 theme-text-secondary hover:text-red-500 transition-colors cursor-pointer" />
               </Link>
               <Link href='https://www.linkedin.com/in/rajdeep-singh-b658a833a/' target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                <FaLinkedin className="w-6 h-6 text-gray-400 hover:text-blue-400 transition-colors cursor-pointer" />
+                <FaLinkedin className="w-6 h-6 theme-text-secondary hover:text-blue-500 transition-colors cursor-pointer" />
               </Link>
               <Link href='https://x.com/rajdeeptwts' target="_blank" rel="noopener noreferrer" title="Twitter/X">
-                <FaTwitter className="w-6 h-6 text-gray-400 hover:text-blue-400 transition-colors cursor-pointer" />
+                <FaTwitter className="w-6 h-6 theme-text-secondary hover:text-blue-400 transition-colors cursor-pointer" />
               </Link>
               <Link href='https://medium.com/@rajdeep01' target="_blank" rel="noopener noreferrer" title="Medium">
-                <FaMedium className="w-6 h-6 text-gray-400 hover:text-green-400 transition-colors cursor-pointer" />
+                <FaMedium className="w-6 h-6 theme-text-secondary hover:text-green-500 transition-colors cursor-pointer" />
               </Link>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 pt-8">
+        <div className="border-t theme-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              2024 © UPCODE | All Rights Reserved.
+            <p className="theme-text-secondary text-sm">
+              2024 UPCODE. All Rights Reserved.
             </p>
-            <div className="flex items-center gap-2 text-gray-400 text-sm">
-              <span>Developed by</span>
-              <Link href='https://github.com/RajdeepKushwaha5' target="_blank" rel="noopener noreferrer" className="font-bold text-purple-400 hover:text-purple-300 transition-colors">
-                RJDP ❤️
+            <div className="flex items-center gap-6 text-sm">
+              <Link href="/privacy" className="theme-text-secondary hover:theme-accent transition-colors">
+                Privacy Policy
               </Link>
+              <Link href="/terms" className="theme-text-secondary hover:theme-accent transition-colors">
+                Terms of Service
+              </Link>
+              <div className="flex items-center gap-2 theme-text-secondary">
+                <span>Made with</span>
+                <span className="text-red-500">❤️</span>
+                <span>by</span>
+                <Link href='https://github.com/RajdeepKushwaha5' target="_blank" rel="noopener noreferrer" className="font-semibold theme-accent hover:underline">
+                  RJDP
+                </Link>
+              </div>
             </div>
           </div>
         </div>

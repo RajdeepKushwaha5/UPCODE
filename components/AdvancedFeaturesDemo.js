@@ -104,7 +104,7 @@ export default function AdvancedFeaturesDemo() {
             <span className="flex items-center gap-2 text-green-400">
               <FaCode /> Real Code Execution
             </span>
-            <span className="flex items-center gap-2 text-purple-400">
+            <span className="flex items-center gap-2 theme-accent">
               <FaBrain /> Smart Difficulty AI
             </span>
             <span className="flex items-center gap-2 text-blue-400">
@@ -225,7 +225,7 @@ export default function AdvancedFeaturesDemo() {
                       <span className="text-green-400">2.8/5</span>
                     </div>
                     <div className="border-t border-gray-700 pt-2">
-                      <span className="text-purple-400">Recommendation: Perfect challenge level!</span>
+                      <span className="theme-accent">Recommendation: Perfect challenge level!</span>
                     </div>
                   </div>
                 </div>
@@ -289,7 +289,7 @@ export default function AdvancedFeaturesDemo() {
                       <div className="text-xs text-gray-400">Day Streak</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-purple-400">127</div>
+                      <div className="text-2xl font-bold theme-accent">127</div>
                       <div className="text-xs text-gray-400">Problems Solved</div>
                     </div>
                     <div className="text-center">

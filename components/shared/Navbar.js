@@ -13,7 +13,7 @@ import { FaSignOutAlt, FaUser, FaCog, FaCrown } from 'react-icons/fa'
 const Navbar = () => {
   const { data: session, status } = useSession();
   const userID = session?.user?._id;
-  const { themeColors } = useTheme();
+  const { theme, isDark } = useTheme();
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -103,7 +103,7 @@ const Navbar = () => {
   }, [showUserMenu]);
 
   return (
-    <nav className={`w-full bg-gradient-to-r ${themeColors.secondary} backdrop-blur-md shadow-2xl sticky top-0 z-50 border-b border-${themeColors.accent}/20`}>
+    <nav className="w-full theme-surface backdrop-blur-md theme-shadow sticky top-0 z-50 border-b theme-border">
       <div className='max-w-7xl mx-auto flex justify-between items-center px-6 py-4'>
 
         {/* Logo Section */}
@@ -112,15 +112,14 @@ const Navbar = () => {
             <img
               src='/logo.png'
               alt='upcode_logo'
-              className='w-12 h-12 object-contain animate-pulse hover:animate-spin hover:scale-110 transition-all duration-500 ease-out filter drop-shadow-lg'
+              className='w-12 h-12 object-contain hover:scale-110 transition-all duration-300 ease-out filter drop-shadow-lg'
             />
-            <div className={`absolute inset-0 bg-${themeColors.accent}/20 rounded-full blur-xl group-hover:bg-${themeColors.accent}/30 transition-all duration-300`}></div>
           </div>
           <div className='flex flex-col'>
-            <h1 className={`text-2xl font-bold bg-gradient-to-r ${themeColors.primary} bg-clip-text text-transparent font-mono tracking-wide`}>
+            <h1 className="text-2xl font-bold theme-text font-space tracking-tight">
               UPCODE
             </h1>
-            <span className={`text-xs text-${themeColors.textSecondary} font-light tracking-widest`}>THINK CODE THRIVE</span>
+            <span className="text-xs theme-text-tertiary font-light tracking-widest uppercase">Think Code Thrive</span>
           </div>
         </Link>
 
@@ -141,13 +140,12 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   onClick={() => setShowUserMenu(!showUserMenu)}
-                  className="group relative flex items-center gap-2 p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300"
+                  className="group relative flex items-center gap-2 p-2 rounded-xl theme-surface-elevated hover:opacity-80 transition-all duration-300"
                 >
                   <div className="relative">
                     {/* Use pet emoji as the main profile button if available */}
                     {displayProfile?.petEmoji ? (
-                      <div className="w-10 h-10 max-sm:w-8 max-sm:h-8 bg-gradient-to-br from-purple-400 via-pink-400 to-blue-500 rounded-full border-2 border-purple-500/50 hover:border-purple-500 transition-all duration-300 group-hover:scale-110 flex items-center justify-center text-2xl max-sm:text-xl shadow-xl relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
+                      <div className="w-10 h-10 max-sm:w-8 max-sm:h-8 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 rounded-full border-2 theme-border hover:scale-110 transition-all duration-300 flex items-center justify-center text-2xl max-sm:text-xl theme-shadow-lg relative overflow-hidden">
                         <span className="relative z-10 filter drop-shadow-sm">
                           {displayProfile.petEmoji}
                         </span>
@@ -156,25 +154,24 @@ const Navbar = () => {
                       <img
                         src={displayProfile.image}
                         alt="profile"
-                        className="w-10 h-10 max-sm:w-8 max-sm:h-8 object-cover rounded-full border-2 border-purple-500/50 hover:border-purple-500 transition-all duration-300 group-hover:scale-110"
+                        className="w-10 h-10 max-sm:w-8 max-sm:h-8 object-cover rounded-full border-2 theme-border hover:scale-110 transition-all duration-300"
                       />
                     ) : (
                       <img
                         src="/profile.png"
                         alt="profile"
-                        className="w-10 h-10 max-sm:w-8 max-sm:h-8 object-contain rounded-full border-2 border-purple-500/50 hover:border-purple-500 transition-all duration-300 group-hover:scale-110"
+                        className="w-10 h-10 max-sm:w-8 max-sm:h-8 object-contain rounded-full border-2 theme-border hover:scale-110 transition-all duration-300"
                       />
                     )}
-                    <div className={`absolute inset-0 bg-purple-500/20 rounded-full blur-md group-hover:bg-purple-500/40 transition-all duration-300`}></div>
                   </div>
 
                   {/* User Info - Hidden on mobile */}
                   <div className="hidden md:block text-left">
-                    <div className="text-sm font-semibold text-gray-900 dark:text-white">
+                    <div className="text-sm font-semibold theme-text">
                       {displayProfile?.name || session.user.name || 'User'}
                     </div>
                     {displayProfile && (
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
+                      <div className="text-xs theme-text-secondary">
                         Rating: {displayProfile.currentRating} • {displayProfile.rank}
                       </div>
                     )}
@@ -183,16 +180,15 @@ const Navbar = () => {
 
                 {/* Dropdown Menu */}
                 {showUserMenu && (
-                  <div className="absolute right-0 top-full mt-2 w-72 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 z-50 overflow-hidden">
+                  <div className="absolute right-0 top-full mt-2 w-72 theme-surface rounded-xl theme-shadow-lg border theme-border z-50 overflow-hidden">
                     {/* User Info Header */}
-                    <div className="p-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white">
+                    <div className="p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white">
                       <div className="flex items-center gap-3">
                         <div className="relative">
                           {/* Use pet emoji as primary avatar in dropdown */}
                           {displayProfile?.petEmoji ? (
-                            <div className="w-12 h-12 bg-gradient-to-br from-white/30 via-white/10 to-transparent rounded-full border-2 border-white/50 flex items-center justify-center text-3xl shadow-xl relative overflow-hidden backdrop-blur-sm">
-                              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-full"></div>
-                              <span className="relative z-10 filter drop-shadow-sm">
+                            <div className="w-12 h-12 bg-white/20 rounded-full border-2 border-white/50 flex items-center justify-center text-3xl shadow-xl">
+                              <span className="filter drop-shadow-sm">
                                 {displayProfile.petEmoji}
                               </span>
                             </div>
@@ -243,19 +239,19 @@ const Navbar = () => {
                     <div className="py-2">
                       <Link
                         href="/profile"
-                        className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                        className="flex items-center gap-3 px-4 py-3 theme-text hover:theme-surface-elevated transition-colors"
                         onClick={() => setShowUserMenu(false)}
                       >
-                        <FaUser className="text-purple-500" />
+                        <FaUser className="theme-accent" />
                         <span>View Profile</span>
                       </Link>
 
                       <Link
                         href="/edit-profile"
-                        className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                        className="flex items-center gap-3 px-4 py-3 theme-text hover:theme-surface-elevated transition-colors"
                         onClick={() => setShowUserMenu(false)}
                       >
-                        <FaCog className="text-purple-500" />
+                        <FaCog className="theme-accent" />
                         <span>Edit Profile</span>
                       </Link>
 
@@ -263,7 +259,7 @@ const Navbar = () => {
                       {displayProfile?.isAdmin && (
                         <Link
                           href="/admin"
-                          className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                          className="flex items-center gap-3 px-4 py-3 theme-text hover:theme-surface-elevated transition-colors"
                           onClick={() => setShowUserMenu(false)}
                         >
                           <FaCrown className="text-yellow-500" />
@@ -271,11 +267,11 @@ const Navbar = () => {
                         </Link>
                       )}
 
-                      <div className="border-t border-gray-200 dark:border-gray-600 my-2"></div>
+                      <div className="border-t theme-border my-2"></div>
 
                       <button
                         onClick={handleLogout}
-                        className="w-full flex items-center gap-3 px-4 py-3 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                        className="w-full flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
                       >
                         <FaSignOutAlt />
                         <span>Sign Out</span>
@@ -286,14 +282,11 @@ const Navbar = () => {
               </div>
             ) : (
               <Link href="/login" className="group relative">
-                <div className="relative">
-                  <img
-                    src="/profile.png"
-                    alt="profile"
-                    className="w-10 h-10 max-sm:w-8 max-sm:h-8 object-contain rounded-full border-2 border-purple-500/50 hover:border-purple-500 transition-all duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-purple-500/20 rounded-full blur-md group-hover:bg-purple-500/40 transition-all duration-300"></div>
-                </div>
+                <img
+                  src="/profile.png"
+                  alt="profile"
+                  className="w-10 h-10 max-sm:w-8 max-sm:h-8 object-contain rounded-full border-2 theme-border hover:scale-110 transition-all duration-300"
+                />
               </Link>
             )}
           </div>
@@ -305,8 +298,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Animated border */}
-      <div className={`h-0.5 bg-gradient-to-r from-transparent via-${themeColors.accent} to-transparent animate-pulse`}></div>
     </nav>
   )
 }

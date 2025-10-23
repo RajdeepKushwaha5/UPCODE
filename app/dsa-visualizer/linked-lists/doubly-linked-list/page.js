@@ -138,7 +138,7 @@ export default function DoublyLinkedListVisualization() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -151,14 +151,14 @@ export default function DoublyLinkedListVisualization() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
           <div className="flex flex-wrap items-center justify-center gap-4">
             <input
               type="number"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Enter number"
-              className="px-4 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-400 focus:outline-none"
+              className="px-4 py-2 theme-surface-elevated text-white rounded-lg border border-slate-600 focus:border-blue-400 focus:outline-none"
               disabled={animating}
             />
             
@@ -205,7 +205,7 @@ export default function DoublyLinkedListVisualization() {
         </div>
 
         {/* Visualization */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 min-h-96">
+        <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 min-h-96">
           <h2 className="text-2xl font-bold text-white mb-6 text-center">List Visualization</h2>
           
           {nodes.length === 0 ? (
@@ -225,7 +225,7 @@ export default function DoublyLinkedListVisualization() {
                   {/* Node */}
                   <div
                     className={`
-                      relative bg-slate-700 rounded-lg p-4 border-2 transition-all duration-500
+                      relative theme-surface-elevated rounded-lg p-4 border-2 transition-all duration-500
                       ${highlightedIndex === index 
                         ? 'border-yellow-400 bg-yellow-500/20 scale-110' 
                         : 'border-blue-400'
@@ -277,7 +277,7 @@ export default function DoublyLinkedListVisualization() {
 
         {/* Information Panel */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-xl font-bold text-white mb-4">List Properties</h3>
             <div className="space-y-2 text-slate-300">
               <div>Size: <span className="text-blue-400 font-bold">{nodes.length}</span></div>
@@ -286,7 +286,7 @@ export default function DoublyLinkedListVisualization() {
             </div>
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-xl font-bold text-white mb-4">Time Complexities</h3>
             <div className="space-y-2 text-slate-300 text-sm">
               <div>Append: <span className="text-green-400 font-bold">O(1)</span></div>

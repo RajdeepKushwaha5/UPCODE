@@ -124,7 +124,7 @@ export default function DSAVisualizer() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen theme-bg relative overflow-hidden">
       {/* Background Animation Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -142,14 +142,14 @@ export default function DSAVisualizer() {
             DSA VISUALIZER
           </h1>
           <p className="text-xl max-md:text-lg text-slate-300 max-w-4xl mx-auto leading-relaxed">
-            Master <span className="text-purple-400 font-semibold">Data Structures</span> and <span className="text-pink-400 font-semibold">Algorithms</span> through 
+            Master <span className="theme-accent font-semibold">Data Structures</span> and <span className="text-pink-400 font-semibold">Algorithms</span> through 
             interactive visualizations. See how your code comes to life!
           </p>
           
           {/* Stats */}
           <div className="flex justify-center items-center gap-8 mt-8 flex-wrap">
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple-400">{categories.reduce((sum, cat) => sum + cat.visualizations, 0)}+</div>
+              <div className="text-3xl font-bold theme-accent">{categories.reduce((sum, cat) => sum + cat.visualizations, 0)}+</div>
               <div className="text-sm text-slate-400">Visualizations</div>
             </div>
             <div className="text-center">
@@ -178,7 +178,7 @@ export default function DSAVisualizer() {
                 onMouseLeave={() => setSelectedCategory(null)}
               >
                 <div className={`
-                  relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 h-full 
+                  relative theme-surface backdrop-blur-sm rounded-2xl p-6 h-full 
                   border-2 ${colorClasses.border} ${colorClasses.hover}
                   transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl
                   cursor-pointer overflow-hidden
@@ -200,7 +200,7 @@ export default function DSAVisualizer() {
                       </p>
                       
                       {/* Visualization Count */}
-                      <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 bg-slate-700/50 rounded-full">
+                      <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 theme-surface-elevated/50 rounded-full">
                         <span className="text-xs text-slate-300">{category.visualizations} Visualizations</span>
                         <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                       </div>
@@ -216,7 +216,7 @@ export default function DSAVisualizer() {
                           {category.topics.map((topic, topicIndex) => (
                             <div
                               key={topicIndex}
-                              className="flex items-center justify-between text-xs p-2 bg-slate-700/30 rounded-lg hover:bg-slate-700/50 transition-colors duration-200"
+                              className="flex items-center justify-between text-xs p-2 theme-surface-elevated/30 rounded-lg hover:theme-surface-elevated/50 transition-colors duration-200"
                             >
                               <span className="text-slate-300">{topic.name}</span>
                               <span className="text-lg">{topic.status}</span>
@@ -249,7 +249,7 @@ export default function DSAVisualizer() {
 
         {/* Features Section */}
         <div className={`transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="bg-slate-800/30 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50">
+          <div className="theme-surface/30 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50">
             <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               How to Master DSA
             </h2>
@@ -259,7 +259,7 @@ export default function DSAVisualizer() {
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg group-hover:shadow-purple-500/30 transition-shadow duration-300">
                   🎯
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">Choose Your Path</h3>
+                <h3 className="text-xl font-bold mb-3 text-white group-hover:theme-accent transition-colors duration-300">Choose Your Path</h3>
                 <p className="text-slate-400 leading-relaxed">
                   Select from arrays, trees, graphs, and advanced algorithms. Each path is carefully designed for progressive learning.
                 </p>
@@ -302,7 +302,7 @@ export default function DSAVisualizer() {
               { name: "Stack Operations", path: "/dsa-visualizer/stacks-queues/stack", icon: "📚" }
             ].map((item, index) => (
               <Link key={index} href={item.path}>
-                <div className="group bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+                <div className="group theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
                   <div className="text-center">
                     <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300">
                       {item.icon}

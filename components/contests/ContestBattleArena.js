@@ -300,7 +300,7 @@ const ContestBattleArena = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Header */}
-      <div className="bg-slate-800/50 backdrop-blur-sm border-b border-slate-700/50 sticky top-0 z-40">
+      <div className="theme-surface backdrop-blur-sm border-b border-slate-700/50 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -308,7 +308,7 @@ const ContestBattleArena = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => router.push('/contests')}
-                className="p-2 bg-slate-700 rounded-lg text-white hover:bg-slate-600 transition-colors"
+                className="p-2 theme-surface-elevated rounded-lg text-white hover:bg-slate-600 transition-colors"
               >
                 <FaArrowLeft />
               </motion.button>
@@ -327,7 +327,7 @@ const ContestBattleArena = () => {
             <div className="flex items-center gap-4">
               {/* Timer */}
               {contest.status === 'active' && timeRemaining && (
-                <div className="bg-slate-700 rounded-xl px-4 py-2 flex items-center gap-2">
+                <div className="theme-surface-elevated rounded-xl px-4 py-2 flex items-center gap-2">
                   <FaClock className="text-yellow-500" />
                   <span className="font-mono text-white text-lg font-bold">
                     {timeRemaining}
@@ -336,7 +336,7 @@ const ContestBattleArena = () => {
               )}
 
               {/* Status */}
-              <div className={`px-4 py-2 rounded-xl font-medium ${getStatusColor(contest.status)} bg-slate-700`}>
+              <div className={`px-4 py-2 rounded-xl font-medium ${getStatusColor(contest.status)} theme-surface-elevated`}>
                 {contest.status.charAt(0).toUpperCase() + contest.status.slice(1)}
               </div>
 
@@ -345,7 +345,7 @@ const ContestBattleArena = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setShowLeaderboard(!showLeaderboard)}
-                className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl text-white font-medium hover:shadow-lg transition-all duration-300"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-xl text-white font-medium hover:shadow-lg transition-all duration-300"
               >
                 <FaChartLine className="inline mr-2" />
                 Leaderboard
@@ -371,7 +371,7 @@ const ContestBattleArena = () => {
           <div className="lg:col-span-2 space-y-6">
             {/* Problem Selector */}
             {contest.problems && contest.problems.length > 1 && (
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
+              <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
                 <h3 className="text-xl font-bold text-white mb-4">Problems</h3>
                 <div className="flex gap-2">
                   {contest.problems.map((problem, index) => (
@@ -381,8 +381,8 @@ const ContestBattleArena = () => {
                       whileTap={{ scale: 0.98 }}
                       onClick={() => setSelectedProblem(index)}
                       className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 ${selectedProblem === index
-                          ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
-                          : 'bg-slate-700 text-gray-300 hover:bg-slate-600'
+                          ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                          : 'theme-surface-elevated text-gray-300 hover:bg-slate-600'
                         }`}
                     >
                       Problem {index + 1}
@@ -394,7 +394,7 @@ const ContestBattleArena = () => {
 
             {/* Problem Statement */}
             {contest.problems && contest.problems[selectedProblem] && (
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
+              <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-2xl font-bold text-white">
                     {contest.problems[selectedProblem].title}
@@ -416,16 +416,16 @@ const ContestBattleArena = () => {
                   <div className="mb-6">
                     <h4 className="text-lg font-semibold text-white mb-3">Examples:</h4>
                     {contest.problems[selectedProblem].examples.map((example, idx) => (
-                      <div key={idx} className="bg-slate-700/50 rounded-xl p-4 mb-3">
+                      <div key={idx} className="theme-surface-elevated/50 rounded-xl p-4 mb-3">
                         <div className="mb-2">
                           <span className="text-gray-400 font-medium">Input:</span>
-                          <code className="block bg-slate-800 rounded p-2 mt-1 text-green-400 font-mono text-sm">
+                          <code className="block theme-surface rounded p-2 mt-1 text-green-400 font-mono text-sm">
                             {example.input}
                           </code>
                         </div>
                         <div>
                           <span className="text-gray-400 font-medium">Output:</span>
-                          <code className="block bg-slate-800 rounded p-2 mt-1 text-blue-400 font-mono text-sm">
+                          <code className="block theme-surface rounded p-2 mt-1 text-blue-400 font-mono text-sm">
                             {example.output}
                           </code>
                         </div>
@@ -451,7 +451,7 @@ const ContestBattleArena = () => {
             )}
 
             {/* Code Editor */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
+            <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-xl font-bold text-white">Code Editor</h3>
                 <LanguagesDropdown
@@ -475,7 +475,7 @@ const ContestBattleArena = () => {
                 <textarea
                   value={customInput}
                   onChange={(e) => setCustomInput(e.target.value)}
-                  className="w-full h-24 bg-slate-700 rounded-xl p-3 text-white resize-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full h-24 theme-surface-elevated rounded-xl p-3 text-white resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter your test input here..."
                 />
               </div>
@@ -484,7 +484,7 @@ const ContestBattleArena = () => {
               {output && (
                 <div className="mb-4">
                   <label className="block text-white font-medium mb-2">Output:</label>
-                  <div className="bg-slate-700 rounded-xl p-3">
+                  <div className="theme-surface-elevated rounded-xl p-3">
                     <code className="text-green-400 font-mono text-sm whitespace-pre-wrap">
                       {output}
                     </code>
@@ -516,7 +516,7 @@ const ContestBattleArena = () => {
                   whileTap={{ scale: 0.98 }}
                   onClick={submitCode}
                   disabled={submitting || contest.status !== 'active'}
-                  className="flex-1 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-medium text-white hover:shadow-lg transition-all duration-300 disabled:opacity-50"
+                  className="flex-1 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl font-medium text-white hover:shadow-lg transition-all duration-300 disabled:opacity-50"
                 >
                   {submitting ? (
                     <FaSpinner className="animate-spin mx-auto" />
@@ -535,7 +535,7 @@ const ContestBattleArena = () => {
           <div className="space-y-6">
             {/* User Stats */}
             {currentUser && (
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
+              <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                   <FaRocket className="text-blue-500" />
                   Your Stats
@@ -574,7 +574,7 @@ const ContestBattleArena = () => {
                   initial={{ x: 300, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   exit={{ x: 300, opacity: 0 }}
-                  className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50"
+                  className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50"
                 >
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <FaTrophy className="text-yellow-500" />
@@ -589,8 +589,8 @@ const ContestBattleArena = () => {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: index * 0.1 }}
                         className={`p-3 rounded-xl ${participant.email === session?.user?.email
-                            ? 'bg-purple-600/20 border border-purple-500/30'
-                            : 'bg-slate-700/50'
+                            ? 'bg-blue-600/20 border border-purple-500/30'
+                            : 'theme-surface-elevated/50'
                           }`}
                       >
                         <div className="flex items-center justify-between">
@@ -623,7 +623,7 @@ const ContestBattleArena = () => {
             </AnimatePresence>
 
             {/* Contest Info */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
+            <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <FaUsers className="text-green-500" />
                 Contest Info
@@ -653,12 +653,12 @@ const ContestBattleArena = () => {
 
             {/* Recent Submissions */}
             {submissions.length > 0 && (
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
+              <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
                 <h3 className="text-xl font-bold text-white mb-4">Your Submissions</h3>
 
                 <div className="space-y-3">
                   {submissions.slice(-5).reverse().map((submission, index) => (
-                    <div key={index} className="p-3 bg-slate-700/50 rounded-xl">
+                    <div key={index} className="p-3 theme-surface-elevated/50 rounded-xl">
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-white font-medium">
                           Problem {submission.problemId}
@@ -700,7 +700,7 @@ const ContestBattleArena = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-slate-800 rounded-3xl p-8 max-w-2xl w-full border border-slate-700 max-h-[80vh] overflow-y-auto"
+              className="theme-surface rounded-3xl p-8 max-w-2xl w-full border border-slate-700 max-h-[80vh] overflow-y-auto"
             >
               <div className="text-center mb-6">
                 <FaTrophy className="text-6xl text-yellow-500 mx-auto mb-4" />
@@ -717,7 +717,7 @@ const ContestBattleArena = () => {
                     transition={{ delay: index * 0.1 }}
                     className={`p-4 rounded-xl ${participant.email === session?.user?.email
                         ? 'bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30'
-                        : 'bg-slate-700/50'
+                        : 'theme-surface-elevated/50'
                       }`}
                   >
                     <div className="flex items-center justify-between">
@@ -758,7 +758,7 @@ const ContestBattleArena = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => router.push('/contests')}
-                  className="flex-1 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-medium text-white hover:shadow-lg transition-all duration-300"
+                  className="flex-1 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl font-medium text-white hover:shadow-lg transition-all duration-300"
                 >
                   Back to Contests
                 </motion.button>
@@ -767,7 +767,7 @@ const ContestBattleArena = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setShowResults(false)}
-                  className="px-6 py-3 bg-slate-700 rounded-xl font-medium text-white hover:bg-slate-600 transition-colors"
+                  className="px-6 py-3 theme-surface-elevated rounded-xl font-medium text-white hover:bg-slate-600 transition-colors"
                 >
                   Close
                 </motion.button>

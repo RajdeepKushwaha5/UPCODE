@@ -213,7 +213,7 @@ export default function EditDistanceVisualization() {
     }
     
     return i === 0 || j === 0 ? 
-      'bg-purple-500/20 text-purple-400' : 
+      'bg-purple-500/20 theme-accent' : 
       'bg-slate-600 text-white';
   };
 
@@ -250,7 +250,7 @@ export default function EditDistanceVisualization() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -263,7 +263,7 @@ export default function EditDistanceVisualization() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* String 1 */}
             <div>
@@ -273,7 +273,7 @@ export default function EditDistanceVisualization() {
                 value={str1}
                 onChange={(e) => setStr1(e.target.value.toUpperCase())}
                 placeholder="Enter source string"
-                className="w-full px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                className="w-full px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                 disabled={animating}
               />
               <div className="mt-2 flex flex-wrap gap-1">
@@ -299,7 +299,7 @@ export default function EditDistanceVisualization() {
                 value={str2}
                 onChange={(e) => setStr2(e.target.value.toUpperCase())}
                 placeholder="Enter target string"
-                className="w-full px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                className="w-full px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                 disabled={animating}
               />
               <div className="mt-2 flex flex-wrap gap-1">
@@ -352,16 +352,16 @@ export default function EditDistanceVisualization() {
         {dpTable.length > 0 && (
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-6">
             {/* Cost Table */}
-            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h2 className="text-xl font-bold text-white mb-4 text-center">Edit Distance DP Table</h2>
               <div className="overflow-auto">
                 <table className="w-full text-xs">
                   <thead>
                     <tr>
                       <th className="p-1 text-slate-400 font-bold">i\\j</th>
-                      <th className="p-1 text-purple-400 font-bold">∅</th>
+                      <th className="p-1 theme-accent font-bold">∅</th>
                       {str2.split('').map((char, index) => (
-                        <th key={index} className="p-1 text-purple-400 font-bold min-w-8">
+                        <th key={index} className="p-1 theme-accent font-bold min-w-8">
                           {char}
                         </th>
                       ))}
@@ -370,7 +370,7 @@ export default function EditDistanceVisualization() {
                   <tbody>
                     {dpTable.map((row, i) => (
                       <tr key={i}>
-                        <td className="p-1 text-purple-400 font-bold text-center">
+                        <td className="p-1 theme-accent font-bold text-center">
                           {i === 0 ? '∅' : str1[i - 1]}
                         </td>
                         {row.map((value, j) => (
@@ -391,16 +391,16 @@ export default function EditDistanceVisualization() {
             </div>
 
             {/* Operations Table */}
-            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h2 className="text-xl font-bold text-white mb-4 text-center">Operations Table</h2>
               <div className="overflow-auto">
                 <table className="w-full text-xs">
                   <thead>
                     <tr>
                       <th className="p-1 text-slate-400 font-bold">i\\j</th>
-                      <th className="p-1 text-purple-400 font-bold">∅</th>
+                      <th className="p-1 theme-accent font-bold">∅</th>
                       {str2.split('').map((char, index) => (
-                        <th key={index} className="p-1 text-purple-400 font-bold min-w-8">
+                        <th key={index} className="p-1 theme-accent font-bold min-w-8">
                           {char}
                         </th>
                       ))}
@@ -409,7 +409,7 @@ export default function EditDistanceVisualization() {
                   <tbody>
                     {operationsTable.map((row, i) => (
                       <tr key={i}>
-                        <td className="p-1 text-purple-400 font-bold text-center">
+                        <td className="p-1 theme-accent font-bold text-center">
                           {i === 0 ? '∅' : str1[i - 1]}
                         </td>
                         {row.map((operation, j) => (
@@ -433,7 +433,7 @@ export default function EditDistanceVisualization() {
 
         {/* Current Operation Display */}
         {currentOperation && currentOperation.operation && (
-          <div className="mb-6 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="mb-6 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-white font-bold mb-3 text-center">Current Comparison</h3>
             <div className="text-center">
               <div className={`
@@ -468,7 +468,7 @@ export default function EditDistanceVisualization() {
             </div>
 
             {/* Operation Sequence */}
-            <div className="bg-slate-800/30 rounded-xl p-4">
+            <div className="theme-surface/30 rounded-xl p-4">
               <h4 className="text-white font-bold mb-3 text-center">Operation Sequence</h4>
               <div className="space-y-2 max-h-40 overflow-y-auto">
                 {result.operationSequence.map((op, index) => (
@@ -488,11 +488,11 @@ export default function EditDistanceVisualization() {
         )}
 
         {/* Algorithm Info */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-white font-bold mb-4">Edit Distance Algorithm Properties</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
             <div className="text-center">
-              <div className="text-purple-400 font-bold mb-2">Time Complexity</div>
+              <div className="theme-accent font-bold mb-2">Time Complexity</div>
               <div className="text-slate-300 text-sm">O(m × n)</div>
             </div>
             <div className="text-center">

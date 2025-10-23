@@ -121,7 +121,7 @@ export default function ProblemsList() {
           <div className="relative mb-8">
             <div className="animate-spin rounded-full h-32 w-32 border-4 border-transparent bg-gradient-to-r from-purple-500 to-cyan-500 bg-clip-border mx-auto"></div>
             <div className="absolute inset-2 rounded-full bg-dark-1"></div>
-            <FaCode className="absolute inset-0 m-auto text-3xl text-purple-400 animate-pulse" />
+            <FaCode className="absolute inset-0 m-auto text-3xl theme-accent animate-pulse" />
           </div>
           <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent font-space">
             Loading Problems
@@ -223,10 +223,10 @@ export default function ProblemsList() {
                   placeholder="Search problems..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 font-inter ${
+                  className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 font-inter ${
                     isDark 
                       ? 'bg-dark-3 border-dark-4 text-light-1 placeholder-gray-2 focus:border-purple-400' 
-                      : 'bg-light-2 border-light-4 text-dark-1 placeholder-gray-1 focus:border-purple-500'
+                      : 'bg-light-2 border-light-4 text-dark-1 placeholder-gray-1 focus:border-blue-500'
                   }`}
                 />
               </div>
@@ -237,10 +237,10 @@ export default function ProblemsList() {
               <select
                 value={selectedDifficulty}
                 onChange={(e) => setSelectedDifficulty(e.target.value)}
-                className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 font-inter ${
+                className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 font-inter ${
                   isDark 
                     ? 'bg-dark-3 border-dark-4 text-light-1 focus:border-purple-400' 
-                    : 'bg-light-2 border-light-4 text-dark-1 focus:border-purple-500'
+                    : 'bg-light-2 border-light-4 text-dark-1 focus:border-blue-500'
                 }`}
               >
                 <option value="">All Difficulties</option>
@@ -255,10 +255,10 @@ export default function ProblemsList() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 font-inter ${
+                className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 font-inter ${
                   isDark 
                     ? 'bg-dark-3 border-dark-4 text-light-1 focus:border-purple-400' 
-                    : 'bg-light-2 border-light-4 text-dark-1 focus:border-purple-500'
+                    : 'bg-light-2 border-light-4 text-dark-1 focus:border-blue-500'
                 }`}
               >
                 <option value="">All Categories</option>
@@ -275,10 +275,10 @@ export default function ProblemsList() {
               <select
                 value={selectedCompany}
                 onChange={(e) => setSelectedCompany(e.target.value)}
-                className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 font-inter ${
+                className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 font-inter ${
                   isDark 
                     ? 'bg-dark-3 border-dark-4 text-light-1 focus:border-purple-400' 
-                    : 'bg-light-2 border-light-4 text-dark-1 focus:border-purple-500'
+                    : 'bg-light-2 border-light-4 text-dark-1 focus:border-blue-500'
                 }`}
               >
                 <option value="">All Companies</option>
@@ -355,7 +355,7 @@ export default function ProblemsList() {
 
                           {problem.companies && problem.companies.length > 0 && (
                             <div className="flex items-center gap-2">
-                              <FaBuilding className={`${isDark ? 'text-purple-400' : 'text-purple-600'} text-sm`} />
+                              <FaBuilding className={`${isDark ? 'theme-accent' : 'text-purple-600'} text-sm`} />
                               {problem.companies.slice(0, 3).map((company, i) => (
                                 <span key={i} className={`px-2 py-1 text-xs rounded-full ${isDark ? 'bg-blue-900/50 text-blue-300' : 'bg-blue-100 text-blue-800'}`}>
                                   {company}
@@ -393,7 +393,7 @@ export default function ProblemsList() {
                               onClick={() => toggleProblemExpansion(problem._id)}
                               className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 text-xs sm:text-sm ${
                                 isExpanded
-                                  ? (isDark ? 'bg-purple-600 text-white' : 'bg-purple-500 text-white')
+                                  ? (isDark ? 'bg-blue-600 text-white' : 'bg-purple-500 text-white')
                                   : (isDark ? 'bg-dark-3 text-light-1 hover:bg-dark-4' : 'bg-light-3 text-dark-1 hover:bg-light-4')
                               }`}
                             >

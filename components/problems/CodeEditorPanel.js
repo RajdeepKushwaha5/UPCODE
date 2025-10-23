@@ -162,7 +162,7 @@ export default function CodeEditorPanel({
             <select
               value={language}
               onChange={(e) => handleLanguageChange(e.target.value)}
-              className={`px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-purple-500 ${
+              className={`px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                 isDark 
                   ? 'bg-dark-3 border-dark-4 text-light-1' 
                   : 'bg-white border-light-4 text-dark-1'
@@ -376,7 +376,7 @@ export default function CodeEditorPanel({
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
                       isSubmitting
                         ? 'bg-gray-400 text-white cursor-not-allowed'
-                        : 'bg-purple-500 hover:bg-purple-600 text-white'
+                        : 'bg-purple-500 hover:bg-blue-600 text-white'
                     }`}
                   >
                     {isSubmitting ? <FaSpinner className="animate-spin" /> : <FaPaperPlane />}
@@ -403,7 +403,7 @@ export default function CodeEditorPanel({
                   value={customInput}
                   onChange={(e) => onCustomInputChange(e.target.value)}
                   placeholder="Enter your custom input here..."
-                  className={`w-full h-32 p-3 rounded-lg border resize-none focus:outline-none focus:ring-2 focus:ring-purple-500 ${
+                  className={`w-full h-32 p-3 rounded-lg border resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                     isDark 
                       ? 'bg-dark-3 border-dark-4 text-light-1 placeholder-light-3' 
                       : 'bg-white border-light-4 text-dark-1 placeholder-dark-3'

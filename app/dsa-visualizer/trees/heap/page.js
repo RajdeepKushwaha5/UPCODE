@@ -335,11 +335,11 @@ export default function HeapVisualizer() {
   }, [heap]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <Link href="/dsa-visualizer" className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-4 transition-colors duration-200">
+          <Link href="/dsa-visualizer" className="inline-flex items-center theme-accent hover:theme-text-secondary mb-4 transition-colors duration-200">
             ← Back to DSA Visualizer
           </Link>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent mb-4">
@@ -353,26 +353,26 @@ export default function HeapVisualizer() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Heap Size</h3>
             <p className="text-red-400 text-2xl font-bold">{heap.length}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Heap Type</h3>
             <p className="text-pink-400 text-2xl font-bold capitalize">{heapType}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Root Element</h3>
             <p className="text-blue-400 text-2xl font-bold">{heap.length > 0 ? heap[0] : 'None'}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Operation</h3>
             <p className="text-green-400 text-sm">{operation || 'None'}</p>
           </div>
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Insert */}
             <div>
@@ -383,7 +383,7 @@ export default function HeapVisualizer() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Enter value"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-red-500 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded-lg border border-slate-600 focus:border-red-500 focus:outline-none"
                   disabled={isAnimating}
                 />
               </div>
@@ -437,7 +437,7 @@ export default function HeapVisualizer() {
                 <button
                   onClick={generateRandomHeap}
                   disabled={isAnimating}
-                  className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-500 transition-colors duration-200 font-semibold disabled:opacity-50"
+                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-purple-500 transition-colors duration-200 font-semibold disabled:opacity-50"
                 >
                   🎲 Random Heap
                 </button>
@@ -455,7 +455,7 @@ export default function HeapVisualizer() {
 
         {/* Array Representation */}
         {arrayRepresentation.length > 0 && (
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
             <h3 className="text-lg font-semibold text-white mb-4">Array Representation</h3>
             <div className="flex flex-wrap gap-2">
               {arrayRepresentation.map((value, index) => (
@@ -470,7 +470,7 @@ export default function HeapVisualizer() {
                       ? heapType === 'max' 
                         ? 'bg-red-500 text-white' 
                         : 'bg-green-500 text-white'
-                      : 'bg-purple-600 text-white'
+                      : 'bg-blue-600 text-white'
                   }`}
                 >
                   <div className="text-sm">{value}</div>
@@ -483,7 +483,7 @@ export default function HeapVisualizer() {
 
         {/* Extracted Elements */}
         {extractedElements.length > 0 && (
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
             <h3 className="text-lg font-semibold text-white mb-4">Extracted Elements (Sorted Order)</h3>
             <div className="flex flex-wrap gap-2">
               {extractedElements.map((value, index) => (
@@ -519,7 +519,7 @@ export default function HeapVisualizer() {
         </div>
 
         {/* Heap Visualization */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="min-h-[400px] overflow-auto">
             {heap.length > 0 ? (
               renderHeapTree()
@@ -536,7 +536,7 @@ export default function HeapVisualizer() {
         </div>
 
         {/* Algorithm Explanation */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <h3 className="text-2xl font-bold text-white mb-4">Heap Operations</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>

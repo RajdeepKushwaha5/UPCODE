@@ -136,7 +136,7 @@ export default function PriorityQueueVisualization() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -149,14 +149,14 @@ export default function PriorityQueueVisualization() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
           <div className="flex flex-wrap items-center justify-center gap-4">
             <input
               type="number"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Element value"
-              className="px-4 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-purple-400 focus:outline-none"
+              className="px-4 py-2 theme-surface-elevated text-white rounded-lg border border-slate-600 focus:border-purple-400 focus:outline-none"
               disabled={animating}
             />
             
@@ -167,7 +167,7 @@ export default function PriorityQueueVisualization() {
               placeholder="Priority (1-10)"
               min="1"
               max="10"
-              className="px-4 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-purple-400 focus:outline-none"
+              className="px-4 py-2 theme-surface-elevated text-white rounded-lg border border-slate-600 focus:border-purple-400 focus:outline-none"
               disabled={animating}
             />
             
@@ -219,7 +219,7 @@ export default function PriorityQueueVisualization() {
         </div>
 
         {/* Priority Legend */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-4 mb-6 border border-slate-700">
+        <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-4 mb-6 border border-slate-700">
           <h3 className="text-white font-bold mb-3 text-center">Priority Color Legend</h3>
           <div className="flex flex-wrap justify-center gap-4">
             <div className="flex items-center gap-2">
@@ -246,7 +246,7 @@ export default function PriorityQueueVisualization() {
         </div>
 
         {/* Visualization */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 min-h-96">
+        <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 min-h-96">
           <h2 className="text-2xl font-bold text-white mb-6 text-center">Priority Queue Structure</h2>
           
           <div className="flex flex-col items-center">
@@ -331,10 +331,10 @@ export default function PriorityQueueVisualization() {
 
         {/* Information Panel */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-xl font-bold text-white mb-4">Queue Properties</h3>
             <div className="space-y-2 text-slate-300">
-              <div>Size: <span className="text-purple-400 font-bold">{priorityQueue.size()}</span></div>
+              <div>Size: <span className="theme-accent font-bold">{priorityQueue.size()}</span></div>
               <div>Front: <span className="text-green-400 font-bold">
                 {priorityQueue.peek() ? `${priorityQueue.peek().element} (P:${priorityQueue.peek().priority})` : 'null'}
               </span></div>
@@ -343,7 +343,7 @@ export default function PriorityQueueVisualization() {
             </div>
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-xl font-bold text-white mb-4">Time Complexities</h3>
             <div className="space-y-2 text-slate-300 text-sm">
               <div>Enqueue: <span className="text-yellow-400 font-bold">O(n)</span></div>
@@ -355,7 +355,7 @@ export default function PriorityQueueVisualization() {
         </div>
 
         {/* Use Cases */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-xl font-bold text-white mb-4">Real-world Applications</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="text-slate-300 text-sm text-center">

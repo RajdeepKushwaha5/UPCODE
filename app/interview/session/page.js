@@ -1050,7 +1050,7 @@ function InterviewSessionContent() {
 
   if (status === "loading") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen theme-bg flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-purple-500 mx-auto mb-4"></div>
           <p className="text-white text-xl">Loading interview...</p>
@@ -1061,12 +1061,12 @@ function InterviewSessionContent() {
 
   if (!currentProblem) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen theme-bg flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-white text-2xl mb-4">Problem not found</h1>
           <button
             onClick={() => router.push('/interview')}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg"
           >
             Back to Interview Hub
           </button>
@@ -1076,10 +1076,10 @@ function InterviewSessionContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen theme-bg">
 
       {/* Header */}
-      <div className="bg-slate-800/50 backdrop-blur-sm border-b border-purple-500/20 px-6 py-4">
+      <div className="theme-surface backdrop-blur-sm border-b border theme-border px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button
@@ -1105,7 +1105,7 @@ function InterviewSessionContent() {
                 </p>
                 {isAiGenerated && aiQuestions.length > 1 && (
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-purple-400">
+                    <span className="text-sm theme-accent">
                       Question {currentQuestionIndex + 1} of {aiQuestions.length}
                     </span>
                     <div className="w-24 bg-gray-700 rounded-full h-2">
@@ -1120,7 +1120,7 @@ function InterviewSessionContent() {
                   <div className="flex items-center gap-1">
                     <span className="text-xs text-gray-500">Topics:</span>
                     {topics.slice(0, 3).map((topic, idx) => (
-                      <span key={idx} className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">
+                      <span key={idx} className="text-xs bg-purple-500/20 theme-text-secondary px-2 py-1 rounded">
                         {topic}
                       </span>
                     ))}
@@ -1157,8 +1157,8 @@ function InterviewSessionContent() {
             </div>
 
             {/* Timer */}
-            <div className="flex items-center gap-2 bg-slate-700/50 rounded-lg px-4 py-2">
-              <FaClock className="text-purple-400" />
+            <div className="flex items-center gap-2 theme-surface-elevated/50 rounded-lg px-4 py-2">
+              <FaClock className="theme-accent" />
               <span className="text-white font-mono text-lg">{formatTime(timeElapsed)}</span>
             </div>
 
@@ -1208,11 +1208,11 @@ function InterviewSessionContent() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 h-auto lg:h-[calc(100vh-160px)]">
 
           {/* Problem Panel */}
-          <div className="col-span-1 lg:col-span-4 bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-4 lg:p-6 overflow-y-auto max-h-96 lg:max-h-none">
+          <div className="col-span-1 lg:col-span-4 theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-4 lg:p-6 overflow-y-auto max-h-96 lg:max-h-none">
             {isLoadingQuestion ? (
               <div className="flex items-center justify-center h-full">
                 <div className="text-center">
-                  <FaSpinner className="animate-spin text-4xl text-purple-400 mx-auto mb-4" />
+                  <FaSpinner className="animate-spin text-4xl theme-accent mx-auto mb-4" />
                   <p className="text-white">Generating AI question...</p>
                 </div>
               </div>
@@ -1237,7 +1237,7 @@ function InterviewSessionContent() {
                   <div className="mb-6">
                     <h3 className="text-white font-bold mb-3">Examples:</h3>
                     {currentProblem.examples.map((example, index) => (
-                      <div key={index} className="bg-slate-700/30 rounded-lg p-4 mb-3">
+                      <div key={index} className="theme-surface-elevated/30 rounded-lg p-4 mb-3">
                         <div className="mb-2">
                           <span className="text-gray-400 text-sm">Input: </span>
                           <code className="text-green-400">{example.input}</code>
@@ -1311,7 +1311,7 @@ function InterviewSessionContent() {
           </div>
 
           {/* Voice Conversation Panel */}
-          <div className="col-span-1 lg:col-span-4 bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-4 lg:p-6 flex flex-col min-h-96">
+          <div className="col-span-1 lg:col-span-4 theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-4 lg:p-6 flex flex-col min-h-96">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-white font-bold flex items-center gap-2">
                 <FaMicrophone className="text-green-400" />
@@ -1322,7 +1322,7 @@ function InterviewSessionContent() {
                   conversationStep === 'asking' ? 'bg-blue-500/20 text-blue-400' :
                     conversationStep === 'listening' ? 'bg-green-500/20 text-green-400 animate-pulse' :
                       conversationStep === 'evaluating' ? 'bg-yellow-500/20 text-yellow-400' :
-                        'bg-purple-500/20 text-purple-400'
+                        'bg-purple-500/20 theme-accent'
                   }`}>
                   {conversationStep === 'waiting' ? 'Ready' :
                     conversationStep === 'asking' ? 'AI Speaking' :
@@ -1334,7 +1334,7 @@ function InterviewSessionContent() {
             </div>
 
             {/* Conversation Status */}
-            <div className="mb-4 p-3 bg-slate-700/30 rounded-lg">
+            <div className="mb-4 p-3 theme-surface-elevated/30 rounded-lg">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-400 text-sm">Questions Asked:</span>
                 <span className="text-white font-bold">{voiceQuestionCount}/{maxQuestions}</span>
@@ -1408,9 +1408,9 @@ function InterviewSessionContent() {
                 <h4 className="text-white font-semibold mb-2">Conversation History:</h4>
                 <div className="space-y-3 max-h-40 overflow-y-auto">
                   {spokenAnswers.slice(-3).map((qa, index) => (
-                    <div key={index} className="bg-slate-700/30 rounded-lg p-3 text-sm">
+                    <div key={index} className="theme-surface-elevated/30 rounded-lg p-3 text-sm">
                       <div className="mb-2">
-                        <span className="text-purple-400 font-semibold">Q:</span>
+                        <span className="theme-accent font-semibold">Q:</span>
                         <p className="text-gray-300 ml-4">{qa.question}</p>
                       </div>
                       <div>
@@ -1425,15 +1425,15 @@ function InterviewSessionContent() {
           </div>
 
           {/* Response/Code Submission Panel */}
-          <div className="col-span-1 lg:col-span-4 bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-4 lg:p-6 flex flex-col min-h-96">
+          <div className="col-span-1 lg:col-span-4 theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-4 lg:p-6 flex flex-col min-h-96">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-white font-bold flex items-center gap-2">
-                <FaCode className="text-purple-400" />
+                <FaCode className="theme-accent" />
                 {mode === 'technical-coding' ? 'Code Editor' : 'Response Area'}
               </h3>
               <div className="flex items-center gap-2">
                 {isAiGenerated && aiQuestions.length > 1 && (
-                  <span className="text-sm text-purple-400">
+                  <span className="text-sm theme-accent">
                     {currentQuestionIndex + 1} of {aiQuestions.length}
                   </span>
                 )}
@@ -1448,7 +1448,7 @@ function InterviewSessionContent() {
                     value={userCode}
                     onChange={(e) => setUserCode(e.target.value)}
                     placeholder="Write your code solution here..."
-                    className="w-full h-48 lg:h-64 bg-slate-900/50 border border-slate-700 rounded-lg p-4 text-gray-300 font-mono text-sm focus:border-purple-500 focus:outline-none resize-none"
+                    className="w-full h-48 lg:h-64 theme-bg/50 border border-slate-700 rounded-lg p-4 text-gray-300 font-mono text-sm focus:border-blue-500 focus:outline-none resize-none"
                   />
                 </div>
               ) : (
@@ -1457,7 +1457,7 @@ function InterviewSessionContent() {
                     value={userResponse}
                     onChange={(e) => setUserResponse(e.target.value)}
                     placeholder="Type your detailed response here..."
-                    className="w-full h-48 lg:h-64 bg-slate-900/50 border border-slate-700 rounded-lg p-4 text-gray-300 text-sm focus:border-purple-500 focus:outline-none resize-none"
+                    className="w-full h-48 lg:h-64 theme-bg/50 border border-slate-700 rounded-lg p-4 text-gray-300 text-sm focus:border-blue-500 focus:outline-none resize-none"
                   />
                 </div>
               )}
@@ -1527,7 +1527,7 @@ function InterviewSessionContent() {
         {/* Secondary Content Grid - Video & Chat */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4 h-auto lg:h-80">
           {/* Video Conference Panel */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-4 lg:p-6 flex flex-col min-h-80">
+          <div className="theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-4 lg:p-6 flex flex-col min-h-80">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-white font-bold flex items-center gap-2">
                 <FaVideo className="text-blue-400" />
@@ -1543,7 +1543,7 @@ function InterviewSessionContent() {
             {/* Video Grid */}
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-4 mb-4 max-h-48 overflow-y-auto">
               {/* Local Video */}
-              <div className="relative bg-slate-900/50 border border-slate-700 rounded-lg overflow-hidden">
+              <div className="relative theme-bg/50 border border-slate-700 rounded-lg overflow-hidden">
                 <video
                   ref={localVideoRef}
                   autoPlay
@@ -1558,7 +1558,7 @@ function InterviewSessionContent() {
 
               {/* Remote Videos */}
               {Array.from(remoteStreams.entries()).map(([participantId, stream], index) => (
-                <div key={participantId} className="relative bg-slate-900/50 border border-slate-700 rounded-lg overflow-hidden">
+                <div key={participantId} className="relative theme-bg/50 border border-slate-700 rounded-lg overflow-hidden">
                   <video
                     ref={el => {
                       if (el) el.srcObject = stream;
@@ -1622,7 +1622,7 @@ function InterviewSessionContent() {
           </div>
 
           {/* Real-time Chat Panel */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-4 lg:p-6 flex flex-col min-h-80">
+          <div className="theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-4 lg:p-6 flex flex-col min-h-80">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-white font-bold flex items-center gap-2">
                 <FaComments className="text-green-400" />
@@ -1636,7 +1636,7 @@ function InterviewSessionContent() {
             </div>
 
             {/* Chat Messages */}
-            <div className="flex-1 bg-slate-900/50 border border-slate-700 rounded-lg p-3 lg:p-4 overflow-y-auto mb-4 space-y-2 lg:space-y-3 max-h-48 lg:max-h-64">
+            <div className="flex-1 theme-bg/50 border border-slate-700 rounded-lg p-3 lg:p-4 overflow-y-auto mb-4 space-y-2 lg:space-y-3 max-h-48 lg:max-h-64">
               {chatMessages.length === 0 ? (
                 <div className="text-center text-gray-400 py-4 lg:py-8">
                   <FaComments className="text-2xl lg:text-3xl mx-auto mb-2 opacity-50" />
@@ -1644,9 +1644,9 @@ function InterviewSessionContent() {
                 </div>
               ) : (
                 chatMessages.map((msg) => (
-                  <div key={msg.id} className="bg-slate-800/50 rounded-lg p-3">
+                  <div key={msg.id} className="theme-surface rounded-lg p-3">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium text-purple-400">
+                      <span className="text-sm font-medium theme-accent">
                         {msg.userId.includes('user-') ? 'Participant' : msg.userId}
                       </span>
                       <span className="text-xs text-gray-500">
@@ -1667,7 +1667,7 @@ function InterviewSessionContent() {
                 onChange={(e) => setChatMessage(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && sendChatMessage()}
                 placeholder="Type a message..."
-                className="flex-1 bg-slate-700 border border-purple-500/20 rounded-lg px-3 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none text-sm"
+                className="flex-1 theme-surface-elevated border border theme-border rounded-lg px-3 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none text-sm"
               />
               <button
                 onClick={sendChatMessage}

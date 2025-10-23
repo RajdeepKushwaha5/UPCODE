@@ -54,11 +54,11 @@ export default function GraphsVisualizer() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <Link href="/dsa-visualizer" className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-4 transition-colors duration-200">
+          <Link href="/dsa-visualizer" className="inline-flex items-center theme-accent hover:theme-text-secondary mb-4 transition-colors duration-200">
             ← Back to DSA Visualizer
           </Link>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent mb-4">
@@ -72,19 +72,19 @@ export default function GraphsVisualizer() {
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Total Algorithms</h3>
-            <p className="text-3xl font-bold text-purple-400">{algorithms.length}</p>
+            <p className="text-3xl font-bold theme-accent">{algorithms.length}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Categories</h3>
             <p className="text-3xl font-bold text-indigo-400">4</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Difficulty Range</h3>
             <p className="text-lg text-slate-300">Medium - Hard</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Key Concepts</h3>
             <p className="text-lg text-slate-300">Traversal & Optimization</p>
           </div>
@@ -96,10 +96,10 @@ export default function GraphsVisualizer() {
             <Link 
               key={index}
               href={algorithm.path}
-              className="group bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105"
+              className="group theme-surface/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105"
             >
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors duration-200">
+                <h3 className="text-xl font-semibold text-white group-hover:theme-accent transition-colors duration-200">
                   {algorithm.title}
                 </h3>
                 <span className={`px-2 py-1 rounded-full text-xs font-medium ${
@@ -117,7 +117,7 @@ export default function GraphsVisualizer() {
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-slate-400">Time Complexity:</span>
-                  <span className="text-purple-400 font-mono">{algorithm.complexity.time}</span>
+                  <span className="theme-accent font-mono">{algorithm.complexity.time}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-slate-400">Space Complexity:</span>
@@ -129,14 +129,14 @@ export default function GraphsVisualizer() {
                 {algorithm.concepts.map((concept, idx) => (
                   <span 
                     key={idx}
-                    className="px-2 py-1 bg-slate-700/50 text-slate-300 rounded text-xs"
+                    className="px-2 py-1 theme-surface-elevated/50 text-slate-300 rounded text-xs"
                   >
                     {concept}
                   </span>
                 ))}
               </div>
               
-              <div className="mt-4 flex items-center text-purple-400 text-sm">
+              <div className="mt-4 flex items-center theme-accent text-sm">
                 <span>Explore Visualization</span>
                 <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -148,7 +148,7 @@ export default function GraphsVisualizer() {
 
         {/* Algorithm Categories */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
               <span className="mr-2">🔍</span>
               Traversal Algorithms
@@ -159,7 +159,7 @@ export default function GraphsVisualizer() {
               <li>• Applications: Connectivity, pathfinding, cycle detection</li>
             </ul>
           </div>
-          <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
               <span className="mr-2">📏</span>
               Shortest Path Algorithms
@@ -173,7 +173,7 @@ export default function GraphsVisualizer() {
         </div>
 
         <div className="grid md:grid-cols-1 gap-6 mb-8">
-          <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
               <span className="mr-2">🌳</span>
               Minimum Spanning Tree Algorithms
@@ -192,7 +192,7 @@ export default function GraphsVisualizer() {
         </div>
 
         {/* Learning Path */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <h2 className="text-2xl font-semibold text-white mb-4">📚 Recommended Learning Path</h2>
           <div className="space-y-4">
             <div className="flex items-start space-x-4">

@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "../components/shared/Navbar";
+import Footer from "../components/shared/Footer";
 import { getServerSession } from "next-auth";
 import SessionProvider from "../components/SessionProvider";
 import { ThemeProvider } from "../contexts/ThemeContext";
@@ -28,20 +29,21 @@ export default async function RootLayout({ children }) {
   }
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/logo.png" type="image/png" sizes="32x32" />
         <link rel="shortcut icon" href="/logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/logo.png" />
       </head>
-      <body>
+      <body className="transition-colors duration-200 flex flex-col min-h-screen">
         <SessionProvider session={session}>
           <ThemeProvider>
             <ProfileSetupCheck>
               <Navbar />
-              <main>
+              <main className="flex-1">
                 {children}
               </main>
+              <Footer />
               <Chatbot />
             </ProfileSetupCheck>
           </ThemeProvider>

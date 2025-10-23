@@ -287,14 +287,14 @@ export default function RedBlackTreeVisualization() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
           <div className="flex flex-wrap items-center justify-center gap-4">
             <input
               type="number"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Enter number"
-              className="px-4 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-red-400 focus:outline-none"
+              className="px-4 py-2 theme-surface-elevated text-white rounded-lg border border-slate-600 focus:border-red-400 focus:outline-none"
               disabled={animating}
             />
             
@@ -338,7 +338,7 @@ export default function RedBlackTreeVisualization() {
         </div>
 
         {/* Red-Black Tree Rules */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-slate-700">
+        <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-slate-700">
           <h3 className="text-xl font-bold text-white mb-4 text-center">Red-Black Tree Properties</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div className="space-y-2">
@@ -369,7 +369,7 @@ export default function RedBlackTreeVisualization() {
         </div>
 
         {/* Visualization */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 min-h-96">
+        <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 min-h-96">
           <h2 className="text-2xl font-bold text-white mb-6 text-center">Tree Structure</h2>
           
           {treeNodes.length === 0 ? (
@@ -427,7 +427,7 @@ export default function RedBlackTreeVisualization() {
 
         {/* Information Panel */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-xl font-bold text-white mb-4">Tree Statistics</h3>
             <div className="space-y-2 text-slate-300">
               <div>Nodes: <span className="text-red-400 font-bold">{treeNodes.length}</span></div>
@@ -437,7 +437,7 @@ export default function RedBlackTreeVisualization() {
             </div>
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-xl font-bold text-white mb-4">Time Complexities</h3>
             <div className="space-y-2 text-slate-300 text-sm">
               <div>Search: <span className="text-green-400 font-bold">O(log n)</span></div>
@@ -447,7 +447,7 @@ export default function RedBlackTreeVisualization() {
             </div>
           </div>
 
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-xl font-bold text-white mb-4">Node Colors</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
@@ -467,7 +467,7 @@ export default function RedBlackTreeVisualization() {
         </div>
 
         {/* Advantages */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-xl font-bold text-white mb-4">Advantages of Red-Black Trees</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="text-slate-300 text-sm text-center">
@@ -479,7 +479,7 @@ export default function RedBlackTreeVisualization() {
               <p>Self-balancing structure</p>
             </div>
             <div className="text-slate-300 text-sm text-center">
-              <div className="text-purple-400 font-bold mb-2">🔄 Dynamic</div>
+              <div className="theme-accent font-bold mb-2">🔄 Dynamic</div>
               <p>Efficient insertions & deletions</p>
             </div>
             <div className="text-slate-300 text-sm text-center">

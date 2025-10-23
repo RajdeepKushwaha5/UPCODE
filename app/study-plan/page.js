@@ -195,7 +195,7 @@ const StudyPlanDashboard = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen theme-bg flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-400 mx-auto mb-4"></div>
           <p className="text-white">Loading your study plans...</p>
@@ -205,14 +205,14 @@ const StudyPlanDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen theme-bg dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Header */}
       <div className="bg-black/20 backdrop-blur-sm border-b border-gray-700/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-white flex items-center gap-3">
-                <FaBrain className="text-purple-400" />
+                <FaBrain className="theme-accent" />
                 AI Study Plans
               </h1>
               <p className="text-gray-300 mt-2">
@@ -245,7 +245,7 @@ const StudyPlanDashboard = () => {
                 <p className="text-gray-300 text-sm">Total Plans</p>
                 <p className="text-2xl font-bold text-white">{stats.totalPlans}</p>
               </div>
-              <FaGraduationCap className="text-purple-400 text-2xl" />
+              <FaGraduationCap className="theme-accent text-2xl" />
             </div>
           </motion.div>
 
@@ -336,7 +336,7 @@ const StudyPlanDashboard = () => {
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                    <FaBullseye className="text-purple-400" />
+                    <FaBullseye className="theme-accent" />
                     Active Study Plan
                   </h2>
                   <StudyPlanCard

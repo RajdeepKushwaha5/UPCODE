@@ -208,7 +208,7 @@ const AIProblemsGenerator = ({ isOpen, onClose, onProblemGenerated }) => {
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-700">
           <div className="flex items-center gap-3">
-            <FaRobot className="text-purple-400 text-2xl" />
+            <FaRobot className="theme-accent text-2xl" />
             <h2 className="text-white text-xl font-bold">AI Problem Generator</h2>
           </div>
           <button
@@ -224,7 +224,7 @@ const AIProblemsGenerator = ({ isOpen, onClose, onProblemGenerated }) => {
           {step === 1 && (
             <div className="p-6 space-y-6">
               <div className="text-center mb-8">
-                <FaGraduationCap className="text-4xl text-purple-400 mx-auto mb-4" />
+                <FaGraduationCap className="text-4xl theme-accent mx-auto mb-4" />
                 <h3 className="text-white text-lg font-semibold mb-2">Generate a Custom Problem</h3>
                 <p className="text-gray-400">Set your preferences and let AI create a unique problem for you!</p>
               </div>
@@ -291,7 +291,7 @@ const AIProblemsGenerator = ({ isOpen, onClose, onProblemGenerated }) => {
                   <select
                     value={preferences.language}
                     onChange={(e) => setPreferences(prev => ({ ...prev, language: e.target.value }))}
-                    className="w-full bg-gray-700 text-white px-4 py-2 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full bg-gray-700 text-white px-4 py-2 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     {PROGRAMMING_LANGUAGES.map((lang) => (
                       <option key={lang.id} value={lang.id}>{lang.name}</option>
@@ -402,7 +402,7 @@ const AIProblemsGenerator = ({ isOpen, onClose, onProblemGenerated }) => {
                   value={userSolution}
                   onChange={(e) => setUserSolution(e.target.value)}
                   placeholder="Write your solution here..."
-                  className="w-full h-64 bg-gray-900 text-white p-4 rounded-lg font-mono text-sm border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                  className="w-full h-64 bg-gray-900 text-white p-4 rounded-lg font-mono text-sm border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                 />
               </div>
 

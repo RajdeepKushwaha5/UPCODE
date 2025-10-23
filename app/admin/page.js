@@ -95,10 +95,10 @@ export default function AdminPanel() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen theme-bg flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-purple-500 mx-auto mb-4"></div>
-          <p className="text-white text-lg">Verifying admin access...</p>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500 mx-auto mb-4"></div>
+          <p className="theme-text text-lg">Verifying admin access...</p>
         </div>
       </div>
     );
@@ -106,17 +106,17 @@ export default function AdminPanel() {
 
   if (!isAdmin) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen theme-bg flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-red-400 mb-4">Access Denied</h1>
-          <p className="text-gray-300">You don't have admin privileges to access this panel.</p>
+          <h1 className="text-3xl font-bold text-red-500 mb-4">Access Denied</h1>
+          <p className="theme-text-secondary">You don't have admin privileges to access this panel.</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen theme-bg">
       <div className="flex">
         {/* Admin Sidebar */}
         <AdminSidebar
@@ -132,15 +132,15 @@ export default function AdminPanel() {
             <div className="mb-8">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-3xl font-bold text-white">Admin Panel</h1>
-                  <p className="text-gray-400 mt-1">Platform Management & Control</p>
+                  <h1 className="text-3xl font-bold theme-text">Admin Panel</h1>
+                  <p className="theme-text-secondary mt-1">Platform Management & Control</p>
                 </div>
                 <div className="flex items-center space-x-4">
                   <div className="text-right">
-                    <p className="text-white font-medium">{session?.user?.email}</p>
-                    <p className="text-purple-400 text-sm">Administrator</p>
+                    <p className="theme-text font-medium">{session?.user?.email}</p>
+                    <p className="theme-accent text-sm">Administrator</p>
                   </div>
-                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
                     <span className="text-white font-bold">
                       {session?.user?.email?.charAt(0).toUpperCase()}
                     </span>
@@ -150,7 +150,7 @@ export default function AdminPanel() {
             </div>
 
             {/* Active Section Content */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 min-h-[600px]">
+            <div className="theme-surface rounded-xl p-6 min-h-[600px] border theme-border">
               {renderActiveSection()}
             </div>
           </div>

@@ -847,7 +847,7 @@ export default function AIInterviewPage() {
                    onClick={handleDailyChallenge}>
                 <FaCalendarAlt className="text-4xl mb-4 mx-auto" />
                 <h3 className="text-2xl font-bold mb-2">Daily Challenge</h3>
-                <p className="text-purple-100">Today's featured coding problem</p>
+                <p className="theme-text-secondary">Today's featured coding problem</p>
               </div>
             </div>
 

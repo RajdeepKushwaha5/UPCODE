@@ -34,11 +34,11 @@ const duplicatedBrands = [...brands, ...brands, ...brands]
 
 export default function BrandCarousel() {
   return (
-    <section className="py-20 overflow-hidden bg-gradient-to-br from-slate-950/50 via-purple-950/10 to-slate-950/50 relative">
+    <section className="py-20 overflow-hidden theme-bg-secondary relative">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-purple-500/5 rounded-full animate-pulse"></div>
-        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-pink-500/5 rounded-full animate-pulse animation-delay-1000"></div>
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-blue-500/5 rounded-full"></div>
+        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-blue-500/5 rounded-full"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/3 rounded-full animate-spin-slow"></div>
       </div>
 
@@ -51,7 +51,7 @@ export default function BrandCarousel() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent font-mono">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 theme-text font-mono">
             Trusted by Developers at
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -87,13 +87,13 @@ export default function BrandCarousel() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <div className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 flex items-center justify-center group-hover:border-purple-500/50 transition-all duration-300 relative overflow-hidden">
+                <div className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 theme-surface backdrop-blur-sm rounded-2xl border theme-border flex items-center justify-center hover:border-blue-500/50 transition-all duration-300 relative overflow-hidden">
                   {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 transition-all duration-300 rounded-2xl"></div>
+                  <div className="absolute inset-0 bg-blue-500/0 hover:bg-blue-500/10 transition-all duration-300 rounded-2xl"></div>
                   
                   {/* Brand Icon */}
                   <div 
-                    className="text-4xl md:text-5xl lg:text-6xl text-gray-400 group-hover:text-white transition-all duration-300 relative z-10"
+                    className="text-4xl md:text-5xl lg:text-6xl theme-text-secondary group-hover:theme-text transition-all duration-300 relative z-10"
                     style={{
                       filter: 'drop-shadow(0 0 20px rgba(168, 85, 247, 0))',
                     }}
@@ -103,7 +103,7 @@ export default function BrandCarousel() {
 
                   {/* Animated Border */}
                   <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute inset-0 rounded-2xl border border-transparent bg-gradient-to-r from-purple-500/50 via-pink-500/50 to-blue-500/50 bg-clip-border animate-gradient-x"></div>
+                    <div className="absolute inset-0 rounded-2xl border border-blue-500/50"></div>
                   </div>
                 </div>
 
@@ -113,7 +113,7 @@ export default function BrandCarousel() {
                   whileHover={{ opacity: 1 }}
                   className="text-center mt-4"
                 >
-                  <p className="text-sm md:text-base font-semibold text-gray-300 group-hover:text-white transition-colors duration-300">
+                  <p className="text-sm md:text-base font-semibold theme-text-secondary group-hover:theme-text transition-colors duration-300">
                     {brand.name}
                   </p>
                 </motion.div>
@@ -142,7 +142,7 @@ export default function BrandCarousel() {
             </div>
             <div className="hidden md:block w-px h-6 bg-gray-600"></div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse animation-delay-1000"></div>
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse animation-delay-1000"></div>
               <span className="text-sm md:text-base">95% Success Rate</span>
             </div>
           </div>

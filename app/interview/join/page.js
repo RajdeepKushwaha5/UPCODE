@@ -95,18 +95,18 @@ export default function JoinInterview() {
 
   if (status === "loading") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
-        <FaSpinner className="animate-spin text-4xl text-purple-400" />
+      <div className="min-h-screen theme-bg flex items-center justify-center">
+        <FaSpinner className="animate-spin text-4xl theme-accent" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen theme-bg">
       <Toaster position="top-right" />
 
       {/* Header */}
-      <div className="bg-slate-800/50 backdrop-blur-sm border-b border-purple-500/20 px-6 py-4">
+      <div className="theme-surface backdrop-blur-sm border-b border theme-border px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button
@@ -129,7 +129,7 @@ export default function JoinInterview() {
       </div>
 
       <div className="max-w-2xl mx-auto px-6 py-8">
-        <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8">
+        <div className="theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-8">
           <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
             <FaSignInAlt className="text-blue-400" />
             Join Interview Session
@@ -144,13 +144,13 @@ export default function JoinInterview() {
                 value={interviewId}
                 onChange={(e) => setInterviewId(e.target.value.toUpperCase())}
                 placeholder="Enter Interview ID (e.g., ABC123DEF)"
-                className="flex-1 bg-slate-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none font-mono text-lg"
+                className="flex-1 theme-surface-elevated/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none font-mono text-lg"
                 maxLength={12}
               />
               <button
                 onClick={searchInterview}
                 disabled={!interviewId.trim()}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 disabled:opacity-50 flex items-center gap-2"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 disabled:opacity-50 flex items-center gap-2"
               >
                 <FaSearch />
                 Search
@@ -163,7 +163,7 @@ export default function JoinInterview() {
 
           {/* Found Interview Info */}
           {foundInterview && (
-            <div className="mb-6 bg-slate-700/30 rounded-lg p-6">
+            <div className="mb-6 theme-surface-elevated/30 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <FaUsers className="text-green-400" />
                 Interview Found!
@@ -224,7 +224,7 @@ export default function JoinInterview() {
                 value={candidateName}
                 onChange={(e) => setCandidateName(e.target.value)}
                 placeholder="Enter your full name"
-                className="w-full bg-slate-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none"
+                className="w-full theme-surface-elevated/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
               />
               <p className="text-gray-400 text-sm mt-2">
                 This name will be visible to the interviewer

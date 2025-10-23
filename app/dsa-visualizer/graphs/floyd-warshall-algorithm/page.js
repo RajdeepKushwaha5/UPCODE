@@ -239,7 +239,7 @@ export default function FloydWarshallVisualization() {
 
   const getCellColor = (i, j, value) => {
     if (i === j) return 'bg-blue-500/20 text-blue-400'; // Diagonal
-    if (value === Infinity) return 'bg-slate-700 text-slate-400';
+    if (value === Infinity) return 'theme-surface-elevated text-slate-400';
     if (currentOperation && currentOperation.operation && 
         currentOperation.operation.i === vertices[i] && 
         currentOperation.operation.j === vertices[j]) {
@@ -251,7 +251,7 @@ export default function FloydWarshallVisualization() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -264,7 +264,7 @@ export default function FloydWarshallVisualization() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Add Vertex */}
             <div>
@@ -275,13 +275,13 @@ export default function FloydWarshallVisualization() {
                   value={inputVertex}
                   onChange={(e) => setInputVertex(e.target.value)}
                   placeholder="Vertex name"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                   disabled={animating}
                 />
                 <button
                   onClick={addVertex}
                   disabled={!inputVertex.trim() || animating}
-                  className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 disabled:opacity-50 transition-colors"
+                  className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 transition-colors"
                 >
                   Add
                 </button>
@@ -297,7 +297,7 @@ export default function FloydWarshallVisualization() {
                   value={inputFrom}
                   onChange={(e) => setInputFrom(e.target.value)}
                   placeholder="From"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                   disabled={animating}
                 />
                 <input
@@ -305,7 +305,7 @@ export default function FloydWarshallVisualization() {
                   value={inputTo}
                   onChange={(e) => setInputTo(e.target.value)}
                   placeholder="To"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                   disabled={animating}
                 />
                 <input
@@ -314,7 +314,7 @@ export default function FloydWarshallVisualization() {
                   onChange={(e) => setInputWeight(e.target.value)}
                   placeholder="Weight"
                   min="0"
-                  className="w-20 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                  className="w-20 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                   disabled={animating}
                 />
                 <button
@@ -365,7 +365,7 @@ export default function FloydWarshallVisualization() {
                   value={selectedPath.from}
                   onChange={(e) => setSelectedPath(prev => ({ ...prev, from: e.target.value }))}
                   placeholder="From"
-                  className="w-20 px-2 py-1 bg-slate-700 text-white rounded border border-slate-600 text-sm"
+                  className="w-20 px-2 py-1 theme-surface-elevated text-white rounded border border-slate-600 text-sm"
                 />
                 <span className="text-slate-400">→</span>
                 <input
@@ -373,7 +373,7 @@ export default function FloydWarshallVisualization() {
                   value={selectedPath.to}
                   onChange={(e) => setSelectedPath(prev => ({ ...prev, to: e.target.value }))}
                   placeholder="To"
-                  className="w-20 px-2 py-1 bg-slate-700 text-white rounded border border-slate-600 text-sm"
+                  className="w-20 px-2 py-1 theme-surface-elevated text-white rounded border border-slate-600 text-sm"
                 />
                 <button
                   onClick={findPath}
@@ -394,7 +394,7 @@ export default function FloydWarshallVisualization() {
         {/* Visualization */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Graph Display */}
-          <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h2 className="text-xl font-bold text-white mb-4 text-center">Directed Graph</h2>
             
             {vertices.length === 0 ? (
@@ -403,7 +403,7 @@ export default function FloydWarshallVisualization() {
               </div>
             ) : (
               <div className="relative">
-                <svg width="400" height="300" className="mx-auto border border-slate-600 rounded-lg bg-slate-900/50">
+                <svg width="400" height="300" className="mx-auto border border-slate-600 rounded-lg theme-bg/50">
                   {/* Render Edges */}
                   {edges.map((edge, index) => {
                     const [from, to, weight] = edge;
@@ -513,7 +513,7 @@ export default function FloydWarshallVisualization() {
           </div>
 
           {/* Distance Matrix */}
-          <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h2 className="text-xl font-bold text-white mb-4 text-center">
               Distance Matrix
               {iteration.total > 0 && (
@@ -534,7 +534,7 @@ export default function FloydWarshallVisualization() {
                     <tr>
                       <th className="p-2 text-slate-400 font-bold">From/To</th>
                       {vertices.map(vertex => (
-                        <th key={vertex} className="p-2 text-purple-400 font-bold min-w-12">
+                        <th key={vertex} className="p-2 theme-accent font-bold min-w-12">
                           {vertex}
                         </th>
                       ))}
@@ -543,7 +543,7 @@ export default function FloydWarshallVisualization() {
                   <tbody>
                     {vertices.map((fromVertex, i) => (
                       <tr key={fromVertex}>
-                        <td className="p-2 text-purple-400 font-bold">{fromVertex}</td>
+                        <td className="p-2 theme-accent font-bold">{fromVertex}</td>
                         {vertices.map((toVertex, j) => (
                           <td key={`${i}-${j}`} className="p-2 text-center">
                             <div className={`
@@ -565,7 +565,7 @@ export default function FloydWarshallVisualization() {
 
         {/* Current Operation Display */}
         {currentOperation && currentOperation.operation && (
-          <div className="mt-6 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="mt-6 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-white font-bold mb-3 text-center">Current Operation</h3>
             <div className="text-center">
               <div className={`
@@ -599,11 +599,11 @@ export default function FloydWarshallVisualization() {
         )}
 
         {/* Algorithm Info */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-white font-bold mb-4">Floyd-Warshall Algorithm Properties</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="text-center">
-              <div className="text-purple-400 font-bold mb-2">Time Complexity</div>
+              <div className="theme-accent font-bold mb-2">Time Complexity</div>
               <div className="text-slate-300 text-sm">O(V³)</div>
             </div>
             <div className="text-center">

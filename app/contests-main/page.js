@@ -290,7 +290,7 @@ export default function ContestsPage() {
                     placeholder="Search contests..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
               </div>
@@ -408,7 +408,7 @@ export default function ContestsPage() {
                         {contest.status === 'completed' && (
                           <Link
                             href={`/contests/${contest.id}/results`}
-                            className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 hover:scale-105 shadow-lg"
+                            className="bg-purple-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 hover:scale-105 shadow-lg"
                           >
                             View Results
                           </Link>

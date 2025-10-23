@@ -128,7 +128,7 @@ export default function PremiumPage() {
       highlight: "HD Videos"
     },
     {
-      icon: <FaFilter className="text-4xl text-purple-400" />,
+      icon: <FaFilter className="text-4xl theme-accent" />,
       title: "Premium-Only Filters",
       description: "Filter by company, difficulty, or frequency",
       highlight: "Smart Filters"
@@ -386,12 +386,12 @@ export default function PremiumPage() {
               className="bg-gray-800/50 backdrop-blur-sm p-4 rounded-2xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300"
             >
               <div className="text-center">
-                <div className="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">
+                <div className="inline-block px-3 py-1 bg-purple-500/20 theme-accent text-xs font-semibold rounded-full mb-4">
                   Popular Choice
                 </div>
                 <h3 className="text-2xl font-bold mb-2">Monthly Premium</h3>
                 <div className="mb-6">
-                  <span className="text-5xl font-bold text-purple-400">₹999</span>
+                  <span className="text-5xl font-bold theme-accent">₹999</span>
                   <span className="text-gray-400">/month</span>
                 </div>
                 <ul className="space-y-3 mb-8 text-left">
@@ -430,7 +430,7 @@ export default function PremiumPage() {
                 </ul>
                 <button
                   onClick={() => handleUpgrade('monthly')}
-                  className="w-full py-3 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-xl transition-all duration-300"
+                  className="w-full py-3 bg-blue-600 hover:bg-purple-500 text-white font-semibold rounded-xl transition-all duration-300"
                 >
                   Choose Monthly
                 </button>
@@ -549,7 +549,7 @@ export default function PremiumPage() {
                 <tr className="bg-gray-700/50">
                   <th className="px-6 py-4 text-left font-bold">Feature</th>
                   <th className="px-6 py-4 text-center font-bold text-green-400">Free</th>
-                  <th className="px-6 py-4 text-center font-bold text-purple-400">Monthly Premium</th>
+                  <th className="px-6 py-4 text-center font-bold theme-accent">Monthly Premium</th>
                   <th className="px-6 py-4 text-center font-bold text-yellow-400">Yearly Premium</th>
                 </tr>
               </thead>
@@ -580,7 +580,7 @@ export default function PremiumPage() {
                       {typeof row.monthly === 'boolean' ? (
                         row.monthly ? <FaCheck className="text-green-400 mx-auto" /> : <FaTimes className="text-gray-500 mx-auto" />
                       ) : (
-                        <span className="text-purple-400 font-semibold">{row.monthly}</span>
+                        <span className="theme-accent font-semibold">{row.monthly}</span>
                       )}
                     </td>
                     <td className="px-6 py-4 text-center">

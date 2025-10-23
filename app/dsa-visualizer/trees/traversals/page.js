@@ -216,11 +216,11 @@ export default function TreeTraversalsVisualizer() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <Link href="/dsa-visualizer/trees" className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-4 transition-colors duration-200">
+          <Link href="/dsa-visualizer/trees" className="inline-flex items-center theme-accent hover:theme-text-secondary mb-4 transition-colors duration-200">
             ← Back to Trees
           </Link>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
@@ -234,12 +234,12 @@ export default function TreeTraversalsVisualizer() {
 
         {/* Algorithm Info */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Traversal Type</h3>
             <select
               value={traversalType}
               onChange={(e) => setTraversalType(e.target.value)}
-              className="w-full px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-500"
+              className="w-full px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-blue-500"
             >
               <option value="inorder">Inorder (L-Root-R)</option>
               <option value="preorder">Preorder (Root-L-R)</option>
@@ -247,7 +247,7 @@ export default function TreeTraversalsVisualizer() {
               <option value="levelorder">Level-order (BFS)</option>
             </select>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Speed</h3>
             <input
               type="range"
@@ -259,23 +259,23 @@ export default function TreeTraversalsVisualizer() {
             />
             <p className="text-slate-400 text-sm mt-1">{speed}ms</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Visited Nodes</h3>
-            <p className="text-purple-400 text-2xl font-bold">{visitedNodes.length}</p>
+            <p className="theme-accent text-2xl font-bold">{visitedNodes.length}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Controls</h3>
             <div className="flex gap-2">
               <button
                 onClick={startTraversal}
                 disabled={isTraversing}
-                className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 disabled:opacity-50 transition-colors duration-200"
+                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-purple-700 disabled:opacity-50 transition-colors duration-200"
               >
                 Start
               </button>
               <button
                 onClick={reset}
-                className="px-4 py-2 bg-slate-600 text-white rounded hover:bg-slate-700 transition-colors duration-200"
+                className="px-4 py-2 bg-slate-600 text-white rounded hover:theme-surface-elevated transition-colors duration-200"
               >
                 Reset
               </button>
@@ -284,7 +284,7 @@ export default function TreeTraversalsVisualizer() {
         </div>
 
         {/* Tree Visualization */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 mb-8">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 mb-8">
           <svg width="800" height="350" className="mx-auto">
             {tree && renderTree(tree)}
           </svg>
@@ -306,13 +306,13 @@ export default function TreeTraversalsVisualizer() {
         </div>
 
         {/* Traversal Result */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
           <h3 className="text-xl font-bold text-white mb-4">Traversal Result</h3>
           <div className="flex flex-wrap gap-2">
             {traversalResult.map((val, index) => (
               <div
                 key={index}
-                className="px-3 py-2 bg-purple-600 text-white rounded-lg font-mono"
+                className="px-3 py-2 bg-blue-600 text-white rounded-lg font-mono"
               >
                 {val}
               </div>
@@ -325,11 +325,11 @@ export default function TreeTraversalsVisualizer() {
 
         {/* Algorithm Explanation */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-bold text-white mb-4">Traversal Types</h3>
             <div className="space-y-4 text-slate-300">
               <div>
-                <h4 className="font-semibold text-purple-400">Inorder (L-Root-R)</h4>
+                <h4 className="font-semibold theme-accent">Inorder (L-Root-R)</h4>
                 <p className="text-sm">Left subtree → Root → Right subtree</p>
                 <p className="text-xs text-slate-400">Result: 4, 2, 5, 1, 6, 3, 7</p>
               </div>
@@ -351,7 +351,7 @@ export default function TreeTraversalsVisualizer() {
             </div>
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-bold text-white mb-4">Applications</h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               <li>• <strong>Inorder:</strong> Get sorted values from BST</li>

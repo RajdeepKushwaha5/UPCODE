@@ -262,7 +262,7 @@ export default function EnhancedUserManagement() {
 
   const getRoleColor = (role) => {
     switch (role) {
-      case "admin": return "bg-purple-500/20 text-purple-400";
+      case "admin": return "bg-purple-500/20 theme-accent";
       case "moderator": return "bg-blue-500/20 text-blue-400";
       case "user": return "bg-gray-500/20 text-gray-400";
       default: return "bg-gray-500/20 text-gray-400";
@@ -327,7 +327,7 @@ export default function EnhancedUserManagement() {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-slate-700/50 rounded-lg p-4 border border-slate-600/50">
+          <div className="theme-surface-elevated/50 rounded-lg p-4 border border-slate-600/50">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-400 text-sm">Total Users</p>
@@ -337,7 +337,7 @@ export default function EnhancedUserManagement() {
             </div>
           </div>
           
-          <div className="bg-slate-700/50 rounded-lg p-4 border border-slate-600/50">
+          <div className="theme-surface-elevated/50 rounded-lg p-4 border border-slate-600/50">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-400 text-sm">Active Users</p>
@@ -347,7 +347,7 @@ export default function EnhancedUserManagement() {
             </div>
           </div>
 
-          <div className="bg-slate-700/50 rounded-lg p-4 border border-slate-600/50">
+          <div className="theme-surface-elevated/50 rounded-lg p-4 border border-slate-600/50">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-400 text-sm">Premium Users</p>
@@ -357,7 +357,7 @@ export default function EnhancedUserManagement() {
             </div>
           </div>
 
-          <div className="bg-slate-700/50 rounded-lg p-4 border border-slate-600/50">
+          <div className="theme-surface-elevated/50 rounded-lg p-4 border border-slate-600/50">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-400 text-sm">Banned Users</p>
@@ -378,14 +378,14 @@ export default function EnhancedUserManagement() {
             placeholder="Search users..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-slate-700 border border-slate-600 text-white pl-10 pr-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full theme-surface-elevated border border-slate-600 text-white pl-10 pr-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
 
         <select
           value={filterRole}
           onChange={(e) => setFilterRole(e.target.value)}
-          className="bg-slate-700 border border-slate-600 text-white px-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          className="theme-surface-elevated border border-slate-600 text-white px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
           <option value="all">All Roles</option>
           <option value="admin">Admin</option>
@@ -396,7 +396,7 @@ export default function EnhancedUserManagement() {
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
-          className="bg-slate-700 border border-slate-600 text-white px-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          className="theme-surface-elevated border border-slate-600 text-white px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
           <option value="all">All Status</option>
           <option value="active">Active</option>
@@ -407,7 +407,7 @@ export default function EnhancedUserManagement() {
         <select
           value={filterPremium}
           onChange={(e) => setFilterPremium(e.target.value)}
-          className="bg-slate-700 border border-slate-600 text-white px-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          className="theme-surface-elevated border border-slate-600 text-white px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
           <option value="all">All Memberships</option>
           <option value="premium">Premium Only</option>
@@ -416,10 +416,10 @@ export default function EnhancedUserManagement() {
       </div>
 
       {/* Users Table */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-600/50 overflow-hidden">
+      <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-slate-700/50">
+            <thead className="theme-surface-elevated/50">
               <tr>
                 <th className="text-left px-6 py-4 text-gray-300 font-medium">User</th>
                 <th className="text-left px-6 py-4 text-gray-300 font-medium">Role</th>
@@ -433,7 +433,7 @@ export default function EnhancedUserManagement() {
             </thead>
             <tbody className="divide-y divide-slate-600/50">
               {users.map((user) => (
-                <tr key={user._id} className="hover:bg-slate-700/30 transition-colors">
+                <tr key={user._id} className="hover:theme-surface-elevated/30 transition-colors">
                   <td className="px-6 py-4">
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold">
@@ -560,7 +560,7 @@ export default function EnhancedUserManagement() {
       {/* Ban User Modal */}
       {showBanModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl p-6 max-w-md w-full">
+          <div className="theme-surface rounded-xl p-6 max-w-md w-full">
             <h3 className="text-xl font-semibold text-white mb-4">Ban User</h3>
             <p className="text-gray-400 mb-4">
               Are you sure you want to ban "{selectedUser?.username}"?
@@ -573,7 +573,7 @@ export default function EnhancedUserManagement() {
                 value={banReason}
                 onChange={(e) => setBanReason(e.target.value)}
                 rows={3}
-                className="w-full bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg"
+                className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg"
                 placeholder="Enter the reason for banning this user..."
                 required
               />
@@ -584,7 +584,7 @@ export default function EnhancedUserManagement() {
                   setShowBanModal(false);
                   setBanReason("");
                 }}
-                className="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
               >
                 Cancel
               </button>
@@ -603,7 +603,7 @@ export default function EnhancedUserManagement() {
       {/* User Details Modal */}
       {showUserModal && selectedUser && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="theme-surface rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-semibold text-white">User Details</h3>
               <button
@@ -631,28 +631,28 @@ export default function EnhancedUserManagement() {
 
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                <div className="theme-surface-elevated/50 rounded-lg p-4 text-center">
                   <p className="text-2xl font-bold text-white">{selectedUser.problemsSolved}</p>
                   <p className="text-gray-400 text-sm">Problems Solved</p>
                 </div>
-                <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                <div className="theme-surface-elevated/50 rounded-lg p-4 text-center">
                   <p className={`text-2xl font-bold ${getStreakColor(selectedUser.currentStreak)}`}>
                     {selectedUser.currentStreak}
                   </p>
                   <p className="text-gray-400 text-sm">Current Streak</p>
                 </div>
-                <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                <div className="theme-surface-elevated/50 rounded-lg p-4 text-center">
                   <p className="text-2xl font-bold text-white">{(selectedUser.totalXP || 0).toLocaleString()}</p>
                   <p className="text-gray-400 text-sm">Total XP</p>
                 </div>
-                <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                <div className="theme-surface-elevated/50 rounded-lg p-4 text-center">
                   <p className="text-2xl font-bold text-white">{selectedUser.role}</p>
                   <p className="text-gray-400 text-sm">Role</p>
                 </div>
               </div>
 
               {/* Account Info */}
-              <div className="bg-slate-700/50 rounded-lg p-4">
+              <div className="theme-surface-elevated/50 rounded-lg p-4">
                 <h5 className="text-white font-medium mb-3">Account Information</h5>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <div>

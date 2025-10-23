@@ -154,7 +154,7 @@ const StudyPlanCreator = ({ onClose, onSubmit }) => {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl font-bold text-white flex items-center gap-3">
-              <FaBrain className="text-purple-400" />
+              <FaBrain className="theme-accent" />
               Create AI Study Plan
             </h2>
             <p className="text-gray-400 mt-1">Step {currentStep} of 4</p>
@@ -222,7 +222,7 @@ const StudyPlanCreator = ({ onClose, onSubmit }) => {
                   value={formData.title}
                   onChange={(e) => updateFormData('title', e.target.value)}
                   placeholder="e.g., Google SDE Interview Prep"
-                  className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none"
+                  className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
                 />
               </div>
             </motion.div>
@@ -268,7 +268,7 @@ const StudyPlanCreator = ({ onClose, onSubmit }) => {
                     <select
                       value={formData.goal.timeline}
                       onChange={(e) => updateFormData('goal.timeline', parseInt(e.target.value))}
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none"
+                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:outline-none"
                     >
                       <option value={30}>30 Days (1 Month)</option>
                       <option value={60}>60 Days (2 Months)</option>
@@ -285,7 +285,7 @@ const StudyPlanCreator = ({ onClose, onSubmit }) => {
                     <select
                       value={formData.goal.difficulty}
                       onChange={(e) => updateFormData('goal.difficulty', e.target.value)}
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none"
+                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:outline-none"
                     >
                       <option value="beginner">Beginner</option>
                       <option value="intermediate">Intermediate</option>
@@ -316,7 +316,7 @@ const StudyPlanCreator = ({ onClose, onSubmit }) => {
                     <select
                       value={formData.timeAvailability.hoursPerDay}
                       onChange={(e) => updateFormData('timeAvailability.hoursPerDay', parseFloat(e.target.value))}
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none"
+                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:outline-none"
                     >
                       <option value={0.5}>30 minutes</option>
                       <option value={1}>1 hour</option>
@@ -334,7 +334,7 @@ const StudyPlanCreator = ({ onClose, onSubmit }) => {
                     <select
                       value={formData.timeAvailability.daysPerWeek}
                       onChange={(e) => updateFormData('timeAvailability.daysPerWeek', parseInt(e.target.value))}
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none"
+                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:outline-none"
                     >
                       <option value={3}>3 days (Weekends)</option>
                       <option value={5}>5 days (Weekdays)</option>
@@ -356,7 +356,7 @@ const StudyPlanCreator = ({ onClose, onSubmit }) => {
                         whileTap={{ scale: 0.98 }}
                         onClick={() => updateFormData('timeAvailability.preferredTime', time)}
                         className={`p-3 rounded-lg border transition-all capitalize ${formData.timeAvailability.preferredTime === time
-                          ? 'border-purple-500 bg-purple-500/20 text-purple-300'
+                          ? 'border-purple-500 bg-purple-500/20 theme-text-secondary'
                           : 'border-gray-700 hover:border-gray-600 text-gray-300'
                           }`}
                       >
@@ -389,7 +389,7 @@ const StudyPlanCreator = ({ onClose, onSubmit }) => {
                       whileTap={{ scale: 0.98 }}
                       onClick={() => toggleFocusArea(topic)}
                       className={`p-3 rounded-lg border transition-all text-sm ${formData.focusAreas.includes(topic)
-                        ? 'border-purple-500 bg-purple-500/20 text-purple-300'
+                        ? 'border-purple-500 bg-purple-500/20 theme-text-secondary'
                         : 'border-gray-700 hover:border-gray-600 text-gray-300'
                         }`}
                     >
@@ -417,7 +417,7 @@ const StudyPlanCreator = ({ onClose, onSubmit }) => {
                     id="premiumPlan"
                     checked={formData.isPremium}
                     onChange={(e) => updateFormData('isPremium', e.target.checked)}
-                    className="rounded border-gray-600 bg-gray-700 text-purple-500 focus:ring-purple-500"
+                    className="rounded border-gray-600 bg-gray-700 text-purple-500 focus:ring-blue-500"
                   />
                   <label htmlFor="premiumPlan" className="text-yellow-100 text-sm">
                     Enable Premium Features (Requires Premium Subscription)

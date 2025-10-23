@@ -36,7 +36,7 @@ export default function DemoPage() {
             <div className="flex flex-wrap gap-2 mb-4">
               <span className="bg-green-600 text-white px-2 py-1 text-xs rounded">🤖 AI Generated</span>
               <span className="bg-blue-600 text-white px-2 py-1 text-xs rounded">External APIs</span>
-              <span className="bg-purple-600 text-white px-2 py-1 text-xs rounded">Smart Filtering</span>
+              <span className="bg-blue-600 text-white px-2 py-1 text-xs rounded">Smart Filtering</span>
             </div>
             <Link
               href="/problems"
@@ -78,7 +78,7 @@ export default function DemoPage() {
           {/* AI Features */}
           <div className="bg-gray-800 rounded-lg border border-gray-700 p-6 hover:border-purple-500 transition-colors">
             <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
+              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
@@ -92,11 +92,11 @@ export default function DemoPage() {
               AI-powered problem generation, code explanation, and intelligent hints system.
             </p>
             <div className="flex flex-wrap gap-2 mb-4">
-              <span className="bg-purple-600 text-white px-2 py-1 text-xs rounded">🧠 Problem Generation</span>
+              <span className="bg-blue-600 text-white px-2 py-1 text-xs rounded">🧠 Problem Generation</span>
               <span className="bg-pink-600 text-white px-2 py-1 text-xs rounded">💡 Smart Hints</span>
               <span className="bg-indigo-600 text-white px-2 py-1 text-xs rounded">📝 Code Explanation</span>
             </div>
-            <button className="block w-full bg-purple-600 hover:bg-purple-700 text-white text-center py-2 rounded transition-colors">
+            <button className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded transition-colors">
               Explore AI Features
             </button>
           </div>
@@ -149,7 +149,7 @@ export default function DemoPage() {
             <div className="flex flex-wrap gap-2 mb-4">
               <span className="bg-red-600 text-white px-2 py-1 text-xs rounded">📊 Analytics</span>
               <span className="bg-pink-600 text-white px-2 py-1 text-xs rounded">👥 User Management</span>
-              <span className="bg-purple-600 text-white px-2 py-1 text-xs rounded">⚙️ Platform Control</span>
+              <span className="bg-blue-600 text-white px-2 py-1 text-xs rounded">⚙️ Platform Control</span>
             </div>
             <Link
               href="/admin"
@@ -208,7 +208,7 @@ export default function DemoPage() {
             </div>
 
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple-400 mb-2">🚀 Ready</div>
+              <div className="text-3xl font-bold theme-accent mb-2">🚀 Ready</div>
               <div className="text-gray-300 font-medium mb-1">Production Ready</div>
               <div className="text-gray-500 text-sm">Deploy anytime</div>
             </div>

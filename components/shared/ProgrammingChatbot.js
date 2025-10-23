@@ -358,7 +358,7 @@ ${optionsText}
             >
               <div
                 className={`max-w-[80%] p-4 rounded-2xl ${message.type === 'user'
-                  ? 'bg-purple-600 text-white ml-4'
+                  ? 'bg-blue-600 text-white ml-4'
                   : 'bg-gray-800 text-gray-100 mr-4'
                   }`}
               >
@@ -397,12 +397,12 @@ ${optionsText}
               onChange={(e) => setCurrentInput(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="Type your message or answer..."
-              className="flex-1 bg-gray-800 text-white p-4 rounded-2xl border border-gray-600 focus:border-purple-500 focus:outline-none transition-colors"
+              className="flex-1 bg-gray-800 text-white p-4 rounded-2xl border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors"
             />
             <button
               onClick={handleSendMessage}
               disabled={!currentInput.trim() || isTyping}
-              className="bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 text-white p-4 rounded-2xl transition-colors flex items-center justify-center min-w-[60px]"
+              className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 text-white p-4 rounded-2xl transition-colors flex items-center justify-center min-w-[60px]"
             >
               <FaPaperPlane />
             </button>
@@ -438,7 +438,7 @@ ${optionsText}
                 )}
                 <button
                   onClick={() => setCurrentInput('review')}
-                  className="text-xs bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded-full transition-colors flex items-center gap-1"
+                  className="text-xs bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full transition-colors flex items-center gap-1"
                 >
                   🔄 Review
                 </button>

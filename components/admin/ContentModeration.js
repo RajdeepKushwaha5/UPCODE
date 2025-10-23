@@ -38,11 +38,11 @@ export default function ContentModeration() {
         <p className="text-gray-400">Review and moderate user-generated content</p>
       </div>
 
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
         <h2 className="text-xl font-semibold text-white mb-4">Pending Reports</h2>
         <div className="space-y-4">
           {reports.map((report) => (
-            <div key={report.id} className="p-4 bg-slate-700/30 rounded-lg">
+            <div key={report.id} className="p-4 theme-surface-elevated/30 rounded-lg">
               <div className="flex justify-between items-start">
                 <div>
                   <h3 className="text-white font-medium">{report.type}</h3>

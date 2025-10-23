@@ -109,7 +109,7 @@ export default function AITutorBoat() {
                 className={`px-4 py-2 rounded-lg flex items-center gap-2 transition-colors ${
                   selectedLanguage === key
                     ? 'bg-blue-600 text-white'
-                    : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                    : 'theme-surface-elevated text-slate-300 hover:bg-slate-600'
                 }`}
               >
                 <span>{lang.icon}</span>
@@ -144,7 +144,7 @@ export default function AITutorBoat() {
                 </div>
 
                 {/* Code Example */}
-                <div className="bg-slate-900 rounded-lg p-4">
+                <div className="theme-bg rounded-lg p-4">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-sm text-slate-400">Code Example</span>
                     <button className="text-green-400 hover:text-green-300 flex items-center gap-1 text-sm">
@@ -162,7 +162,7 @@ export default function AITutorBoat() {
                   <button
                     onClick={prevLesson}
                     disabled={currentLesson === 0}
-                    className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 disabled:bg-slate-800 disabled:text-slate-600 text-white rounded-lg transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 theme-surface-elevated hover:bg-slate-600 disabled:theme-surface disabled:text-slate-600 text-white rounded-lg transition-colors"
                   >
                     <ChevronLeftIcon className="w-4 h-4" />
                     Previous
@@ -178,7 +178,7 @@ export default function AITutorBoat() {
                   <button
                     onClick={nextLesson}
                     disabled={currentLesson === currentCurriculum.lessons.length - 1}
-                    className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 disabled:bg-slate-800 disabled:text-slate-600 text-white rounded-lg transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 theme-surface-elevated hover:bg-slate-600 disabled:theme-surface disabled:text-slate-600 text-white rounded-lg transition-colors"
                   >
                     Next
                     <ChevronRightIcon className="w-4 h-4" />
@@ -209,8 +209,8 @@ export default function AITutorBoat() {
                               ? 'border-green-500 bg-green-500/20 text-green-300'
                               : 'border-red-500 bg-red-500/20 text-red-300'
                             : selectedAnswer === null
-                            ? 'border-slate-600 bg-slate-700 hover:border-slate-500 text-white'
-                            : 'border-slate-600 bg-slate-800 text-slate-400'
+                            ? 'border-slate-600 theme-surface-elevated hover:border-slate-500 text-white'
+                            : 'border-slate-600 theme-surface text-slate-400'
                         }`}
                       >
                         {option}

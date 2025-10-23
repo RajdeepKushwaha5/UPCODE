@@ -267,7 +267,7 @@ export default function AdminDashboard() {
   const getActivityColor = (type, priority) => {
     const baseColors = {
       user: "text-blue-400",
-      problem: "text-purple-400", 
+      problem: "theme-accent", 
       contest: "text-yellow-400",
       review: "text-green-400",
       premium: "text-pink-400",
@@ -301,7 +301,7 @@ export default function AdminDashboard() {
               type="checkbox"
               checked={autoRefresh}
               onChange={(e) => setAutoRefresh(e.target.checked)}
-              className="rounded border-slate-600 bg-slate-700 text-purple-600 focus:ring-purple-500 focus:ring-offset-slate-800"
+              className="rounded border-slate-600 theme-surface-elevated text-purple-600 focus:ring-blue-500 focus:ring-offset-slate-800"
             />
             Auto-refresh (30s)
           </label>
@@ -310,8 +310,8 @@ export default function AdminDashboard() {
             disabled={refreshing}
             className={`px-4 py-2 rounded-lg transition-colors flex items-center gap-2 ${
               refreshing 
-                ? 'bg-purple-600/50 text-gray-300 cursor-not-allowed' 
-                : 'bg-purple-600 hover:bg-purple-700 text-white'
+                ? 'bg-blue-600/50 text-gray-300 cursor-not-allowed' 
+                : 'bg-blue-600 hover:bg-blue-700 text-white'
             }`}
           >
             {refreshing && (
@@ -329,7 +329,7 @@ export default function AdminDashboard() {
           return (
             <div
               key={index}
-              className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300"
+              className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300"
             >
               <div className="flex items-center justify-between">
                 <div>
@@ -354,12 +354,12 @@ export default function AdminDashboard() {
       </div>
 
       {/* Recent Activity */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
         <h2 className="text-xl font-semibold text-white mb-4">Recent Activity</h2>
         <div className="space-y-3">
           {recentActivity.map((activity, index) => (
-            <div key={index} className="flex items-center space-x-3 p-3 bg-slate-700/30 rounded-lg">
-              <div className="text-purple-400">
+            <div key={index} className="flex items-center space-x-3 p-3 theme-surface-elevated/30 rounded-lg">
+              <div className="theme-accent">
                 {getActivityIcon(activity.type)}
               </div>
               <div className="flex-1">
@@ -372,10 +372,10 @@ export default function AdminDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
         <h2 className="text-xl font-semibold text-white mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <button className="p-4 bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 rounded-lg text-left transition-colors">
+          <button className="p-4 bg-blue-600/20 hover:bg-blue-600/30 border border-purple-500/30 rounded-lg text-left transition-colors">
             <h3 className="text-white font-medium">Add New Problem</h3>
             <p className="text-gray-400 text-sm">Create a new coding problem</p>
           </button>

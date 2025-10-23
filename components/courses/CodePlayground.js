@@ -97,7 +97,7 @@ const CodePlayground = ({
             ${isFullscreen ? 'fixed inset-4 z-50' : ''}
         `}>
             {/* Header */}
-            <div className="bg-slate-800/90 px-6 py-4 border-b border-purple-500/30 flex items-center justify-between">
+            <div className="theme-surface/90 px-6 py-4 border-b border-purple-500/30 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-lg">
                         {getLanguageIcon(language)}
@@ -114,7 +114,7 @@ const CodePlayground = ({
                         <select 
                             value={fontSize} 
                             onChange={(e) => setFontSize(Number(e.target.value))}
-                            className="bg-slate-700 text-white px-2 py-1 rounded text-sm"
+                            className="theme-surface-elevated text-white px-2 py-1 rounded text-sm"
                         >
                             <option value={12}>12px</option>
                             <option value={14}>14px</option>
@@ -125,7 +125,7 @@ const CodePlayground = ({
                     
                     <button
                         onClick={() => setIsFullscreen(!isFullscreen)}
-                        className="p-2 hover:bg-slate-700 rounded-lg transition-colors text-slate-400 hover:text-white"
+                        className="p-2 hover:theme-surface-elevated rounded-lg transition-colors text-slate-400 hover:text-white"
                         title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,7 +142,7 @@ const CodePlayground = ({
             <div className={`grid ${isFullscreen ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'} h-96`}>
                 {/* Code Editor */}
                 <div className="flex flex-col">
-                    <div className="bg-slate-700/50 px-4 py-2 border-b border-slate-600/50 flex items-center justify-between">
+                    <div className="theme-surface-elevated/50 px-4 py-2 border-b border-slate-600/50 flex items-center justify-between">
                         <span className="text-slate-300 text-sm font-medium">Editor</span>
                         <div className="flex items-center gap-2">
                             <button
@@ -173,7 +173,7 @@ const CodePlayground = ({
                         <textarea
                             value={code}
                             onChange={(e) => setCode(e.target.value)}
-                            className="w-full h-full p-4 bg-slate-900 text-white font-mono resize-none border-none outline-none"
+                            className="w-full h-full p-4 theme-bg text-white font-mono resize-none border-none outline-none"
                             style={{ fontSize: `${fontSize}px` }}
                             placeholder="Enter your code here..."
                             spellCheck={false}
@@ -183,7 +183,7 @@ const CodePlayground = ({
 
                 {/* Output Panel */}
                 <div className={`flex flex-col border-l border-slate-600/50 ${!isFullscreen && 'hidden lg:flex'}`}>
-                    <div className="bg-slate-700/50 px-4 py-2 border-b border-slate-600/50 flex items-center justify-between">
+                    <div className="theme-surface-elevated/50 px-4 py-2 border-b border-slate-600/50 flex items-center justify-between">
                         <span className="text-slate-300 text-sm font-medium">Output</span>
                         <button
                             onClick={runCode}
@@ -206,7 +206,7 @@ const CodePlayground = ({
                         </button>
                     </div>
                     
-                    <div className="flex-1 p-4 bg-slate-900 overflow-y-auto">
+                    <div className="flex-1 p-4 theme-bg overflow-y-auto">
                         <pre className="text-green-400 font-mono text-sm whitespace-pre-wrap">
                             {output || 'Click "Run Code" to see the output...'}
                         </pre>
@@ -216,7 +216,7 @@ const CodePlayground = ({
 
             {/* Mobile Run Button */}
             {!isFullscreen && (
-                <div className="lg:hidden bg-slate-800/90 px-4 py-3 border-t border-purple-500/30">
+                <div className="lg:hidden theme-surface/90 px-4 py-3 border-t border-purple-500/30">
                     <button
                         onClick={runCode}
                         disabled={isRunning}
@@ -241,8 +241,8 @@ const CodePlayground = ({
 
             {/* Mobile Output Panel */}
             {!isFullscreen && output && (
-                <div className="lg:hidden bg-slate-900 border-t border-slate-600/50">
-                    <div className="bg-slate-700/50 px-4 py-2 border-b border-slate-600/50">
+                <div className="lg:hidden theme-bg border-t border-slate-600/50">
+                    <div className="theme-surface-elevated/50 px-4 py-2 border-b border-slate-600/50">
                         <span className="text-slate-300 text-sm font-medium">Output</span>
                     </div>
                     <div className="p-4 max-h-32 overflow-y-auto">
@@ -255,7 +255,7 @@ const CodePlayground = ({
 
             {/* Hints Panel */}
             {hints.length > 0 && (
-                <div className="bg-slate-800/90 border-t border-purple-500/30 px-6 py-4">
+                <div className="theme-surface/90 border-t border-purple-500/30 px-6 py-4">
                     <button
                         onClick={() => setShowHints(!showHints)}
                         className="flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-medium"
@@ -299,7 +299,7 @@ const CodePlayground = ({
 
             {/* Expected Output */}
             {expectedOutput && (
-                <div className="bg-slate-800/90 border-t border-purple-500/30 px-6 py-4">
+                <div className="theme-surface/90 border-t border-purple-500/30 px-6 py-4">
                     <h4 className="text-green-400 font-medium mb-2 flex items-center gap-2">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />

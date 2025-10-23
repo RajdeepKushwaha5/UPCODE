@@ -278,11 +278,11 @@ export default function SelectionSortVisualizer() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <Link href="/dsa-visualizer/arrays" className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-4 transition-colors duration-200">
+          <Link href="/dsa-visualizer/arrays" className="inline-flex items-center theme-accent hover:theme-text-secondary mb-4 transition-colors duration-200">
             ← Back to Arrays
           </Link>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
@@ -296,53 +296,53 @@ export default function SelectionSortVisualizer() {
 
         {/* Algorithm Info */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Time Complexity</h3>
             <p className="text-slate-300 text-sm">Best: O(n²)</p>
             <p className="text-slate-300 text-sm">Average: O(n²)</p>
             <p className="text-slate-300 text-sm">Worst: O(n²)</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Space Complexity</h3>
             <p className="text-slate-300">O(1)</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Comparisons</h3>
-            <p className="text-purple-400 text-2xl font-bold">{comparisonCount}</p>
+            <p className="theme-accent text-2xl font-bold">{comparisonCount}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Swaps</h3>
             <p className="text-pink-400 text-2xl font-bold">{swapCount}</p>
           </div>
         </div>
 
         {/* Array Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 mb-8 border border-slate-700/50">
           <div className="flex flex-wrap gap-4 items-center justify-between">
             <div className="flex items-center gap-4">
               <button
                 onClick={playPause}
-                className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
               >
                 {isPlaying ? (isPaused ? 'Resume' : 'Pause') : 'Start'}
               </button>
               <button
                 onClick={reset}
-                className="px-6 py-3 bg-slate-600 text-white rounded-lg hover:bg-slate-700 transition-colors duration-200"
+                className="px-6 py-3 bg-slate-600 text-white rounded-lg hover:theme-surface-elevated transition-colors duration-200"
               >
                 Reset
               </button>
               <button
                 onClick={stepBackward}
                 disabled={currentStep === 0}
-                className="px-4 py-3 bg-slate-600 text-white rounded-lg hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+                className="px-4 py-3 bg-slate-600 text-white rounded-lg hover:theme-surface-elevated disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
               >
                 ← Step
               </button>
               <button
                 onClick={stepForward}
                 disabled={currentStep >= algorithm.length}
-                className="px-4 py-3 bg-slate-600 text-white rounded-lg hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+                className="px-4 py-3 bg-slate-600 text-white rounded-lg hover:theme-surface-elevated disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
               >
                 Step →
               </button>
@@ -387,7 +387,7 @@ export default function SelectionSortVisualizer() {
         </div>
 
         {/* Visualization */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-8 border border-slate-700/50">
           <div className="flex items-end justify-center gap-1 h-96">
             {array.map((value, index) => (
               <div key={index} className="flex flex-col items-center">
@@ -410,29 +410,29 @@ export default function SelectionSortVisualizer() {
 
         {/* Algorithm Explanation */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-bold text-white mb-4">How Selection Sort Works</h3>
             <ul className="space-y-2 text-slate-300">
               <li className="flex items-start gap-2">
-                <span className="text-purple-400 font-bold">1.</span>
+                <span className="theme-accent font-bold">1.</span>
                 Find the minimum element in the unsorted portion
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400 font-bold">2.</span>
+                <span className="theme-accent font-bold">2.</span>
                 Swap it with the first element of unsorted portion
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400 font-bold">3.</span>
+                <span className="theme-accent font-bold">3.</span>
                 Move the boundary between sorted and unsorted
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400 font-bold">4.</span>
+                <span className="theme-accent font-bold">4.</span>
                 Repeat until the entire array is sorted
               </li>
             </ul>
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-bold text-white mb-4">Key Properties</h3>
             <ul className="space-y-2 text-slate-300">
               <li>• <strong>Time Complexity:</strong> Always O(n²), regardless of input</li>

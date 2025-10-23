@@ -316,7 +316,7 @@ export default function ComprehensiveContestManagement() {
     switch (type) {
       case "public": return "bg-green-500/20 text-green-400";
       case "private": return "bg-yellow-500/20 text-yellow-400";
-      case "premium": return "bg-purple-500/20 text-purple-400";
+      case "premium": return "bg-purple-500/20 theme-accent";
       default: return "bg-gray-500/20 text-gray-400";
     }
   };
@@ -357,7 +357,7 @@ export default function ComprehensiveContestManagement() {
         </div>
         <button
           onClick={() => setShowCreateModal(true)}
-          className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+          className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
         >
           <PlusIcon className="w-5 h-5" />
           <span>Create Contest</span>
@@ -369,7 +369,7 @@ export default function ComprehensiveContestManagement() {
         {contests.map((contest) => (
           <div
             key={contest._id}
-            className="bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-600/50 p-6 hover:border-purple-500/50 transition-all duration-300"
+            className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 p-6 hover:border-purple-500/50 transition-all duration-300"
           >
             {/* Contest Header */}
             <div className="flex items-start justify-between mb-4">
@@ -494,7 +494,7 @@ export default function ComprehensiveContestManagement() {
       {/* Delete Confirmation Modal */}
       {showDeleteModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl p-6 max-w-md w-full">
+          <div className="theme-surface rounded-xl p-6 max-w-md w-full">
             <h3 className="text-xl font-semibold text-white mb-4">Delete Contest</h3>
             <p className="text-gray-400 mb-6">
               Are you sure you want to delete "{selectedContest?.title}"? This action cannot be undone.
@@ -502,7 +502,7 @@ export default function ComprehensiveContestManagement() {
             <div className="flex justify-end space-x-3">
               <button
                 onClick={() => setShowDeleteModal(false)}
-                className="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
               >
                 Cancel
               </button>

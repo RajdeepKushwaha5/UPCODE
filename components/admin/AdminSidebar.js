@@ -38,13 +38,13 @@ export default function AdminSidebar({ activeSection, setActiveSection, user }) 
   };
 
   return (
-    <div className={`fixed left-0 top-0 h-full bg-slate-900/95 backdrop-blur-sm border-r border-purple-500/20 transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-64'} z-50`}>
+    <div className={`fixed left-0 top-0 h-full theme-surface backdrop-blur-sm border-r theme-border transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-64'} z-50`}>
       {/* Header */}
-      <div className="p-4 border-b border-purple-500/20">
+      <div className="p-4 border-b theme-border">
         <div className="flex items-center justify-between">
           {!isCollapsed && (
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <img src="/logo.png" alt="UPCODE" className="w-5 h-5 filter brightness-0 invert" />
               </div>
               <span className="text-white font-bold text-lg">UPCODE</span>
@@ -62,7 +62,7 @@ export default function AdminSidebar({ activeSection, setActiveSection, user }) 
           </button>
         </div>
         {!isCollapsed && (
-          <div className="mt-2 text-xs text-purple-400">Admin Panel</div>
+          <div className="mt-2 text-xs theme-accent">Admin Panel</div>
         )}
       </div>
 
@@ -77,8 +77,8 @@ export default function AdminSidebar({ activeSection, setActiveSection, user }) 
               key={item.id}
               onClick={() => setActiveSection(item.id)}
               className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-all duration-200 ${isActive
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
-                  : "text-gray-300 hover:text-white hover:bg-slate-800/50"
+                  ? "bg-blue-600 text-white shadow-lg"
+                  : "theme-text-secondary hover:theme-text hover:theme-surface-elevated"
                 }`}
               title={isCollapsed ? item.label : ""}
             >
@@ -92,7 +92,7 @@ export default function AdminSidebar({ activeSection, setActiveSection, user }) 
       </nav>
 
       {/* User Info & Logout */}
-      <div className="absolute bottom-0 left-0 right-0 p-2 border-t border-purple-500/20">
+      <div className="absolute bottom-0 left-0 right-0 p-2 border-t theme-border">
         {!isCollapsed && (
           <div className="mb-3 px-3 py-2">
             <div className="text-xs text-gray-400">Logged in as</div>
@@ -103,7 +103,7 @@ export default function AdminSidebar({ activeSection, setActiveSection, user }) 
         )}
 
         <div className="space-y-1">
-          <Link href="/" className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-300 hover:text-white hover:bg-slate-800/50 transition-all duration-200 ${isCollapsed ? 'justify-center' : ''}`}>
+          <Link href="/" className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-300 hover:text-white hover:theme-surface transition-all duration-200 ${isCollapsed ? 'justify-center' : ''}`}>
             <HomeIcon className="w-5 h-5 flex-shrink-0" />
             {!isCollapsed && <span className="text-sm">Back to Site</span>}
           </Link>

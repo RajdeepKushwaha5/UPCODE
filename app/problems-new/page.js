@@ -311,14 +311,14 @@ export default function ProblemsPage() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.5 }}
-      className="relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20 hover:border-purple-400/50 transition-all duration-500 cursor-pointer hover:scale-105"
+      className="relative theme-surface rounded-2xl p-6 border theme-border hover:theme-shadow-lg transition-all duration-300 cursor-pointer"
     >
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-medium text-purple-200">
+          <p className="text-sm font-medium theme-text-secondary">
             {label}
           </p>
-          <p className={`text-3xl font-bold mt-1 ${color || 'text-white'}`}>
+          <p className={`text-3xl font-bold mt-1 theme-text`}>
             {isLoading ? (
               <FaSpinner className="animate-spin w-6 h-6" />
             ) : (
@@ -326,13 +326,13 @@ export default function ProblemsPage() {
             )}
           </p>
           {subtitle && (
-            <p className="text-xs mt-1 text-purple-300/70">
+            <p className="text-xs mt-1 theme-text-tertiary">
               {subtitle}
             </p>
           )}
         </div>
-        <div className="p-3 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30">
-          <Icon className={`w-6 h-6 ${color || 'text-purple-400'}`} />
+        <div className="p-3 rounded-full theme-surface-elevated border theme-border">
+          <Icon className="w-6 h-6 theme-accent" />
         </div>
       </div>
     </motion.div>
@@ -345,18 +345,18 @@ export default function ProblemsPage() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          className="relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-purple-500/20"
+          className="relative theme-surface rounded-2xl p-6 mb-6 border theme-border"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Difficulty Filter */}
             <div>
-              <label className="block text-sm font-medium mb-2 text-purple-200">
+              <label className="block text-sm font-medium mb-2 theme-text-secondary">
                 Difficulty
               </label>
               <select
                 value={selectedDifficulty}
                 onChange={(e) => setSelectedDifficulty(e.target.value)}
-                className="w-full p-2 rounded-lg border bg-slate-800/50 border-purple-400/30 text-white focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="w-full p-2 rounded-lg border theme-surface theme-border theme-text focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="all">All Difficulties</option>
                 {difficulties.map(diff => (
@@ -367,13 +367,13 @@ export default function ProblemsPage() {
 
             {/* Company Filter */}
             <div>
-              <label className="block text-sm font-medium mb-2 text-purple-200">
+              <label className="block text-sm font-medium mb-2 theme-text-secondary">
                 Company
               </label>
               <select
                 value={selectedCompany}
                 onChange={(e) => setSelectedCompany(e.target.value)}
-                className="w-full p-2 rounded-lg border bg-slate-800/50 border-purple-400/30 text-white focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="w-full p-2 rounded-lg border theme-surface theme-border theme-text focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="all">All Companies</option>
                 {companies.map(company => (
@@ -384,13 +384,13 @@ export default function ProblemsPage() {
 
             {/* Sort By */}
             <div>
-              <label className="block text-sm font-medium mb-2 text-purple-200">
+              <label className="block text-sm font-medium mb-2 theme-text-secondary">
                 Sort By
               </label>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="w-full p-2 rounded-lg border bg-slate-800/50 border-purple-400/30 text-white focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="w-full p-2 rounded-lg border theme-surface theme-border theme-text focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="id">Problem ID</option>
                 <option value="title">Title</option>
@@ -401,12 +401,12 @@ export default function ProblemsPage() {
 
             {/* Sort Order */}
             <div>
-              <label className="block text-sm font-medium mb-2 text-purple-200">
+              <label className="block text-sm font-medium mb-2 theme-text-secondary">
                 Order
               </label>
               <button
                 onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                className="w-full p-2 rounded-lg border bg-slate-800/50 border-purple-400/30 text-white hover:bg-slate-700/50 transition-colors flex items-center justify-center gap-2"
+                className="w-full p-2 rounded-lg border theme-surface theme-border theme-text hover:theme-surface-elevated transition-colors flex items-center justify-center gap-2"
               >
                 {sortOrder === 'asc' ? <FaArrowUp /> : <FaArrowDown />}
                 {sortOrder === 'asc' ? 'Ascending' : 'Descending'}
@@ -450,22 +450,21 @@ export default function ProblemsPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen theme-bg flex items-center justify-center">
         <div className="text-center">
-          <FaSpinner className="animate-spin w-8 h-8 mx-auto mb-4 text-blue-500" />
-          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>Loading problems...</p>
+          <FaSpinner className="animate-spin w-8 h-8 mx-auto mb-4 theme-accent" />
+          <p className="theme-text-secondary">Loading problems...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-50">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-0 right-0 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-200"></div>
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-500"></div>
+    <div className="min-h-screen theme-bg relative overflow-hidden">
+      {/* Subtle Background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 py-8 relative z-10">
@@ -475,10 +474,10 @@ export default function ProblemsPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-8"
         >
-          <h1 className="text-6xl font-black mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent font-mono">
+          <h1 className="text-6xl font-black mb-4 theme-text font-space">
             PROBLEMS
           </h1>
-          <p className="text-xl text-purple-200 mb-6 font-medium">
+          <p className="text-xl theme-text-secondary mb-6 font-medium">
             Master coding interviews with our curated problem set
           </p>
           
@@ -490,14 +489,11 @@ export default function ProblemsPage() {
             className="mb-8"
           >
             <Link href="/dsa-visualizer">
-              <div className="group inline-block relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur-sm group-hover:blur-md transition-all duration-300"></div>
-                <button className="relative bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-8 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3">
-                  <FaCubes className="w-5 h-5" />
-                  DSA Visualizer
-                  <FaPlay className="w-4 h-4" />
-                </button>
-              </div>
+              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 theme-shadow-lg flex items-center gap-3 mx-auto">
+                <FaCubes className="w-5 h-5" />
+                DSA Visualizer
+                <FaPlay className="w-4 h-4" />
+              </button>
             </Link>
           </motion.div>
         </motion.div>
@@ -508,7 +504,7 @@ export default function ProblemsPage() {
             icon={FaCode}
             label="Total Problems"
             value={stats?.total}
-            color="text-purple-400"
+            color="theme-accent"
             delay={0.1}
           />
           <StatCard
@@ -531,7 +527,7 @@ export default function ProblemsPage() {
             icon={FaTrophy}
             label="Acceptance Rate"
             value={`${stats?.acceptanceRate || 0}%`}
-            color="text-purple-400"
+            color="theme-accent"
             delay={0.4}
           />
         </div>
@@ -541,18 +537,18 @@ export default function ProblemsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-purple-500/20"
+          className="relative theme-surface rounded-2xl p-6 mb-6 border theme-border"
         >
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             {/* Search */}
             <div className="relative flex-1 w-full md:max-w-md">
-              <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-300" />
+              <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 theme-text-tertiary" />
               <input
                 type="text"
                 placeholder="Search problems..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-lg border bg-slate-800/50 border-purple-400/30 text-white placeholder-purple-300/70 focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="w-full pl-10 pr-4 py-2 rounded-lg border theme-surface theme-border theme-text placeholder:theme-text-tertiary focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
@@ -562,8 +558,8 @@ export default function ProblemsPage() {
                 onClick={() => setShowFilters(!showFilters)}
                 className={`px-4 py-2 rounded-lg border transition-colors flex items-center gap-2 ${
                   showFilters
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-500'
-                    : 'bg-slate-800/50 text-purple-200 border-purple-400/30 hover:bg-slate-700/50'
+                    ? 'bg-blue-600 text-white border-blue-600'
+                    : 'theme-surface theme-text theme-border hover:theme-surface-elevated'
                 }`}
               >
                 <FaFilter />
@@ -571,7 +567,7 @@ export default function ProblemsPage() {
               </button>
               <button
                 onClick={handleRandomProblem}
-                className="px-4 py-2 rounded-lg border transition-colors flex items-center gap-2 bg-slate-800/50 text-purple-200 border-purple-400/30 hover:bg-slate-700/50"
+                className="px-4 py-2 rounded-lg border transition-colors flex items-center gap-2 theme-surface theme-text theme-border hover:theme-surface-elevated"
               >
                 <FaRandom />
                 Random
@@ -588,36 +584,36 @@ export default function ProblemsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-2xl border border-purple-500/20 shadow-lg overflow-hidden"
+          className="relative theme-surface rounded-2xl border theme-border theme-shadow overflow-hidden"
         >
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-slate-800/50 border-b border-purple-400/30">
+              <thead className="theme-surface-elevated border-b theme-border">
                 <tr>
-                  <th className="px-6 py-4 text-left text-sm font-medium text-purple-200 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-sm font-medium theme-text-secondary uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-left text-sm font-medium text-purple-200 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-sm font-medium theme-text-secondary uppercase tracking-wider">
                     Title
                   </th>
-                  <th className="px-6 py-4 text-left text-sm font-medium text-purple-200 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-sm font-medium theme-text-secondary uppercase tracking-wider">
                     Difficulty
                   </th>
-                  <th className="px-6 py-4 text-left text-sm font-medium text-purple-200 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-sm font-medium theme-text-secondary uppercase tracking-wider">
                     Companies
                   </th>
-                  <th className="px-6 py-4 text-left text-sm font-medium text-purple-200 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-sm font-medium theme-text-secondary uppercase tracking-wider">
                     Tags
                   </th>
-                  <th className="px-6 py-4 text-left text-sm font-medium text-purple-200 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-sm font-medium theme-text-secondary uppercase tracking-wider">
                     Acceptance
                   </th>
-                  <th className="px-6 py-4 text-left text-sm font-medium text-purple-200 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-sm font-medium theme-text-secondary uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-slate-800/30 divide-y divide-purple-400/20">
+              <tbody className="divide-y theme-border">
                 {filteredProblems.map((problem, index) => {
                   const status = getProblemStatus(problem.id);
                   const isBookmarked = userProgress.bookmarked.has(problem.id);
@@ -628,7 +624,7 @@ export default function ProblemsPage() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="hover:bg-slate-700/50 transition-colors cursor-pointer"
+                      className="hover:theme-surface-elevated transition-colors cursor-pointer"
                     >
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center justify-center w-6 h-6">
@@ -639,7 +635,7 @@ export default function ProblemsPage() {
                         <Link href={`/problems-new/${problem.id}`}>
                           <div className="flex items-center">
                             <div>
-                              <div className="text-sm font-medium text-white hover:text-purple-300 transition-colors">
+                              <div className="text-sm font-medium theme-text hover:theme-accent transition-colors">
                                 {problem.id}. {problem.title}
                               </div>
                             </div>
@@ -662,7 +658,7 @@ export default function ProblemsPage() {
                             </span>
                           ))}
                           {(problem.companies || []).length > 2 && (
-                            <span className="text-xs text-purple-300/70">
+                            <span className="text-xs theme-text-tertiary">
                               +{(problem.companies || []).length - 2}
                             </span>
                           )}
@@ -673,13 +669,13 @@ export default function ProblemsPage() {
                           {(problem.topics || problem.tags || []).slice(0, 2).map(tag => (
                             <span
                               key={tag}
-                              className="inline-flex px-2 py-1 text-xs rounded bg-purple-900/30 text-purple-300 border border-purple-400/30"
+                              className="inline-flex px-2 py-1 text-xs rounded bg-blue-900/30 text-blue-300 border border-blue-400/30 dark:bg-blue-500/20 dark:text-blue-400 dark:border-blue-500/30"
                             >
                               {tag}
                             </span>
                           ))}
                           {(problem.topics || problem.tags || []).length > 2 && (
-                            <span className="text-xs text-purple-300/70">
+                            <span className="text-xs theme-text-tertiary">
                               +{(problem.topics || problem.tags || []).length - 2}
                             </span>
                           )}
@@ -715,7 +711,7 @@ export default function ProblemsPage() {
                             className={`p-2 rounded-lg transition-colors ${
                               isBookmarked
                                 ? 'text-yellow-400 hover:text-yellow-300 bg-yellow-600/20'
-                                : 'text-purple-300 hover:text-yellow-400 bg-slate-800/50'
+                                : 'theme-text-tertiary hover:text-yellow-400 theme-surface-elevated'
                             }`}
                           >
                             <FaBookmark />
@@ -731,11 +727,11 @@ export default function ProblemsPage() {
 
           {filteredProblems.length === 0 && (
             <div className="text-center py-12">
-              <FaSearch className="w-12 h-12 mx-auto mb-4 text-purple-400/50" />
-              <p className="text-lg font-medium text-white">
+              <FaSearch className="w-12 h-12 mx-auto mb-4 theme-text-tertiary" />
+              <p className="text-lg font-medium theme-text">
                 No problems found
               </p>
-              <p className="text-sm text-purple-300/70">
+              <p className="text-sm theme-text-secondary">
                 Try adjusting your search or filters
               </p>
             </div>
@@ -748,24 +744,21 @@ export default function ProblemsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="mt-8 relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-2xl border border-purple-500/20 p-6"
+            className="mt-8 relative theme-surface rounded-2xl border theme-border p-6"
           >
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-lg font-bold mb-2 text-white">
+                <h3 className="text-lg font-bold mb-2 theme-text">
                   🌟 Problem of the Day
                 </h3>
-                <p className="text-purple-200">
+                <p className="theme-text-secondary">
                   Challenge yourself with today's featured problem
                 </p>
               </div>
               <Link href={`/problems-new/${problems[0]?.id}`}>
-                <div className="group inline-block relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur-sm group-hover:blur-md transition-all duration-300"></div>
-                  <button className="relative bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-medium hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                    Solve Now
-                  </button>
-                </div>
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 theme-shadow-lg">
+                  Solve Now
+                </button>
               </Link>
             </div>
           </motion.div>

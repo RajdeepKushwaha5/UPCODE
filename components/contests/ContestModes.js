@@ -77,7 +77,7 @@ const ContestModes = () => {
       problems: '3 Problems',
       difficulty: 'Hardcore',
       color: 'from-purple-600 to-pink-600',
-      bgColor: 'bg-purple-600/20',
+      bgColor: 'bg-blue-600/20',
       features: ['Battle royale style', 'Elimination rounds', 'Glory and fame'],
       maxPlayers: 100
     }
@@ -340,7 +340,7 @@ const ContestModes = () => {
                 style={{ background: `linear-gradient(135deg, ${mode.color.replace('from-', '').replace('to-', ', ')})` }}>
               </div>
 
-              <div className={`relative bg-slate-800/90 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 h-full`}>
+              <div className={`relative theme-surface/90 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 h-full`}>
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6">
                   <div className={`p-4 ${mode.bgColor} rounded-2xl`}>
@@ -382,11 +382,11 @@ const ContestModes = () => {
 
                 {/* Stats */}
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-slate-700/50 rounded-xl p-3 text-center">
+                  <div className="theme-surface-elevated/50 rounded-xl p-3 text-center">
                     <div className="text-lg font-bold text-white">{mode.problems}</div>
                     <div className="text-xs text-gray-400">Problems</div>
                   </div>
-                  <div className="bg-slate-700/50 rounded-xl p-3 text-center">
+                  <div className="theme-surface-elevated/50 rounded-xl p-3 text-center">
                     <div className="text-lg font-bold text-white">{mode.difficulty}</div>
                     <div className="text-xs text-gray-400">Difficulty</div>
                   </div>
@@ -424,7 +424,7 @@ const ContestModes = () => {
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50"
+            className="theme-surface backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50"
           >
             <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
               <FaFire className="text-orange-500 mr-3" />
@@ -437,7 +437,7 @@ const ContestModes = () => {
                   key={contest.id}
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  className="bg-slate-700/50 rounded-2xl p-6 border border-slate-600/50"
+                  className="theme-surface-elevated/50 rounded-2xl p-6 border border-slate-600/50"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <div>
@@ -548,7 +548,7 @@ const ContestModes = () => {
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50"
+            className="theme-surface backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50"
           >
             <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
               <FaGem className="text-cyan-500 mr-3" />
@@ -561,7 +561,7 @@ const ContestModes = () => {
                   key={contest.id}
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  className="bg-slate-700/50 rounded-2xl p-6 border border-slate-600/50 hover:border-slate-500/50 transition-all duration-300"
+                  className="theme-surface-elevated/50 rounded-2xl p-6 border border-slate-600/50 hover:border-slate-500/50 transition-all duration-300"
                 >
                   <div className="mb-4">
                     <h3 className="text-lg font-bold text-white mb-2">
@@ -614,7 +614,7 @@ const ContestModes = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-slate-800 rounded-3xl p-8 max-w-md w-full border border-slate-700"
+              className="theme-surface rounded-3xl p-8 max-w-md w-full border border-slate-700"
             >
               <h3 className="text-2xl font-bold text-white mb-4">
                 Create {selectedMode.title}
@@ -645,7 +645,7 @@ const ContestModes = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setShowCreateModal(false)}
-                  className="px-6 py-3 bg-slate-700 rounded-xl font-medium text-white hover:bg-slate-600 transition-colors"
+                  className="px-6 py-3 theme-surface-elevated rounded-xl font-medium text-white hover:bg-slate-600 transition-colors"
                 >
                   Cancel
                 </motion.button>
@@ -668,7 +668,7 @@ const ContestModes = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-slate-800 rounded-3xl p-8 max-w-md w-full border border-slate-700"
+              className="theme-surface rounded-3xl p-8 max-w-md w-full border border-slate-700"
             >
               <h3 className="text-2xl font-bold text-white mb-4">
                 Join Contest
@@ -682,7 +682,7 @@ const ContestModes = () => {
                 placeholder="Enter Contest ID"
                 value={contestId}
                 onChange={(e) => setContestId(e.target.value)}
-                className="w-full px-4 py-3 bg-slate-700 rounded-xl text-white placeholder-gray-400 border border-slate-600 focus:border-blue-500 focus:outline-none mb-6"
+                className="w-full px-4 py-3 theme-surface-elevated rounded-xl text-white placeholder-gray-400 border border-slate-600 focus:border-blue-500 focus:outline-none mb-6"
               />
 
               <div className="flex gap-4">
@@ -707,7 +707,7 @@ const ContestModes = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setShowJoinModal(false)}
-                  className="px-6 py-3 bg-slate-700 rounded-xl font-medium text-white hover:bg-slate-600 transition-colors"
+                  className="px-6 py-3 theme-surface-elevated rounded-xl font-medium text-white hover:bg-slate-600 transition-colors"
                 >
                   Cancel
                 </motion.button>

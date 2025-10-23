@@ -183,7 +183,7 @@ export default function CoinChangeVisualization() {
       }
     }
     
-    return index === 0 ? 'bg-purple-500/20 text-purple-400' : 'bg-slate-600 text-white';
+    return index === 0 ? 'bg-purple-500/20 theme-accent' : 'bg-slate-600 text-white';
   };
 
   const formatDpValue = (value) => {
@@ -202,7 +202,7 @@ export default function CoinChangeVisualization() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -215,7 +215,7 @@ export default function CoinChangeVisualization() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Add Coin */}
             <div>
@@ -227,13 +227,13 @@ export default function CoinChangeVisualization() {
                   onChange={(e) => setInputCoin(e.target.value)}
                   placeholder="Coin value"
                   min="1"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                   disabled={animating}
                 />
                 <button
                   onClick={addCoin}
                   disabled={!inputCoin.trim() || animating}
-                  className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 disabled:opacity-50 transition-colors"
+                  className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 transition-colors"
                 >
                   Add
                 </button>
@@ -249,7 +249,7 @@ export default function CoinChangeVisualization() {
                 onChange={(e) => setAmount(parseInt(e.target.value) || 0)}
                 min="1"
                 max="50"
-                className="w-full px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                className="w-full px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                 disabled={animating}
               />
               <div className="text-slate-400 text-xs mt-1">Range: 1-50</div>
@@ -315,12 +315,12 @@ export default function CoinChangeVisualization() {
         {dpArray.length > 0 && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             {/* DP Array */}
-            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h2 className="text-xl font-bold text-white mb-4 text-center">Minimum Coins DP Array</h2>
               <div className="space-y-1 max-h-96 overflow-y-auto">
                 {dpArray.map((value, index) => (
                   <div key={index} className="flex items-center gap-4">
-                    <div className="text-purple-400 font-bold min-w-16 text-sm">
+                    <div className="theme-accent font-bold min-w-16 text-sm">
                       Amount {index}
                     </div>
                     <div className={`
@@ -335,12 +335,12 @@ export default function CoinChangeVisualization() {
             </div>
 
             {/* Coin Used Array */}
-            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h2 className="text-xl font-bold text-white mb-4 text-center">Last Coin Used</h2>
               <div className="space-y-1 max-h-96 overflow-y-auto">
                 {coinUsedArray.map((coin, index) => (
                   <div key={index} className="flex items-center gap-4">
-                    <div className="text-purple-400 font-bold min-w-16 text-sm">
+                    <div className="theme-accent font-bold min-w-16 text-sm">
                       Amount {index}
                     </div>
                     <div className={`
@@ -358,7 +358,7 @@ export default function CoinChangeVisualization() {
 
         {/* Current Operation Display */}
         {currentOperation && currentOperation.operation && (
-          <div className="mb-6 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="mb-6 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-white font-bold mb-3 text-center">Current Operation</h3>
             <div className="text-center">
               <div className={`
@@ -420,11 +420,11 @@ export default function CoinChangeVisualization() {
         )}
 
         {/* Algorithm Info */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-white font-bold mb-4">Coin Change Algorithm Properties</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="text-center">
-              <div className="text-purple-400 font-bold mb-2">Time Complexity</div>
+              <div className="theme-accent font-bold mb-2">Time Complexity</div>
               <div className="text-slate-300 text-sm">O(amount × coins)</div>
             </div>
             <div className="text-center">

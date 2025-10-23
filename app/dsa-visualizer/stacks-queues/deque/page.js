@@ -163,14 +163,14 @@ export default function DequeVisualization() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
           <div className="flex flex-wrap items-center justify-center gap-4">
             <input
               type="number"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Enter number"
-              className="px-4 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-indigo-400 focus:outline-none"
+              className="px-4 py-2 theme-surface-elevated text-white rounded-lg border border-slate-600 focus:border-indigo-400 focus:outline-none"
               disabled={animating}
             />
             
@@ -252,7 +252,7 @@ export default function DequeVisualization() {
         </div>
 
         {/* Visualization */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 min-h-96">
+        <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 min-h-96">
           <h2 className="text-2xl font-bold text-white mb-6 text-center">Deque Structure</h2>
           
           <div className="flex flex-col items-center">
@@ -282,7 +282,7 @@ export default function DequeVisualization() {
                     <div key={index} className="relative">
                       <div
                         className={`
-                          w-16 h-16 bg-slate-700 rounded-lg flex items-center justify-center border-2 transition-all duration-500
+                          w-16 h-16 theme-surface-elevated rounded-lg flex items-center justify-center border-2 transition-all duration-500
                           ${highlightedIndex === index
                             ? 'border-yellow-400 bg-yellow-500/20 scale-110' 
                             : 'border-indigo-400'
@@ -329,7 +329,7 @@ export default function DequeVisualization() {
                   <div className="flex gap-2">
                     <div className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded">Add</div>
                     <div className="px-2 py-1 bg-orange-500/20 text-orange-400 text-xs rounded">Remove</div>
-                    <div className="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">Peek</div>
+                    <div className="px-2 py-1 bg-purple-500/20 theme-accent text-xs rounded">Peek</div>
                   </div>
                 </div>
               </div>
@@ -350,7 +350,7 @@ export default function DequeVisualization() {
 
         {/* Information Panel */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-xl font-bold text-white mb-4">Deque Properties</h3>
             <div className="space-y-2 text-slate-300">
               <div>Size: <span className="text-indigo-400 font-bold">{deque.size()}</span></div>
@@ -360,7 +360,7 @@ export default function DequeVisualization() {
             </div>
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-xl font-bold text-white mb-4">Time Complexities</h3>
             <div className="space-y-2 text-slate-300 text-sm">
               <div>Add Front/Rear: <span className="text-green-400 font-bold">O(1)</span></div>
@@ -372,7 +372,7 @@ export default function DequeVisualization() {
         </div>
 
         {/* Operations Comparison */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-xl font-bold text-white mb-4">Operations Summary</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-center">
@@ -395,7 +395,7 @@ export default function DequeVisualization() {
         </div>
 
         {/* Use Cases */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-xl font-bold text-white mb-4">Real-world Applications</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="text-slate-300 text-sm text-center">
@@ -407,7 +407,7 @@ export default function DequeVisualization() {
               <p>Navigate back/forward</p>
             </div>
             <div className="text-slate-300 text-sm text-center">
-              <div className="text-purple-400 font-bold mb-2">🎮 Game States</div>
+              <div className="theme-accent font-bold mb-2">🎮 Game States</div>
               <p>Save/load game states</p>
             </div>
             <div className="text-slate-300 text-sm text-center">

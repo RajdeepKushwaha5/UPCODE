@@ -82,7 +82,7 @@ export default function InterviewResults() {
 
   if (status === "loading") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen theme-bg flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-purple-500 mx-auto mb-4"></div>
           <p className="text-white text-xl">Loading results...</p>
@@ -92,7 +92,7 @@ export default function InterviewResults() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen theme-bg relative overflow-hidden">
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -116,11 +116,11 @@ export default function InterviewResults() {
           </button>
 
           <div className="flex gap-3">
-            <button className="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+            <button className="theme-surface-elevated hover:bg-slate-600 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
               <FaShare />
               Share Results
             </button>
-            <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
               <FaDownload />
               Download Report
             </button>
@@ -128,7 +128,7 @@ export default function InterviewResults() {
         </div>
 
         {/* Main Results Card */}
-        <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-3xl p-8 mb-8 animate-fade-in-up">
+        <div className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-8 mb-8 animate-fade-in-up">
           <div className="text-center mb-8">
             <div className={`w-32 h-32 bg-gradient-to-r ${getScoreGradient(results.score)} rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse`}>
               <span className="text-4xl font-black text-white">{results.score}%</span>
@@ -184,9 +184,9 @@ export default function InterviewResults() {
           <div className="space-y-6">
 
             {/* Performance Breakdown */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-3xl p-6 animate-fade-in-up animation-delay-200">
+            <div className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-6 animate-fade-in-up animation-delay-200">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <FaChartLine className="text-purple-400" />
+                <FaChartLine className="theme-accent" />
                 Performance Breakdown
               </h2>
 
@@ -246,7 +246,7 @@ export default function InterviewResults() {
             </div>
 
             {/* Strengths */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-green-500/20 rounded-3xl p-6 animate-fade-in-up animation-delay-300">
+            <div className="theme-surface backdrop-blur-sm border border-green-500/20 rounded-3xl p-6 animate-fade-in-up animation-delay-300">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <FaCheckCircle className="text-green-400" />
                 Strengths
@@ -262,7 +262,7 @@ export default function InterviewResults() {
             </div>
 
             {/* Areas for Improvement */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-orange-500/20 rounded-3xl p-6 animate-fade-in-up animation-delay-400">
+            <div className="theme-surface backdrop-blur-sm border border-orange-500/20 rounded-3xl p-6 animate-fade-in-up animation-delay-400">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <FaLightbulb className="text-orange-400" />
                 Areas for Improvement
@@ -282,15 +282,15 @@ export default function InterviewResults() {
           <div className="space-y-6">
 
             {/* AI Suggestions */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-3xl p-6 animate-fade-in-up animation-delay-500">
+            <div className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-6 animate-fade-in-up animation-delay-500">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <FaRocket className="text-purple-400" />
+                <FaRocket className="theme-accent" />
                 Personalized Study Plan
               </h3>
               <div className="space-y-3">
                 {results.suggestions.map((suggestion, index) => (
                   <div key={index} className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-3">
-                    <p className="text-purple-300">{suggestion}</p>
+                    <p className="theme-text-secondary">{suggestion}</p>
                   </div>
                 ))}
               </div>
@@ -298,7 +298,7 @@ export default function InterviewResults() {
               <div className="mt-6">
                 <Link
                   href="/problems?recommended=true"
-                  className="block w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-center font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105"
+                  className="block w-full bg-blue-600 hover:bg-blue-700 hover:from-purple-700 hover:to-pink-700 text-white text-center font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105"
                 >
                   Practice Recommended Problems
                 </Link>
@@ -306,7 +306,7 @@ export default function InterviewResults() {
             </div>
 
             {/* Next Steps */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-3xl p-6 animate-fade-in-up animation-delay-600">
+            <div className="theme-surface backdrop-blur-sm border border-blue-500/20 rounded-3xl p-6 animate-fade-in-up animation-delay-600">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <FaPlay className="text-blue-400" />
                 What's Next?
@@ -329,7 +329,7 @@ export default function InterviewResults() {
 
                 <Link
                   href="/interview/history"
-                  className="block bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105 text-center"
+                  className="block theme-surface-elevated hover:bg-slate-600 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105 text-center"
                 >
                   View Interview History
                 </Link>

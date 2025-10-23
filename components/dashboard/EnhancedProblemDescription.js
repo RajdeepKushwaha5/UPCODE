@@ -424,7 +424,7 @@ export default function EnhancedProblemDescription({ problem, notes, onNotesChan
           <section>
             <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4">
               <div className="flex items-center gap-3 mb-3">
-                <PlayIcon className="w-5 h-5 text-purple-400" />
+                <PlayIcon className="w-5 h-5 theme-accent" />
                 <h3 className="font-semibold text-white">Video Solution</h3>
               </div>
               <p className="text-gray-300 text-sm mb-3">{problem.videoSolution.title}</p>
@@ -432,7 +432,7 @@ export default function EnhancedProblemDescription({ problem, notes, onNotesChan
                 href={problem.videoSolution.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-3 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm rounded-lg transition-colors"
+                className="inline-flex items-center px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors"
               >
                 <PlayIcon className="w-4 h-4 mr-2" />
                 Watch Solution

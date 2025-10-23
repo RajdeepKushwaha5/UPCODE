@@ -78,7 +78,7 @@ export default function UserManagement() {
 
   const getRoleColor = (role) => {
     switch (role) {
-      case "admin": return "text-purple-400 bg-purple-400/10";
+      case "admin": return "theme-accent bg-purple-400/10";
       case "moderator": return "text-blue-400 bg-blue-400/10";
       case "user": return "text-gray-400 bg-gray-400/10";
       default: return "text-gray-400 bg-gray-400/10";
@@ -118,14 +118,14 @@ export default function UserManagement() {
           <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
             Export Users
           </button>
-          <button className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors">
+          <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
             Send Notification
           </button>
         </div>
       </div>
 
       {/* Filters */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="relative">
             <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -134,14 +134,14 @@ export default function UserManagement() {
               placeholder="Search users..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500"
+              className="w-full pl-10 pr-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
             />
           </div>
           
           <select
             value={selectedRole}
             onChange={(e) => setSelectedRole(e.target.value)}
-            className="px-4 py-2 bg-slate-700/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-purple-500"
+            className="px-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
           >
             <option value="all">All Roles</option>
             <option value="admin">Admin</option>
@@ -152,7 +152,7 @@ export default function UserManagement() {
           <select
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
-            className="px-4 py-2 bg-slate-700/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-purple-500"
+            className="px-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
           >
             <option value="all">All Status</option>
             <option value="active">Active</option>
@@ -170,10 +170,10 @@ export default function UserManagement() {
       </div>
 
       {/* Users Table */}
-      <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden">
+      <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-slate-700/50">
+            <thead className="theme-surface-elevated/50">
               <tr>
                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">User</th>
                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Role</th>
@@ -187,7 +187,7 @@ export default function UserManagement() {
             </thead>
             <tbody className="divide-y divide-slate-700/50">
               {filteredUsers.map((user) => (
-                <tr key={user.id} className="hover:bg-slate-700/30 transition-colors">
+                <tr key={user.id} className="hover:theme-surface-elevated/30 transition-colors">
                   <td className="px-6 py-4">
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
@@ -232,7 +232,7 @@ export default function UserManagement() {
                       </button>
                       <button 
                         onClick={() => handleUserAction(user.id, "promote")}
-                        className="p-1 text-purple-400 hover:text-purple-300 hover:bg-purple-400/10 rounded"
+                        className="p-1 theme-accent hover:theme-text-secondary hover:bg-purple-400/10 rounded"
                         title="Promote Role"
                       >
                         <ShieldCheckIcon className="w-4 h-4" />
@@ -272,23 +272,23 @@ export default function UserManagement() {
 
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="text-2xl font-bold text-white">{users.length}</div>
           <div className="text-gray-400">Total Users</div>
         </div>
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="text-2xl font-bold text-green-400">
             {users.filter(u => u.status === "active").length}
           </div>
           <div className="text-gray-400">Active Users</div>
         </div>
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="text-2xl font-bold text-yellow-400">
             {users.filter(u => u.premium).length}
           </div>
           <div className="text-gray-400">Premium Users</div>
         </div>
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="text-2xl font-bold text-red-400">
             {users.filter(u => u.status === "banned").length}
           </div>

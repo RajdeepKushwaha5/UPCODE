@@ -72,10 +72,10 @@ export default function LinearSearchVisualizer() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-8">
-          <Link href="/dsa-visualizer/arrays" className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-4 transition-colors duration-200">
+          <Link href="/dsa-visualizer/arrays" className="inline-flex items-center theme-accent hover:theme-text-secondary mb-4 transition-colors duration-200">
             ← Back to Arrays
           </Link>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
@@ -87,21 +87,21 @@ export default function LinearSearchVisualizer() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Time Complexity</h3>
             <p className="text-slate-300 text-sm">Best: O(1)</p>
             <p className="text-slate-300 text-sm">Average: O(n)</p>
             <p className="text-slate-300 text-sm">Worst: O(n)</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Space</h3>
             <p className="text-slate-300">O(1)</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Comparisons</h3>
-            <p className="text-purple-400 text-2xl font-bold">{comparisons}</p>
+            <p className="theme-accent text-2xl font-bold">{comparisons}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Status</h3>
             <p className={`text-2xl font-bold ${found ? 'text-green-400' : isSearching ? 'text-yellow-400' : 'text-slate-400'}`}>
               {found ? 'Found!' : isSearching ? 'Searching...' : 'Ready'}
@@ -109,19 +109,19 @@ export default function LinearSearchVisualizer() {
           </div>
         </div>
 
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 mb-8 border border-slate-700/50">
           <div className="flex flex-wrap gap-4 items-center justify-between">
             <div className="flex items-center gap-4">
               <button
                 onClick={startSearch}
                 disabled={isSearching}
-                className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 transition-colors duration-200 font-medium"
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 transition-colors duration-200 font-medium"
               >
                 {isSearching ? 'Searching...' : 'Start Search'}
               </button>
               <button
                 onClick={() => generateArray(array.length)}
-                className="px-6 py-3 bg-slate-600 text-white rounded-lg hover:bg-slate-700 transition-colors duration-200"
+                className="px-6 py-3 bg-slate-600 text-white rounded-lg hover:theme-surface-elevated transition-colors duration-200"
               >
                 New Array
               </button>
@@ -136,7 +136,7 @@ export default function LinearSearchVisualizer() {
                   max="100"
                   value={searchValue}
                   onChange={(e) => setSearchValue(parseInt(e.target.value))}
-                  className="w-16 px-2 py-1 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-500"
+                  className="w-16 px-2 py-1 theme-surface-elevated text-white rounded border border-slate-600 focus:border-blue-500"
                 />
               </div>
               <div className="flex items-center gap-2">
@@ -155,7 +155,7 @@ export default function LinearSearchVisualizer() {
           </div>
           
           <div className="mt-4 text-sm text-slate-400">
-            Searching for: <span className="text-purple-400 font-bold">{searchValue}</span> |
+            Searching for: <span className="theme-accent font-bold">{searchValue}</span> |
             <span className="text-yellow-400 ml-2">Yellow: Current</span>
             <span className="text-red-400 ml-4">Red: Checked</span>
             <span className="text-green-400 ml-4">Green: Found</span>
@@ -163,7 +163,7 @@ export default function LinearSearchVisualizer() {
           </div>
         </div>
 
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-8 border border-slate-700/50">
           <div className="flex items-end justify-center gap-2 h-96">
             {array.map((value, index) => (
               <div key={index} className="flex flex-col items-center">
@@ -183,7 +183,7 @@ export default function LinearSearchVisualizer() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-bold text-white mb-4">How Linear Search Works</h3>
             <ul className="space-y-2 text-slate-300">
               <li>• Start from the first element</li>
@@ -194,7 +194,7 @@ export default function LinearSearchVisualizer() {
             </ul>
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-bold text-white mb-4">Key Properties</h3>
             <ul className="space-y-2 text-slate-300">
               <li>• <strong>Simple:</strong> Easy to understand and implement</li>

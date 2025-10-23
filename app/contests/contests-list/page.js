@@ -13,7 +13,7 @@ export default function ContestsListPage() {
         <div className="mt-8 text-center">
           <p className="text-gray-500">Page successfully loaded ✅</p>
           <div className="mt-4">
-            <Link href="/problems" className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg">
+            <Link href="/problems" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg">
               Go to Problems
             </Link>
           </div>

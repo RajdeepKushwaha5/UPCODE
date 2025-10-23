@@ -241,7 +241,7 @@ export default function ProblemDetail({
     return (
       <div className="space-y-6">
         {/* Main Description */}
-        <div className="text-base leading-relaxed text-purple-100">
+        <div className="text-base leading-relaxed theme-text-secondary">
           {mainDescription.split('\n').map((line, index) => (
             <p key={index} className="mb-3">{line}</p>
           ))}
@@ -258,11 +258,11 @@ export default function ProblemDetail({
                 {examples.map((example, index) => {
                   const lines = example.trim().split('\n');
                   return (
-                    <div key={index} className="p-4 rounded-lg border bg-slate-800/50 border-purple-400/30">
+                    <div key={index} className="p-4 rounded-lg border theme-surface border theme-border">
                       {lines.map((line, lineIndex) => {
                         if (line.startsWith('Example')) {
                           return (
-                            <h4 key={lineIndex} className="font-semibold mb-2 text-purple-300">
+                            <h4 key={lineIndex} className="font-semibold mb-2 theme-text-secondary">
                               {line}
                             </h4>
                           );
@@ -274,7 +274,7 @@ export default function ProblemDetail({
                               <span className="font-medium text-green-400">
                                 {label}:
                               </span>
-                              <span className="ml-2 font-mono text-sm text-purple-200">
+                              <span className="ml-2 font-mono text-sm theme-text-secondary">
                                 {rest.join(':')}
                               </span>
                             </div>
@@ -286,14 +286,14 @@ export default function ProblemDetail({
                               <span className="font-medium text-yellow-400">
                                 Explanation:
                               </span>
-                              <span className="ml-2 text-purple-200">
+                              <span className="ml-2 theme-text-secondary">
                                 {line.substring(12)}
                               </span>
                             </div>
                           );
                         }
                         return (
-                          <p key={lineIndex} className="text-purple-200">
+                          <p key={lineIndex} className="theme-text-secondary">
                             {line}
                           </p>
                         );
@@ -314,9 +314,9 @@ export default function ProblemDetail({
             <h3 className="text-lg font-semibold mb-3 text-white">
               Constraints
             </h3>
-            <div className="p-4 rounded-lg border bg-slate-800/50 border-purple-400/30">
+            <div className="p-4 rounded-lg border theme-surface border theme-border">
               {problem.constraints.map((constraint, index) => (
-                <div key={index} className="font-mono text-sm text-purple-200">
+                <div key={index} className="font-mono text-sm theme-text-secondary">
                   • {constraint}
                 </div>
               ))}
@@ -334,7 +334,7 @@ export default function ProblemDetail({
               {problem.tags.map(tag => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-full text-sm font-medium bg-purple-900/30 text-purple-300 border border-purple-400/30"
+                  className="px-3 py-1 rounded-full text-sm font-medium bg-purple-900/30 theme-text-secondary border border theme-border"
                 >
                   {tag}
                 </span>
@@ -349,13 +349,13 @@ export default function ProblemDetail({
   const renderAiAssistant = () => (
     <div className="h-full max-h-96 flex flex-col">
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto scrollbar-hide space-y-4 p-4 border rounded-lg bg-slate-800/50 border-purple-400/30">
+      <div className="flex-1 overflow-y-auto scrollbar-hide space-y-4 p-4 border rounded-lg theme-surface border theme-border">
         {aiMessages.map(message => (
           <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div className={`max-w-3/4 p-3 rounded-lg ${
               message.type === 'user'
-                ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
-                : 'bg-slate-700/50 text-purple-100 border border-purple-400/30'
+                ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                : 'theme-surface-elevated/50 theme-text-secondary border border theme-border'
             }`}>
               <div className="whitespace-pre-wrap text-sm">{message.content}</div>
               <div className="text-xs mt-1 opacity-70">
@@ -366,10 +366,10 @@ export default function ProblemDetail({
         ))}
         {isAiLoading && (
           <div className="flex justify-start">
-            <div className="p-3 rounded-lg bg-slate-700/50 border border-purple-400/30">
+            <div className="p-3 rounded-lg theme-surface-elevated/50 border border theme-border">
               <div className="flex items-center space-x-2">
-                <div className="animate-pulse text-purple-200">AI is thinking...</div>
-                <FaRobot className="animate-spin text-purple-400" />
+                <div className="animate-pulse theme-text-secondary">AI is thinking...</div>
+                <FaRobot className="animate-spin theme-accent" />
               </div>
             </div>
           </div>
@@ -384,13 +384,13 @@ export default function ProblemDetail({
           onChange={(e) => setAiInput(e.target.value)}
           onKeyPress={(e) => e.key === 'Enter' && sendAiMessage()}
           placeholder="Ask me anything about this problem..."
-          className="flex-1 p-3 rounded-lg border bg-slate-800/50 border-purple-400/30 text-white placeholder-purple-300/70 focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+          className="flex-1 p-3 rounded-lg border theme-surface border theme-border text-white placeholder-purple-300/70 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           disabled={isAiLoading}
         />
         <button
           onClick={sendAiMessage}
           disabled={!aiInput.trim() || isAiLoading}
-          className="px-4 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-500 hover:to-pink-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg hover:from-purple-500 hover:to-pink-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           <FaPaperPlane />
         </button>
@@ -406,7 +406,7 @@ export default function ProblemDetail({
                 setAiInput(question);
                 setTimeout(sendAiMessage, 100);
               }}
-              className="px-3 py-1 text-xs rounded-full border transition-colors border-purple-400/30 hover:bg-slate-700/50 text-purple-200"
+              className="px-3 py-1 text-xs rounded-full border transition-colors border theme-border hover:theme-surface-elevated/50 theme-text-secondary"
             >
               {question}
             </button>
@@ -419,14 +419,14 @@ export default function ProblemDetail({
   const renderNotes = () => (
     <div className="space-y-4 max-h-full overflow-y-auto scrollbar-hide">
       {/* Add Note */}
-      <div className="flex gap-2 sticky top-0 bg-slate-900/95 backdrop-blur-sm py-2 z-10">
+      <div className="flex gap-2 sticky top-0 theme-bg/95 backdrop-blur-sm py-2 z-10">
         <input
           type="text"
           value={noteInput}
           onChange={(e) => setNoteInput(e.target.value)}
           onKeyPress={(e) => e.key === 'Enter' && addNote()}
           placeholder="Add a note about this problem..."
-          className="flex-1 p-3 rounded-lg border bg-slate-800/50 border-purple-400/30 text-white placeholder-purple-300/70 focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+          className="flex-1 p-3 rounded-lg border theme-surface border theme-border text-white placeholder-purple-300/70 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         />
         <button
           onClick={addNote}
@@ -441,14 +441,14 @@ export default function ProblemDetail({
         {userNotes.map(note => (
           <div
             key={note.id}
-            className="p-4 rounded-lg border bg-slate-800/50 border-purple-400/30"
+            className="p-4 rounded-lg border theme-surface border theme-border"
           >
             {editingNoteId === note.id ? (
               <div className="space-y-2">
                 <textarea
                   value={editingText}
                   onChange={(e) => setEditingText(e.target.value)}
-                  className="w-full p-2 rounded border bg-slate-700/50 border-purple-400/30 text-white focus:ring-2 focus:ring-purple-500"
+                  className="w-full p-2 rounded border theme-surface-elevated/50 border theme-border text-white focus:ring-2 focus:ring-blue-500"
                   rows="3"
                 />
                 <div className="flex gap-2">
@@ -468,11 +468,11 @@ export default function ProblemDetail({
               </div>
             ) : (
               <div>
-                <div className="text-sm mb-2 text-purple-100">
+                <div className="text-sm mb-2 theme-text-secondary">
                   {note.text}
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-xs text-purple-300/70">
+                  <span className="text-xs theme-text-secondary/70">
                     {new Date(note.timestamp).toLocaleString()}
                   </span>
                   <div className="flex gap-1">
@@ -495,7 +495,7 @@ export default function ProblemDetail({
           </div>
         ))}
         {userNotes.length === 0 && (
-          <div className="text-center py-8 text-purple-300/70">
+          <div className="text-center py-8 theme-text-secondary/70">
             <FaStickyNote className="w-12 h-12 mx-auto mb-2 opacity-50" />
             <p>No notes yet. Add your first note above!</p>
           </div>
@@ -505,7 +505,7 @@ export default function ProblemDetail({
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen theme-bg relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-0 left-0 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -515,7 +515,7 @@ export default function ProblemDetail({
 
       <div className="relative z-10 h-full flex flex-col">
         {/* Header */}
-        <div className="p-6 border-b border-purple-500/20">
+        <div className="p-6 border-b border theme-border">
           <div className="flex items-start justify-between mb-4">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
@@ -537,20 +537,20 @@ export default function ProblemDetail({
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-1">
                   <FaThumbsUp className="text-green-400" />
-                  <span className="text-purple-200">
+                  <span className="theme-text-secondary">
                     {formatNumber(problem?.likes || Math.floor(Math.random() * 5000 + 1000))} 
                     ({((problem?.likes || 3000) / ((problem?.likes || 3000) + (problem?.dislikes || 500)) * 100).toFixed(1)}%)
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
                   <FaEye className="text-blue-400" />
-                  <span className="text-purple-200">
+                  <span className="theme-text-secondary">
                     {formatNumber(realtimeStats?.totalSubmissions || problem?.totalSubmissions || Math.floor(Math.random() * 100000 + 50000))} submissions
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
                   <FaStar className="text-yellow-400" />
-                  <span className="text-purple-200">
+                  <span className="theme-text-secondary">
                     {realtimeStats?.acceptanceRate ? `${realtimeStats.acceptanceRate}%` : (problem?.acceptanceRate ? `${problem.acceptanceRate}%` : `${Math.floor(Math.random() * 40 + 30)}%`)} acceptance
                   </span>
                 </div>
@@ -570,7 +570,7 @@ export default function ProblemDetail({
                 className={`p-2 rounded-lg transition-all duration-300 ${
                   isLiked 
                     ? 'bg-green-600 text-white' 
-                    : 'bg-slate-800/50 hover:bg-slate-700/50 text-purple-200 border border-purple-400/30'
+                    : 'theme-surface hover:theme-surface-elevated/50 theme-text-secondary border border theme-border'
                 }`}
                 title={isLiked ? 'Unlike' : 'Like'}
               >
@@ -582,7 +582,7 @@ export default function ProblemDetail({
                 className={`p-2 rounded-lg transition-all duration-300 ${
                   isBookmarked 
                     ? 'bg-yellow-600 text-white' 
-                    : 'bg-slate-800/50 hover:bg-slate-700/50 text-purple-200 border border-purple-400/30'
+                    : 'theme-surface hover:theme-surface-elevated/50 theme-text-secondary border border theme-border'
                 }`}
                 title={isBookmarked ? 'Remove bookmark' : 'Bookmark'}
               >
@@ -607,7 +607,7 @@ export default function ProblemDetail({
                   title: problem?.title, 
                   url: window.location.href 
                 })}
-                className="p-2 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 text-purple-200 border border-purple-400/30 transition-all duration-300"
+                className="p-2 rounded-lg theme-surface hover:theme-surface-elevated/50 theme-text-secondary border border theme-border transition-all duration-300"
                 title="Share"
               >
                 <FaShare className="w-4 h-4" />
@@ -627,7 +627,7 @@ export default function ProblemDetail({
                 </span>
               ))}
               {problem.companies.length > 5 && (
-                <span className="px-2 py-1 text-xs rounded-md bg-slate-800/50 text-purple-300/70 border border-purple-400/20">
+                <span className="px-2 py-1 text-xs rounded-md theme-surface theme-text-secondary/70 border border-purple-400/20">
                   +{problem.companies.length - 5} more
                 </span>
               )}
@@ -636,7 +636,7 @@ export default function ProblemDetail({
         </div>
         
         {/* Tabs */}
-        <div className="border-b border-purple-500/20 overflow-x-auto scrollbar-hide">
+        <div className="border-b border theme-border overflow-x-auto scrollbar-hide">
           <div className="flex min-w-max">
             {tabs.map((tab) => (
               <button
@@ -644,8 +644,8 @@ export default function ProblemDetail({
                 onClick={() => setSelectedTab(tab.id)}
                 className={`flex items-center gap-2 px-4 py-3 text-sm font-medium transition-all duration-300 relative whitespace-nowrap flex-shrink-0 ${
                   selectedTab === tab.id
-                    ? 'text-purple-400 bg-slate-800/50'
-                    : 'text-purple-200 hover:text-white hover:bg-slate-800/30'
+                    ? 'theme-accent theme-surface'
+                    : 'theme-text-secondary hover:text-white hover:theme-surface/30'
                 }`}
               >
                 <tab.icon className="w-4 h-4" />
@@ -666,19 +666,19 @@ export default function ProblemDetail({
           <div className="max-h-full">
             {selectedTab === 'description' && renderDescription()}
             {selectedTab === 'editorial' && (
-              <div className="text-center py-12 text-purple-200">
+              <div className="text-center py-12 theme-text-secondary">
                 <FaGraduationCap className="w-12 h-12 mx-auto mb-4 opacity-50" />
                 <p>Editorial content coming soon...</p>
               </div>
             )}
             {selectedTab === 'solutions' && (
-              <div className="text-center py-12 text-purple-200">
+              <div className="text-center py-12 theme-text-secondary">
                 <FaCode className="w-12 h-12 mx-auto mb-4 opacity-50" />
                 <p>Community solutions coming soon...</p>
               </div>
             )}
             {selectedTab === 'submissions' && (
-              <div className="text-center py-12 text-purple-200">
+              <div className="text-center py-12 theme-text-secondary">
                 <FaClock className="w-12 h-12 mx-auto mb-4 opacity-50" />
                 <p>Your submissions will appear here...</p>
               </div>

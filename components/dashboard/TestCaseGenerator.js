@@ -87,7 +87,7 @@ export default function TestCaseGenerator({ problem, onRunCustomTest }) {
           <button
             onClick={generateAI}
             disabled={generatingAI}
-            className="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-700 text-white text-sm rounded-lg transition-colors flex items-center gap-2"
+            className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-700 text-white text-sm rounded-lg transition-colors flex items-center gap-2"
           >
             {generatingAI ? (
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />

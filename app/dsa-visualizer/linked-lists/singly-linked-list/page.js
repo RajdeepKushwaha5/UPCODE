@@ -246,11 +246,11 @@ export default function SinglyLinkedListVisualizer() {
   const listArray = listToArray(list);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <Link href="/dsa-visualizer/linked-lists" className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-4 transition-colors duration-200">
+          <Link href="/dsa-visualizer/linked-lists" className="inline-flex items-center theme-accent hover:theme-text-secondary mb-4 transition-colors duration-200">
             ← Back to Linked Lists
           </Link>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
@@ -264,22 +264,22 @@ export default function SinglyLinkedListVisualizer() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">List Size</h3>
-            <p className="text-purple-400 text-2xl font-bold">{listSize}</p>
+            <p className="theme-accent text-2xl font-bold">{listSize}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Current Operation</h3>
             <p className="text-slate-300 text-sm">{operation || 'Ready'}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Memory</h3>
             <p className="text-slate-300">O(n)</p>
           </div>
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 mb-8 border border-slate-700/50">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Insert Operations */}
             <div>
@@ -291,13 +291,13 @@ export default function SinglyLinkedListVisualizer() {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Value"
-                    className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-500"
+                    className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-blue-500"
                   />
                 </div>
                 <button
                   onClick={() => insertAtHead(inputValue)}
                   disabled={isAnimating || !inputValue}
-                  className="w-full px-3 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 disabled:opacity-50 transition-colors duration-200"
+                  className="w-full px-3 py-2 bg-blue-600 text-white rounded hover:bg-purple-700 disabled:opacity-50 transition-colors duration-200"
                 >
                   Insert at Head
                 </button>
@@ -314,7 +314,7 @@ export default function SinglyLinkedListVisualizer() {
                     value={insertPosition}
                     onChange={(e) => setInsertPosition(parseInt(e.target.value) || 0)}
                     placeholder="Pos"
-                    className="w-16 px-2 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-500"
+                    className="w-16 px-2 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-blue-500"
                   />
                   <button
                     onClick={() => insertAtPosition(inputValue, insertPosition)}
@@ -344,7 +344,7 @@ export default function SinglyLinkedListVisualizer() {
                     value={deletePosition}
                     onChange={(e) => setDeletePosition(parseInt(e.target.value) || 0)}
                     placeholder="Position"
-                    className="w-20 px-2 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-500"
+                    className="w-20 px-2 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-blue-500"
                   />
                   <button
                     onClick={() => deleteFromPosition(deletePosition)}
@@ -366,7 +366,7 @@ export default function SinglyLinkedListVisualizer() {
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
                   placeholder="Search value"
-                  className="w-full px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-500"
+                  className="w-full px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-blue-500"
                 />
                 <button
                   onClick={() => searchInList(searchValue)}
@@ -385,7 +385,7 @@ export default function SinglyLinkedListVisualizer() {
                 <button
                   onClick={initializeList}
                   disabled={isAnimating}
-                  className="w-full px-3 py-2 bg-slate-600 text-white rounded hover:bg-slate-700 disabled:opacity-50 transition-colors duration-200"
+                  className="w-full px-3 py-2 bg-slate-600 text-white rounded hover:theme-surface-elevated disabled:opacity-50 transition-colors duration-200"
                 >
                   Reset List
                 </button>
@@ -405,7 +405,7 @@ export default function SinglyLinkedListVisualizer() {
         </div>
 
         {/* Visualization */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 mb-8">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 mb-8">
           <div className="min-h-[200px] flex items-center justify-center overflow-x-auto">
             {listArray.length === 0 ? (
               <div className="text-slate-400 text-xl">List is empty</div>
@@ -417,7 +417,7 @@ export default function SinglyLinkedListVisualizer() {
                       className={`relative px-6 py-4 rounded-lg border-2 transition-all duration-300 ${
                         highlightedNode === index
                           ? 'bg-yellow-500 border-yellow-400 text-black transform scale-110'
-                          : 'bg-purple-600 border-purple-500 text-white'
+                          : 'bg-blue-600 border-purple-500 text-white'
                       }`}
                     >
                       <div className="text-center">
@@ -433,7 +433,7 @@ export default function SinglyLinkedListVisualizer() {
                     )}
                   </div>
                 ))}
-                <div className="ml-4 px-4 py-4 bg-slate-700 rounded-lg border-2 border-slate-600 text-slate-400">
+                <div className="ml-4 px-4 py-4 theme-surface-elevated rounded-lg border-2 border-slate-600 text-slate-400">
                   NULL
                 </div>
               </div>
@@ -443,7 +443,7 @@ export default function SinglyLinkedListVisualizer() {
 
         {/* Algorithm Explanation */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-bold text-white mb-4">Operations & Complexity</h3>
             <div className="space-y-3 text-slate-300">
               <div className="flex justify-between">
@@ -473,7 +473,7 @@ export default function SinglyLinkedListVisualizer() {
             </div>
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
             <h3 className="text-xl font-bold text-white mb-4">Key Properties</h3>
             <ul className="space-y-2 text-slate-300">
               <li>• <strong>Dynamic Size:</strong> Can grow/shrink during runtime</li>

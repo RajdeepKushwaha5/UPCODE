@@ -279,7 +279,7 @@ export default function PrimAlgorithmVisualization() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Add Vertex */}
             <div>
@@ -290,7 +290,7 @@ export default function PrimAlgorithmVisualization() {
                   value={inputVertex}
                   onChange={(e) => setInputVertex(e.target.value)}
                   placeholder="Vertex name"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-teal-400 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-teal-400 focus:outline-none"
                   disabled={animating}
                 />
                 <button
@@ -312,7 +312,7 @@ export default function PrimAlgorithmVisualization() {
                   value={inputEdge1}
                   onChange={(e) => setInputEdge1(e.target.value)}
                   placeholder="From"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-teal-400 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-teal-400 focus:outline-none"
                   disabled={animating}
                 />
                 <input
@@ -320,7 +320,7 @@ export default function PrimAlgorithmVisualization() {
                   value={inputEdge2}
                   onChange={(e) => setInputEdge2(e.target.value)}
                   placeholder="To"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-teal-400 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-teal-400 focus:outline-none"
                   disabled={animating}
                 />
                 <input
@@ -329,7 +329,7 @@ export default function PrimAlgorithmVisualization() {
                   onChange={(e) => setInputWeight(e.target.value)}
                   placeholder="Weight"
                   min="1"
-                  className="w-20 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-teal-400 focus:outline-none"
+                  className="w-20 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-teal-400 focus:outline-none"
                   disabled={animating}
                 />
                 <button
@@ -351,7 +351,7 @@ export default function PrimAlgorithmVisualization() {
                 value={startVertex}
                 onChange={(e) => setStartVertex(e.target.value)}
                 placeholder="Start vertex"
-                className="px-4 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-teal-400 focus:outline-none"
+                className="px-4 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-teal-400 focus:outline-none"
                 disabled={animating}
               />
               <button
@@ -386,7 +386,7 @@ export default function PrimAlgorithmVisualization() {
         {/* Visualization */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Graph Display */}
-          <div className="lg:col-span-2 bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="lg:col-span-2 theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h2 className="text-xl font-bold text-white mb-4 text-center">Minimum Spanning Tree (Prim's)</h2>
             
             {vertices.length === 0 ? (
@@ -395,7 +395,7 @@ export default function PrimAlgorithmVisualization() {
               </div>
             ) : (
               <div className="relative">
-                <svg width="400" height="300" className="mx-auto border border-slate-600 rounded-lg bg-slate-900/50">
+                <svg width="400" height="300" className="mx-auto border border-slate-600 rounded-lg theme-bg/50">
                   {/* Render Edges */}
                   {edges.map((edge, index) => {
                     const [v1, v2, weight] = edge;
@@ -512,7 +512,7 @@ export default function PrimAlgorithmVisualization() {
           <div className="space-y-6">
             {/* Priority Queue */}
             {priorityQueue.length > 0 && (
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+              <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
                 <h3 className="text-white font-bold mb-3">Priority Queue</h3>
                 <div className="space-y-2 max-h-40 overflow-y-auto">
                   {priorityQueue.map((item, index) => (
@@ -522,7 +522,7 @@ export default function PrimAlgorithmVisualization() {
                         px-3 py-2 rounded text-sm border-2
                         ${index === 0 
                           ? 'bg-yellow-500/20 border-yellow-400 text-yellow-400' 
-                          : 'bg-slate-700 border-slate-600 text-slate-300'
+                          : 'theme-surface-elevated border-slate-600 text-slate-300'
                         }
                       `}
                     >
@@ -534,7 +534,7 @@ export default function PrimAlgorithmVisualization() {
             )}
 
             {/* MST Edges */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h3 className="text-white font-bold mb-3">MST Edges</h3>
               {mstEdges.length === 0 ? (
                 <div className="text-slate-400 text-sm">No edges in MST yet</div>
@@ -571,7 +571,7 @@ export default function PrimAlgorithmVisualization() {
             </div>
 
             {/* Visited Vertices */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h3 className="text-white font-bold mb-3">Visited Vertices</h3>
               <div className="flex flex-wrap gap-2">
                 {Array.from(visitedVertices).map((vertex, index) => (
@@ -586,13 +586,13 @@ export default function PrimAlgorithmVisualization() {
             </div>
 
             {/* Statistics */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h3 className="text-white font-bold mb-3">Algorithm Status</h3>
               <div className="space-y-2 text-slate-300">
                 <div>Vertices: <span className="text-teal-400 font-bold">{vertices.length}</span></div>
                 <div>Total Edges: <span className="text-blue-400 font-bold">{edges.length}</span></div>
                 <div>Visited: <span className="text-green-400 font-bold">{visitedVertices.size}</span></div>
-                <div>MST Edges: <span className="text-purple-400 font-bold">{mstEdges.length}</span></div>
+                <div>MST Edges: <span className="theme-accent font-bold">{mstEdges.length}</span></div>
                 <div>Total Weight: <span className="text-yellow-400 font-bold">{totalWeight}</span></div>
               </div>
             </div>
@@ -600,7 +600,7 @@ export default function PrimAlgorithmVisualization() {
         </div>
 
         {/* Legend */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-white font-bold mb-4 text-center">Legend</h3>
           <div className="flex flex-wrap justify-center gap-6">
             <div className="flex items-center gap-2">
@@ -623,7 +623,7 @@ export default function PrimAlgorithmVisualization() {
         </div>
 
         {/* Algorithm Info */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-white font-bold mb-4">Prim's Algorithm Properties</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="text-center">
@@ -635,7 +635,7 @@ export default function PrimAlgorithmVisualization() {
               <div className="text-slate-300 text-sm">O(V)</div>
             </div>
             <div className="text-center">
-              <div className="text-purple-400 font-bold mb-2">Data Structure</div>
+              <div className="theme-accent font-bold mb-2">Data Structure</div>
               <div className="text-slate-300 text-sm">Priority Queue</div>
             </div>
             <div className="text-center">

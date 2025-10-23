@@ -169,7 +169,7 @@ export default function FibonacciVisualization() {
 
   const getCallStackColor = (depth) => {
     const colors = [
-      'bg-purple-500/30 text-purple-400',
+      'bg-purple-500/30 theme-accent',
       'bg-blue-500/30 text-blue-400', 
       'bg-green-500/30 text-green-400',
       'bg-yellow-500/30 text-yellow-400',
@@ -180,7 +180,7 @@ export default function FibonacciVisualization() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -193,7 +193,7 @@ export default function FibonacciVisualization() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Input N */}
             <div>
@@ -204,7 +204,7 @@ export default function FibonacciVisualization() {
                 onChange={(e) => setN(parseInt(e.target.value) || 0)}
                 min="0"
                 max="20"
-                className="w-full px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                className="w-full px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
                 disabled={animating}
               />
               <div className="text-slate-400 text-xs mt-1">Range: 0-20</div>
@@ -217,7 +217,7 @@ export default function FibonacciVisualization() {
                 value={algorithm}
                 onChange={(e) => setAlgorithm(e.target.value)}
                 disabled={animating}
-                className="w-full px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
+                className="w-full px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-purple-400 focus:outline-none"
               >
                 <option value="dp">Bottom-up DP</option>
                 <option value="memo">Top-down Memoization</option>
@@ -227,7 +227,7 @@ export default function FibonacciVisualization() {
             {/* Result Display */}
             <div>
               <h3 className="text-white font-bold mb-3">Result</h3>
-              <div className="bg-slate-700 rounded px-3 py-2 text-center">
+              <div className="theme-surface-elevated rounded px-3 py-2 text-center">
                 {result !== null ? (
                   <div>
                     <div className="text-green-400 font-bold text-xl">F({n}) = {result}</div>
@@ -270,12 +270,12 @@ export default function FibonacciVisualization() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* DP Array Visualization (for bottom-up DP) */}
           {algorithm === 'dp' && dpArray.length > 0 && (
-            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h2 className="text-xl font-bold text-white mb-4 text-center">DP Array</h2>
               <div className="space-y-2">
                 {dpArray.map((value, index) => (
                   <div key={index} className="flex items-center gap-4">
-                    <div className="text-purple-400 font-bold min-w-16">
+                    <div className="theme-accent font-bold min-w-16">
                       F({index})
                     </div>
                     <div className={`
@@ -292,7 +292,7 @@ export default function FibonacciVisualization() {
 
           {/* Memoization Visualization */}
           {algorithm === 'memo' && (
-            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h2 className="text-xl font-bold text-white mb-4 text-center">Memoization Cache</h2>
               {memoMap.size === 0 ? (
                 <div className="text-center text-slate-400 py-8">
@@ -304,7 +304,7 @@ export default function FibonacciVisualization() {
                     .sort(([a], [b]) => a - b)
                     .map(([key, value]) => (
                       <div key={key} className="flex items-center gap-4">
-                        <div className="text-purple-400 font-bold min-w-16">
+                        <div className="theme-accent font-bold min-w-16">
                           F({key})
                         </div>
                         <div className="px-4 py-2 rounded font-mono font-bold text-lg flex-1 text-center bg-green-500/20 text-green-400">
@@ -319,7 +319,7 @@ export default function FibonacciVisualization() {
 
           {/* Call Stack Visualization (for memoization) */}
           {algorithm === 'memo' && (
-            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h2 className="text-xl font-bold text-white mb-4 text-center">Call Stack</h2>
               {callStack.length === 0 ? (
                 <div className="text-center text-slate-400 py-8">
@@ -345,14 +345,14 @@ export default function FibonacciVisualization() {
 
         {/* Current Operation Display */}
         {currentOperation && currentOperation.operation && (
-          <div className="mt-6 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="mt-6 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-white font-bold mb-3 text-center">Current Operation</h3>
             <div className="text-center">
               <div className={`
                 inline-block px-4 py-2 rounded-lg font-semibold
                 ${currentOperation.type === 'computed' ? 'bg-green-500/20 text-green-400' : 
                   currentOperation.type === 'memo_hit' ? 'bg-blue-500/20 text-blue-400' :
-                  currentOperation.type === 'base_case' ? 'bg-purple-500/20 text-purple-400' :
+                  currentOperation.type === 'base_case' ? 'bg-purple-500/20 theme-accent' :
                   'bg-yellow-500/20 text-yellow-400'}
               `}>
                 {algorithm === 'dp' && currentOperation.type === 'computed' && 
@@ -398,11 +398,11 @@ export default function FibonacciVisualization() {
         )}
 
         {/* Algorithm Info */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-white font-bold mb-4">Fibonacci Algorithm Comparison</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-slate-700/30 rounded-xl p-4">
-              <h4 className="text-purple-400 font-bold mb-3">Bottom-up DP</h4>
+            <div className="theme-surface-elevated/30 rounded-xl p-4">
+              <h4 className="theme-accent font-bold mb-3">Bottom-up DP</h4>
               <div className="space-y-2 text-sm">
                 <div><span className="text-slate-400">Time:</span> <span className="text-white">O(n)</span></div>
                 <div><span className="text-slate-400">Space:</span> <span className="text-white">O(n)</span></div>
@@ -410,7 +410,7 @@ export default function FibonacciVisualization() {
                 <div><span className="text-slate-400">Memory:</span> <span className="text-white">Array storage</span></div>
               </div>
             </div>
-            <div className="bg-slate-700/30 rounded-xl p-4">
+            <div className="theme-surface-elevated/30 rounded-xl p-4">
               <h4 className="text-pink-400 font-bold mb-3">Top-down Memoization</h4>
               <div className="space-y-2 text-sm">
                 <div><span className="text-slate-400">Time:</span> <span className="text-white">O(n)</span></div>

@@ -170,7 +170,7 @@ export default function CircularLinkedListVisualization() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -183,14 +183,14 @@ export default function CircularLinkedListVisualization() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
           <div className="flex flex-wrap items-center justify-center gap-4">
             <input
               type="number"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Enter number"
-              className="px-4 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-purple-400 focus:outline-none"
+              className="px-4 py-2 theme-surface-elevated text-white rounded-lg border border-slate-600 focus:border-purple-400 focus:outline-none"
               disabled={animating || traversing}
             />
             
@@ -245,7 +245,7 @@ export default function CircularLinkedListVisualization() {
         </div>
 
         {/* Visualization */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 min-h-96">
+        <div className="theme-surface/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 min-h-96">
           <h2 className="text-2xl font-bold text-white mb-6 text-center">Circular List Visualization</h2>
           
           {nodes.length === 0 ? (
@@ -274,7 +274,7 @@ export default function CircularLinkedListVisualization() {
                         {/* Node */}
                         <div
                           className={`
-                            absolute bg-slate-700 rounded-full w-16 h-16 flex items-center justify-center border-2 transition-all duration-500
+                            absolute theme-surface-elevated rounded-full w-16 h-16 flex items-center justify-center border-2 transition-all duration-500
                             ${highlightedIndex === index || currentTraversal === index
                               ? 'border-yellow-400 bg-yellow-500/20 scale-125' 
                               : 'border-purple-400'
@@ -360,16 +360,16 @@ export default function CircularLinkedListVisualization() {
 
         {/* Information Panel */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-xl font-bold text-white mb-4">List Properties</h3>
             <div className="space-y-2 text-slate-300">
-              <div>Size: <span className="text-purple-400 font-bold">{nodes.length}</span></div>
+              <div>Size: <span className="theme-accent font-bold">{nodes.length}</span></div>
               <div>Head: <span className="text-green-400 font-bold">{nodes.length > 0 ? nodes[0] : 'null'}</span></div>
               <div>Circular: <span className="text-yellow-400 font-bold">{nodes.length > 0 ? 'Yes' : 'No'}</span></div>
             </div>
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h3 className="text-xl font-bold text-white mb-4">Time Complexities</h3>
             <div className="space-y-2 text-slate-300 text-sm">
               <div>Append: <span className="text-yellow-400 font-bold">O(n)</span></div>

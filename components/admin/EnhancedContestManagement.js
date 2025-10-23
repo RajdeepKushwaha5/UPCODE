@@ -154,7 +154,7 @@ export default function EnhancedContestManagement() {
         <div className="flex space-x-3">
           <button
             onClick={syncExternalContests}
-            className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
           >
             Sync External Contests
           </button>
@@ -172,7 +172,7 @@ export default function EnhancedContestManagement() {
 
       {/* Contest Creation/Edit Form */}
       {showCreateForm && (
-        <div className="bg-slate-700/50 rounded-xl p-6 mb-6 border border-purple-500/20">
+        <div className="theme-surface-elevated/50 rounded-xl p-6 mb-6 border border theme-border">
           <h3 className="text-xl font-semibold text-white mb-4">
             {editingContest ? 'Edit Contest' : 'Create New Contest'}
           </h3>
@@ -186,7 +186,7 @@ export default function EnhancedContestManagement() {
                   type="text"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-800 border border-gray-600 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                   required
                 />
               </div>
@@ -197,7 +197,7 @@ export default function EnhancedContestManagement() {
                 <select
                   value={formData.type}
                   onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-800 border border-gray-600 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                 >
                   <option value="weekly">Weekly</option>
                   <option value="biweekly">Biweekly</option>
@@ -214,7 +214,7 @@ export default function EnhancedContestManagement() {
               <textarea
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                className="w-full px-3 py-2 bg-slate-800 border border-gray-600 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+                className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                 rows="3"
                 required
               />
@@ -229,7 +229,7 @@ export default function EnhancedContestManagement() {
                   type="datetime-local"
                   value={formData.start}
                   onChange={(e) => setFormData({ ...formData, start: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-800 border border-gray-600 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                   required
                 />
               </div>
@@ -241,7 +241,7 @@ export default function EnhancedContestManagement() {
                   type="datetime-local"
                   value={formData.end}
                   onChange={(e) => setFormData({ ...formData, end: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-800 border border-gray-600 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                   required
                 />
               </div>
@@ -255,7 +255,7 @@ export default function EnhancedContestManagement() {
                 <select
                   value={formData.difficulty}
                   onChange={(e) => setFormData({ ...formData, difficulty: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-800 border border-gray-600 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                 >
                   <option value="Easy">Easy</option>
                   <option value="Medium">Medium</option>
@@ -270,7 +270,7 @@ export default function EnhancedContestManagement() {
                   type="text"
                   value={formData.prize}
                   onChange={(e) => setFormData({ ...formData, prize: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-800 border border-gray-600 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                 />
               </div>
               <div>
@@ -281,7 +281,7 @@ export default function EnhancedContestManagement() {
                   type="text"
                   value={formData.rating}
                   onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-800 border border-gray-600 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                 />
               </div>
             </div>
@@ -306,14 +306,14 @@ export default function EnhancedContestManagement() {
       )}
 
       {/* Contests List */}
-      <div className="bg-slate-700/30 rounded-xl overflow-hidden">
+      <div className="theme-surface-elevated/30 rounded-xl overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-600">
           <h3 className="text-lg font-semibold text-white">All Contests</h3>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-slate-800/50">
+            <thead className="theme-surface">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                   Contest
@@ -337,7 +337,7 @@ export default function EnhancedContestManagement() {
             </thead>
             <tbody className="divide-y divide-gray-600">
               {contests.map((contest) => (
-                <tr key={contest.id} className="hover:bg-slate-700/30">
+                <tr key={contest.id} className="hover:theme-surface-elevated/30">
                   <td className="px-6 py-4">
                     <div>
                       <div className="text-sm font-medium text-white">

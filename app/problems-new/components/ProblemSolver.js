@@ -230,10 +230,10 @@ export default function ProblemSolver() {
 
   if (isLoading) {
     return (
-      <div className={`min-h-screen ${isDark ? 'bg-dark-1' : 'bg-light-1'} flex items-center justify-center`}>
+      <div className="min-h-screen theme-bg flex items-center justify-center">
         <div className="text-center">
-          <FaSpinner className={`w-8 h-8 animate-spin mx-auto mb-4 ${isDark ? 'text-purple-400' : 'text-purple-600'}`} />
-          <p className={`text-lg ${isDark ? 'text-light-1' : 'text-dark-1'}`}>Loading problem...</p>
+          <FaSpinner className="w-8 h-8 animate-spin mx-auto mb-4 theme-accent" />
+          <p className="text-lg theme-text">Loading problem...</p>
         </div>
       </div>
     );
@@ -241,10 +241,10 @@ export default function ProblemSolver() {
 
   if (error) {
     return (
-      <div className={`min-h-screen ${isDark ? 'bg-dark-1' : 'bg-light-1'} flex items-center justify-center`}>
+      <div className="min-h-screen theme-bg flex items-center justify-center">
         <div className="text-center">
-          <div className={`text-red-500 text-6xl mb-4`}>⚠️</div>
-          <h2 className={`text-2xl font-bold mb-2 ${isDark ? 'text-light-1' : 'text-dark-1'}`}>
+          <div className="text-red-500 text-6xl mb-4">⚠️</div>
+          <h2 className="text-2xl font-bold mb-2 theme-text">
             Problem Not Found
           </h2>
           <p className={`text-lg mb-6 ${isDark ? 'text-gray-2' : 'text-gray-1'}`}>
@@ -252,7 +252,7 @@ export default function ProblemSolver() {
           </p>
           <Link 
             href="/problems-new"
-            className="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-300"
+            className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200"
           >
             <FaArrowLeft className="mr-2" />
             Back to Problems
@@ -292,10 +292,10 @@ export default function ProblemSolver() {
               <div className={`flex rounded-lg border ${isDark ? 'border-dark-4 bg-dark-3' : 'border-light-4 bg-light-2'}`}>
                 <button
                   onClick={() => setLayout('problem-only')}
-                  className={`p-2 rounded-l-lg transition-all duration-300 ${
+                  className={`p-2 rounded-l-lg transition-all duration-200 ${
                     layout === 'problem-only'
-                      ? 'bg-purple-600 text-white'
-                      : (isDark ? 'hover:bg-dark-4 text-gray-2' : 'hover:bg-light-3 text-gray-1')
+                      ? 'bg-blue-600 text-white'
+                      : 'theme-text hover:theme-surface-elevated'
                   }`}
                   title="Problem Only"
                 >
@@ -304,10 +304,10 @@ export default function ProblemSolver() {
                 
                 <button
                   onClick={() => setLayout('split')}
-                  className={`p-2 transition-all duration-300 ${
+                  className={`p-2 transition-all duration-200 ${
                     layout === 'split'
-                      ? 'bg-purple-600 text-white'
-                      : (isDark ? 'hover:bg-dark-4 text-gray-2' : 'hover:bg-light-3 text-gray-1')
+                      ? 'bg-blue-600 text-white'
+                      : 'theme-text hover:theme-surface-elevated'
                   }`}
                   title="Split View"
                 >
@@ -316,10 +316,10 @@ export default function ProblemSolver() {
                 
                 <button
                   onClick={() => setLayout('code-only')}
-                  className={`p-2 rounded-r-lg transition-all duration-300 ${
+                  className={`p-2 rounded-r-lg transition-all duration-200 ${
                     layout === 'code-only'
-                      ? 'bg-purple-600 text-white'
-                      : (isDark ? 'hover:bg-dark-4 text-gray-2' : 'hover:bg-light-3 text-gray-1')
+                      ? 'bg-blue-600 text-white'
+                      : 'theme-text hover:theme-surface-elevated'
                   }`}
                   title="Code Only"
                 >

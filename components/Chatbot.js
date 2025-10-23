@@ -114,7 +114,7 @@ const Chatbot = () => {
       >
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-16 h-16 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-600 rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center group"
+          className="w-16 h-16 bg-blue-600 hover:bg-blue-700 rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center group"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -163,7 +163,7 @@ const Chatbot = () => {
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 p-4 text-white">
+            <div className="bg-blue-600 p-4 text-white">
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
@@ -194,8 +194,8 @@ const Chatbot = () => {
                   <div className={`flex gap-2 max-w-[80%] ${message.isBot ? 'flex-row' : 'flex-row-reverse'}`}>
                     {/* Avatar */}
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${message.isBot
-                        ? 'bg-gradient-to-br from-blue-500 to-purple-600 text-white'
-                        : 'bg-gradient-to-br from-gray-600 to-gray-700 text-white'
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-600 text-white'
                       }`}>
                       {message.isBot ? <FaRobot className="text-sm" /> : <FaUser className="text-sm" />}
                     </div>
@@ -203,7 +203,7 @@ const Chatbot = () => {
                     {/* Message bubble */}
                     <div className={`rounded-2xl px-4 py-2 ${message.isBot
                         ? 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200'
-                        : 'bg-gradient-to-br from-blue-500 to-purple-600 text-white'
+                        : 'bg-blue-600 text-white'
                       }`}>
                       <p className="text-sm whitespace-pre-wrap">{message.text}</p>
                       <p className={`text-xs mt-1 ${message.isBot ? 'text-gray-500 dark:text-gray-400' : 'text-white/70'
@@ -223,7 +223,7 @@ const Chatbot = () => {
                   className="flex justify-start"
                 >
                   <div className="flex gap-2 max-w-[80%]">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0">
                       <FaRobot className="text-sm" />
                     </div>
                     <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl px-4 py-2">
@@ -250,13 +250,13 @@ const Chatbot = () => {
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Ask me about UPCODE features..."
-                  className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
+                  className="flex-1 px-4 py-2 border theme-border rounded-xl theme-surface theme-text focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                   disabled={isLoading}
                 />
                 <motion.button
                   onClick={handleSendMessage}
                   disabled={!inputMessage.trim() || isLoading}
-                  className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-xl flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg transition-all duration-200"
+                  className="w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-xl flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg transition-all duration-200"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

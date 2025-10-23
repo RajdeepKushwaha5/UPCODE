@@ -160,7 +160,7 @@ export default function CodeEditor({
               className={`px-3 py-1 text-sm rounded-lg border transition-all duration-300 ${
                 isDark 
                   ? 'bg-dark-3 border-dark-4 text-light-1 focus:border-purple-400' 
-                  : 'bg-white border-light-4 text-dark-1 focus:border-purple-500'
+                  : 'bg-white border-light-4 text-dark-1 focus:border-blue-500'
               }`}
             >
               {SUPPORTED_LANGUAGES.map(lang => (
@@ -189,10 +189,10 @@ export default function CodeEditor({
           <textarea
             value={userCode}
             onChange={(e) => handleCodeChange(e.target.value)}
-            className={`w-full h-full p-4 font-mono text-sm rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 resize-none scrollbar-hide ${
+            className={`w-full h-full p-4 font-mono text-sm rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 resize-none scrollbar-hide ${
               isDark 
                 ? 'bg-dark-3 text-green-400 border-dark-4 focus:border-purple-400' 
-                : 'bg-light-2 text-gray-900 border-light-4 focus:border-purple-500'
+                : 'bg-light-2 text-gray-900 border-light-4 focus:border-blue-500'
             }`}
             placeholder={`Write your ${getLanguageDisplay(selectedLanguage)} solution here...`}
             spellCheck={false}
@@ -209,7 +209,7 @@ export default function CodeEditor({
             onClick={() => setShowCustomInput(!showCustomInput)}
             className={`flex items-center px-3 py-2 text-sm rounded-lg transition-all duration-300 ${
               showCustomInput
-                ? (isDark ? 'bg-purple-600 text-white' : 'bg-purple-500 text-white')
+                ? (isDark ? 'bg-blue-600 text-white' : 'bg-purple-500 text-white')
                 : (isDark ? 'bg-dark-3 hover:bg-dark-4 text-gray-2' : 'bg-light-3 hover:bg-light-4 text-gray-1')
             }`}
           >
@@ -224,10 +224,10 @@ export default function CodeEditor({
               value={customInput}
               onChange={(e) => setCustomInput(e.target.value)}
               placeholder="Enter your custom test input here..."
-              className={`w-full h-20 p-3 font-mono text-sm rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 resize-none ${
+              className={`w-full h-20 p-3 font-mono text-sm rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 resize-none ${
                 isDark 
                   ? 'bg-dark-3 text-light-1 border-dark-4 focus:border-purple-400' 
-                  : 'bg-light-2 text-dark-1 border-light-4 focus:border-purple-500'
+                  : 'bg-light-2 text-dark-1 border-light-4 focus:border-blue-500'
               }`}
             />
           </div>
@@ -255,7 +255,7 @@ export default function CodeEditor({
           className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 ${
             isSubmitting
               ? 'bg-gray-600 cursor-not-allowed'
-              : 'bg-purple-600 hover:bg-purple-700 text-white shadow-lg'
+              : 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg'
           }`}
         >
           {isSubmitting ? <FaSpinner className="animate-spin" /> : <FaPaperPlane />}
@@ -322,7 +322,7 @@ export default function CodeEditor({
                       </div>
                       {submitResults?.execution?.memory && (
                         <div className="flex items-center gap-2">
-                          <FaMemory className="text-purple-400" />
+                          <FaMemory className="theme-accent" />
                           <span className={isDark ? 'text-gray-2' : 'text-gray-1'}>
                             Memory: {submitResults.execution.memory}
                           </span>

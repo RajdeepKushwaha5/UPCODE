@@ -47,7 +47,7 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
             <div className={`md:hidden my-4 ${open && 'hidden'}`}>
                 <button
                     onClick={() => setOpen(true)}
-                    className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-200 shadow-lg"
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-200 shadow-lg"
                 >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -58,7 +58,7 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
 
             {/* Modules sidebar */}
             <div className={`
-                w-full max-w-[380px] flex flex-col bg-slate-800/80 backdrop-blur-sm border border-purple-500/30 rounded-2xl shadow-2xl
+                w-full max-w-[380px] flex flex-col theme-surface/80 backdrop-blur-sm border border-purple-500/30 rounded-2xl shadow-2xl
                 max-md:absolute max-md:top-0 max-md:left-0 max-md:right-4 max-md:z-50 max-md:max-w-none
                 ${!open && 'max-md:hidden'}
                 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
@@ -66,7 +66,7 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
             `}>
                 {/* Header */}
                 <div 
-                    className="px-6 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-t-2xl flex justify-between items-center cursor-pointer"
+                    className="px-6 py-4 bg-blue-600 hover:bg-blue-700 rounded-t-2xl flex justify-between items-center cursor-pointer"
                     onClick={() => setOpen(false)}
                 >
                     <div className="flex items-center gap-3">
@@ -95,7 +95,7 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
                                 key={moduleIndex} 
                                 className={`
                                     rounded-xl overflow-hidden border transition-all duration-300 hover:shadow-lg
-                                    ${isExpanded ? 'border-purple-400/50 bg-slate-700/50' : 'border-slate-600/50 bg-slate-700/30'}
+                                    ${isExpanded ? 'border theme-border theme-surface-elevated/50' : 'border-slate-600/50 theme-surface-elevated/30'}
                                 `}
                             >
                                 {/* Module header */}
@@ -104,7 +104,7 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
                                     onClick={() => toggleModule(moduleIndex)}
                                 >
                                     <div className="flex items-center justify-between mb-2">
-                                        <h2 className="text-white font-semibold text-sm group-hover:text-purple-300 transition-colors">
+                                        <h2 className="text-white font-semibold text-sm group-hover:theme-text-secondary transition-colors">
                                             {module.title}
                                         </h2>
                                         <div className="flex items-center gap-2">
@@ -115,7 +115,7 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
                                                 />
                                             </div>
                                             <svg 
-                                                className={`w-5 h-5 text-purple-300 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
+                                                className={`w-5 h-5 theme-text-secondary transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
                                                 fill="none" 
                                                 stroke="currentColor" 
                                                 viewBox="0 0 24 24"
@@ -146,7 +146,7 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
                                                     className={`
                                                         p-3 rounded-lg cursor-pointer group transition-all duration-200 border
                                                         ${isCurrent 
-                                                            ? 'bg-purple-600/30 border-purple-400/50 text-white' 
+                                                            ? 'bg-blue-600/30 border theme-border text-white' 
                                                             : isCompleted 
                                                                 ? 'bg-green-500/10 border-green-500/30 text-green-300 hover:bg-green-500/20' 
                                                                 : 'bg-slate-600/30 border-slate-500/30 text-slate-300 hover:bg-slate-600/50 hover:text-white'
@@ -157,7 +157,7 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
                                                         <div className={`
                                                             flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs
                                                             ${isCurrent 
-                                                                ? 'border-purple-400 bg-purple-600 text-white animate-pulse' 
+                                                                ? 'border-purple-400 bg-blue-600 text-white animate-pulse' 
                                                                 : isCompleted 
                                                                     ? 'border-green-500 bg-green-500 text-white' 
                                                                     : 'border-slate-400 text-slate-400 group-hover:border-purple-400'

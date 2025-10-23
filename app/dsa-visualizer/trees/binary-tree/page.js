@@ -392,11 +392,11 @@ export default function BinaryTreeVisualizer() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <Link href="/dsa-visualizer" className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-4 transition-colors duration-200">
+          <Link href="/dsa-visualizer" className="inline-flex items-center theme-accent hover:theme-text-secondary mb-4 transition-colors duration-200">
             ← Back to DSA Visualizer
           </Link>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
@@ -410,26 +410,26 @@ export default function BinaryTreeVisualizer() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Tree Height</h3>
-            <p className="text-purple-400 text-2xl font-bold">{treeHeight}</p>
+            <p className="theme-accent text-2xl font-bold">{treeHeight}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Node Count</h3>
             <p className="text-pink-400 text-2xl font-bold">{nodeCount}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Current Operation</h3>
             <p className="text-blue-400 text-sm">{operation || 'None'}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Traversal</h3>
             <p className="text-green-400 text-sm">{currentTraversal || 'None'}</p>
           </div>
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Insert/Delete */}
             <div>
@@ -440,7 +440,7 @@ export default function BinaryTreeVisualizer() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Enter value"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-purple-500 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
                   disabled={isAnimating}
                 />
               </div>
@@ -471,7 +471,7 @@ export default function BinaryTreeVisualizer() {
                   value={searchTarget}
                   onChange={(e) => setSearchTarget(e.target.value)}
                   placeholder="Search value"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-purple-500 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
                   disabled={isAnimating}
                 />
               </div>
@@ -491,7 +491,7 @@ export default function BinaryTreeVisualizer() {
                 <button
                   onClick={generateRandomTree}
                   disabled={isAnimating}
-                  className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-500 transition-colors duration-200 font-semibold disabled:opacity-50"
+                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-purple-500 transition-colors duration-200 font-semibold disabled:opacity-50"
                 >
                   🎲 Random Tree
                 </button>
@@ -543,13 +543,13 @@ export default function BinaryTreeVisualizer() {
 
           {/* Traversal Result */}
           {traversalResult.length > 0 && (
-            <div className="mt-4 p-4 bg-slate-700/50 rounded-lg">
+            <div className="mt-4 p-4 theme-surface-elevated/50 rounded-lg">
               <h4 className="text-white font-semibold mb-2">Traversal Result ({currentTraversal}):</h4>
               <div className="flex flex-wrap gap-2">
                 {traversalResult.map((value, index) => (
                   <span
                     key={index}
-                    className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold"
+                    className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold"
                   >
                     {value}
                   </span>
@@ -576,7 +576,7 @@ export default function BinaryTreeVisualizer() {
         </div>
 
         {/* Tree Visualization */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="min-h-[500px] overflow-auto">
             {tree ? (
               <svg width="800" height="500" className="mx-auto">
@@ -596,11 +596,11 @@ export default function BinaryTreeVisualizer() {
         </div>
 
         {/* Algorithm Explanation */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <h3 className="text-2xl font-bold text-white mb-4">Binary Tree Operations</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h4 className="text-lg font-semibold text-purple-400 mb-3">Traversal Types:</h4>
+              <h4 className="text-lg font-semibold theme-accent mb-3">Traversal Types:</h4>
               <ul className="text-slate-300 space-y-2">
                 <li>• <strong>Inorder:</strong> Left → Root → Right</li>
                 <li>• <strong>Preorder:</strong> Root → Left → Right</li>

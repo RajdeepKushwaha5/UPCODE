@@ -149,7 +149,7 @@ const page = () => {
     ];
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+        <main className="min-h-screen theme-bg relative overflow-hidden">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -163,9 +163,9 @@ const page = () => {
             {/* Hero Section */}
             <div className="container mx-auto px-6 py-20 relative z-10">
                 <div className="text-center mb-20">
-                    <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full border border-purple-400/30 backdrop-blur-sm animate-premium-glow">
+                    <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full border border theme-border backdrop-blur-sm animate-premium-glow">
                         <span className="text-3xl animate-spin">🎯</span>
-                        <span className="text-purple-400 font-bold text-lg tracking-wide font-space">LEARN & GROW</span>
+                        <span className="theme-accent font-bold text-lg tracking-wide font-space">LEARN & GROW</span>
                     </div>
 
                     <h1 className="text-7xl max-md:text-6xl max-sm:text-5xl font-black mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent font-space tracking-tight animate-shimmer">
@@ -178,7 +178,7 @@ const page = () => {
 
                     <p className="text-xl max-md:text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed font-inter font-light mb-12">
                         Unlock your potential with our comprehensive programming courses. From
-                        <span className="text-purple-400 font-semibold"> beginner-friendly tutorials</span> to
+                        <span className="theme-accent font-semibold"> beginner-friendly tutorials</span> to
                         <span className="text-pink-400 font-semibold"> advanced masterclasses</span>,
                         we've got everything you need to become a coding champion.
                     </p>
@@ -189,8 +189,8 @@ const page = () => {
                             className="group relative overflow-hidden"
                             onClick={scrollToCourses}
                         >
-                            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur-sm group-hover:blur-md transition-all duration-300"></div>
-                            <div className="relative bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-8 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                            <div className="absolute inset-0 bg-blue-600 hover:bg-blue-700 rounded-xl blur-sm group-hover:blur-md transition-all duration-300"></div>
+                            <div className="relative bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
                                 <FaRocket className="group-hover:animate-bounce" />
                                 Start Learning Now
                             </div>
@@ -277,7 +277,7 @@ const page = () => {
                             onClick={() => router.push('/premium')}
                         >
                             <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 rounded-3xl blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-                            <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl px-12 py-6 text-white font-bold text-xl border border-purple-400/30 backdrop-blur-sm flex items-center gap-3">
+                            <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl px-12 py-6 text-white font-bold text-xl border border theme-border backdrop-blur-sm flex items-center gap-3">
                                 <span>Get Started Today</span>
                                 <FaChevronRight className="group-hover:translate-x-1 transition-transform" />
                             </div>

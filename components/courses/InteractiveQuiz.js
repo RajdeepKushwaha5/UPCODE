@@ -82,7 +82,7 @@ const InteractiveQuiz = ({
 
     if (questions.length === 0) {
         return (
-            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-xl p-6 my-6">
+            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border theme-border rounded-xl p-6 my-6">
                 <div className="text-center">
                     <div className="text-4xl mb-2">📝</div>
                     <h3 className="text-white font-semibold mb-2">Interactive Quiz</h3>
@@ -106,19 +106,19 @@ const InteractiveQuiz = ({
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                    <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                    <div className="theme-surface-elevated/50 rounded-lg p-4 text-center">
                         <div className={`text-2xl font-bold mb-1 ${getScoreColor(percentage)}`}>
                             {score}/{questions.length}
                         </div>
                         <div className="text-slate-400 text-sm">Correct Answers</div>
                     </div>
-                    <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                    <div className="theme-surface-elevated/50 rounded-lg p-4 text-center">
                         <div className={`text-2xl font-bold mb-1 ${getScoreColor(percentage)}`}>
                             {percentage}%
                         </div>
                         <div className="text-slate-400 text-sm">Score</div>
                     </div>
-                    <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                    <div className="theme-surface-elevated/50 rounded-lg p-4 text-center">
                         <div className="text-2xl font-bold mb-1 text-blue-400">
                             {formatTime(timeSpent)}
                         </div>
@@ -132,7 +132,7 @@ const InteractiveQuiz = ({
                         const isCorrect = userAnswer === question.correctAnswer;
                         
                         return (
-                            <div key={index} className="bg-slate-700/30 rounded-lg p-4">
+                            <div key={index} className="theme-surface-elevated/30 rounded-lg p-4">
                                 <div className="flex items-start gap-3 mb-3">
                                     <div className={`
                                         flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold
@@ -164,7 +164,7 @@ const InteractiveQuiz = ({
                 <div className="flex justify-center gap-4">
                     <button
                         onClick={resetQuiz}
-                        className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-semibold"
+                        className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-semibold"
                     >
                         Try Again
                     </button>
@@ -203,7 +203,7 @@ const InteractiveQuiz = ({
                         <span>Progress</span>
                         <span>{Math.round(progress)}%</span>
                     </div>
-                    <div className="w-full bg-slate-700 rounded-full h-2">
+                    <div className="w-full theme-surface-elevated rounded-full h-2">
                         <div 
                             className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-500"
                             style={{ width: `${progress}%` }}
@@ -227,7 +227,7 @@ const InteractiveQuiz = ({
                                 w-full p-4 rounded-lg text-left transition-all duration-200 border-2
                                 ${selectedAnswers[currentQuestion] === index 
                                     ? 'border-purple-500 bg-purple-500/20 text-white' 
-                                    : 'border-slate-600 bg-slate-700/30 text-slate-300 hover:border-purple-400 hover:bg-slate-600/50'
+                                    : 'border-slate-600 theme-surface-elevated/30 text-slate-300 hover:border-purple-400 hover:bg-slate-600/50'
                                 }
                             `}
                         >
@@ -253,7 +253,7 @@ const InteractiveQuiz = ({
                 <button
                     onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
                     disabled={currentQuestion === 0}
-                    className="px-4 py-2 bg-slate-600 text-white rounded-lg hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="px-4 py-2 bg-slate-600 text-white rounded-lg hover:theme-surface-elevated disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                     Previous
                 </button>
@@ -282,7 +282,7 @@ const InteractiveQuiz = ({
                 ) : (
                     <button
                         onClick={() => setCurrentQuestion(Math.min(questions.length - 1, currentQuestion + 1))}
-                        className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
                     >
                         Next
                     </button>

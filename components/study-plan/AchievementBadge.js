@@ -182,7 +182,7 @@ const {
                   {achievement.title}
                 </span>
                 <span className={`text-xs px-2 py-1 rounded-full ${achievement.rarity === 'legendary' ? 'bg-yellow-500/20 text-yellow-300' :
-                  achievement.rarity === 'epic' ? 'bg-purple-500/20 text-purple-300' :
+                  achievement.rarity === 'epic' ? 'bg-purple-500/20 theme-text-secondary' :
                     achievement.rarity === 'rare' ? 'bg-blue-500/20 text-blue-300' :
                       'bg-gray-500/20 text-gray-300'
                   }`}>
@@ -257,7 +257,7 @@ const {
                   {achievement.title}
                 </h4>
                 <span className={`text-xs px-2 py-1 rounded-full ${achievement.rarity === 'legendary' ? 'bg-yellow-500/20 text-yellow-300' :
-                  achievement.rarity === 'epic' ? 'bg-purple-500/20 text-purple-300' :
+                  achievement.rarity === 'epic' ? 'bg-purple-500/20 theme-text-secondary' :
                     achievement.rarity === 'rare' ? 'bg-blue-500/20 text-blue-300' :
                       'bg-gray-500/20 text-gray-300'
                   }`}>

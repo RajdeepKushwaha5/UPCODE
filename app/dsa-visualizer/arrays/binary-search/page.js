@@ -133,11 +133,11 @@ export default function BinarySearchVisualizer() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen theme-bg p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <Link href="/dsa-visualizer" className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-4 transition-colors duration-200">
+          <Link href="/dsa-visualizer" className="inline-flex items-center theme-accent hover:theme-text-secondary mb-4 transition-colors duration-200">
             ← Back to DSA Visualizer
           </Link>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4">
@@ -151,19 +151,19 @@ export default function BinarySearchVisualizer() {
 
         {/* Algorithm Info */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Time Complexity</h3>
             <p className="text-slate-300">O(log n)</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Space Complexity</h3>
             <p className="text-slate-300">O(1)</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Comparisons</h3>
             <p className="text-blue-400 text-2xl font-bold">{comparisons}</p>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
             <h3 className="text-lg font-semibold text-white mb-2">Status</h3>
             <p className="text-slate-300">
               {found !== null ? '✅ Found!' : isSearching ? '🔍 Searching...' : '⏳ Ready'}
@@ -172,7 +172,7 @@ export default function BinarySearchVisualizer() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
           <div className="flex flex-wrap items-center gap-4 mb-4">
             <div className="flex items-center gap-2">
               <label className="text-white font-semibold">Target:</label>
@@ -181,7 +181,7 @@ export default function BinarySearchVisualizer() {
                 value={target}
                 onChange={(e) => setTarget(e.target.value)}
                 placeholder="Enter target value"
-                className="px-3 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                className="px-3 py-2 theme-surface-elevated text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
                 disabled={isSearching}
               />
             </div>
@@ -195,14 +195,14 @@ export default function BinarySearchVisualizer() {
             <button
               onClick={() => generateArray(array.length)}
               disabled={isSearching}
-              className="bg-slate-700 text-white px-6 py-2 rounded-lg hover:bg-slate-600 transition-colors duration-200 font-semibold disabled:opacity-50"
+              className="theme-surface-elevated text-white px-6 py-2 rounded-lg hover:bg-slate-600 transition-colors duration-200 font-semibold disabled:opacity-50"
             >
               🎲 New Array
             </button>
             <button
               onClick={reset}
               disabled={isSearching}
-              className="bg-slate-700 text-white px-6 py-2 rounded-lg hover:bg-slate-600 transition-colors duration-200 font-semibold disabled:opacity-50"
+              className="theme-surface-elevated text-white px-6 py-2 rounded-lg hover:bg-slate-600 transition-colors duration-200 font-semibold disabled:opacity-50"
             >
               🔄 Reset
             </button>
@@ -226,7 +226,7 @@ export default function BinarySearchVisualizer() {
 
         {/* Current Step Info */}
         {searchSteps.length > 0 && (
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
+          <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-8">
             <h3 className="text-lg font-semibold text-white mb-4">Search Progress</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
@@ -251,7 +251,7 @@ export default function BinarySearchVisualizer() {
             
             {/* Step Details */}
             {currentStep < searchSteps.length && (
-              <div className="mt-4 p-4 bg-slate-700/50 rounded-lg">
+              <div className="mt-4 p-4 theme-surface-elevated/50 rounded-lg">
                 <p className="text-white font-semibold">
                   Step {currentStep + 1}: {
                     searchSteps[currentStep]?.comparison === 'equal' ? 
@@ -289,7 +289,7 @@ export default function BinarySearchVisualizer() {
         </div>
 
         {/* Visualization */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <div className="flex items-end justify-center gap-1 h-64 mb-4">
             {array.map((value, index) => (
               <div key={index} className="flex flex-col items-center">
@@ -305,7 +305,7 @@ export default function BinarySearchVisualizer() {
         </div>
 
         {/* Algorithm Explanation */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
           <h3 className="text-2xl font-bold text-white mb-4">How Binary Search Works</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>

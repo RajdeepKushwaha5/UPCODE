@@ -18,7 +18,7 @@ const NavMenu = ({ user }) => {
         onClick={() => setOpen(true)}
       />
       <div className={`${!open && 'hidden'}`}>
-        <div className={`flex flex-col absolute z-10 top-5 right-2 w-[300px] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 backdrop-blur-lg border border-purple-500/20 p-4 rounded-2xl shadow-2xl transform transition-all duration-300 ease-out ${open ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
+        <div className={`flex flex-col absolute z-10 top-5 right-2 w-[300px] theme-bg backdrop-blur-lg border border theme-border p-4 rounded-2xl shadow-2xl transform transition-all duration-300 ease-out ${open ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
           <img
             src="/menu.png"
             alt="menu"
@@ -27,8 +27,8 @@ const NavMenu = ({ user }) => {
           />
           <Link
             href="/learn"
-            className={`py-3 px-6 font-semibold text-lg rounded-xl mb-2 transition-all duration-300 hover:bg-purple-500/20 hover:text-purple-300 hover:scale-105 hover:shadow-lg transform ${(pathname === "/learn" || pathname.startsWith("/courses")) &&
-              "bg-purple-600 text-white shadow-lg scale-105"
+            className={`py-3 px-6 font-semibold text-lg rounded-xl mb-2 transition-all duration-300 hover:bg-purple-500/20 hover:theme-text-secondary hover:scale-105 hover:shadow-lg transform ${(pathname === "/learn" || pathname.startsWith("/courses")) &&
+              "bg-blue-600 text-white shadow-lg scale-105"
               }`}
             onClick={() => setOpen(false)}
           >
@@ -36,7 +36,7 @@ const NavMenu = ({ user }) => {
           </Link>
           <Link
             href="/problems-new"
-            className={`py-3 px-6 font-semibold text-lg rounded-xl mb-2 transition-all duration-300 hover:bg-purple-500/20 hover:text-purple-300 hover:scale-105 hover:shadow-lg transform ${pathname === "/problems-new" && "bg-purple-600 text-white shadow-lg scale-105"
+            className={`py-3 px-6 font-semibold text-lg rounded-xl mb-2 transition-all duration-300 hover:bg-purple-500/20 hover:theme-text-secondary hover:scale-105 hover:shadow-lg transform ${pathname === "/problems-new" && "bg-blue-600 text-white shadow-lg scale-105"
               }`}
             onClick={() => setOpen(false)}
           >
@@ -44,7 +44,7 @@ const NavMenu = ({ user }) => {
           </Link>
           <Link
             href="/contests"
-            className={`py-3 px-6 font-semibold text-lg rounded-xl mb-2 transition-all duration-300 hover:bg-purple-500/20 hover:text-purple-300 hover:scale-105 hover:shadow-lg transform ${pathname === "/contests" && "bg-purple-600 text-white shadow-lg scale-105"
+            className={`py-3 px-6 font-semibold text-lg rounded-xl mb-2 transition-all duration-300 hover:bg-purple-500/20 hover:theme-text-secondary hover:scale-105 hover:shadow-lg transform ${pathname === "/contests" && "bg-blue-600 text-white shadow-lg scale-105"
               }`}
             onClick={() => setOpen(false)}
           >
@@ -52,7 +52,7 @@ const NavMenu = ({ user }) => {
           </Link>
           <Link
             href="/interview"
-            className={`py-3 px-6 font-semibold text-lg rounded-xl mb-2 transition-all duration-300 hover:bg-purple-500/20 hover:text-purple-300 hover:scale-105 hover:shadow-lg transform ${pathname === "/interview" && "bg-purple-600 text-white shadow-lg scale-105"
+            className={`py-3 px-6 font-semibold text-lg rounded-xl mb-2 transition-all duration-300 hover:bg-purple-500/20 hover:theme-text-secondary hover:scale-105 hover:shadow-lg transform ${pathname === "/interview" && "bg-blue-600 text-white shadow-lg scale-105"
               }`}
             onClick={() => setOpen(false)}
           >
@@ -60,7 +60,7 @@ const NavMenu = ({ user }) => {
           </Link>
           <Link
             href="/news"
-            className={`py-3 px-6 font-semibold text-lg rounded-xl mb-2 transition-all duration-300 hover:bg-purple-500/20 hover:text-purple-300 hover:scale-105 hover:shadow-lg transform ${pathname === "/news" && "bg-purple-600 text-white shadow-lg scale-105"
+            className={`py-3 px-6 font-semibold text-lg rounded-xl mb-2 transition-all duration-300 hover:bg-purple-500/20 hover:theme-text-secondary hover:scale-105 hover:shadow-lg transform ${pathname === "/news" && "bg-blue-600 text-white shadow-lg scale-105"
               }`}
             onClick={() => setOpen(false)}
           >

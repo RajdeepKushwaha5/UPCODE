@@ -91,7 +91,7 @@ export default function ProblemDescription({
             <span
               key={index}
               className={`inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs ${
-                isDark ? 'bg-purple-500/20 text-purple-300' : 'bg-purple-100 text-purple-700'
+                isDark ? 'bg-purple-500/20 theme-text-secondary' : 'bg-purple-100 text-purple-700'
               }`}
             >
               <FaTag className="text-xs" />

@@ -111,7 +111,7 @@ const StudyPlanCard = ({ studyPlan, isActive, onUpdate }) => {
         <div className="flex items-center gap-2">
           <span className={`px-3 py-1 rounded-full text-xs font-medium ${studyPlan.status === 'active' ? 'bg-green-500/20 text-green-300' :
             studyPlan.status === 'paused' ? 'bg-yellow-500/20 text-yellow-300' :
-              studyPlan.status === 'completed' ? 'bg-purple-500/20 text-purple-300' :
+              studyPlan.status === 'completed' ? 'bg-purple-500/20 theme-text-secondary' :
                 'bg-red-500/20 text-red-300'
             }`}>
             {studyPlan.status.charAt(0).toUpperCase() + studyPlan.status.slice(1)}
@@ -169,7 +169,7 @@ const StudyPlanCard = ({ studyPlan, isActive, onUpdate }) => {
           <span>{studyPlan.timeAvailability?.daysPerWeek} days/week</span>
         </div>
         <div className="flex items-center gap-1">
-          <FaFlag className="text-purple-400" />
+          <FaFlag className="theme-accent" />
           <span>{studyPlan.goal?.timeline} days</span>
         </div>
       </div>
@@ -251,7 +251,7 @@ const StudyPlanCard = ({ studyPlan, isActive, onUpdate }) => {
             {studyPlan.topics?.slice(0, 3).map((topic, index) => (
               <span
                 key={index}
-                className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-xs"
+                className="bg-purple-500/20 theme-text-secondary px-2 py-1 rounded text-xs"
               >
                 {topic.name}
               </span>

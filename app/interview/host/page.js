@@ -125,18 +125,18 @@ export default function HostInterview() {
 
   if (status === "loading") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
-        <FaSpinner className="animate-spin text-4xl text-purple-400" />
+      <div className="min-h-screen theme-bg flex items-center justify-center">
+        <FaSpinner className="animate-spin text-4xl theme-accent" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen theme-bg">
       <Toaster position="top-right" />
 
       {/* Header */}
-      <div className="bg-slate-800/50 backdrop-blur-sm border-b border-purple-500/20 px-6 py-4">
+      <div className="theme-surface backdrop-blur-sm border-b border theme-border px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button
@@ -162,9 +162,9 @@ export default function HostInterview() {
         {!generatedInterview ? (
           /* Interview Creation Form */
           <div className="max-w-2xl mx-auto">
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8">
+            <div className="theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-8">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <FaVideo className="text-purple-400" />
+                <FaVideo className="theme-accent" />
                 Create New Interview
               </h2>
 
@@ -176,7 +176,7 @@ export default function HostInterview() {
                   value={interviewData.title}
                   onChange={(e) => handleInputChange('title', e.target.value)}
                   placeholder="e.g., Senior Frontend Developer Interview"
-                  className="w-full bg-slate-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none"
+                  className="w-full theme-surface-elevated/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
                 />
               </div>
 
@@ -188,7 +188,7 @@ export default function HostInterview() {
                   onChange={(e) => handleInputChange('description', e.target.value)}
                   placeholder="Brief description of the interview..."
                   rows={3}
-                  className="w-full bg-slate-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none"
+                  className="w-full theme-surface-elevated/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
                 />
               </div>
 
@@ -204,10 +204,10 @@ export default function HostInterview() {
                         onClick={() => handleInputChange('type', type.id)}
                         className={`p-4 rounded-lg border-2 transition-all ${interviewData.type === type.id
                             ? 'border-purple-500 bg-purple-500/20'
-                            : 'border-gray-600 bg-slate-700/30 hover:border-purple-400'
+                            : 'border-gray-600 theme-surface-elevated/30 hover:border-purple-400'
                           }`}
                       >
-                        <IconComponent className={`text-2xl mx-auto mb-2 ${interviewData.type === type.id ? 'text-purple-400' : 'text-gray-400'
+                        <IconComponent className={`text-2xl mx-auto mb-2 ${interviewData.type === type.id ? 'theme-accent' : 'text-gray-400'
                           }`} />
                         <div className="text-white font-semibold text-sm">{type.name}</div>
                         <div className="text-gray-400 text-xs mt-1">{type.description}</div>
@@ -226,7 +226,7 @@ export default function HostInterview() {
                     value={interviewData.company}
                     onChange={(e) => handleInputChange('company', e.target.value)}
                     placeholder="e.g., Google, Microsoft"
-                    className="w-full bg-slate-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none"
+                    className="w-full theme-surface-elevated/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
@@ -236,7 +236,7 @@ export default function HostInterview() {
                     value={interviewData.role}
                     onChange={(e) => handleInputChange('role', e.target.value)}
                     placeholder="e.g., Software Developer"
-                    className="w-full bg-slate-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none"
+                    className="w-full theme-surface-elevated/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
               </div>
@@ -248,7 +248,7 @@ export default function HostInterview() {
                   <select
                     value={interviewData.duration}
                     onChange={(e) => handleInputChange('duration', parseInt(e.target.value))}
-                    className="w-full bg-slate-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none"
+                    className="w-full theme-surface-elevated/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:outline-none"
                   >
                     {durations.map(duration => (
                       <option key={duration} value={duration}>{duration} minutes</option>
@@ -260,7 +260,7 @@ export default function HostInterview() {
                   <select
                     value={interviewData.difficulty}
                     onChange={(e) => handleInputChange('difficulty', e.target.value)}
-                    className="w-full bg-slate-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none"
+                    className="w-full theme-surface-elevated/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:outline-none"
                   >
                     {difficulties.map(difficulty => (
                       <option key={difficulty} value={difficulty}>
@@ -294,13 +294,13 @@ export default function HostInterview() {
         ) : (
           /* Generated Interview Credentials */
           <div className="max-w-2xl mx-auto">
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8">
+            <div className="theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-8">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
                 <FaKey className="text-green-400" />
                 Interview Created Successfully!
               </h2>
 
-              <div className="bg-slate-700/30 rounded-lg p-6 mb-6">
+              <div className="theme-surface-elevated/30 rounded-lg p-6 mb-6">
                 <h3 className="text-lg font-semibold text-white mb-4">{generatedInterview.title}</h3>
 
                 {/* Interview ID */}
@@ -312,7 +312,7 @@ export default function HostInterview() {
                     </code>
                     <button
                       onClick={() => copyToClipboard(generatedInterview.id, 'Interview ID')}
-                      className="bg-purple-600 hover:bg-purple-700 text-white p-2 rounded"
+                      className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded"
                     >
                       <FaCopy />
                     </button>
@@ -328,7 +328,7 @@ export default function HostInterview() {
                     </code>
                     <button
                       onClick={() => copyToClipboard(generatedInterview.password, 'Password')}
-                      className="bg-purple-600 hover:bg-purple-700 text-white p-2 rounded"
+                      className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded"
                     >
                       <FaCopy />
                     </button>
@@ -378,7 +378,7 @@ export default function HostInterview() {
                 </button>
                 <button
                   onClick={() => setGeneratedInterview(null)}
-                  className="bg-slate-600 hover:bg-slate-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
+                  className="bg-slate-600 hover:theme-surface-elevated text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
                 >
                   Create Another
                 </button>

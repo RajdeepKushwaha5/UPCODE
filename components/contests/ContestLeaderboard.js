@@ -78,7 +78,7 @@ const ContestLeaderboard = () => {
       'Gold': 'text-yellow-400',
       'Platinum': 'text-cyan-400',
       'Diamond': 'text-blue-400',
-      'Master': 'text-purple-400',
+      'Master': 'theme-accent',
       'Grandmaster': 'text-red-400'
     };
     return colors[tier] || 'text-gray-400';
@@ -91,14 +91,14 @@ const ContestLeaderboard = () => {
     if (rank <= 10) {
       return 'bg-gradient-to-r from-slate-600/30 to-slate-700/30 border-purple-400/20';
     }
-    return 'bg-slate-700/30 border-slate-600/30';
+    return 'theme-surface-elevated/30 border-slate-600/30';
   };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-purple-400/30 h-fit w-full max-w-md mx-auto lg:max-w-none"
+      className="theme-surface backdrop-blur-sm rounded-xl p-4 lg:p-6 border border theme-border h-fit w-full max-w-md mx-auto lg:max-w-none"
     >
       {/* Header */}
       <div className="flex flex-col space-y-3 lg:space-y-0 lg:flex-row lg:items-center justify-between mb-4 lg:mb-6">
@@ -108,13 +108,13 @@ const ContestLeaderboard = () => {
           </div>
           <div className="min-w-0">
             <h3 className="text-base lg:text-lg font-bold text-white">Leaderboard</h3>
-            <p className="text-purple-200 text-xs lg:text-sm">Top contest performers</p>
+            <p className="theme-text-secondary text-xs lg:text-sm">Top contest performers</p>
           </div>
         </div>
 
         {/* Timeframe Filter */}
         <div className="flex-shrink-0 self-start lg:self-center">
-          <div className="flex space-x-1 bg-slate-700/50 rounded-lg p-1 w-fit">
+          <div className="flex space-x-1 theme-surface-elevated/50 rounded-lg p-1 w-fit">
             {[
               { key: 'all', label: 'All' },
               { key: 'month', label: 'Month' },
@@ -125,7 +125,7 @@ const ContestLeaderboard = () => {
                 onClick={() => setTimeframe(period.key)}
                 className={`px-3 py-1.5 text-xs rounded-md transition-all font-medium whitespace-nowrap ${timeframe === period.key
                   ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
-                  : 'text-purple-200 hover:text-white hover:bg-slate-600/50'
+                  : 'theme-text-secondary hover:text-white hover:bg-slate-600/50'
                   }`}
               >
                 {period.label}
@@ -137,7 +137,7 @@ const ContestLeaderboard = () => {
 
       {/* Real-time Status */}
       {lastUpdated && (
-        <div className="flex items-center justify-between mb-4 text-xs text-purple-300">
+        <div className="flex items-center justify-between mb-4 text-xs theme-text-secondary">
           <div className="flex items-center space-x-1">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
             <span>Live</span>
@@ -155,7 +155,7 @@ const ContestLeaderboard = () => {
           // Loading skeleton
           [...Array(8)].map((_, index) => (
             <div key={`loading-${index}`} className="animate-pulse">
-              <div className="bg-slate-700/50 rounded-lg p-3 h-12 lg:h-16"></div>
+              <div className="theme-surface-elevated/50 rounded-lg p-3 h-12 lg:h-16"></div>
             </div>
           ))
         ) : (leaderboard && Array.isArray(leaderboard) && leaderboard.length > 0) ? (
@@ -201,12 +201,12 @@ const ContestLeaderboard = () => {
                         ? 'text-green-400'
                         : (player.change || '').startsWith('-')
                           ? 'text-red-400'
-                          : 'text-purple-300'
+                          : 'theme-text-secondary'
                         }`}>
                         {player.change || '±0'}
                       </span>
 
-                      <span className="text-purple-300 hidden lg:inline">
+                      <span className="theme-text-secondary hidden lg:inline">
                         {player.contests || 0}
                       </span>
                     </div>
@@ -217,7 +217,7 @@ const ContestLeaderboard = () => {
           }).filter(Boolean) // Remove null entries
         ) : (
           // No data available
-          <div className="text-center py-8 text-purple-300">
+          <div className="text-center py-8 theme-text-secondary">
             <FaTrophy className="mx-auto mb-3 text-4xl opacity-50" />
             <p className="text-sm">No leaderboard data available</p>
             <p className="text-xs opacity-70 mt-1">Please try again later</p>
@@ -227,7 +227,7 @@ const ContestLeaderboard = () => {
 
       {/* Footer Stats */}
       <div className="mt-4 lg:mt-6 pt-4 border-t border-slate-700/50">
-        <div className="grid grid-cols-2 lg:flex lg:items-center lg:justify-between gap-2 text-xs text-purple-300">
+        <div className="grid grid-cols-2 lg:flex lg:items-center lg:justify-between gap-2 text-xs theme-text-secondary">
           <div className="flex items-center space-x-1">
             <FaUsers className="w-3 h-3" />
             <span className="truncate">{loading ? '...' : `${stats.totalPlayers || '15,847'} players`}</span>
@@ -239,7 +239,7 @@ const ContestLeaderboard = () => {
           </div>
 
           <div className="flex items-center space-x-1 col-span-2 lg:col-span-1">
-            <FaChartLine className="text-purple-400" />
+            <FaChartLine className="theme-accent" />
             <span>Updates every 30s</span>
           </div>
         </div>

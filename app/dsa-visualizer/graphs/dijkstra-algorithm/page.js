@@ -297,7 +297,7 @@ export default function DijkstraAlgorithmVisualization() {
         </div>
 
         {/* Controls */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
+        <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Add Vertex */}
             <div>
@@ -308,7 +308,7 @@ export default function DijkstraAlgorithmVisualization() {
                   value={inputVertex}
                   onChange={(e) => setInputVertex(e.target.value)}
                   placeholder="Vertex name"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-amber-400 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-amber-400 focus:outline-none"
                   disabled={animating}
                 />
                 <button
@@ -330,7 +330,7 @@ export default function DijkstraAlgorithmVisualization() {
                   value={inputEdge1}
                   onChange={(e) => setInputEdge1(e.target.value)}
                   placeholder="From"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-amber-400 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-amber-400 focus:outline-none"
                   disabled={animating}
                 />
                 <input
@@ -338,7 +338,7 @@ export default function DijkstraAlgorithmVisualization() {
                   value={inputEdge2}
                   onChange={(e) => setInputEdge2(e.target.value)}
                   placeholder="To"
-                  className="flex-1 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-amber-400 focus:outline-none"
+                  className="flex-1 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-amber-400 focus:outline-none"
                   disabled={animating}
                 />
                 <input
@@ -347,7 +347,7 @@ export default function DijkstraAlgorithmVisualization() {
                   onChange={(e) => setInputWeight(e.target.value)}
                   placeholder="Weight"
                   min="1"
-                  className="w-20 px-3 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-amber-400 focus:outline-none"
+                  className="w-20 px-3 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-amber-400 focus:outline-none"
                   disabled={animating}
                 />
                 <button
@@ -370,7 +370,7 @@ export default function DijkstraAlgorithmVisualization() {
                   value={startVertex}
                   onChange={(e) => setStartVertex(e.target.value)}
                   placeholder="Start vertex"
-                  className="flex-1 px-4 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-amber-400 focus:outline-none"
+                  className="flex-1 px-4 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-amber-400 focus:outline-none"
                   disabled={animating}
                 />
                 <button
@@ -388,7 +388,7 @@ export default function DijkstraAlgorithmVisualization() {
                   value={endVertex}
                   onChange={(e) => setEndVertex(e.target.value)}
                   placeholder="End vertex"
-                  className="flex-1 px-4 py-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-amber-400 focus:outline-none"
+                  className="flex-1 px-4 py-2 theme-surface-elevated text-white rounded border border-slate-600 focus:border-amber-400 focus:outline-none"
                   disabled={animating || !algorithmComplete}
                 />
                 <button
@@ -424,7 +424,7 @@ export default function DijkstraAlgorithmVisualization() {
         {/* Visualization */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Graph Display */}
-          <div className="lg:col-span-2 bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+          <div className="lg:col-span-2 theme-surface/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
             <h2 className="text-xl font-bold text-white mb-4 text-center">Weighted Graph Visualization</h2>
             
             {vertices.length === 0 ? (
@@ -433,7 +433,7 @@ export default function DijkstraAlgorithmVisualization() {
               </div>
             ) : (
               <div className="relative">
-                <svg width="400" height="300" className="mx-auto border border-slate-600 rounded-lg bg-slate-900/50">
+                <svg width="400" height="300" className="mx-auto border border-slate-600 rounded-lg theme-bg/50">
                   {/* Render Edges */}
                   {edges.map((edge, index) => {
                     const [v1, v2, weight] = edge;
@@ -530,7 +530,7 @@ export default function DijkstraAlgorithmVisualization() {
           {/* Algorithm Info Panel */}
           <div className="space-y-6">
             {/* Distance Table */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h3 className="text-white font-bold mb-3">Distances from {startVertex}</h3>
               <div className="space-y-2">
                 {Object.entries(distances).map(([vertex, distance]) => (
@@ -542,7 +542,7 @@ export default function DijkstraAlgorithmVisualization() {
                         ? 'bg-yellow-500/20 text-yellow-400' 
                         : visited.has(vertex)
                         ? 'bg-green-500/20 text-green-400'
-                        : 'bg-slate-700 text-slate-300'
+                        : 'theme-surface-elevated text-slate-300'
                       }
                     `}
                   >
@@ -557,7 +557,7 @@ export default function DijkstraAlgorithmVisualization() {
 
             {/* Priority Queue */}
             {priorityQueue.length > 0 && (
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+              <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
                 <h3 className="text-white font-bold mb-3">Priority Queue</h3>
                 <div className="space-y-2">
                   {priorityQueue.map((item, index) => (
@@ -567,7 +567,7 @@ export default function DijkstraAlgorithmVisualization() {
                         px-3 py-2 rounded border-2 text-sm
                         ${index === 0 
                           ? 'bg-yellow-500/20 border-yellow-400 text-yellow-400' 
-                          : 'bg-slate-700 border-slate-600 text-slate-300'
+                          : 'theme-surface-elevated border-slate-600 text-slate-300'
                         }
                       `}
                     >
@@ -580,7 +580,7 @@ export default function DijkstraAlgorithmVisualization() {
 
             {/* Shortest Path */}
             {showPath && shortestPath.length > 0 && (
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+              <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
                 <h3 className="text-white font-bold mb-3">Shortest Path</h3>
                 <div className="flex flex-wrap gap-2 mb-3">
                   {shortestPath.map((vertex, index) => (
@@ -600,12 +600,12 @@ export default function DijkstraAlgorithmVisualization() {
             )}
 
             {/* Statistics */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+            <div className="theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
               <h3 className="text-white font-bold mb-3">Algorithm Status</h3>
               <div className="space-y-2 text-slate-300">
                 <div>Vertices: <span className="text-amber-400 font-bold">{vertices.length}</span></div>
                 <div>Edges: <span className="text-green-400 font-bold">{edges.length}</span></div>
-                <div>Processed: <span className="text-purple-400 font-bold">{visited.size}</span></div>
+                <div>Processed: <span className="theme-accent font-bold">{visited.size}</span></div>
                 <div>Complete: <span className="text-blue-400 font-bold">{algorithmComplete ? 'Yes' : 'No'}</span></div>
               </div>
             </div>
@@ -613,7 +613,7 @@ export default function DijkstraAlgorithmVisualization() {
         </div>
 
         {/* Legend */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-white font-bold mb-4 text-center">Legend</h3>
           <div className="flex flex-wrap justify-center gap-6">
             <div className="flex items-center gap-2">
@@ -636,7 +636,7 @@ export default function DijkstraAlgorithmVisualization() {
         </div>
 
         {/* Algorithm Info */}
-        <div className="mt-8 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
+        <div className="mt-8 theme-surface backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
           <h3 className="text-white font-bold mb-4">Dijkstra's Algorithm Properties</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="text-center">
@@ -648,7 +648,7 @@ export default function DijkstraAlgorithmVisualization() {
               <div className="text-slate-300 text-sm">O(V)</div>
             </div>
             <div className="text-center">
-              <div className="text-purple-400 font-bold mb-2">Edge Weights</div>
+              <div className="theme-accent font-bold mb-2">Edge Weights</div>
               <div className="text-slate-300 text-sm">Non-negative</div>
             </div>
             <div className="text-center">

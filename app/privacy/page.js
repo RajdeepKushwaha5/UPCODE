@@ -95,7 +95,7 @@ export default function PrivacyPolicyPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen theme-bg relative overflow-hidden">
       
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -117,10 +117,10 @@ export default function PrivacyPolicyPage() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 px-8 py-3 rounded-full border border-purple-400/30 mb-8"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 px-8 py-3 rounded-full border border theme-border mb-8"
             >
-              <FaShieldAlt className="text-purple-400 text-2xl animate-pulse" />
-              <span className="text-purple-300 font-semibold text-lg">Privacy & Security</span>
+              <FaShieldAlt className="theme-accent text-2xl animate-pulse" />
+              <span className="theme-text-secondary font-semibold text-lg">Privacy & Security</span>
             </motion.div>
 
             <motion.h1
@@ -159,9 +159,9 @@ export default function PrivacyPolicyPage() {
           transition={{ duration: 0.8, delay: 1 }}
           className="container mx-auto px-6 mb-16"
         >
-          <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20">
+          <div className="theme-surface/80 backdrop-blur-sm rounded-2xl p-6 border border theme-border">
             <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <FaEye className="text-purple-400" />
+              <FaEye className="theme-accent" />
               Quick Navigation
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -171,7 +171,7 @@ export default function PrivacyPolicyPage() {
                   href={`#section-${index}`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition-colors p-2 rounded-lg hover:bg-purple-500/10"
+                  className="flex items-center gap-2 text-gray-300 hover:theme-accent transition-colors p-2 rounded-lg hover:bg-purple-500/10"
                 >
                   {section.icon}
                   <span className="text-sm">{section.title}</span>
@@ -192,7 +192,7 @@ export default function PrivacyPolicyPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl rounded-2xl p-8 border border-purple-500/20 hover:border-purple-400/40 transition-all duration-500"
+                className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl rounded-2xl p-8 border border theme-border hover:border-purple-400/40 transition-all duration-500"
               >
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
@@ -204,8 +204,8 @@ export default function PrivacyPolicyPage() {
                   </div>
                 </div>
 
-                <div className="bg-slate-700/50 rounded-xl p-6 ml-16">
-                  <h4 className="text-purple-300 font-semibold mb-4">Key Points:</h4>
+                <div className="theme-surface-elevated/50 rounded-xl p-6 ml-16">
+                  <h4 className="theme-text-secondary font-semibold mb-4">Key Points:</h4>
                   <ul className="space-y-2">
                     {section.details.map((detail, detailIndex) => (
                       <motion.li
@@ -234,9 +234,9 @@ export default function PrivacyPolicyPage() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto mt-16"
           >
-            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-xl rounded-2xl p-8 border border-purple-400/30">
+            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-xl rounded-2xl p-8 border border theme-border">
               <div className="text-center">
-                <FaEnvelope className="text-4xl text-purple-400 mx-auto mb-4" />
+                <FaEnvelope className="text-4xl theme-accent mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-white mb-4">Questions About Your Privacy?</h3>
                 <p className="text-gray-300 mb-6 leading-relaxed">
                   If you have any questions about this Privacy Policy or our data practices, please don't hesitate to contact us.
@@ -244,13 +244,13 @@ export default function PrivacyPolicyPage() {
                 <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                   <a
                     href="mailto:privacy@upcode.dev"
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
                   >
                     Contact Privacy Team
                   </a>
                   <Link
                     href="/help-support"
-                    className="text-purple-400 hover:text-purple-300 font-semibold transition-colors"
+                    className="theme-accent hover:theme-text-secondary font-semibold transition-colors"
                   >
                     Visit Help Center →
                   </Link>
@@ -267,7 +267,7 @@ export default function PrivacyPolicyPage() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
+            className="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
           >
             <FaArrowUp />
           </motion.button>

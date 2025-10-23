@@ -108,7 +108,7 @@ const NewsPage = () => {
       case 'top': return <FaFire className="text-orange-400" />;
       case 'new': return <FaClock className="text-blue-400" />;
       case 'job': return <FaBriefcase className="text-green-400" />;
-      default: return <FaNewspaper className="text-purple-400" />;
+      default: return <FaNewspaper className="theme-accent" />;
     }
   };
 
@@ -122,7 +122,7 @@ const NewsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen theme-bg relative overflow-hidden">
       
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -138,7 +138,7 @@ const NewsPage = () => {
         
         {/* Hero Section */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full border border-purple-400/30 backdrop-blur-sm animate-premium-glow">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full border border theme-border backdrop-blur-sm animate-premium-glow">
             <span className="text-3xl animate-spin-slow">📡</span>
             <span className="text-white font-semibold font-space-grotesk">Tech News Hub</span>
           </div>
@@ -148,7 +148,7 @@ const NewsPage = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-inter leading-relaxed animate-fade-in-up animation-delay-500">
-            Stay updated with the latest in <span className="text-purple-400 font-semibold">technology</span>, 
+            Stay updated with the latest in <span className="theme-accent font-semibold">technology</span>, 
             <span className="text-pink-400 font-semibold"> programming</span>, and 
             <span className="text-blue-400 font-semibold"> career opportunities</span>
           </p>
@@ -156,7 +156,7 @@ const NewsPage = () => {
 
         {/* Category Selection */}
         <div className="max-w-2xl mx-auto mb-16 animate-fade-in-up animation-delay-1000">
-          <div className="bg-slate-800/40 backdrop-blur-xl rounded-2xl border border-purple-400/20 p-2 shadow-2xl">
+          <div className="theme-surface/40 backdrop-blur-xl rounded-2xl border border-purple-400/20 p-2 shadow-2xl">
             <div className="grid grid-cols-3 gap-2">
               {[
                 { key: 'top', label: 'Top Stories', icon: FaFire, color: 'orange' },
@@ -202,7 +202,7 @@ const NewsPage = () => {
           {loading ? (
             <div className="flex flex-col items-center justify-center py-20">
               <div className="relative">
-                <div className="w-16 h-16 border-4 border-purple-400/30 border-t-purple-400 rounded-full animate-spin"></div>
+                <div className="w-16 h-16 border-4 border theme-border border-t-purple-400 rounded-full animate-spin"></div>
                 <div className="absolute inset-0 w-16 h-16 border-4 border-pink-400/20 border-t-pink-400 rounded-full animate-spin animation-delay-500"></div>
               </div>
               <p className="text-gray-400 mt-6 font-inter text-lg">Loading latest stories...</p>
@@ -263,7 +263,7 @@ const NewsCard = ({ story, index, selectedOption, formatTimeAgo }) => {
       case 'top': return 'border-orange-400/30 hover:border-orange-400/60';
       case 'new': return 'border-blue-400/30 hover:border-blue-400/60';
       case 'job': return 'border-green-400/30 hover:border-green-400/60';
-      default: return 'border-purple-400/30 hover:border-purple-400/60';
+      default: return 'border theme-border hover:border-purple-400/60';
     }
   };
 
@@ -305,7 +305,7 @@ const NewsCard = ({ story, index, selectedOption, formatTimeAgo }) => {
           {story.by && (
             <div className="flex items-center gap-1">
               <FaUser className="text-xs" />
-              <span className="font-medium group-hover:text-purple-300 transition-colors duration-300">
+              <span className="font-medium group-hover:theme-text-secondary transition-colors duration-300">
                 {story.by}
               </span>
             </div>
