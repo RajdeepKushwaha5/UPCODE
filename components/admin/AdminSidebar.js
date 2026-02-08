@@ -47,12 +47,12 @@ export default function AdminSidebar({ activeSection, setActiveSection, user }) 
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <img src="/logo.png" alt="UPCODE" className="w-5 h-5 filter brightness-0 invert" />
               </div>
-              <span className="text-white font-bold text-lg">UPCODE</span>
+              <span className="font-bold text-lg" style={{ color: 'var(--text-primary)' }}>UPCODE</span>
             </div>
           )}
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="text-gray-400 hover:text-white transition-colors"
+            className="theme-text-secondary hover:opacity-80 transition-colors"
           >
             {isCollapsed ? (
               <ChevronRightIcon className="w-5 h-5" />
@@ -95,15 +95,15 @@ export default function AdminSidebar({ activeSection, setActiveSection, user }) 
       <div className="absolute bottom-0 left-0 right-0 p-2 border-t theme-border">
         {!isCollapsed && (
           <div className="mb-3 px-3 py-2">
-            <div className="text-xs text-gray-400">Logged in as</div>
-            <div className="text-sm text-white font-medium truncate">
+            <div className="text-xs theme-text-secondary">Logged in as</div>
+            <div className="text-sm font-medium truncate" style={{ color: 'var(--text-primary)' }}>
               {user?.email}
             </div>
           </div>
         )}
 
         <div className="space-y-1">
-          <Link href="/" className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-300 hover:text-white hover:theme-surface transition-all duration-200 ${isCollapsed ? 'justify-center' : ''}`}>
+          <Link href="/" className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg theme-text-secondary hover:opacity-80 hover:theme-surface transition-all duration-200 ${isCollapsed ? 'justify-center' : ''}`}>
             <HomeIcon className="w-5 h-5 flex-shrink-0" />
             {!isCollapsed && <span className="text-sm">Back to Site</span>}
           </Link>

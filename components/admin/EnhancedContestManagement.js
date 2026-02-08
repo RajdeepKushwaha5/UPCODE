@@ -139,7 +139,7 @@ export default function EnhancedContestManagement() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="text-white">Loading contests...</div>
+        <div style={{ color: 'var(--text-primary)' }}>Loading contests...</div>
       </div>
     );
   }
@@ -148,8 +148,8 @@ export default function EnhancedContestManagement() {
     <div>
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-white">Contest Management</h2>
-          <p className="text-gray-400">Create and manage contests</p>
+          <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Contest Management</h2>
+          <p style={{ color: 'var(--text-secondary)' }}>Create and manage contests</p>
         </div>
         <div className="flex space-x-3">
           <button
@@ -173,31 +173,33 @@ export default function EnhancedContestManagement() {
       {/* Contest Creation/Edit Form */}
       {showCreateForm && (
         <div className="theme-surface-elevated/50 rounded-xl p-6 mb-6 border border theme-border">
-          <h3 className="text-xl font-semibold text-white mb-4">
+          <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>
             {editingContest ? 'Edit Contest' : 'Create New Contest'}
           </h3>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Contest Title
                 </label>
                 <input
                   type="text"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border theme-border rounded-lg focus:border-blue-500 focus:outline-none"
+                  style={{ color: 'var(--text-primary)' }}
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Contest Type
                 </label>
                 <select
                   value={formData.type}
                   onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border theme-border rounded-lg focus:border-blue-500 focus:outline-none"
+                  style={{ color: 'var(--text-primary)' }}
                 >
                   <option value="weekly">Weekly</option>
                   <option value="biweekly">Biweekly</option>
@@ -208,13 +210,14 @@ export default function EnhancedContestManagement() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                 Description
               </label>
               <textarea
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+                className="w-full px-3 py-2 theme-surface border theme-border rounded-lg focus:border-blue-500 focus:outline-none"
+                style={{ color: 'var(--text-primary)' }}
                 rows="3"
                 required
               />
@@ -222,26 +225,28 @@ export default function EnhancedContestManagement() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Start Time
                 </label>
                 <input
                   type="datetime-local"
                   value={formData.start}
                   onChange={(e) => setFormData({ ...formData, start: e.target.value })}
-                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border theme-border rounded-lg focus:border-blue-500 focus:outline-none"
+                  style={{ color: 'var(--text-primary)' }}
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   End Time
                 </label>
                 <input
                   type="datetime-local"
                   value={formData.end}
                   onChange={(e) => setFormData({ ...formData, end: e.target.value })}
-                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border theme-border rounded-lg focus:border-blue-500 focus:outline-none"
+                  style={{ color: 'var(--text-primary)' }}
                   required
                 />
               </div>
@@ -249,13 +254,14 @@ export default function EnhancedContestManagement() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Difficulty
                 </label>
                 <select
                   value={formData.difficulty}
                   onChange={(e) => setFormData({ ...formData, difficulty: e.target.value })}
-                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border theme-border rounded-lg focus:border-blue-500 focus:outline-none"
+                  style={{ color: 'var(--text-primary)' }}
                 >
                   <option value="Easy">Easy</option>
                   <option value="Medium">Medium</option>
@@ -263,25 +269,27 @@ export default function EnhancedContestManagement() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Prize
                 </label>
                 <input
                   type="text"
                   value={formData.prize}
                   onChange={(e) => setFormData({ ...formData, prize: e.target.value })}
-                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border theme-border rounded-lg focus:border-blue-500 focus:outline-none"
+                  style={{ color: 'var(--text-primary)' }}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Rating Range
                 </label>
                 <input
                   type="text"
                   value={formData.rating}
                   onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
-                  className="w-full px-3 py-2 theme-surface border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+                  className="w-full px-3 py-2 theme-surface border theme-border rounded-lg focus:border-blue-500 focus:outline-none"
+                  style={{ color: 'var(--text-primary)' }}
                 />
               </div>
             </div>
@@ -296,7 +304,7 @@ export default function EnhancedContestManagement() {
               <button
                 type="button"
                 onClick={resetForm}
-                className="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                className="px-6 py-2 theme-surface-elevated rounded-lg hover:opacity-80 transition-colors" style={{ color: 'var(--text-primary)' }}
               >
                 Cancel
               </button>
@@ -307,43 +315,43 @@ export default function EnhancedContestManagement() {
 
       {/* Contests List */}
       <div className="theme-surface-elevated/30 rounded-xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-600">
-          <h3 className="text-lg font-semibold text-white">All Contests</h3>
+        <div className="px-6 py-4 border-b theme-border">
+          <h3 className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>All Contests</h3>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="theme-surface">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>
                   Contest
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>
                   Status
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>
                   Type
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>
                   Participants
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>
                   Source
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>
                   Actions
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-600">
+            <tbody className="divide-y divide-[var(--border-primary)]">
               {contests.map((contest) => (
                 <tr key={contest.id} className="hover:theme-surface-elevated/30">
                   <td className="px-6 py-4">
                     <div>
-                      <div className="text-sm font-medium text-white">
+                      <div className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
                         {contest.title}
                       </div>
-                      <div className="text-sm text-gray-400">
+                      <div className="text-sm" style={{ color: 'var(--text-secondary)' }}>
                         {new Date(contest.start).toLocaleDateString()} - {new Date(contest.end).toLocaleDateString()}
                       </div>
                     </div>
@@ -358,13 +366,13 @@ export default function EnhancedContestManagement() {
                       {contest.status}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-300">
+                  <td className="px-6 py-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
                     <span className="capitalize">{contest.type}</span>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-300">
+                  <td className="px-6 py-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
                     {contest.participants || 0}
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-300">
+                  <td className="px-6 py-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
                     <span className="capitalize">{contest.source}</span>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium space-x-2">
@@ -389,7 +397,7 @@ export default function EnhancedContestManagement() {
 
         {contests.length === 0 && (
           <div className="text-center py-12">
-            <div className="text-gray-400">No contests found</div>
+            <div style={{ color: 'var(--text-secondary)' }}>No contests found</div>
             <button
               onClick={() => setShowCreateForm(true)}
               className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"

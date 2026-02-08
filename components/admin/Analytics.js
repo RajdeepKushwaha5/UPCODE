@@ -75,7 +75,7 @@ export default function Analytics() {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
-        <span className="ml-3 text-gray-400">Loading analytics...</span>
+        <span className="ml-3" style={{ color: 'var(--text-secondary)' }}>Loading analytics...</span>
       </div>
     );
   }
@@ -84,15 +84,15 @@ export default function Analytics() {
     return (
       <div className="space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">Analytics & Reports</h1>
-          <p className="text-gray-400">Platform performance and user analytics</p>
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Analytics & Reports</h1>
+          <p style={{ color: 'var(--text-secondary)' }}>Platform performance and user analytics</p>
         </div>
         <div className="bg-red-900/20 border border-red-500/50 rounded-xl p-6">
           <div className="text-red-400 font-semibold">Error Loading Analytics</div>
-          <div className="text-gray-400 text-sm mt-2">{error}</div>
+          <div className="text-sm mt-2" style={{ color: 'var(--text-secondary)' }}>{error}</div>
           <button 
             onClick={fetchAnalytics}
-            className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm transition-colors"
+            className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-sm transition-colors" style={{ color: 'var(--text-primary)' }}
           >
             Retry
           </button>
@@ -105,12 +105,12 @@ export default function Analytics() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Analytics & Reports</h1>
-          <p className="text-gray-400">Platform performance and user analytics</p>
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Analytics & Reports</h1>
+          <p style={{ color: 'var(--text-secondary)' }}>Platform performance and user analytics</p>
         </div>
         <button 
           onClick={fetchAnalytics}
-          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm transition-colors"
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm transition-colors" style={{ color: 'var(--text-primary)' }}
         >
           Refresh
         </button>
@@ -118,74 +118,74 @@ export default function Analytics() {
 
       {/* Main Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-blue-400">{analytics.totalUsers || 0}</div>
-          <div className="text-gray-400">Total Users</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Total Users</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-green-400">{analytics.totalProblems || 0}</div>
-          <div className="text-gray-400">Total Problems</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Total Problems</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold theme-accent">{analytics.totalContests || 0}</div>
-          <div className="text-gray-400">Total Contests</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Total Contests</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-yellow-400">{analytics.activeContests || 0}</div>
-          <div className="text-gray-400">Active Contests</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Active Contests</div>
         </div>
       </div>
 
       {/* Secondary Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-cyan-400">{analytics.dailyActiveUsers || 0}</div>
-          <div className="text-gray-400">Daily Active Users</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Daily Active Users</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-emerald-400">{analytics.problemsSolvedToday || 0}</div>
-          <div className="text-gray-400">Problems Solved Today</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Problems Solved Today</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-indigo-400">{analytics.newRegistrations || 0}</div>
-          <div className="text-gray-400">New Registrations</div>
+          <div style={{ color: 'var(--text-secondary)' }}>New Registrations</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-orange-400">{analytics.serverUptime || "99.9%"}</div>
-          <div className="text-gray-400">Server Uptime</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Server Uptime</div>
         </div>
       </div>
 
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-          <h2 className="text-xl font-semibold text-white mb-4">Contest Participation</h2>
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
+          <h2 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Contest Participation</h2>
           <div className="h-64">
             {analytics.contestParticipation && analytics.contestParticipation.length > 0 ? (
               <div className="space-y-3">
                 {analytics.contestParticipation.slice(0, 5).map((contest, index) => (
                   <div key={index} className="flex justify-between items-center p-3 theme-surface-elevated/30 rounded-lg">
                     <div>
-                      <div className="text-white font-medium">{contest.title}</div>
-                      <div className="text-sm text-gray-400">{new Date(contest.start).toLocaleDateString()}</div>
+                      <div className="font-medium" style={{ color: 'var(--text-primary)' }}>{contest.title}</div>
+                      <div className="text-sm" style={{ color: 'var(--text-secondary)' }}>{new Date(contest.start).toLocaleDateString()}</div>
                     </div>
                     <div className="text-right">
                       <div className="text-lg font-bold theme-accent">{contest.participants || 0}</div>
-                      <div className="text-xs text-gray-400">participants</div>
+                      <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>participants</div>
                     </div>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="h-full flex items-center justify-center text-gray-400">
+              <div className="h-full flex items-center justify-center" style={{ color: 'var(--text-secondary)' }}>
                 No contest data available
               </div>
             )}
           </div>
         </div>
 
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-          <h2 className="text-xl font-semibold text-white mb-4">Problem Difficulty Distribution</h2>
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
+          <h2 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Problem Difficulty Distribution</h2>
           <div className="h-64">
             {analytics.problemDifficulty && Object.keys(analytics.problemDifficulty).length > 0 ? (
               <div className="space-y-4">
@@ -201,12 +201,12 @@ export default function Analytics() {
                   return (
                     <div key={difficulty} className="space-y-2">
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-300">{difficulty}</span>
-                        <span className="text-gray-400">{count} ({percentage}%)</span>
+                        <span style={{ color: 'var(--text-primary)' }}>{difficulty}</span>
+                        <span style={{ color: 'var(--text-secondary)' }}>{count} ({percentage}%)</span>
                       </div>
                       <div className="w-full theme-surface-elevated rounded-full h-2">
                         <div 
-                          className={`h-2 rounded-full ${colors[difficulty] || 'bg-gray-500'}`}
+                          className={`h-2 rounded-full ${colors[difficulty] || 'theme-surface-elevated'}`}
                           style={{ width: `${percentage}%` }}
                         ></div>
                       </div>
@@ -215,7 +215,7 @@ export default function Analytics() {
                 })}
               </div>
             ) : (
-              <div className="h-full flex items-center justify-center text-gray-400">
+              <div className="h-full flex items-center justify-center" style={{ color: 'var(--text-secondary)' }}>
                 No problem difficulty data available
               </div>
             )}
@@ -224,8 +224,8 @@ export default function Analytics() {
       </div>
 
       {/* User Growth Chart */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-        <h2 className="text-xl font-semibold text-white mb-4">User Growth Trends</h2>
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
+        <h2 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>User Growth Trends</h2>
         <div className="h-64">
           {analytics.userGrowth && analytics.userGrowth.length > 0 ? (
             <div className="h-full flex items-end justify-between space-x-2">
@@ -239,7 +239,7 @@ export default function Analytics() {
                       className="w-full bg-purple-500 rounded-t"
                       style={{ height: `${height}%`, minHeight: '4px' }}
                     ></div>
-                    <div className="text-xs text-gray-400 mt-2 transform rotate-45 origin-left">
+                    <div className="text-xs mt-2 transform rotate-45 origin-left" style={{ color: 'var(--text-secondary)' }}>
                       {data.month}
                     </div>
                   </div>
@@ -247,7 +247,7 @@ export default function Analytics() {
               })}
             </div>
           ) : (
-            <div className="h-full flex items-center justify-center text-gray-400">
+            <div className="h-full flex items-center justify-center" style={{ color: 'var(--text-secondary)' }}>
               No user growth data available
             </div>
           )}

@@ -263,7 +263,7 @@ export default function EnhancedProblemManagement() {
       case "Easy": return "bg-green-500/20 text-green-400";
       case "Medium": return "bg-yellow-500/20 text-yellow-400";
       case "Hard": return "bg-red-500/20 text-red-400";
-      default: return "bg-gray-500/20 text-gray-400";
+      default: return "bg-gray-500/20 theme-text-secondary";
     }
   };
 
@@ -271,8 +271,8 @@ export default function EnhancedProblemManagement() {
     switch (status) {
       case "Published": return "bg-green-500/20 text-green-400";
       case "Draft": return "bg-yellow-500/20 text-yellow-400";
-      case "Archived": return "bg-gray-500/20 text-gray-400";
-      default: return "bg-gray-500/20 text-gray-400";
+      case "Archived": return "bg-gray-500/20 theme-text-secondary";
+      default: return "bg-gray-500/20 theme-text-secondary";
     }
   };
 
@@ -280,7 +280,7 @@ export default function EnhancedProblemManagement() {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
-        <span className="ml-3 text-white">Loading problems...</span>
+        <span className="ml-3 theme-text">Loading problems...</span>
       </div>
     );
   }
@@ -290,21 +290,21 @@ export default function EnhancedProblemManagement() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
         <div>
-          <h2 className="text-2xl font-bold text-white">Problem Management</h2>
-          <p className="text-gray-400">Create, edit, and manage coding problems</p>
+          <h2 className="text-2xl font-bold theme-text">Problem Management</h2>
+          <p className="theme-text-secondary">Create, edit, and manage coding problems</p>
           {lastUpdated && (
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs theme-text-secondary mt-1">
               Last updated: {lastUpdated.toLocaleTimeString()}
             </p>
           )}
         </div>
         <div className="flex items-center gap-3">
-          <label className="flex items-center gap-2 text-sm text-gray-400">
+          <label className="flex items-center gap-2 text-sm theme-text-secondary">
             <input
               type="checkbox"
               checked={autoRefresh}
               onChange={(e) => setAutoRefresh(e.target.checked)}
-              className="rounded border-slate-600 theme-surface-elevated text-purple-600 focus:ring-blue-500 focus:ring-offset-slate-800"
+              className="rounded theme-border theme-surface-elevated text-purple-600 focus:ring-blue-500"
             />
             Auto-refresh
           </label>
@@ -313,8 +313,8 @@ export default function EnhancedProblemManagement() {
             disabled={refreshing}
             className={`px-3 py-2 rounded-lg transition-colors flex items-center gap-2 ${
               refreshing 
-                ? 'bg-slate-600/50 text-gray-300 cursor-not-allowed' 
-                : 'bg-slate-600 hover:theme-surface-elevated text-white'
+                ? 'theme-surface-elevated/50 theme-text-secondary cursor-not-allowed' 
+                : 'theme-surface-elevated hover:opacity-80 theme-text'
             }`}
           >
             <ArrowPathIcon className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
@@ -332,20 +332,20 @@ export default function EnhancedProblemManagement() {
       {/* Search and Filters */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="relative">
-          <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 theme-text-secondary w-5 h-5" />
           <input
             type="text"
             placeholder="Search problems..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full theme-surface-elevated border border-slate-600 text-white pl-10 pr-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full theme-surface-elevated border theme-border theme-text pl-10 pr-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
         
         <select
           value={filterDifficulty}
           onChange={(e) => setFilterDifficulty(e.target.value)}
-          className="theme-surface-elevated border border-slate-600 text-white px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="theme-surface-elevated border theme-border theme-text px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
           <option value="all">All Difficulties</option>
           {difficulties.map(diff => (
@@ -356,7 +356,7 @@ export default function EnhancedProblemManagement() {
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
-          className="theme-surface-elevated border border-slate-600 text-white px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="theme-surface-elevated border theme-border theme-text px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
           <option value="all">All Status</option>
           <option value="Published">Published</option>
@@ -366,34 +366,34 @@ export default function EnhancedProblemManagement() {
       </div>
 
       {/* Problems Table */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 overflow-hidden">
+      <div className="theme-surface backdrop-blur-sm rounded-xl border theme-border overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="theme-surface-elevated/50">
               <tr>
-                <th className="text-left px-6 py-4 text-gray-300 font-medium">Problem</th>
-                <th className="text-left px-6 py-4 text-gray-300 font-medium">Difficulty</th>
-                <th className="text-left px-6 py-4 text-gray-300 font-medium">Tags</th>
-                <th className="text-left px-6 py-4 text-gray-300 font-medium">Status</th>
-                <th className="text-left px-6 py-4 text-gray-300 font-medium">Submissions</th>
-                <th className="text-left px-6 py-4 text-gray-300 font-medium">Acceptance</th>
-                <th className="text-left px-6 py-4 text-gray-300 font-medium">Actions</th>
+                <th className="text-left px-6 py-4 theme-text-secondary font-medium">Problem</th>
+                <th className="text-left px-6 py-4 theme-text-secondary font-medium">Difficulty</th>
+                <th className="text-left px-6 py-4 theme-text-secondary font-medium">Tags</th>
+                <th className="text-left px-6 py-4 theme-text-secondary font-medium">Status</th>
+                <th className="text-left px-6 py-4 theme-text-secondary font-medium">Submissions</th>
+                <th className="text-left px-6 py-4 theme-text-secondary font-medium">Acceptance</th>
+                <th className="text-left px-6 py-4 theme-text-secondary font-medium">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-600/50">
+            <tbody className="divide-y divide-[var(--border-primary)]">
               {problems.map((problem) => (
                 <tr key={problem._id} className="hover:theme-surface-elevated/30 transition-colors">
                   <td className="px-6 py-4">
                     <div>
                       <div className="flex items-center space-x-2">
-                        <h3 className="text-white font-medium">{problem.title}</h3>
+                        <h3 className="theme-text font-medium">{problem.title}</h3>
                         {problem.isPremium && (
                           <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-500/20 text-yellow-400">
                             Premium
                           </span>
                         )}
                       </div>
-                      <span className="text-xs text-gray-500 block mt-1">
+                      <span className="text-xs theme-text-secondary block mt-1">
                                 Created: {formatDate(problem.createdAt)}
                               </span>
                     </div>
@@ -414,7 +414,7 @@ export default function EnhancedProblemManagement() {
                         </span>
                       ))}
                       {problem.tags.length > 2 && (
-                        <span className="text-gray-400 text-xs">+{problem.tags.length - 2}</span>
+                        <span className="theme-text-secondary text-xs">+{problem.tags.length - 2}</span>
                       )}
                     </div>
                   </td>
@@ -424,10 +424,10 @@ export default function EnhancedProblemManagement() {
                     </span>
                   </td>
                   <td className="px-6 py-4">
-                    <span className="text-white">{problem.submissions.toLocaleString()}</span>
+                    <span className="theme-text">{problem.submissions.toLocaleString()}</span>
                   </td>
                   <td className="px-6 py-4">
-                    <span className="text-white">{problem.acceptanceRate}%</span>
+                    <span className="theme-text">{problem.acceptanceRate}%</span>
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex items-center space-x-2">
@@ -467,14 +467,14 @@ export default function EnhancedProblemManagement() {
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex items-center justify-between">
-          <div className="text-gray-400 text-sm">
+          <div className="theme-text-secondary text-sm">
             Showing {problems.length} problems
           </div>
           <div className="flex items-center space-x-2">
             <button
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="flex items-center space-x-1 px-3 py-2 theme-surface-elevated hover:bg-slate-600 disabled:theme-surface disabled:text-gray-500 text-white rounded-lg transition-colors"
+              className="flex items-center space-x-1 px-3 py-2 theme-surface-elevated hover:opacity-80 disabled:theme-surface disabled:opacity-50 theme-text rounded-lg transition-colors"
             >
               <ChevronLeftIcon className="w-4 h-4" />
               <span>Previous</span>
@@ -488,7 +488,7 @@ export default function EnhancedProblemManagement() {
                   className={`px-3 py-2 rounded-lg transition-colors ${
                     currentPage === page
                       ? "bg-blue-600 text-white"
-                      : "theme-surface-elevated hover:bg-slate-600 text-white"
+                      : "theme-surface-elevated hover:opacity-80 theme-text"
                   }`}
                 >
                   {page}
@@ -499,7 +499,7 @@ export default function EnhancedProblemManagement() {
             <button
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="flex items-center space-x-1 px-3 py-2 theme-surface-elevated hover:bg-slate-600 disabled:theme-surface disabled:text-gray-500 text-white rounded-lg transition-colors"
+              className="flex items-center space-x-1 px-3 py-2 theme-surface-elevated hover:opacity-80 disabled:theme-surface disabled:opacity-50 theme-text rounded-lg transition-colors"
             >
               <span>Next</span>
               <ChevronRightIcon className="w-4 h-4" />
@@ -512,14 +512,14 @@ export default function EnhancedProblemManagement() {
       {showDeleteModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="theme-surface rounded-xl p-6 max-w-md w-full">
-            <h3 className="text-xl font-semibold text-white mb-4">Delete Problem</h3>
-            <p className="text-gray-400 mb-6">
+            <h3 className="text-xl font-semibold theme-text mb-4">Delete Problem</h3>
+            <p className="theme-text-secondary mb-6">
               Are you sure you want to delete "{selectedProblem?.title}"? This action cannot be undone.
             </p>
             <div className="flex justify-end space-x-3">
               <button
                 onClick={() => setShowDeleteModal(false)}
-                className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
+                className="px-4 py-2 theme-surface-elevated hover:opacity-80 theme-text rounded-lg transition-colors"
               >
                 Cancel
               </button>
@@ -540,11 +540,11 @@ export default function EnhancedProblemManagement() {
           <div className="theme-surface rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <form onSubmit={handleAddProblem}>
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-semibold text-white">Add New Problem</h3>
+                <h3 className="text-2xl font-semibold theme-text">Add New Problem</h3>
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="theme-text-secondary hover:theme-text transition-colors"
                 >
                   <XCircleIcon className="w-6 h-6" />
                 </button>
@@ -554,27 +554,27 @@ export default function EnhancedProblemManagement() {
                 {/* Basic Information */}
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium theme-text-secondary mb-2">
                       Problem Title *
                     </label>
                     <input
                       type="text"
                       value={formData.title}
                       onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 theme-surface-elevated border theme-border rounded-lg theme-text focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Enter problem title"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium theme-text-secondary mb-2">
                       Difficulty *
                     </label>
                     <select
                       value={formData.difficulty}
                       onChange={(e) => setFormData({ ...formData, difficulty: e.target.value })}
-                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 theme-surface-elevated border theme-border rounded-lg theme-text focus:ring-2 focus:ring-blue-500"
                       required
                     >
                       {difficulties.map(diff => (
@@ -584,7 +584,7 @@ export default function EnhancedProblemManagement() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium theme-text-secondary mb-2">
                       Tags
                     </label>
                     <div className="flex flex-wrap gap-2 mb-2">
@@ -601,7 +601,7 @@ export default function EnhancedProblemManagement() {
                               newTags.splice(index, 1);
                               setFormData({ ...formData, tags: newTags });
                             }}
-                            className="theme-text-secondary hover:text-white"
+                            className="theme-text-secondary hover:theme-text"
                           >
                             ×
                           </button>
@@ -618,7 +618,7 @@ export default function EnhancedProblemManagement() {
                         }
                         e.target.value = '';
                       }}
-                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 theme-surface-elevated border theme-border rounded-lg theme-text focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">Add a tag...</option>
                       {popularTags.map(tag => (
@@ -628,7 +628,7 @@ export default function EnhancedProblemManagement() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium theme-text-secondary mb-2">
                       Company Tags
                     </label>
                     <div className="flex flex-wrap gap-2 mb-2">
@@ -645,7 +645,7 @@ export default function EnhancedProblemManagement() {
                               newTags.splice(index, 1);
                               setFormData({ ...formData, companyTags: newTags });
                             }}
-                            className="text-blue-300 hover:text-white"
+                            className="text-blue-300 hover:theme-text"
                           >
                             ×
                           </button>
@@ -662,7 +662,7 @@ export default function EnhancedProblemManagement() {
                         }
                         e.target.value = '';
                       }}
-                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 theme-surface-elevated border theme-border rounded-lg theme-text focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">Add a company tag...</option>
                       {companyTags.map(tag => (
@@ -675,28 +675,28 @@ export default function EnhancedProblemManagement() {
                 {/* Problem Description */}
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium theme-text-secondary mb-2">
                       Problem Description *
                     </label>
                     <textarea
                       value={formData.description}
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                       rows={6}
-                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 theme-surface-elevated border theme-border rounded-lg theme-text focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Enter problem description..."
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium theme-text-secondary mb-2">
                       Constraints
                     </label>
                     <textarea
                       value={formData.constraints}
                       onChange={(e) => setFormData({ ...formData, constraints: e.target.value })}
                       rows={3}
-                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 theme-surface-elevated border theme-border rounded-lg theme-text focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Enter problem constraints..."
                     />
                   </div>
@@ -707,9 +707,9 @@ export default function EnhancedProblemManagement() {
                         type="checkbox"
                         checked={formData.isPremium}
                         onChange={(e) => setFormData({ ...formData, isPremium: e.target.checked })}
-                        className="mr-2 rounded border-slate-600 theme-surface-elevated text-purple-600 focus:ring-blue-500"
+                        className="mr-2 rounded theme-border theme-surface-elevated text-purple-600 focus:ring-blue-500"
                       />
-                      <span className="text-gray-300">Premium Problem</span>
+                      <span className="theme-text-secondary">Premium Problem</span>
                     </label>
                   </div>
                 </div>
@@ -717,11 +717,11 @@ export default function EnhancedProblemManagement() {
 
               {/* Code Templates */}
               <div className="mt-6">
-                <h4 className="text-lg font-medium text-white mb-4">Code Templates</h4>
+                <h4 className="text-lg font-medium theme-text mb-4">Code Templates</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {Object.entries(formData.codeTemplates).map(([lang, code]) => (
                     <div key={lang}>
-                      <label className="block text-sm font-medium text-gray-300 mb-2 capitalize">
+                      <label className="block text-sm font-medium theme-text-secondary mb-2 capitalize">
                         {lang} Template
                       </label>
                       <textarea
@@ -734,7 +734,7 @@ export default function EnhancedProblemManagement() {
                           }
                         })}
                         rows={4}
-                        className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white font-mono text-sm focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 theme-surface-elevated border theme-border rounded-lg theme-text font-mono text-sm focus:ring-2 focus:ring-blue-500"
                         placeholder={`Enter ${lang} code template...`}
                       />
                     </div>
@@ -743,11 +743,11 @@ export default function EnhancedProblemManagement() {
               </div>
 
               {/* Form Actions */}
-              <div className="flex justify-end space-x-3 mt-8 pt-6 border-t border-slate-700">
+              <div className="flex justify-end space-x-3 mt-8 pt-6 border-t theme-border">
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="px-6 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
+                  className="px-6 py-2 theme-surface-elevated hover:opacity-80 theme-text rounded-lg transition-colors"
                 >
                   Cancel
                 </button>
@@ -769,11 +769,11 @@ export default function EnhancedProblemManagement() {
           <div className="theme-surface rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <form onSubmit={handleEditProblem}>
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-semibold text-white">Edit Problem</h3>
+                <h3 className="text-2xl font-semibold theme-text">Edit Problem</h3>
                 <button
                   type="button"
                   onClick={() => setShowEditModal(false)}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="theme-text-secondary hover:theme-text transition-colors"
                 >
                   <XCircleIcon className="w-6 h-6" />
                 </button>
@@ -783,27 +783,27 @@ export default function EnhancedProblemManagement() {
                 {/* Basic Information */}
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium theme-text-secondary mb-2">
                       Problem Title *
                     </label>
                     <input
                       type="text"
                       value={formData.title}
                       onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 theme-surface-elevated border theme-border rounded-lg theme-text focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Enter problem title"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium theme-text-secondary mb-2">
                       Difficulty *
                     </label>
                     <select
                       value={formData.difficulty}
                       onChange={(e) => setFormData({ ...formData, difficulty: e.target.value })}
-                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 theme-surface-elevated border theme-border rounded-lg theme-text focus:ring-2 focus:ring-blue-500"
                       required
                     >
                       {difficulties.map(diff => (
@@ -816,14 +816,14 @@ export default function EnhancedProblemManagement() {
                 {/* Problem Description */}
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium theme-text-secondary mb-2">
                       Problem Description *
                     </label>
                     <textarea
                       value={formData.description}
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                       rows={6}
-                      className="w-full px-3 py-2 theme-surface-elevated border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 theme-surface-elevated border theme-border rounded-lg theme-text focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Enter problem description..."
                       required
                     />
@@ -832,11 +832,11 @@ export default function EnhancedProblemManagement() {
               </div>
 
               {/* Form Actions */}
-              <div className="flex justify-end space-x-3 mt-8 pt-6 border-t border-slate-700">
+              <div className="flex justify-end space-x-3 mt-8 pt-6 border-t theme-border">
                 <button
                   type="button"
                   onClick={() => setShowEditModal(false)}
-                  className="px-6 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
+                  className="px-6 py-2 theme-surface-elevated hover:opacity-80 theme-text rounded-lg transition-colors"
                 >
                   Cancel
                 </button>

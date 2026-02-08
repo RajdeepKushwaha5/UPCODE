@@ -209,7 +209,7 @@ export default function PremiumPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
       <Toaster position="top-right" />
       
       {/* Hero Section */}
@@ -234,10 +234,10 @@ export default function PremiumPage() {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent">
-              Unlock Your Full Coding Potential 🚀
+              Unlock Your Full Coding Potential
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed">
+            <p className="text-xl md:text-2xl mb-10 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               Get access to exclusive problems, advanced AI solutions, and premium company interview sets.
             </p>
 
@@ -255,7 +255,8 @@ export default function PremiumPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-transparent border-2 border-gray-600 text-white font-semibold rounded-xl hover:border-yellow-400 hover:text-yellow-400 transition-all duration-300 flex items-center gap-2"
+                className="px-8 py-4 bg-transparent border-2 font-semibold rounded-xl hover:border-yellow-400 hover:text-yellow-400 transition-all duration-300 flex items-center gap-2"
+                style={{ borderColor: 'var(--border-primary)', color: 'var(--text-primary)' }}
               >
                 <FaGift />
                 Try Free for 7 Days
@@ -266,7 +267,7 @@ export default function PremiumPage() {
       </section>
 
       {/* Premium Benefits Grid */}
-      <section className="py-20 bg-gray-900/50">
+      <section className="py-20" style={{ backgroundColor: 'var(--surface-base)' }}>
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -274,10 +275,10 @@ export default function PremiumPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
               Why Choose <span className="text-yellow-400">Premium?</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Unlock exclusive features designed to accelerate your coding journey and land your dream job.
             </p>
           </motion.div>
@@ -291,7 +292,8 @@ export default function PremiumPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50 hover:border-yellow-400/50 transition-all duration-300"
+                className="backdrop-blur-sm p-6 rounded-xl hover:border-yellow-400/50 transition-all duration-300"
+                style={{ backgroundColor: 'var(--surface-raised)', border: '1px solid var(--border-primary)' }}
               >
                 <div className="text-center">
                   <div className="mb-4 flex justify-center">
@@ -300,8 +302,8 @@ export default function PremiumPage() {
                   <div className="inline-block px-3 py-1 bg-yellow-400/20 text-yellow-400 text-xs font-semibold rounded-full mb-3">
                     {benefit.highlight}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>{benefit.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{benefit.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -321,7 +323,7 @@ export default function PremiumPage() {
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Choose Your <span className="text-yellow-400">Plan</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Flexible pricing options to fit your learning journey.
             </p>
           </motion.div>
@@ -332,7 +334,8 @@ export default function PremiumPage() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-gray-800/50 backdrop-blur-sm p-4 rounded-2xl border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 relative"
+              className="backdrop-blur-sm p-4 rounded-2xl hover:border-green-500/50 transition-all duration-300 relative"
+              style={{ backgroundColor: 'var(--surface-raised)', border: '1px solid var(--border-primary)' }}
             >
               <div className="text-center">
                 <div className="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full mb-4">
@@ -341,7 +344,7 @@ export default function PremiumPage() {
                 <h3 className="text-2xl font-bold mb-2">Free</h3>
                 <div className="mb-6">
                   <span className="text-5xl font-bold text-green-400">₹0</span>
-                  <span className="text-gray-400">/forever</span>
+                  <span style={{ color: 'var(--text-tertiary)' }}>/forever</span>
                 </div>
                 <ul className="space-y-3 mb-8 text-left">
                   <li className="flex items-center gap-3">
@@ -361,16 +364,16 @@ export default function PremiumPage() {
                     <span>Progress tracking</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <FaTimes className="text-gray-500" />
-                    <span className="text-gray-500">Hard problems</span>
+                    <FaTimes style={{ color: 'var(--text-tertiary)' }} />
+                    <span style={{ color: 'var(--text-tertiary)' }}>Hard problems</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <FaTimes className="text-gray-500" />
-                    <span className="text-gray-500">AI hints</span>
+                    <FaTimes style={{ color: 'var(--text-tertiary)' }} />
+                    <span style={{ color: 'var(--text-tertiary)' }}>AI hints</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <FaTimes className="text-gray-500" />
-                    <span className="text-gray-500">Video solutions</span>
+                    <FaTimes style={{ color: 'var(--text-tertiary)' }} />
+                    <span style={{ color: 'var(--text-tertiary)' }}>Video solutions</span>
                   </li>
                 </ul>
                 <button
@@ -387,7 +390,8 @@ export default function PremiumPage() {
               initial={{ opacity: 0, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-gray-800/50 backdrop-blur-sm p-4 rounded-2xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300"
+              className="backdrop-blur-sm p-4 rounded-2xl hover:border-purple-500/50 transition-all duration-300"
+              style={{ backgroundColor: 'var(--surface-raised)', border: '1px solid var(--border-primary)' }}
             >
               <div className="text-center">
                 <div className="inline-block px-3 py-1 bg-purple-500/20 theme-accent text-xs font-semibold rounded-full mb-4">
@@ -396,7 +400,7 @@ export default function PremiumPage() {
                 <h3 className="text-2xl font-bold mb-2">Monthly Premium</h3>
                 <div className="mb-6">
                   <span className="text-5xl font-bold theme-accent">₹999</span>
-                  <span className="text-gray-400">/month</span>
+                  <span style={{ color: 'var(--text-tertiary)' }}>/month</span>
                 </div>
                 <ul className="space-y-3 mb-8 text-left">
                   <li className="flex items-center gap-3">
@@ -461,7 +465,7 @@ export default function PremiumPage() {
                 <h3 className="text-2xl font-bold mb-2">Yearly Premium</h3>
                 <div className="mb-2">
                   <span className="text-5xl font-bold text-yellow-400">₹6,999</span>
-                  <span className="text-gray-400">/year</span>
+                  <span style={{ color: 'var(--text-tertiary)' }}>/year</span>
                 </div>
                 <div className="text-green-400 font-semibold mb-6">Save 42% • Only ₹583/month</div>
                 
@@ -519,9 +523,9 @@ export default function PremiumPage() {
           >
             <div className="flex items-center justify-center gap-4 mb-4">
               <FaLock className="text-green-400" />
-              <span className="text-gray-400">7-day money-back guarantee</span>
+              <span style={{ color: 'var(--text-secondary)' }}>7-day money-back guarantee</span>
             </div>
-            <div className="flex items-center justify-center gap-6 text-gray-500">
+            <div className="flex items-center justify-center gap-6" style={{ color: 'var(--text-tertiary)' }}>
               <FaCreditCard className="text-2xl" />
               <FaPaypal className="text-2xl" />
               <span className="text-sm">Secure payment powered by Razorpay</span>
@@ -531,7 +535,7 @@ export default function PremiumPage() {
       </section>
 
       {/* Free vs Premium Comparison */}
-      <section className="py-20 bg-gray-900/50">
+      <section className="py-20" style={{ backgroundColor: 'var(--surface-base)' }}>
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -539,25 +543,25 @@ export default function PremiumPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
               Choose the Perfect <span className="text-yellow-400">Plan</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Compare features across all our plans to find what works best for you.
             </p>
           </motion.div>
 
           <div className="max-w-6xl mx-auto overflow-x-auto">
-            <table className="w-full bg-gray-800/50 rounded-2xl overflow-hidden">
+            <table className="w-full rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--surface-raised)' }}>
               <thead>
-                <tr className="bg-gray-700/50">
+                <tr style={{ backgroundColor: 'var(--surface-overlay)' }}>
                   <th className="px-6 py-4 text-left font-bold">Feature</th>
                   <th className="px-6 py-4 text-center font-bold text-green-400">Free</th>
                   <th className="px-6 py-4 text-center font-bold theme-accent">Monthly Premium</th>
                   <th className="px-6 py-4 text-center font-bold text-yellow-400">Yearly Premium</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700/50">
+              <tbody className="divide-y" style={{ borderColor: 'var(--border-primary)' }}>
                 {[
                   { feature: "Problems Available", free: "10", monthly: "500+", yearly: "500+" },
                   { feature: "Hard Problems", free: false, monthly: true, yearly: true },
@@ -571,25 +575,25 @@ export default function PremiumPage() {
                   { feature: "Resume Review", free: false, monthly: false, yearly: true },
                   { feature: "Certification", free: false, monthly: false, yearly: true }
                 ].map((row, index) => (
-                  <tr key={index} className="hover:bg-gray-700/25 transition-colors">
+                  <tr key={index} className="transition-colors hover:opacity-90">
                     <td className="px-6 py-4 font-medium">{row.feature}</td>
                     <td className="px-6 py-4 text-center">
                       {typeof row.free === 'boolean' ? (
-                        row.free ? <FaCheck className="text-green-400 mx-auto" /> : <FaTimes className="text-gray-500 mx-auto" />
+                        row.free ? <FaCheck className="text-green-400 mx-auto" /> : <FaTimes className="mx-auto" style={{ color: 'var(--text-tertiary)' }} />
                       ) : (
                         <span className="text-green-400 font-semibold">{row.free}</span>
                       )}
                     </td>
                     <td className="px-6 py-4 text-center">
                       {typeof row.monthly === 'boolean' ? (
-                        row.monthly ? <FaCheck className="text-green-400 mx-auto" /> : <FaTimes className="text-gray-500 mx-auto" />
+                        row.monthly ? <FaCheck className="text-green-400 mx-auto" /> : <FaTimes className="mx-auto" style={{ color: 'var(--text-tertiary)' }} />
                       ) : (
                         <span className="theme-accent font-semibold">{row.monthly}</span>
                       )}
                     </td>
                     <td className="px-6 py-4 text-center">
                       {typeof row.yearly === 'boolean' ? (
-                        row.yearly ? <FaCheck className="text-green-400 mx-auto" /> : <FaTimes className="text-gray-500 mx-auto" />
+                        row.yearly ? <FaCheck className="text-green-400 mx-auto" /> : <FaTimes className="mx-auto" style={{ color: 'var(--text-tertiary)' }} />
                       ) : (
                         <span className="text-yellow-400 font-semibold">{row.yearly}</span>
                       )}
@@ -614,7 +618,7 @@ export default function PremiumPage() {
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Success <span className="text-yellow-400">Stories</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Join thousands of developers who upgraded to premium and landed their dream jobs.
             </p>
           </motion.div>
@@ -628,14 +632,15 @@ export default function PremiumPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50 hover:border-yellow-400/50 transition-all duration-300"
+                className="backdrop-blur-sm p-6 rounded-xl hover:border-yellow-400/50 transition-all duration-300"
+                style={{ backgroundColor: 'var(--surface-raised)', border: '1px solid var(--border-primary)' }}
               >
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <FaStar key={i} className="text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-gray-300 mb-6 italic">"{testimonial.comment}"</p>
+                <p className="mb-6 italic" style={{ color: 'var(--text-secondary)' }}>"{testimonial.comment}"</p>
                 <div className="flex items-center gap-4">
                   <img
                     src={testimonial.avatar}
@@ -644,7 +649,7 @@ export default function PremiumPage() {
                   />
                   <div>
                     <h4 className="font-semibold">{testimonial.name}</h4>
-                    <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                    <p className="text-sm" style={{ color: 'var(--text-tertiary)' }}>{testimonial.role}</p>
                   </div>
                 </div>
               </motion.div>
@@ -658,7 +663,7 @@ export default function PremiumPage() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <p className="text-gray-400 mb-8">Premium users got placed at:</p>
+            <p className="mb-8" style={{ color: 'var(--text-secondary)' }}>Premium users got placed at:</p>
             <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
               {companies.map((company, index) => (
                 <div key={index} className="flex items-center gap-2 text-2xl hover:opacity-100 transition-opacity">
@@ -672,7 +677,7 @@ export default function PremiumPage() {
       </section>
 
       {/* FAQ Section with Dropdowns */}
-      <section className="py-20 bg-gray-900/50">
+      <section className="py-20" style={{ backgroundColor: 'var(--surface-base)' }}>
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -680,7 +685,7 @@ export default function PremiumPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
               Frequently Asked <span className="text-yellow-400">Questions</span>
             </h2>
           </motion.div>
@@ -693,11 +698,13 @@ export default function PremiumPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden hover:border-yellow-400/30 transition-all duration-300"
+                className="backdrop-blur-sm rounded-xl overflow-hidden hover:border-yellow-400/30 transition-all duration-300"
+                style={{ backgroundColor: 'var(--surface-raised)', border: '1px solid var(--border-primary)' }}
               >
                 <button
                   onClick={() => toggleFaq(faq.id)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-700/25 transition-colors group"
+                  className="w-full px-6 py-5 flex items-center justify-between text-left transition-colors group"
+                  style={{ color: 'var(--text-primary)' }}
                 >
                   <span className="font-semibold text-lg flex items-center gap-3 group-hover:text-yellow-400 transition-colors">
                     <motion.div
@@ -716,7 +723,7 @@ export default function PremiumPage() {
                     transition={{ duration: 0.3 }}
                     className="flex-shrink-0"
                   >
-                    <FaChevronDown className="text-gray-400 group-hover:text-yellow-400 transition-colors" />
+                    <FaChevronDown style={{ color: 'var(--text-secondary)' }} className="group-hover:text-yellow-400 transition-colors" />
                   </motion.div>
                 </button>
                 
@@ -733,7 +740,8 @@ export default function PremiumPage() {
                         initial={{ y: -10 }}
                         animate={{ y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="px-6 pb-5 pt-2 text-gray-300 border-t border-gray-700/50 leading-relaxed"
+                        className="px-6 pb-5 pt-2 leading-relaxed"
+                        style={{ color: 'var(--text-secondary)', borderTop: '1px solid var(--border-primary)' }}
                       >
                         <div className="flex items-start gap-3">
                           <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
@@ -758,9 +766,9 @@ export default function PremiumPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-6">
-              Ready to Level Up? 🚀
+              Ready to Level Up?
             </h2>
-            <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+            <p className="text-xl mb-10 max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Join thousands of developers who upgraded to premium and landed their dream jobs. 
               Start your premium journey today!
             </p>
@@ -776,8 +784,8 @@ export default function PremiumPage() {
               <FaRocket className="text-2xl" />
             </motion.button>
 
-            <div className="mt-8 text-gray-400">
-              <p>✨ 7-day free trial • 💰 Money-back guarantee • 🔒 Secure payment</p>
+            <div className="mt-8" style={{ color: 'var(--text-tertiary)' }}>
+              <p>7-day free trial &bull; Money-back guarantee &bull; Secure payment</p>
             </div>
           </motion.div>
         </div>

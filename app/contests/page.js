@@ -22,7 +22,9 @@ import {
   FaSearch,
   FaTimes,
   FaCrown,
-  FaBolt
+  FaBolt,
+  FaFlag,
+  FaMedal
 } from "react-icons/fa";
 import ContestModes from '@/components/contests/ContestModes';
 import RatingCard from '@/components/contests/RatingCard';
@@ -269,7 +271,7 @@ export default function ContestsPage() {
 
       if (response.ok) {
         setRegisteredContests(prev => new Set([...prev, contest.id]));
-        setNotificationMessage(`Successfully registered for ${contest.title}! 🎉`);
+        setNotificationMessage(`Successfully registered for ${contest.title}!`);
       } else {
         setNotificationMessage(data.error || 'Registration failed. Please try again.');
       }
@@ -342,18 +344,18 @@ export default function ContestsPage() {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-white dark:bg-gray-800 rounded-xl max-w-4xl w-full max-h-[80vh] overflow-hidden"
+            className="theme-surface rounded-xl max-w-4xl w-full max-h-[80vh] overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="p-6 border-b" style={{ borderColor: 'var(--border-primary)' }}>
               <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <h2 className="text-2xl font-bold flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
                   <FaTrophy className="text-yellow-500" />
                   Leaderboard
                 </h2>
                 <button
                   onClick={() => setShowLeaderboard(false)}
-                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                  className="transition-colors" style={{ color: 'var(--text-secondary)' }}
                 >
                   <FaTimes className="text-xl" />
                 </button>
@@ -363,19 +365,19 @@ export default function ContestsPage() {
                   onClick={() => setLeaderboardType('global')}
                   className={`px-4 py-2 rounded-lg font-semibold transition-all ${leaderboardType === 'global'
                     ? 'bg-blue-500 text-white'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                    : 'theme-surface-elevated theme-text-secondary'
                     }`}
                 >
-                  🌍 Global Rankings
+                  <FaGlobe className="inline mr-1" /> Global Rankings
                 </button>
                 <button
                   onClick={() => setLeaderboardType('indian')}
                   className={`px-4 py-2 rounded-lg font-semibold transition-all ${leaderboardType === 'indian'
                     ? 'bg-orange-500 text-white'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                    : 'theme-surface-elevated theme-text-secondary'
                     }`}
                 >
-                  🇮🇳 Indian Rankings
+                  <FaFlag className="inline mr-1" /> Indian Rankings
                 </button>
               </div>
             </div>
@@ -383,15 +385,15 @@ export default function ContestsPage() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-gray-200 dark:border-gray-700">
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">Rank</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">User</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">Score</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">
+                    <tr className="border-b" style={{ borderColor: 'var(--border-primary)' }}>
+                      <th className="text-left py-3 px-4 font-semibold" style={{ color: 'var(--text-secondary)' }}>Rank</th>
+                      <th className="text-left py-3 px-4 font-semibold" style={{ color: 'var(--text-secondary)' }}>User</th>
+                      <th className="text-left py-3 px-4 font-semibold" style={{ color: 'var(--text-secondary)' }}>Score</th>
+                      <th className="text-left py-3 px-4 font-semibold" style={{ color: 'var(--text-secondary)' }}>
                         {leaderboardType === 'global' ? 'Country' : 'City'}
                       </th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">Contests</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">Rating</th>
+                      <th className="text-left py-3 px-4 font-semibold" style={{ color: 'var(--text-secondary)' }}>Contests</th>
+                      <th className="text-left py-3 px-4 font-semibold" style={{ color: 'var(--text-secondary)' }}>Rating</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -401,37 +403,37 @@ export default function ContestsPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
-                        className="border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                        className="border-b hover:opacity-80 transition-colors" style={{ borderColor: 'var(--border-primary)' }}
                       >
                         <td className="py-4 px-4">
                           <div className="flex items-center gap-2">
                             {user.rank <= 3 && (
-                              <span className="text-lg">
-                                {user.rank === 1 ? '🥇' : user.rank === 2 ? '🥈' : '🥉'}
+                              <span className={`text-lg font-bold ${user.rank === 1 ? 'text-yellow-500' : user.rank === 2 ? 'text-gray-400' : 'text-amber-600'}`}>
+                                <FaMedal />
                               </span>
                             )}
-                            <span className={`font-bold ${user.rank <= 3 ? 'text-yellow-600' : 'text-gray-600 dark:text-gray-400'}`}>
+                            <span className="font-bold" style={{ color: user.rank <= 3 ? 'var(--accent)' : 'var(--text-secondary)' }}>
                               #{user.rank}
                             </span>
                           </div>
                         </td>
                         <td className="py-4 px-4">
-                          <div className="font-semibold text-gray-900 dark:text-white">
+                          <div className="font-semibold" style={{ color: 'var(--text-primary)' }}>
                             {user.username}
                           </div>
                         </td>
                         <td className="py-4 px-4">
-                          <div className="font-bold text-blue-600 dark:text-blue-400">
+                          <div className="font-bold text-blue-400">
                             {isMounted ? user.score.toLocaleString() : '...'}
                           </div>
                         </td>
                         <td className="py-4 px-4">
-                          <div className="text-gray-600 dark:text-gray-400">
+                          <div style={{ color: 'var(--text-secondary)' }}>
                             {leaderboardType === 'global' ? user.country : user.city}
                           </div>
                         </td>
                         <td className="py-4 px-4">
-                          <div className="text-gray-600 dark:text-gray-400">
+                          <div style={{ color: 'var(--text-secondary)' }}>
                             {user.contests}
                           </div>
                         </td>
@@ -853,7 +855,7 @@ export default function ContestsPage() {
                     <FaCode className="text-4xl text-orange-400 mx-auto mb-3" />
                     <h3 className="text-xl font-bold mb-2">CodeDuel</h3>
                     <p className="theme-text-secondary text-sm mb-3">1v1 epic showdowns</p>
-                    <div className="text-xs theme-text-secondary">⚡ 30min • 🎯 1 Problem</div>
+                    <div className="text-xs theme-text-secondary">30min • 1 Problem</div>
                   </motion.div>
 
                   <motion.div
@@ -863,7 +865,7 @@ export default function ContestsPage() {
                     <FaUsers className="text-4xl text-blue-400 mx-auto mb-3" />
                     <h3 className="text-xl font-bold mb-2">QuadRush</h3>
                     <p className="theme-text-secondary text-sm mb-3">4-player squad battles</p>
-                    <div className="text-xs theme-text-secondary">⚡ 45min • 🎯 2 Problems</div>
+                    <div className="text-xs theme-text-secondary">45min • 2 Problems</div>
                   </motion.div>
 
                   <motion.div
@@ -873,7 +875,7 @@ export default function ContestsPage() {
                     <FaCrown className="text-4xl text-yellow-400 mx-auto mb-3" />
                     <h3 className="text-xl font-bold mb-2">CodeBattleground</h3>
                     <p className="theme-text-secondary text-sm mb-3">100-player code royale</p>
-                    <div className="text-xs theme-text-secondary">⚡ 60min • 🎯 3 Problems</div>
+                    <div className="text-xs theme-text-secondary">60min • 3 Problems</div>
                   </motion.div>
                 </div>
 
@@ -969,7 +971,7 @@ export default function ContestsPage() {
                               {getStatusIcon(contest.status)}
                             </div>
                             <div>
-                              <h3 className="text-xl font-bold text-white">
+                              <h3 className="text-xl font-bold theme-text">
                                 {contest.title}
                               </h3>
                               <div className="flex flex-wrap items-center gap-4 text-sm theme-text-secondary">
@@ -992,7 +994,7 @@ export default function ContestsPage() {
                           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
                             <div className="theme-surface-elevated/50 rounded-lg p-3 border border theme-border">
                               <div className="text-sm theme-text-secondary mb-1">Start Time</div>
-                              <div className="font-semibold text-white text-sm">
+                              <div className="font-semibold theme-text text-sm">
                                 {safeDateFormat(contest.startTime)}
                               </div>
                               <div className="text-xs theme-text-secondary">
@@ -1002,14 +1004,14 @@ export default function ContestsPage() {
 
                             <div className="theme-surface-elevated/50 rounded-lg p-3 border border theme-border">
                               <div className="text-sm theme-text-secondary mb-1">Duration</div>
-                              <div className="font-semibold text-white">
+                              <div className="font-semibold theme-text">
                                 {Math.floor(contest.duration / 60)}h {contest.duration % 60}m
                               </div>
                             </div>
 
                             <div className="theme-surface-elevated/50 rounded-lg p-3 border border theme-border">
                               <div className="text-sm theme-text-secondary mb-1">Participants</div>
-                              <div className="font-semibold text-white">
+                              <div className="font-semibold theme-text">
                                 {isMounted ? contest.participants.toLocaleString() : '...'}
                               </div>
                             </div>
@@ -1186,7 +1188,7 @@ export default function ContestsPage() {
               >
                 <div className="flex items-center gap-2 mb-4">
                   <FaBell className="theme-accent" />
-                  <h3 className="text-lg font-bold text-white">Live Updates</h3>
+                  <h3 className="text-lg font-bold theme-text">Live Updates</h3>
                 </div>
                 <div className="space-y-3 max-h-80 overflow-y-auto scrollbar-hide">
                   {updates.map((update) => (
@@ -1226,25 +1228,25 @@ export default function ContestsPage() {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <FaCalendarAlt className="theme-accent" />
-                    <h3 className="text-base lg:text-lg font-bold text-white">Contest Calendar</h3>
+                    <h3 className="text-base lg:text-lg font-bold theme-text">Contest Calendar</h3>
                   </div>
                   <div className="flex items-center gap-1 lg:gap-2">
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1))}
-                      className="p-1 lg:p-2 hover:theme-surface-elevated/50 rounded-lg theme-text-secondary hover:text-white transition-colors"
+                      className="p-1 lg:p-2 hover:theme-surface-elevated/50 rounded-lg theme-text-secondary hover:theme-text transition-colors"
                     >
                       <FaChevronLeft className="w-3 h-3 lg:w-4 lg:h-4" />
                     </motion.button>
-                    <div className="font-semibold text-white px-2 lg:px-3 text-sm lg:text-base min-w-[120px] text-center">
+                    <div className="font-semibold theme-text px-2 lg:px-3 text-sm lg:text-base min-w-[120px] text-center">
                       {safeDateFormat(currentDate, { month: 'long', year: 'numeric' })}
                     </div>
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1))}
-                      className="p-1 lg:p-2 hover:theme-surface-elevated/50 rounded-lg theme-text-secondary hover:text-white transition-colors"
+                      className="p-1 lg:p-2 hover:theme-surface-elevated/50 rounded-lg theme-text-secondary hover:theme-text transition-colors"
                     >
                       <FaChevronRight className="w-3 h-3 lg:w-4 lg:h-4" />
                     </motion.button>
@@ -1289,11 +1291,11 @@ export default function ContestsPage() {
                 </div>
 
                 {/* Quick Stats for current month */}
-                <div className="mt-4 pt-4 border-t border-slate-700/50">
+                <div className="mt-4 pt-4" style={{ borderTop: '1px solid var(--border-primary)' }}>
                   <div className="text-xs theme-text-secondary">
                     <div className="flex items-center justify-between">
                       <span>Contests this month:</span>
-                      <span className="font-semibold text-white">
+                      <span className="font-semibold theme-text">
                         {contests.filter(contest => {
                           const contestDate = new Date(contest.startTime);
                           return contestDate.getMonth() === currentDate.getMonth() && 
@@ -1314,7 +1316,7 @@ export default function ContestsPage() {
               >
                 <div className="flex items-center gap-2 mb-4">
                   <FaTrophy className="theme-accent" />
-                  <h3 className="text-lg font-bold text-white">Live Stats</h3>
+                  <h3 className="text-lg font-bold theme-text">Live Stats</h3>
                 </div>
                 <div className="space-y-3">
                   <motion.div 
@@ -1365,7 +1367,7 @@ export default function ContestsPage() {
             transition={{ delay: 0.4 }}
             className="mt-8 theme-surface backdrop-blur-sm rounded-xl p-6 shadow-lg border border theme-border"
           >
-            <h3 className="text-lg font-bold text-white mb-4">Quick Actions</h3>
+            <h3 className="text-lg font-bold theme-text mb-4">Quick Actions</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}>
                 <Link

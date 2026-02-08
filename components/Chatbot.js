@@ -156,7 +156,8 @@ const Chatbot = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed bottom-24 right-6 w-96 max-w-[calc(100vw-2rem)] h-[500px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl z-40 overflow-hidden border border-gray-200 dark:border-gray-700"
+            className="fixed bottom-24 right-6 w-96 max-w-[calc(100vw-2rem)] h-[500px] rounded-2xl shadow-2xl z-40 overflow-hidden"
+            style={{ backgroundColor: 'var(--surface-base)', border: '1px solid var(--border-primary)' }}
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -202,12 +203,16 @@ const Chatbot = () => {
 
                     {/* Message bubble */}
                     <div className={`rounded-2xl px-4 py-2 ${message.isBot
-                        ? 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200'
+                        ? ''
                         : 'bg-blue-600 text-white'
-                      }`}>
+                      }`}
+                      style={message.isBot ? { backgroundColor: 'var(--surface-raised)', color: 'var(--text-primary)' } : {}}
+                    >
                       <p className="text-sm whitespace-pre-wrap">{message.text}</p>
-                      <p className={`text-xs mt-1 ${message.isBot ? 'text-gray-500 dark:text-gray-400' : 'text-white/70'
-                        }`}>
+                      <p className={`text-xs mt-1 ${message.isBot ? '' : 'text-white/70'
+                        }`}
+                        style={message.isBot ? { color: 'var(--text-tertiary)' } : {}}
+                      >
                         {formatTime(message.timestamp)}
                       </p>
                     </div>
@@ -226,7 +231,7 @@ const Chatbot = () => {
                     <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0">
                       <FaRobot className="text-sm" />
                     </div>
-                    <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl px-4 py-2">
+                    <div className="rounded-2xl px-4 py-2" style={{ backgroundColor: 'var(--surface-raised)' }}>
                       <div className="flex space-x-1">
                         <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                         <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce animation-delay-200"></div>
@@ -241,7 +246,7 @@ const Chatbot = () => {
             </div>
 
             {/* Input */}
-            <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="p-4" style={{ borderTop: '1px solid var(--border-primary)' }}>
               <div className="flex gap-2">
                 <input
                   ref={inputRef}

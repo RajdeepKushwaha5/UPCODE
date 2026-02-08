@@ -67,7 +67,7 @@ export default function Dashboard() {
           <h1 className="text-4xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
             Welcome back, {session.user?.name || session.user?.email}!
           </h1>
-          <p className="text-gray-400 text-lg">Ready to continue your coding journey?</p>
+          <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>Ready to continue your coding journey?</p>
         </div>
 
         {/* Quick Actions Grid */}
@@ -79,8 +79,8 @@ export default function Dashboard() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </div>
-              <h3 className="text-white font-bold text-lg mb-2">Solve Problems</h3>
-              <p className="text-gray-400 text-sm">Practice coding with our extensive problem collection</p>
+              <h3 className="font-bold text-lg mb-2" style={{ color: 'var(--text-primary)' }}>Solve Problems</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Practice coding with our extensive problem collection</p>
             </div>
           </Link>
 
@@ -91,8 +91,8 @@ export default function Dashboard() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
               </div>
-              <h3 className="text-white font-bold text-lg mb-2">Join Contests</h3>
-              <p className="text-gray-400 text-sm">Compete with others in programming challenges</p>
+              <h3 className="font-bold text-lg mb-2" style={{ color: 'var(--text-primary)' }}>Join Contests</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Compete with others in programming challenges</p>
             </div>
           </Link>
 
@@ -103,8 +103,8 @@ export default function Dashboard() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <h3 className="text-white font-bold text-lg mb-2">Learn</h3>
-              <p className="text-gray-400 text-sm">Master programming languages with our courses</p>
+              <h3 className="font-bold text-lg mb-2" style={{ color: 'var(--text-primary)' }}>Learn</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Master programming languages with our courses</p>
             </div>
           </Link>
 
@@ -115,19 +115,19 @@ export default function Dashboard() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-white font-bold text-lg mb-2">Practice Interviews</h3>
-              <p className="text-gray-400 text-sm">Prepare for technical interviews with peer reviews</p>
+              <h3 className="font-bold text-lg mb-2" style={{ color: 'var(--text-primary)' }}>Practice Interviews</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Prepare for technical interviews with peer reviews</p>
             </div>
           </Link>
         </div>
 
         {/* Recent Activity */}
         <div className="theme-surface backdrop-blur-sm border border theme-border rounded-2xl p-6">
-          <h2 className="text-2xl font-bold text-white mb-6">Quick Stats</h2>
+          <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>Quick Stats</h2>
           {isLoadingStats ? (
             <div className="flex items-center justify-center py-8">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
-              <span className="ml-3 text-gray-400">Loading stats...</span>
+              <span className="ml-3" style={{ color: 'var(--text-secondary)' }}>Loading stats...</span>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -135,25 +135,25 @@ export default function Dashboard() {
                 <div className="text-3xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
                   {userStats?.totalSolved || 0}
                 </div>
-                <p className="text-gray-400">Problems Solved</p>
+                <p style={{ color: 'var(--text-tertiary)' }}>Problems Solved</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-black bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-2">
                   {userStats?.totalSubmissions || 0}
                 </div>
-                <p className="text-gray-400">Total Submissions</p>
+                <p style={{ color: 'var(--text-tertiary)' }}>Total Submissions</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-black bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-2">
                   {userStats?.acceptanceRate || 0}%
                 </div>
-                <p className="text-gray-400">Acceptance Rate</p>
+                <p style={{ color: 'var(--text-tertiary)' }}>Acceptance Rate</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
                   {userStats?.currentStreak || 0}
                 </div>
-                <p className="text-gray-400">Current Streak</p>
+                <p style={{ color: 'var(--text-tertiary)' }}>Current Streak</p>
               </div>
             </div>
           )}

@@ -749,7 +749,7 @@ export default function ProblemsPage() {
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-lg font-bold mb-2 theme-text">
-                  🌟 Problem of the Day
+                  Problem of the Day
                 </h3>
                 <p className="theme-text-secondary">
                   Challenge yourself with today's featured problem

@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import { FaBookOpen } from 'react-icons/fa'
 
 const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesson, completedLessons }) => {
 
@@ -58,7 +59,7 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
 
             {/* Modules sidebar */}
             <div className={`
-                w-full max-w-[380px] flex flex-col theme-surface/80 backdrop-blur-sm border border-purple-500/30 rounded-2xl shadow-2xl
+                w-full max-w-[380px] flex flex-col theme-surface backdrop-blur-sm border rounded-2xl shadow-2xl
                 max-md:absolute max-md:top-0 max-md:left-0 max-md:right-4 max-md:z-50 max-md:max-w-none
                 ${!open && 'max-md:hidden'}
                 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
@@ -71,7 +72,7 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
                 >
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                            <span className="text-lg">📚</span>
+                            <FaBookOpen className="text-white" />
                         </div>
                         <h1 className="text-white font-bold text-lg">Course Modules</h1>
                     </div>
@@ -95,7 +96,7 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
                                 key={moduleIndex} 
                                 className={`
                                     rounded-xl overflow-hidden border transition-all duration-300 hover:shadow-lg
-                                    ${isExpanded ? 'border theme-border theme-surface-elevated/50' : 'border-slate-600/50 theme-surface-elevated/30'}
+                                    ${isExpanded ? 'border theme-border theme-surface-elevated/50' : 'theme-border theme-surface-elevated/30'}
                                 `}
                             >
                                 {/* Module header */}
@@ -104,11 +105,11 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
                                     onClick={() => toggleModule(moduleIndex)}
                                 >
                                     <div className="flex items-center justify-between mb-2">
-                                        <h2 className="text-white font-semibold text-sm group-hover:theme-text-secondary transition-colors">
+                                        <h2 className="font-semibold text-sm transition-colors" style={{ color: 'var(--text-primary)' }}>
                                             {module.title}
                                         </h2>
                                         <div className="flex items-center gap-2">
-                                            <div className="w-12 h-2 bg-slate-600 rounded-full overflow-hidden">
+                                            <div className="w-12 h-2 rounded-full overflow-hidden" style={{ backgroundColor: 'var(--surface-raised)' }}>
                                                 <div 
                                                     className="h-full bg-gradient-to-r from-green-500 to-emerald-400 transition-all duration-500"
                                                     style={{ width: `${moduleProgress}%` }}
@@ -124,7 +125,7 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
                                             </svg>
                                         </div>
                                     </div>
-                                    <div className="text-xs text-slate-400">
+                                    <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>
                                         {module.lessons ? `${module.lessons.filter((_, lessonIndex) => isLessonCompleted(moduleIndex, lessonIndex)).length}/${module.lessons.length} completed` : '0 lessons'}
                                     </div>
                                 </div>
@@ -146,12 +147,13 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
                                                     className={`
                                                         p-3 rounded-lg cursor-pointer group transition-all duration-200 border
                                                         ${isCurrent 
-                                                            ? 'bg-blue-600/30 border theme-border text-white' 
+                                                            ? 'bg-blue-600/30 border theme-border' 
                                                             : isCompleted 
-                                                                ? 'bg-green-500/10 border-green-500/30 text-green-300 hover:bg-green-500/20' 
-                                                                : 'bg-slate-600/30 border-slate-500/30 text-slate-300 hover:bg-slate-600/50 hover:text-white'
+                                                                ? 'bg-green-500/10 border-green-500/30 hover:bg-green-500/20' 
+                                                                : 'border hover:opacity-80'
                                                         }
                                                     `}
+                                                    style={{ borderColor: isCurrent ? undefined : isCompleted ? undefined : 'var(--border-primary)', color: isCurrent ? 'var(--text-primary)' : isCompleted ? '#86efac' : 'var(--text-secondary)' }}
                                                 >
                                                     <div className="flex items-center gap-3">
                                                         <div className={`
@@ -160,10 +162,11 @@ const Modules = ({ modules, setData, onLessonChange, currentModule, currentLesso
                                                                 ? 'border-purple-400 bg-blue-600 text-white animate-pulse' 
                                                                 : isCompleted 
                                                                     ? 'border-green-500 bg-green-500 text-white' 
-                                                                    : 'border-slate-400 text-slate-400 group-hover:border-purple-400'
+                                                                    : 'group-hover:border-purple-400'
                                                             }
-                                                        `}>
-                                                            {isCurrent ? (
+                                                        `}
+                                                        style={{ borderColor: (!isCurrent && !isCompleted) ? 'var(--text-secondary)' : undefined, color: (!isCurrent && !isCompleted) ? 'var(--text-secondary)' : undefined }}
+                                                        >                                                            {isCurrent ? (
                                                                 <div className="w-2 h-2 bg-white rounded-full animate-ping"></div>
                                                             ) : isCompleted ? (
                                                                 '✓'

@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { FaChevronDown, FaChevronUp, FaQuestionCircle, FaHeadset, FaEnvelope, FaPhone, FaClock } from 'react-icons/fa'
+import { FaChevronDown, FaChevronUp, FaQuestionCircle, FaHeadset, FaEnvelope, FaPhone, FaClock, FaBook, FaUsers, FaLightbulb } from 'react-icons/fa'
 
 const HelpSupport = () => {
   const [openFaq, setOpenFaq] = useState(null)
@@ -62,7 +62,7 @@ const HelpSupport = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <div className="min-h-screen theme-bg">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-12">
@@ -72,7 +72,7 @@ const HelpSupport = () => {
               Help & Support
             </h1>
           </div>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-lg max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
             Find answers to common questions, get support, and learn how to make the most of UPCODE
           </p>
         </div>
@@ -80,34 +80,34 @@ const HelpSupport = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* FAQ Section */}
           <div className="lg:col-span-2" id="faq">
-            <div className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700">
+            <div className="theme-surface rounded-2xl p-8 border" style={{ borderColor: 'var(--border-primary)' }}>
               <div className="flex items-center gap-3 mb-8">
                 <FaQuestionCircle className="text-2xl theme-accent" />
-                <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+                <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Frequently Asked Questions</h2>
               </div>
 
               <div className="space-y-4">
                 {faqs.map((faq, index) => (
                   <div
                     key={index}
-                    className="border border-gray-600/50 rounded-xl overflow-hidden bg-gray-700/30"
+                    className="border rounded-xl overflow-hidden" style={{ borderColor: 'var(--border-primary)', backgroundColor: 'var(--surface-raised)' }}
                   >
                     <button
                       onClick={() => toggleFaq(index)}
-                      className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-600/30 transition-all duration-300"
+                      className="w-full px-6 py-4 text-left flex items-center justify-between transition-all duration-300" style={{ color: 'var(--text-primary)' }}
                     >
-                      <span className="text-white font-medium text-lg">{faq.question}</span>
+                      <span className="font-medium text-lg">{faq.question}</span>
                       {openFaq === index ? (
                         <FaChevronUp className="theme-accent transition-transform duration-300" />
                       ) : (
-                        <FaChevronDown className="text-gray-400 transition-transform duration-300" />
+                        <FaChevronDown style={{ color: 'var(--text-secondary)' }} className="transition-transform duration-300" />
                       )}
                     </button>
 
                     {openFaq === index && (
                       <div className="px-6 pb-4 animate-fadeIn">
-                        <div className="border-t border-gray-600/30 pt-4">
-                          <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                        <div className="border-t pt-4" style={{ borderColor: 'var(--border-primary)' }}>
+                          <p className="leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{faq.answer}</p>
                         </div>
                       </div>
                     )}
@@ -120,8 +120,8 @@ const HelpSupport = () => {
           {/* Contact Support Section */}
           <div className="space-y-6">
             {/* Contact Information */}
-            <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+            <div className="theme-surface rounded-2xl p-6 border" style={{ borderColor: 'var(--border-primary)' }}>
+              <h3 className="text-xl font-bold mb-6 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
                 <FaHeadset className="theme-accent" />
                 Contact Support
               </h3>
@@ -130,11 +130,10 @@ const HelpSupport = () => {
                 <div className="flex items-start gap-3">
                   <FaEnvelope className="theme-accent mt-1" />
                   <div>
-                    <p className="text-white font-medium">Email Support</p>
+                    <p className="font-medium" style={{ color: 'var(--text-primary)' }}>Email Support</p>
                     <Link
                       href="mailto:support@upcode.com"
-                      className="text-gray-400 hover:theme-accent transition-colors"
-                    >
+                      className="hover:theme-accent transition-colors" style={{ color: 'var(--text-secondary)' }}>
                       support@upcode.com
                     </Link>
                   </div>
@@ -143,16 +142,16 @@ const HelpSupport = () => {
                 <div className="flex items-start gap-3">
                   <FaClock className="theme-accent mt-1" />
                   <div>
-                    <p className="text-white font-medium">Response Time</p>
-                    <p className="text-gray-400">Within 24 hours</p>
+                    <p className="font-medium" style={{ color: 'var(--text-primary)' }}>Response Time</p>
+                    <p style={{ color: 'var(--text-secondary)' }}>Within 24 hours</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
-              <h3 className="text-xl font-bold text-white mb-6">Quick Actions</h3>
+            <div className="theme-surface rounded-2xl p-6 border" style={{ borderColor: 'var(--border-primary)' }}>
+              <h3 className="text-xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>Quick Actions</h3>
 
               <div className="space-y-4">
                 <Link
@@ -164,21 +163,21 @@ const HelpSupport = () => {
 
                 <Link
                   href="/problems"
-                  className="block w-full px-4 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-all duration-300 text-center font-medium"
+                  className="block w-full px-4 py-3 rounded-lg transition-all duration-300 text-center font-medium" style={{ backgroundColor: 'var(--surface-raised)', color: 'var(--text-primary)' }}
                 >
                   Browse Problems
                 </Link>
 
                 <Link
                   href="/dsa-visualizer"
-                  className="block w-full px-4 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-all duration-300 text-center font-medium"
+                  className="block w-full px-4 py-3 rounded-lg transition-all duration-300 text-center font-medium" style={{ backgroundColor: 'var(--surface-raised)', color: 'var(--text-primary)' }}
                 >
                   DSA Visualizer
                 </Link>
 
                 <Link
                   href="/dashboard"
-                  className="block w-full px-4 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-all duration-300 text-center font-medium"
+                  className="block w-full px-4 py-3 rounded-lg transition-all duration-300 text-center font-medium" style={{ backgroundColor: 'var(--surface-raised)', color: 'var(--text-primary)' }}
                 >
                   Dashboard
                 </Link>
@@ -186,41 +185,44 @@ const HelpSupport = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700" id="contact">
-              <h3 className="text-xl font-bold text-white mb-6">Send us a Message</h3>
+            <div className="theme-surface rounded-2xl p-6 border" style={{ borderColor: 'var(--border-primary)' }} id="contact">
+              <h3 className="text-xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>Send us a Message</h3>
 
               <form className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                     Name
                   </label>
                   <input
                     type="text"
                     id="name"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
+                    style={{ backgroundColor: 'var(--surface-raised)', borderColor: 'var(--border-primary)', color: 'var(--text-primary)', border: '1px solid var(--border-primary)' }}
                     placeholder="Your name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                     Email
                   </label>
                   <input
                     type="email"
                     id="email"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
+                    style={{ backgroundColor: 'var(--surface-raised)', borderColor: 'var(--border-primary)', color: 'var(--text-primary)', border: '1px solid var(--border-primary)' }}
                     placeholder="your@email.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                     Subject
                   </label>
                   <select
                     id="subject"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
+                    style={{ backgroundColor: 'var(--surface-raised)', borderColor: 'var(--border-primary)', color: 'var(--text-primary)', border: '1px solid var(--border-primary)' }}
                   >
                     <option value="">Select a topic</option>
                     <option value="technical">Technical Issue</option>
@@ -232,13 +234,14 @@ const HelpSupport = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                     Message
                   </label>
                   <textarea
                     id="message"
                     rows={4}
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                    style={{ backgroundColor: 'var(--surface-raised)', borderColor: 'var(--border-primary)', color: 'var(--text-primary)', border: '1px solid var(--border-primary)' }}
                     placeholder="Describe your issue or question..."
                   ></textarea>
                 </div>
@@ -256,10 +259,12 @@ const HelpSupport = () => {
 
         {/* Additional Resources */}
         <div className="mt-12 grid md:grid-cols-3 gap-6">
-          <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 text-center">
-            <div className="text-3xl mb-4">📚</div>
-            <h3 className="text-lg font-bold text-white mb-2">Documentation</h3>
-            <p className="text-gray-400 mb-4">Comprehensive guides and tutorials</p>
+          <div className="theme-surface rounded-xl p-6 border text-center" style={{ borderColor: 'var(--border-primary)' }}>
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mx-auto mb-4 text-white text-xl">
+              <FaBook />
+            </div>
+            <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Documentation</h3>
+            <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>Comprehensive guides and tutorials</p>
             <Link
               href="/courses"
               className="theme-accent hover:theme-text-secondary transition-colors font-medium"
@@ -268,10 +273,12 @@ const HelpSupport = () => {
             </Link>
           </div>
 
-          <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 text-center">
-            <div className="text-3xl mb-4">👥</div>
-            <h3 className="text-lg font-bold text-white mb-2">Community</h3>
-            <p className="text-gray-400 mb-4">Connect with other developers</p>
+          <div className="theme-surface rounded-xl p-6 border text-center" style={{ borderColor: 'var(--border-primary)' }}>
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-4 text-white text-xl">
+              <FaUsers />
+            </div>
+            <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Community</h3>
+            <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>Connect with other developers</p>
             <Link
               href="/contests"
               className="theme-accent hover:theme-text-secondary transition-colors font-medium"
@@ -280,10 +287,12 @@ const HelpSupport = () => {
             </Link>
           </div>
 
-          <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 text-center">
-            <div className="text-3xl mb-4">💡</div>
-            <h3 className="text-lg font-bold text-white mb-2">Tips & Tricks</h3>
-            <p className="text-gray-400 mb-4">Improve your coding skills</p>
+          <div className="theme-surface rounded-xl p-6 border text-center" style={{ borderColor: 'var(--border-primary)' }}>
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center mx-auto mb-4 text-white text-xl">
+              <FaLightbulb />
+            </div>
+            <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Tips & Tricks</h3>
+            <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>Improve your coding skills</p>
             <Link
               href="/interview"
               className="theme-accent hover:theme-text-secondary transition-colors font-medium"

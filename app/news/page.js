@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import axios from '../../lib/axios';
-import { FaFire, FaClock, FaBriefcase, FaNewspaper, FaExternalLinkAlt, FaHeart, FaComments, FaUser, FaExclamationCircle } from 'react-icons/fa';
+import { FaFire, FaClock, FaBriefcase, FaNewspaper, FaExternalLinkAlt, FaHeart, FaComments, FaUser, FaExclamationCircle, FaSatelliteDish } from 'react-icons/fa';
 import CommunitySection from '../../components/CommunitySection';
 
 const NewsPage = () => {
@@ -129,9 +129,7 @@ const NewsPage = () => {
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl animate-bounce"></div>
-        <div className="absolute top-20 right-20 text-4xl animate-float animation-delay-1000">📰</div>
-        <div className="absolute bottom-20 left-20 text-3xl animate-float animation-delay-500">📊</div>
-        <div className="absolute top-1/3 right-1/3 text-2xl animate-float">💼</div>
+
       </div>
 
       <div className="container mx-auto px-6 py-20 relative z-10">
@@ -139,15 +137,15 @@ const NewsPage = () => {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full border border theme-border backdrop-blur-sm animate-premium-glow">
-            <span className="text-3xl animate-spin-slow">📡</span>
-            <span className="text-white font-semibold font-space-grotesk">Tech News Hub</span>
+            <FaSatelliteDish className="text-2xl animate-spin-slow" style={{ color: 'var(--accent)' }} />
+            <span className="font-semibold font-space-grotesk" style={{ color: 'var(--text-primary)' }}>Tech News Hub</span>
           </div>
           
           <h1 className="text-6xl md:text-8xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-text-reveal font-space-grotesk tracking-tight mb-6">
             News
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-inter leading-relaxed animate-fade-in-up animation-delay-500">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto font-inter leading-relaxed animate-fade-in-up animation-delay-500" style={{ color: 'var(--text-secondary)' }}>
             Stay updated with the latest in <span className="theme-accent font-semibold">technology</span>, 
             <span className="text-pink-400 font-semibold"> programming</span>, and 
             <span className="text-blue-400 font-semibold"> career opportunities</span>
@@ -174,9 +172,10 @@ const NewsPage = () => {
                       relative overflow-hidden py-4 px-6 rounded-xl font-semibold transition-all duration-500 transform hover:scale-105 font-inter
                       ${isActive 
                         ? `bg-gradient-to-r ${getCategoryGradient(option.key)} text-white shadow-lg shadow-${option.color}-500/25` 
-                        : 'text-gray-300 hover:text-white hover:bg-white/10'
+                        : 'hover:bg-white/10'
                       }
                     `}
+                    style={!isActive ? { color: 'var(--text-secondary)' } : {}}
                   >
                     <div className="flex items-center justify-center gap-3">
                       <IconComponent className={`text-lg ${isActive ? 'animate-icon-bounce' : ''}`} />
@@ -205,13 +204,13 @@ const NewsPage = () => {
                 <div className="w-16 h-16 border-4 border theme-border border-t-purple-400 rounded-full animate-spin"></div>
                 <div className="absolute inset-0 w-16 h-16 border-4 border-pink-400/20 border-t-pink-400 rounded-full animate-spin animation-delay-500"></div>
               </div>
-              <p className="text-gray-400 mt-6 font-inter text-lg">Loading latest stories...</p>
+              <p className="mt-6 font-inter text-lg" style={{ color: 'var(--text-secondary)' }}>Loading latest stories...</p>
             </div>
           ) : error ? (
             <div className="flex flex-col items-center justify-center py-20">
               <FaExclamationCircle className="text-red-500 text-6xl mb-6" />
               <h3 className="text-2xl font-bold text-red-600 mb-4">Error Loading News</h3>
-              <p className="text-gray-400 text-center max-w-md mb-8 leading-relaxed">{error}</p>
+              <p className="text-center max-w-md mb-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{error}</p>
               <button 
                 onClick={() => window.location.reload()} 
                 className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105"
@@ -221,9 +220,9 @@ const NewsPage = () => {
             </div>
           ) : stories.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20">
-              <FaNewspaper className="text-gray-400 text-6xl mb-6" />
-              <h3 className="text-2xl font-bold text-gray-600 mb-4">No Stories Available</h3>
-              <p className="text-gray-400">Please try again later or select a different category.</p>
+              <FaNewspaper className="text-6xl mb-6" style={{ color: 'var(--text-secondary)' }} />
+              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>No Stories Available</h3>
+              <p style={{ color: 'var(--text-secondary)' }}>Please try again later or select a different category.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -288,20 +287,20 @@ const NewsCard = ({ story, index, selectedOption, formatTimeAgo }) => {
             <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white font-bold text-sm">
               {index + 1}
             </div>
-            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider font-inter">
+            <span className="text-xs font-semibold uppercase tracking-wider font-inter" style={{ color: 'var(--text-secondary)' }}>
               {selectedOption === 'job' ? 'Career' : 'Tech News'}
             </span>
           </div>
-          <FaExternalLinkAlt className="text-gray-500 group-hover:text-white transition-colors duration-300" />
+          <FaExternalLinkAlt className="transition-colors duration-300" style={{ color: 'var(--text-secondary)' }} />
         </div>
 
         {/* Article Title */}
-        <h3 className="text-lg font-bold text-white mb-4 line-clamp-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300 font-space-grotesk leading-tight">
+        <h3 className="text-lg font-bold mb-4 line-clamp-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300 font-space-grotesk leading-tight" style={{ color: 'var(--text-primary)' }}>
           {story.title}
         </h3>
 
         {/* Article Meta */}
-        <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-4">
+        <div className="flex flex-wrap items-center gap-4 text-sm mb-4" style={{ color: 'var(--text-secondary)' }}>
           {story.by && (
             <div className="flex items-center gap-1">
               <FaUser className="text-xs" />
@@ -332,7 +331,7 @@ const NewsCard = ({ story, index, selectedOption, formatTimeAgo }) => {
 
         {/* Time Stamp */}
         {story.time && (
-          <div className="text-xs text-gray-500 group-hover:text-gray-300 transition-colors duration-300 font-mono">
+          <div className="text-xs transition-colors duration-300 font-mono" style={{ color: 'var(--text-secondary)' }}>
             {formatTimeAgo(story.time)}
           </div>
         )}

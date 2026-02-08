@@ -1503,7 +1503,7 @@ function InterviewSessionContent() {
             {/* Hint Display */}
             {showHint && currentProblem?.hints && (
               <div className="mt-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4">
-                <h4 className="text-yellow-400 font-semibold mb-2">💡 Hints:</h4>
+                <h4 className="text-yellow-400 font-semibold mb-2">Hints:</h4>
                 <ul className="space-y-1">
                   {currentProblem.hints.map((hint, index) => (
                     <li key={index} className="text-yellow-300 text-sm">
@@ -1517,7 +1517,7 @@ function InterviewSessionContent() {
             {/* AI Response Display */}
             {aiResponse && (
               <div className="mt-4 bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
-                <h4 className="text-blue-400 font-semibold mb-2">🤖 AI Feedback:</h4>
+                <h4 className="text-blue-400 font-semibold mb-2">AI Feedback:</h4>
                 <p className="text-blue-300 text-sm">{aiResponse}</p>
               </div>
             )}

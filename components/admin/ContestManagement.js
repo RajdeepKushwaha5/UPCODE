@@ -44,32 +44,32 @@ export default function ContestManagement() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Contest Management</h1>
-          <p className="text-gray-400">Create and manage programming contests</p>
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Contest Management</h1>
+          <p style={{ color: 'var(--text-secondary)' }}>Create and manage programming contests</p>
         </div>
         <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
           Create Contest
         </button>
       </div>
 
-      <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden">
+      <div className="theme-surface backdrop-blur-sm rounded-xl border theme-border overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="theme-surface-elevated/50">
               <tr>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Contest</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Status</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Participants</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Duration</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Problems</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Actions</th>
+                <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Contest</th>
+                <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Status</th>
+                <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Participants</th>
+                <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Duration</th>
+                <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Problems</th>
+                <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-700/50">
+            <tbody className="divide-y divide-[var(--border-primary)]">
               {contests.map((contest) => (
                 <tr key={contest.id} className="hover:theme-surface-elevated/30 transition-colors">
                   <td className="px-6 py-4">
-                    <div className="text-white font-medium">{contest.title}</div>
+                    <div className="font-medium" style={{ color: 'var(--text-primary)' }}>{contest.title}</div>
                   </td>
                   <td className="px-6 py-4">
                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${contest.status === 'active' ? 'text-green-400 bg-green-400/10' :
@@ -79,9 +79,9 @@ export default function ContestManagement() {
                       {contest.status}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-gray-300">{contest.participants}</td>
-                  <td className="px-6 py-4 text-gray-300">{contest.startDate} - {contest.endDate}</td>
-                  <td className="px-6 py-4 text-gray-300">{contest.problems}</td>
+                  <td className="px-6 py-4" style={{ color: 'var(--text-secondary)' }}>{contest.participants}</td>
+                  <td className="px-6 py-4" style={{ color: 'var(--text-secondary)' }}>{contest.startDate} - {contest.endDate}</td>
+                  <td className="px-6 py-4" style={{ color: 'var(--text-secondary)' }}>{contest.problems}</td>
                   <td className="px-6 py-4">
                     <div className="flex space-x-2">
                       <button className="px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded text-sm">

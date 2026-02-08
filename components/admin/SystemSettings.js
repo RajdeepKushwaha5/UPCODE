@@ -120,7 +120,7 @@ export default function SystemSettings() {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
-        <span className="ml-3 text-gray-400">Loading settings...</span>
+        <span className="ml-3" style={{ color: 'var(--text-secondary)' }}>Loading settings...</span>
       </div>
     );
   }
@@ -129,15 +129,15 @@ export default function SystemSettings() {
     return (
       <div className="space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">System Settings</h1>
-          <p className="text-gray-400">Configure platform settings and preferences</p>
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>System Settings</h1>
+          <p style={{ color: 'var(--text-secondary)' }}>Configure platform settings and preferences</p>
         </div>
         <div className="bg-red-900/20 border border-red-500/50 rounded-xl p-6">
           <div className="text-red-400 font-semibold">Error Loading Settings</div>
-          <div className="text-gray-400 text-sm mt-2">{error}</div>
+          <div className="text-sm mt-2" style={{ color: 'var(--text-secondary)' }}>{error}</div>
           <button 
             onClick={fetchSettings}
-            className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm transition-colors"
+            className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-sm transition-colors" style={{ color: 'var(--text-primary)' }}
           >
             Retry
           </button>
@@ -150,40 +150,40 @@ export default function SystemSettings() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">System Settings</h1>
-          <p className="text-gray-400">Configure platform settings and preferences</p>
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>System Settings</h1>
+          <p style={{ color: 'var(--text-secondary)' }}>Configure platform settings and preferences</p>
           {lastUpdated && (
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs mt-1" style={{ color: 'var(--text-secondary)' }}>
               Last updated: {lastUpdated.toLocaleString()}
             </p>
           )}
         </div>
         <button 
           onClick={fetchSettings}
-          className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg text-sm transition-colors"
+          className="px-4 py-2 theme-surface-elevated hover:opacity-80 rounded-lg text-sm transition-colors" style={{ color: 'var(--text-primary)' }}
         >
           Refresh
         </button>
       </div>
 
       {/* General Settings */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-        <h2 className="text-xl font-semibold text-white mb-4">General Settings</h2>
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
+        <h2 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>General Settings</h2>
         <div className="space-y-4">
           <div>
-            <label className="block text-gray-400 text-sm mb-2">Site Name</label>
+            <label className="block text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>Site Name</label>
             <input
               type="text"
               value={settings.siteName || ''}
               onChange={(e) => handleInputChange('siteName', e.target.value)}
-              className="w-full px-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+              className="w-full px-4 py-2 theme-surface-elevated/50 border theme-border rounded-lg focus:outline-none focus:border-blue-500" style={{ color: 'var(--text-primary)' }}
             />
           </div>
 
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">Maintenance Mode</h3>
-              <p className="text-gray-400 text-sm">Enable to temporarily disable site access</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Maintenance Mode</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Enable to temporarily disable site access</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input 
@@ -192,14 +192,14 @@ export default function SystemSettings() {
                 checked={settings.maintenanceMode || false}
                 onChange={(e) => handleInputChange('maintenanceMode', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              <div className="w-11 h-6 theme-surface-elevated peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">User Registration</h3>
-              <p className="text-gray-400 text-sm">Allow new users to register</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>User Registration</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Allow new users to register</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input 
@@ -208,20 +208,20 @@ export default function SystemSettings() {
                 checked={settings.registrationEnabled || false}
                 onChange={(e) => handleInputChange('registrationEnabled', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              <div className="w-11 h-6 theme-surface-elevated peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
         </div>
       </div>
 
       {/* Platform Features */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-        <h2 className="text-xl font-semibold text-white mb-4">Platform Features</h2>
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
+        <h2 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Platform Features</h2>
         <div className="space-y-4">
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">Contest Registration</h3>
-              <p className="text-gray-400 text-sm">Allow users to register for contests</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Contest Registration</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Allow users to register for contests</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input 
@@ -230,14 +230,14 @@ export default function SystemSettings() {
                 checked={settings.contestRegistrationEnabled || false}
                 onChange={(e) => handleInputChange('contestRegistrationEnabled', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              <div className="w-11 h-6 theme-surface-elevated peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">Premium Features</h3>
-              <p className="text-gray-400 text-sm">Enable premium subscription features</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Premium Features</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Enable premium subscription features</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input 
@@ -246,14 +246,14 @@ export default function SystemSettings() {
                 checked={settings.premiumFeaturesEnabled || false}
                 onChange={(e) => handleInputChange('premiumFeaturesEnabled', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              <div className="w-11 h-6 theme-surface-elevated peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">Community Features</h3>
-              <p className="text-gray-400 text-sm">Enable discussions and community interactions</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Community Features</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Enable discussions and community interactions</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input 
@@ -262,14 +262,14 @@ export default function SystemSettings() {
                 checked={settings.communityFeaturesEnabled || false}
                 onChange={(e) => handleInputChange('communityFeaturesEnabled', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              <div className="w-11 h-6 theme-surface-elevated peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">Problem Submissions</h3>
-              <p className="text-gray-400 text-sm">Allow users to submit solutions to problems</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Problem Submissions</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Allow users to submit solutions to problems</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input 
@@ -278,14 +278,14 @@ export default function SystemSettings() {
                 checked={settings.problemSubmissionEnabled || false}
                 onChange={(e) => handleInputChange('problemSubmissionEnabled', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              <div className="w-11 h-6 theme-surface-elevated peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">Public Leaderboards</h3>
-              <p className="text-gray-400 text-sm">Display public ranking and leaderboards</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Public Leaderboards</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Display public ranking and leaderboards</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input 
@@ -294,46 +294,46 @@ export default function SystemSettings() {
                 checked={settings.publicLeaderboards || false}
                 onChange={(e) => handleInputChange('publicLeaderboards', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              <div className="w-11 h-6 theme-surface-elevated peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
         </div>
       </div>
 
       {/* System Limits */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-        <h2 className="text-xl font-semibold text-white mb-4">System Limits</h2>
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
+        <h2 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>System Limits</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-gray-400 text-sm mb-2">Max Submissions Per Day</label>
+            <label className="block text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>Max Submissions Per Day</label>
             <input
               type="number"
               value={settings.maxSubmissionsPerDay || 100}
               onChange={(e) => handleInputChange('maxSubmissionsPerDay', parseInt(e.target.value))}
-              className="w-full px-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+              className="w-full px-4 py-2 theme-surface-elevated/50 border theme-border rounded-lg focus:outline-none focus:border-blue-500" style={{ color: 'var(--text-primary)' }}
             />
           </div>
 
           <div>
-            <label className="block text-gray-400 text-sm mb-2">Minimum Password Length</label>
+            <label className="block text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>Minimum Password Length</label>
             <input
               type="number"
               value={settings.passwordMinLength || 8}
               onChange={(e) => handleInputChange('passwordMinLength', parseInt(e.target.value))}
-              className="w-full px-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+              className="w-full px-4 py-2 theme-surface-elevated/50 border theme-border rounded-lg focus:outline-none focus:border-blue-500" style={{ color: 'var(--text-primary)' }}
             />
           </div>
         </div>
       </div>
 
       {/* Security Settings */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-        <h2 className="text-xl font-semibold text-white mb-4">Security Settings</h2>
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
+        <h2 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Security Settings</h2>
         <div className="space-y-4">
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">Email Verification Required</h3>
-              <p className="text-gray-400 text-sm">Require email verification for new accounts</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Email Verification Required</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Require email verification for new accounts</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input 
@@ -342,14 +342,14 @@ export default function SystemSettings() {
                 checked={settings.requireEmailVerification || false}
                 onChange={(e) => handleInputChange('requireEmailVerification', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              <div className="w-11 h-6 theme-surface-elevated peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">Two-Factor Authentication</h3>
-              <p className="text-gray-400 text-sm">Enable 2FA option for enhanced security</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Two-Factor Authentication</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Enable 2FA option for enhanced security</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input 
@@ -358,14 +358,14 @@ export default function SystemSettings() {
                 checked={settings.enableTwoFactorAuth || false}
                 onChange={(e) => handleInputChange('enableTwoFactorAuth', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              <div className="w-11 h-6 theme-surface-elevated peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">Guest Access</h3>
-              <p className="text-gray-400 text-sm">Allow guests to browse problems without registration</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Guest Access</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Allow guests to browse problems without registration</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input 
@@ -374,14 +374,14 @@ export default function SystemSettings() {
                 checked={settings.allowGuestAccess || false}
                 onChange={(e) => handleInputChange('allowGuestAccess', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              <div className="w-11 h-6 theme-surface-elevated peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
 
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">Email Notifications</h3>
-              <p className="text-gray-400 text-sm">Send system notifications via email</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Email Notifications</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Send system notifications via email</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input 
@@ -390,7 +390,7 @@ export default function SystemSettings() {
                 checked={settings.emailNotifications || false}
                 onChange={(e) => handleInputChange('emailNotifications', e.target.checked)}
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              <div className="w-11 h-6 theme-surface-elevated peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>
         </div>
@@ -400,9 +400,10 @@ export default function SystemSettings() {
         <button 
           onClick={handleSaveSettings}
           disabled={saving}
-          className={`px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors ${
+          className={`px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors ${
             saving ? 'opacity-50 cursor-not-allowed' : ''
           }`}
+          style={{ color: 'var(--text-primary)' }}
         >
           {saving ? 'Saving...' : 'Save Settings'}
         </button>

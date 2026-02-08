@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 const ThemeContext = createContext();
 
@@ -12,19 +12,9 @@ export const useTheme = () => {
   return context;
 };
 
-// Professional Light and Dark Theme System
-
 export const themes = {
-  light: {
-    id: 'light',
-    name: 'Light Mode',
-    description: 'Clean white theme with excellent readability',
-  },
-  dark: {
-    id: 'dark',
-    name: 'Dark Mode',
-    description: 'Deep black theme for comfortable viewing',
-  }
+  light: { id: 'light', name: 'Light Mode', description: 'Clean, bright theme with excellent readability' },
+  dark:  { id: 'dark',  name: 'Dark Mode',  description: 'Deep dark theme for comfortable viewing' },
 };
 
 export const ThemeProvider = ({ children }) => {
@@ -33,39 +23,51 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     setMounted(true);
-    // Load theme from localStorage
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+    const savedTheme = localStorage.getItem('upcode-theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
       setCurrentTheme(savedTheme);
       document.documentElement.setAttribute('data-theme', savedTheme);
     } else {
-      // Check system preference
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const initialTheme = prefersDark ? 'dark' : 'light';
       setCurrentTheme(initialTheme);
       document.documentElement.setAttribute('data-theme', initialTheme);
     }
+
+    // Listen for system preference changes
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e) => {
+      if (!localStorage.getItem('upcode-theme')) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        setCurrentTheme(newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
+      }
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
   useEffect(() => {
     if (mounted) {
-      // Apply theme to document
       document.documentElement.setAttribute('data-theme', currentTheme);
-      // Save to localStorage
-      localStorage.setItem('theme', currentTheme);
+      localStorage.setItem('upcode-theme', currentTheme);
+      // Also set meta theme-color for mobile browsers
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) {
+        meta.content = currentTheme === 'dark' ? '#0c0c14' : '#f8fafc';
+      }
     }
   }, [currentTheme, mounted]);
 
-  const toggleTheme = () => {
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    setCurrentTheme(newTheme);
-  };
+  const toggleTheme = useCallback(() => {
+    setCurrentTheme(prev => prev === 'light' ? 'dark' : 'light');
+  }, []);
 
-  const setTheme = (theme) => {
+  const setTheme = useCallback((theme) => {
     if (theme === 'light' || theme === 'dark') {
       setCurrentTheme(theme);
     }
-  };
+  }, []);
 
   const value = {
     theme: currentTheme,
@@ -74,6 +76,7 @@ export const ThemeProvider = ({ children }) => {
     toggleTheme,
     setTheme,
     themes,
+    mounted,
   };
 
   return (

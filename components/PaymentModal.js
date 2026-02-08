@@ -167,13 +167,17 @@ const PaymentModal = ({ isOpen, onClose, plan, billing }) => {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
-          className="bg-gray-900 rounded-2xl p-8 max-w-md w-full border border-gray-700 relative"
+          className="rounded-2xl p-8 max-w-md w-full relative"
+          style={{ backgroundColor: 'var(--surface-base)', border: '1px solid var(--border-primary)', boxShadow: 'var(--shadow-xl)' }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+            className="absolute top-4 right-4 transition-colors"
+            style={{ color: 'var(--text-tertiary)' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-tertiary)'}
           >
             <FaTimes size={20} />
           </button>
@@ -183,21 +187,21 @@ const PaymentModal = ({ isOpen, onClose, plan, billing }) => {
             <div className="flex items-center justify-center mb-4">
               <FaCrown className="text-yellow-400 text-4xl" />
             </div>
-            <h2 className="text-2xl font-bold text-white mb-2">
+            <h2 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
               Upgrade to {plan} Plan
             </h2>
-            <p className="text-gray-400 text-sm">
+            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
               {billing === 'yearly' ? 'Annual' : 'Monthly'} Subscription
             </p>
           </div>
 
           {/* Pricing */}
-          <div className="bg-gray-800 rounded-xl p-6 mb-6">
+          <div className="rounded-xl p-6 mb-6" style={{ backgroundColor: 'var(--surface-raised)', border: '1px solid var(--border-primary)' }}>
             <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2">
+              <div className="text-4xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
                 {currentPlan.display}
               </div>
-              <div className="text-gray-400 text-sm mb-3">
+              <div className="text-sm mb-3" style={{ color: 'var(--text-secondary)' }}>
                 {currentPlan.description}
               </div>
               {currentPlan.savings && (
@@ -210,8 +214,8 @@ const PaymentModal = ({ isOpen, onClose, plan, billing }) => {
 
           {/* Features */}
           <div className="mb-6">
-            <h3 className="text-white font-semibold mb-3">What you'll get:</h3>
-            <div className="space-y-2 text-sm text-gray-300">
+            <h3 className="font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>What you'll get:</h3>
+            <div className="space-y-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
                 <span>Access to 500+ premium problems</span>
@@ -256,8 +260,8 @@ const PaymentModal = ({ isOpen, onClose, plan, billing }) => {
 
           {/* Security Note */}
           <div className="mt-4 text-center">
-            <p className="text-xs text-gray-400">
-              🔒 Secured by Razorpay • Your payment information is safe
+            <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>
+              Secured by Razorpay &bull; Your payment information is safe
             </p>
           </div>
         </motion.div>

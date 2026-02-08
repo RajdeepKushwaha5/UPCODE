@@ -170,7 +170,7 @@ export default function AdminDashboard() {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
-        <span className="ml-3 text-white">Loading dashboard data...</span>
+        <span className="ml-3" style={{ color: 'var(--text-primary)' }}>Loading dashboard data...</span>
       </div>
     );
   }
@@ -279,7 +279,7 @@ export default function AdminDashboard() {
     if (priority === "high") {
       return `${baseColors[type]} animate-pulse`;
     }
-    return baseColors[type] || "text-gray-400";
+    return baseColors[type] || "theme-text-secondary";
   };
 
   return (
@@ -287,21 +287,21 @@ export default function AdminDashboard() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">Admin Dashboard</h1>
-          <p className="text-gray-400">Overview of platform statistics and activity</p>
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Admin Dashboard</h1>
+          <p className="theme-text-secondary">Overview of platform statistics and activity</p>
           {lastUpdated && (
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs mt-1" style={{ color: 'var(--text-secondary)' }}>
               Last updated: {lastUpdated.toLocaleTimeString()}
             </p>
           )}
         </div>
         <div className="flex items-center gap-3">
-          <label className="flex items-center gap-2 text-sm text-gray-400">
+          <label className="flex items-center gap-2 text-sm theme-text-secondary">
             <input
               type="checkbox"
               checked={autoRefresh}
               onChange={(e) => setAutoRefresh(e.target.checked)}
-              className="rounded border-slate-600 theme-surface-elevated text-purple-600 focus:ring-blue-500 focus:ring-offset-slate-800"
+              className="rounded theme-border theme-surface-elevated text-purple-600 focus:ring-blue-500 focus:ring-offset-slate-800"
             />
             Auto-refresh (30s)
           </label>
@@ -329,16 +329,16 @@ export default function AdminDashboard() {
           return (
             <div
               key={index}
-              className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300"
+              className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border hover:border-purple-500/30 transition-all duration-300"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-400 text-sm">{stat.title}</p>
-                  <p className="text-2xl font-bold text-white mt-1">{stat.value}</p>
+                  <p className="theme-text-secondary text-sm">{stat.title}</p>
+                  <p className="text-2xl font-bold mt-1" style={{ color: 'var(--text-primary)' }}>{stat.value}</p>
                   <div className="flex items-center mt-2">
                     <span className={`text-xs px-2 py-1 rounded-full ${stat.changeType === 'positive' ? 'text-green-400 bg-green-400/10' :
                         stat.changeType === 'negative' ? 'text-red-400 bg-red-400/10' :
-                          'text-gray-400 bg-gray-400/10'
+                          'theme-text-secondary bg-gray-400/10'
                       }`}>
                       {stat.change}
                     </span>
@@ -354,8 +354,8 @@ export default function AdminDashboard() {
       </div>
 
       {/* Recent Activity */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-        <h2 className="text-xl font-semibold text-white mb-4">Recent Activity</h2>
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
+        <h2 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Recent Activity</h2>
         <div className="space-y-3">
           {recentActivity.map((activity, index) => (
             <div key={index} className="flex items-center space-x-3 p-3 theme-surface-elevated/30 rounded-lg">
@@ -363,8 +363,8 @@ export default function AdminDashboard() {
                 {getActivityIcon(activity.type)}
               </div>
               <div className="flex-1">
-                <p className="text-white text-sm">{activity.message}</p>
-                <p className="text-gray-400 text-xs">{activity.time}</p>
+                <p className="text-sm" style={{ color: 'var(--text-primary)' }}>{activity.message}</p>
+                <p className="theme-text-secondary text-xs">{activity.time}</p>
               </div>
             </div>
           ))}
@@ -372,20 +372,20 @@ export default function AdminDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-        <h2 className="text-xl font-semibold text-white mb-4">Quick Actions</h2>
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
+        <h2 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Quick Actions</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <button className="p-4 bg-blue-600/20 hover:bg-blue-600/30 border border-purple-500/30 rounded-lg text-left transition-colors">
-            <h3 className="text-white font-medium">Add New Problem</h3>
-            <p className="text-gray-400 text-sm">Create a new coding problem</p>
+            <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Add New Problem</h3>
+            <p className="theme-text-secondary text-sm">Create a new coding problem</p>
           </button>
           <button className="p-4 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 rounded-lg text-left transition-colors">
-            <h3 className="text-white font-medium">Create Contest</h3>
-            <p className="text-gray-400 text-sm">Setup a new programming contest</p>
+            <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Create Contest</h3>
+            <p className="theme-text-secondary text-sm">Setup a new programming contest</p>
           </button>
           <button className="p-4 bg-green-600/20 hover:bg-green-600/30 border border-green-500/30 rounded-lg text-left transition-colors">
-            <h3 className="text-white font-medium">Review Submissions</h3>
-            <p className="text-gray-400 text-sm">Check pending code reviews</p>
+            <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Review Submissions</h3>
+            <p className="theme-text-secondary text-sm">Check pending code reviews</p>
           </button>
         </div>
       </div>

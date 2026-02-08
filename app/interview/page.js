@@ -387,7 +387,7 @@ export default function InterviewPage() {
                 <div className="relative">
                     <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-blue-500"></div>
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <div className="text-4xl animate-bounce">🤖</div>
+                        <FaRobot className="text-4xl animate-bounce" style={{ color: 'var(--accent)' }} />
                     </div>
                 </div>
             </div>
@@ -402,9 +402,6 @@ export default function InterviewPage() {
                 <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
                 <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
                 <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl animate-bounce"></div>
-                <div className="absolute top-20 right-20 text-4xl animate-float animation-delay-1000">🎯</div>
-                <div className="absolute bottom-20 left-20 text-3xl animate-float animation-delay-500">🧠</div>
-                <div className="absolute top-1/3 right-1/3 text-2xl animate-float">🚀</div>
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 py-8">
@@ -412,14 +409,14 @@ export default function InterviewPage() {
                 {/* Header Section */}
                 <div className="text-center mb-12 animate-fade-in-up">
                     <div className="flex items-center justify-center gap-4 mb-6">
-                        <div className="w-20 h-20 bg-blue-600 rounded-3xl flex items-center justify-center text-4xl">
-                            🤖
+                        <div className="w-20 h-20 bg-blue-600 rounded-3xl flex items-center justify-center">
+                            <FaRobot className="text-4xl text-white" />
                         </div>
                         <div>
                             <h1 className="text-5xl font-black theme-text">
                                 AI Mock Interviews
                             </h1>
-                            <p className="text-gray-400 text-xl mt-2">
+                            <p className="text-xl mt-2" style={{ color: 'var(--text-secondary)' }}>
                                 Practice with AI-powered interviews and get hired at top companies
                             </p>
                         </div>
@@ -431,25 +428,25 @@ export default function InterviewPage() {
                             <div className="text-2xl font-black theme-accent">
                                 {stats.totalInterviews}
                             </div>
-                            <p className="text-gray-400 text-sm">Interviews Taken</p>
+                            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Interviews Taken</p>
                         </div>
                         <div className="theme-surface backdrop-blur-sm border border-green-500/20 rounded-2xl p-4">
                             <div className="text-2xl font-black text-green-400">
                                 {stats.avgScore}%
                             </div>
-                            <p className="text-gray-400 text-sm">Average Score</p>
+                            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Average Score</p>
                         </div>
                         <div className="theme-surface backdrop-blur-sm border border-yellow-500/20 rounded-2xl p-4">
                             <div className="text-2xl font-black text-yellow-400">
                                 {stats.bestScore}%
                             </div>
-                            <p className="text-gray-400 text-sm">Best Score</p>
+                            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Best Score</p>
                         </div>
                         <div className="theme-surface backdrop-blur-sm border border-blue-500/20 rounded-2xl p-4">
                             <div className="text-2xl font-black text-blue-400">
                                 {stats.completionRate}%
                             </div>
-                            <p className="text-gray-400 text-sm">Completion Rate</p>
+                            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Completion Rate</p>
                         </div>
                     </div>
                 </div>
@@ -463,7 +460,7 @@ export default function InterviewPage() {
                                 onClick={() => setActiveTab(tab)}
                                 className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${activeTab === tab
                                     ? "bg-blue-600 hover:bg-blue-700 text-white"
-                                    : "text-gray-400 hover:text-white hover:theme-surface-elevated/50"
+                                    : "theme-text-secondary hover:theme-text hover:theme-surface-elevated/50"
                                     }`}
                             >
                                 {tab === "modes" && <FaRobot className="inline mr-2" />}
@@ -488,20 +485,20 @@ export default function InterviewPage() {
                                             <FaBrain className="text-3xl text-white" />
                                         </div>
                                     </div>
-                                    <h2 className="text-4xl font-bold text-white mb-4">🎤 AI Voice Interview</h2>
+                                    <h2 className="text-4xl font-bold text-white mb-4">AI Voice Interview</h2>
                                     <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
                                         Experience the future of interview preparation with our AI-powered voice assistant. 
                                         Get real-time feedback and detailed performance analysis.
                                     </p>
                                     <div className="flex flex-wrap justify-center gap-4 mb-8">
                                         <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm font-medium">
-                                            🗣️ Voice Recognition
+                                            Voice Recognition
                                         </span>
                                         <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm font-medium">
-                                            📊 Real-time Analysis
+                                            Real-time Analysis
                                         </span>
                                         <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm font-medium">
-                                            🎯 Personalized Feedback
+                                            Personalized Feedback
                                         </span>
                                     </div>
                                     <div className="flex flex-wrap justify-center gap-4">
@@ -535,7 +532,7 @@ export default function InterviewPage() {
                                     </div>
 
                                     <div className="flex items-center gap-2 mb-3">
-                                        <h3 className="text-2xl font-bold text-white">{mode.title}</h3>
+                                        <h3 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{mode.title}</h3>
                                         {mode.premium && (
                                             <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
                                                 <FaCrown className="text-xs" />
@@ -544,11 +541,11 @@ export default function InterviewPage() {
                                         )}
                                     </div>
 
-                                    <p className="text-gray-400 mb-6">{mode.description}</p>
+                                    <p className="mb-6" style={{ color: 'var(--text-secondary)' }}>{mode.description}</p>
 
                                     <div className="space-y-2 mb-6">
                                         {mode.features.map((feature, idx) => (
-                                            <div key={idx} className="flex items-center gap-2 text-sm text-gray-300">
+                                            <div key={idx} className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                                                 <FaCheckCircle className="text-green-400 text-xs" />
                                                 {feature}
                                             </div>
@@ -571,7 +568,7 @@ export default function InterviewPage() {
 
                         {/* Interview Hosting Options */}
                         <div className="mb-12">
-                            <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                            <h2 className="text-3xl font-bold mb-8 flex items-center gap-3" style={{ color: 'var(--text-primary)' }}>
                                 <FaUsers className="text-blue-400" />
                                 Interview Sessions
                             </h2>
@@ -586,12 +583,12 @@ export default function InterviewPage() {
                                             <option.icon className="text-2xl text-white" />
                                         </div>
 
-                                        <h3 className="text-2xl font-bold text-white mb-3">{option.title}</h3>
-                                        <p className="text-gray-400 mb-6">{option.description}</p>
+                                        <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>{option.title}</h3>
+                                        <p className="mb-6" style={{ color: 'var(--text-secondary)' }}>{option.description}</p>
 
                                         <div className="space-y-2 mb-6">
                                             {option.features.map((feature, idx) => (
-                                                <div key={idx} className="flex items-center gap-2 text-sm text-gray-300">
+                                                <div key={idx} className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                                                     <FaCheckCircle className="text-green-400 text-xs" />
                                                     {feature}
                                                 </div>
@@ -612,7 +609,7 @@ export default function InterviewPage() {
 
                         {/* Quick Start Section */}
                         <div className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-8">
-                            <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3" style={{ color: 'var(--text-primary)' }}>
                                 <FaRocket className="theme-accent" />
                                 Quick Start
                             </h2>
@@ -628,7 +625,7 @@ export default function InterviewPage() {
                                         </div>
                                         <div className="text-left">
                                             <h3 className="text-xl font-bold text-white">AI Voice Interview</h3>
-                                            <p className="theme-text-secondary text-sm">Voice-powered AI interview</p>
+                                            <p className="text-blue-100 text-sm">Voice-powered AI interview</p>
                                         </div>
                                     </div>
                                 </button>
@@ -686,11 +683,11 @@ export default function InterviewPage() {
                 {activeTab === "companies" && (
                     <div className="animate-fade-in-up animation-delay-300">
                         <div className="mb-8">
-                            <h2 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
+                            <h2 className="text-3xl font-bold mb-4 flex items-center gap-3" style={{ color: 'var(--text-primary)' }}>
                                 <FaGoogle className="theme-accent" />
                                 Company-Specific Interviews
                             </h2>
-                            <p className="text-gray-400 text-lg">
+                            <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
                                 Practice with problems commonly asked by top tech companies
                             </p>
                         </div>
@@ -706,22 +703,22 @@ export default function InterviewPage() {
                                             <company.icon className="text-2xl text-white" />
                                         </div>
                                         <div>
-                                            <h3 className="text-2xl font-bold text-white">{company.name}</h3>
-                                            <p className="text-gray-400">{company.problems} problems</p>
+                                            <h3 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{company.name}</h3>
+                                            <p style={{ color: 'var(--text-secondary)' }}>{company.problems} problems</p>
                                         </div>
                                     </div>
 
                                     <div className="space-y-3 mb-6">
                                         <div className="flex justify-between items-center theme-surface-elevated/30 rounded-lg p-3">
-                                            <span className="text-gray-300">DSA Problems</span>
+                                            <span style={{ color: 'var(--text-secondary)' }}>DSA Problems</span>
                                             <span className="theme-accent font-bold">{Math.floor(company.problems * 0.6)}</span>
                                         </div>
                                         <div className="flex justify-between items-center theme-surface-elevated/30 rounded-lg p-3">
-                                            <span className="text-gray-300">System Design</span>
+                                            <span style={{ color: 'var(--text-secondary)' }}>System Design</span>
                                             <span className="text-blue-400 font-bold">{Math.floor(company.problems * 0.3)}</span>
                                         </div>
                                         <div className="flex justify-between items-center theme-surface-elevated/30 rounded-lg p-3">
-                                            <span className="text-gray-300">Behavioral</span>
+                                            <span style={{ color: 'var(--text-secondary)' }}>Behavioral</span>
                                             <span className="text-green-400 font-bold">{Math.floor(company.problems * 0.1)}</span>
                                         </div>
                                     </div>
@@ -746,7 +743,7 @@ export default function InterviewPage() {
                                 <h3 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-2">
                                     Premium Company Insights
                                 </h3>
-                                <p className="text-gray-400 text-lg">
+                                <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
                                     Get insider knowledge and advanced preparation tools
                                 </p>
                             </div>
@@ -754,18 +751,18 @@ export default function InterviewPage() {
                             <div className="grid md:grid-cols-3 gap-6 mb-8">
                                 <div className="text-center">
                                     <FaBrain className="text-4xl text-yellow-400 mx-auto mb-3" />
-                                    <h4 className="text-xl font-bold text-white mb-2">Hiring Patterns</h4>
-                                    <p className="text-gray-400 text-sm">Analysis of company-specific interview trends</p>
+                                    <h4 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Hiring Patterns</h4>
+                                    <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Analysis of company-specific interview trends</p>
                                 </div>
                                 <div className="text-center">
                                     <FaFileAlt className="text-4xl text-orange-400 mx-auto mb-3" />
-                                    <h4 className="text-xl font-bold text-white mb-2">Resume Review</h4>
-                                    <p className="text-gray-400 text-sm">AI-powered resume optimization for each company</p>
+                                    <h4 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Resume Review</h4>
+                                    <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>AI-powered resume optimization for each company</p>
                                 </div>
                                 <div className="text-center">
                                     <FaVideo className="text-4xl theme-accent mx-auto mb-3" />
-                                    <h4 className="text-xl font-bold text-white mb-2">Video Interviews</h4>
-                                    <p className="text-gray-400 text-sm">Practice with video-based mock interviews</p>
+                                    <h4 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Video Interviews</h4>
+                                    <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Practice with video-based mock interviews</p>
                                 </div>
                             </div>
 
@@ -787,11 +784,11 @@ export default function InterviewPage() {
                     <div className="animate-fade-in-up animation-delay-300">
                         <div className="flex justify-between items-center mb-8">
                             <div>
-                                <h2 className="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+                                <h2 className="text-3xl font-bold mb-2 flex items-center gap-3" style={{ color: 'var(--text-primary)' }}>
                                     <FaHistory className="theme-accent" />
                                     Interview History
                                 </h2>
-                                <p className="text-gray-400">
+                                <p style={{ color: 'var(--text-secondary)' }}>
                                     Track your progress and review past performances
                                 </p>
                             </div>
@@ -838,10 +835,10 @@ export default function InterviewPage() {
                                                                         <CompanyIcon className="text-xl text-white" />
                                                                     </div>
                                                                     <div>
-                                                                        <h3 className="text-xl font-bold text-white">
+                                                                        <h3 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>
                                                                             {interview.company || 'General'} - {interview.mode || interview.type}
                                                                         </h3>
-                                                                        <div className="flex items-center gap-4 text-sm text-gray-400">
+                                                                        <div className="flex items-center gap-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
                                                                             <span className="flex items-center gap-1">
                                                                                 <FaCalendarAlt />
                                                                                 {interview.completedAt ? new Date(interview.completedAt).toLocaleDateString() : interview.date}
@@ -865,7 +862,7 @@ export default function InterviewPage() {
                                                                         <div className={`text-2xl font-bold ${getScoreColor(interview.overallScore || interview.score)}`}>
                                                                             {interview.overallScore || interview.score}%
                                                                         </div>
-                                                                        <p className="text-gray-400 text-sm">Score</p>
+                                                                        <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Score</p>
                                                                     </div>
 
                                                                     <div className="flex gap-2">
@@ -894,8 +891,8 @@ export default function InterviewPage() {
                         ) : (
                             <div className="text-center py-16">
                                 <FaHistory className="text-6xl text-gray-600 mx-auto mb-6" />
-                                <h3 className="text-2xl font-bold text-white mb-3">No Interview History</h3>
-                                <p className="text-gray-400 mb-6">Start your first mock interview to track your progress</p>
+                                <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>No Interview History</h3>
+                                <p className="mb-6" style={{ color: 'var(--text-secondary)' }}>Start your first mock interview to track your progress</p>
                                 <button
                                     onClick={() => setActiveTab("modes")}
                                     className="bg-blue-600 hover:bg-blue-700 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 hover:scale-105"
@@ -910,7 +907,7 @@ export default function InterviewPage() {
 
                 {/* AI Features Section */}
                 <div className="mt-16 theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-8 animate-fade-in-up animation-delay-600">
-                    <h2 className="text-3xl font-bold text-white mb-8 text-center flex items-center justify-center gap-3">
+                    <h2 className="text-3xl font-bold mb-8 text-center flex items-center justify-center gap-3" style={{ color: 'var(--text-primary)' }}>
                         <FaRobot className="theme-accent" />
                         AI-Powered Features
                     </h2>
@@ -920,32 +917,32 @@ export default function InterviewPage() {
                             <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                                 <FaBrain className="text-2xl text-white" />
                             </div>
-                            <h3 className="text-lg font-bold text-white mb-2">Real-time Analysis</h3>
-                            <p className="text-gray-400 text-sm">Get instant feedback on your coding approach and solutions</p>
+                            <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Real-time Analysis</h3>
+                            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Get instant feedback on your coding approach and solutions</p>
                         </div>
 
                         <div className="text-center group">
                             <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                                 <FaLightbulb className="text-2xl text-white" />
                             </div>
-                            <h3 className="text-lg font-bold text-white mb-2">Smart Hints</h3>
-                            <p className="text-gray-400 text-sm">Receive contextual hints without spoiling the solution</p>
+                            <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Smart Hints</h3>
+                            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Receive contextual hints without spoiling the solution</p>
                         </div>
 
                         <div className="text-center group">
                             <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                                 <FaChartLine className="text-2xl text-white" />
                             </div>
-                            <h3 className="text-lg font-bold text-white mb-2">Performance Tracking</h3>
-                            <p className="text-gray-400 text-sm">Monitor your improvement across different problem categories</p>
+                            <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Performance Tracking</h3>
+                            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Monitor your improvement across different problem categories</p>
                         </div>
 
                         <div className="text-center group">
                             <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                                 <FaTrophy className="text-2xl text-white" />
                             </div>
-                            <h3 className="text-lg font-bold text-white mb-2">Personalized Plans</h3>
-                            <p className="text-gray-400 text-sm">Get custom practice recommendations based on your weak areas</p>
+                            <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Personalized Plans</h3>
+                            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Get custom practice recommendations based on your weak areas</p>
                         </div>
                     </div>
                 </div>
@@ -962,13 +959,14 @@ export default function InterviewPage() {
                             <h2 className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-4">
                                 Premium Feature
                             </h2>
-                            <p className="text-gray-400 mb-6">
+                            <p className="mb-6" style={{ color: 'var(--text-secondary)' }}>
                                 This feature is available for Premium users only. Upgrade now to unlock system design interviews and advanced features.
                             </p>
                             <div className="flex gap-3">
                                 <button
                                     onClick={() => setShowPremiumModal(false)}
-                                    className="flex-1 theme-surface-elevated hover:bg-slate-600 text-white font-bold py-3 rounded-xl transition-colors"
+                                    className="flex-1 theme-surface-elevated hover:bg-slate-600 font-bold py-3 rounded-xl transition-colors"
+                                    style={{ color: 'var(--text-primary)' }}
                                 >
                                     Cancel
                                 </button>

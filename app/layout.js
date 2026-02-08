@@ -34,8 +34,20 @@ export default async function RootLayout({ children }) {
         <link rel="icon" href="/logo.png" type="image/png" sizes="32x32" />
         <link rel="shortcut icon" href="/logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/logo.png" />
+        <meta name="theme-color" content="#f8fafc" />
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            try {
+              var t = localStorage.getItem('upcode-theme');
+              if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#0c0c14');
+              }
+            } catch(e) {}
+          })();
+        `}} />
       </head>
-      <body className="transition-colors duration-200 flex flex-col min-h-screen">
+      <body className="theme-bg theme-text transition-colors duration-200 flex flex-col min-h-screen">
         <SessionProvider session={session}>
           <ThemeProvider>
             <ProfileSetupCheck>

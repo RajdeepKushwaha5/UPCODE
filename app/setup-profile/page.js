@@ -92,7 +92,7 @@ export default function ProfileSetupPage() {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-4">
-              Welcome to UPCODE! 🎉
+              Welcome to UPCODE!
             </h1>
             <p className="text-gray-600 dark:text-gray-300 text-lg">
               Let's set up your profile to get started on your coding journey
@@ -116,7 +116,7 @@ export default function ProfileSetupPage() {
               {/* Pet Emoji Selection */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-                  Choose Your Coding Companion 🎯
+                  Choose Your Coding Companion
                 </label>
                 <div className="grid grid-cols-6 gap-3">
                   {petEmojis.map((emoji) => (

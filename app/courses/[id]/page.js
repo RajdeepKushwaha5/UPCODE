@@ -6,6 +6,7 @@ import Content from '../../../components/courses/content'
 import ContentData from '../../../constants/courses/index'
 import { useEffect, useState } from "react";
 import { useParams } from 'next/navigation'
+import { FaExclamationTriangle } from 'react-icons/fa';
 
 const page = () => {
 
@@ -120,9 +121,9 @@ const page = () => {
                     <div className="relative w-24 h-24 mx-auto mb-4">
                         <div className="absolute top-0 left-0 w-full h-full border-4 border-purple-200 rounded-full animate-pulse"></div>
                         <div className="absolute top-0 left-0 w-full h-full border-t-4 border-purple-500 rounded-full animate-spin"></div>
-                        <div className="absolute inset-0 flex items-center justify-center text-2xl">📚</div>
+                        <div className="absolute inset-0 flex items-center justify-center text-2xl" style={{ color: 'var(--accent)' }}><span className="font-bold">...</span></div>
                     </div>
-                    <div className="text-white text-xl font-semibold mb-2">Loading Course Content...</div>
+                    <div className="text-xl font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Loading Course Content...</div>
                     <div className="theme-text-secondary text-sm">Preparing your learning experience</div>
                 </div>
             </div>
@@ -131,11 +132,13 @@ const page = () => {
 
     if (!moduledata.length) {
         return (
-            <div className="w-full px-4 h-[92vh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">
+            <div className="w-full px-4 h-[92vh] flex items-center justify-center theme-bg">
                 <div className="text-center">
-                    <div className="text-6xl mb-4">😕</div>
-                    <div className="text-white text-2xl font-bold mb-2">Course Not Found</div>
-                    <div className="text-red-300 text-lg mb-4">No content available for this course.</div>
+                    <div className="w-20 h-20 mx-auto mb-4 rounded-2xl flex items-center justify-center" style={{ backgroundColor: 'var(--surface-raised)', color: 'var(--error, #ef4444)' }}>
+                        <FaExclamationTriangle className="text-3xl" />
+                    </div>
+                    <div className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Course Not Found</div>
+                    <div className="text-lg mb-4" style={{ color: 'var(--text-secondary)' }}>No content available for this course.</div>
                     <button 
                         onClick={() => window.history.back()} 
                         className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
@@ -156,10 +159,10 @@ const page = () => {
             </div>
 
             {/* Progress Bar */}
-            <div className="relative z-10 w-full theme-surface border-b border-purple-500/30">
+            <div className="relative z-10 w-full theme-surface border-b" style={{ borderColor: 'var(--border-primary)' }}>
                 <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                        <h2 className="text-white font-bold text-lg capitalize">{courseId} Course</h2>
+                        <h2 className="font-bold text-lg capitalize" style={{ color: 'var(--text-primary)' }}>{courseId} Course</h2>
                         <div className="flex items-center gap-2">
                             <div className="w-48 theme-surface-elevated rounded-full h-2">
                                 <div 
@@ -171,11 +174,11 @@ const page = () => {
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
-                        <span className="text-slate-300 text-sm">Progress:</span>
-                        <span className="text-green-400 font-semibold">{completedLessons.size}</span>
-                        <span className="text-slate-400">/</span>
-                        <span className="text-slate-300">{moduledata.reduce((sum, module) => sum + module.lessons.length, 0)}</span>
-                        <span className="text-slate-300 text-sm">lessons</span>
+                        <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>Progress:</span>
+                        <span className="font-semibold" style={{ color: 'var(--success, #22c55e)' }}>{completedLessons.size}</span>
+                        <span style={{ color: 'var(--text-tertiary)' }}>/</span>
+                        <span style={{ color: 'var(--text-secondary)' }}>{moduledata.reduce((sum, module) => sum + module.lessons.length, 0)}</span>
+                        <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>lessons</span>
                     </div>
                 </div>
             </div>

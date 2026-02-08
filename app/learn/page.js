@@ -1,10 +1,12 @@
 'use client';
 import CourseCard from './CourseCard';
-import { FaCode, FaGraduationCap, FaTrophy, FaUsers, FaRocket, FaStar, FaChevronRight } from 'react-icons/fa';
+import { FaCode, FaGraduationCap, FaTrophy, FaUsers, FaRocket, FaStar, FaChevronRight, FaBullseye } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const page = () => {
     const router = useRouter();
+    const { isDark } = useTheme();
 
     // Function to scroll to courses section
     const scrollToCourses = () => {
@@ -152,20 +154,17 @@ const page = () => {
         <main className="min-h-screen theme-bg relative overflow-hidden">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-                <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-                <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl animate-bounce"></div>
-                <div className="absolute top-20 right-20 text-4xl animate-float animation-delay-1000">🎓</div>
-                <div className="absolute bottom-20 left-20 text-3xl animate-float animation-delay-500">💻</div>
-                <div className="absolute top-1/3 right-1/3 text-2xl animate-float">🚀</div>
+                <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full blur-3xl animate-pulse" style={{ background: isDark ? 'rgba(139, 92, 246, 0.08)' : 'rgba(139, 92, 246, 0.06)' }}></div>
+                <div className="absolute top-3/4 right-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse delay-1000" style={{ background: isDark ? 'rgba(236, 72, 153, 0.07)' : 'rgba(236, 72, 153, 0.05)' }}></div>
+                <div className="absolute top-1/2 left-1/2 w-32 h-32 rounded-full blur-2xl animate-bounce" style={{ background: isDark ? 'rgba(59, 130, 246, 0.08)' : 'rgba(59, 130, 246, 0.05)' }}></div>
             </div>
 
             {/* Hero Section */}
             <div className="container mx-auto px-6 py-20 relative z-10">
                 <div className="text-center mb-20">
-                    <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full border border theme-border backdrop-blur-sm animate-premium-glow">
-                        <span className="text-3xl animate-spin">🎯</span>
-                        <span className="theme-accent font-bold text-lg tracking-wide font-space">LEARN & GROW</span>
+                    <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 rounded-full border backdrop-blur-sm animate-premium-glow" style={{ background: isDark ? 'rgba(139, 92, 246, 0.1)' : 'rgba(139, 92, 246, 0.08)', borderColor: 'var(--border-primary)' }}>
+                        <FaBullseye className="text-xl animate-pulse" style={{ color: 'var(--accent)' }} />
+                        <span className="font-bold text-lg tracking-wide font-space" style={{ color: 'var(--accent)' }}>LEARN & GROW</span>
                     </div>
 
                     <h1 className="text-7xl max-md:text-6xl max-sm:text-5xl font-black mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent font-space tracking-tight animate-shimmer">
@@ -176,7 +175,7 @@ const page = () => {
                         Shape Your Future
                     </h2>
 
-                    <p className="text-xl max-md:text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed font-inter font-light mb-12">
+                    <p className="text-xl max-md:text-lg max-w-4xl mx-auto leading-relaxed font-inter font-light mb-12" style={{ color: 'var(--text-secondary)' }}>
                         Unlock your potential with our comprehensive programming courses. From
                         <span className="theme-accent font-semibold"> beginner-friendly tutorials</span> to
                         <span className="text-pink-400 font-semibold"> advanced masterclasses</span>,
@@ -197,7 +196,8 @@ const page = () => {
                         </button>
 
                         <button 
-                            className="bg-white/10 backdrop-blur-sm text-white font-semibold py-4 px-8 rounded-xl border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300 group flex items-center gap-2"
+                            className="backdrop-blur-sm font-semibold py-4 px-8 rounded-xl hover:scale-105 transition-all duration-300 group flex items-center gap-2"
+                            style={{ backgroundColor: 'var(--surface-raised)', color: 'var(--text-primary)', border: '1px solid var(--border-primary)' }}
                             onClick={scrollToCourses}
                         >
                             <FaGraduationCap className="group-hover:rotate-12 transition-transform" />
@@ -216,7 +216,7 @@ const page = () => {
                             <div className={`text-4xl font-black bg-gradient-to-r from-${stat.color}-400 to-${stat.color}-600 bg-clip-text text-transparent font-mono`}>
                                 {stat.number}
                             </div>
-                            <p className="text-gray-400 mt-2 font-inter">{stat.label}</p>
+                            <p className="mt-2 font-inter" style={{ color: 'var(--text-tertiary)' }}>{stat.label}</p>
                         </div>
                     ))}
                 </div>
@@ -227,7 +227,7 @@ const page = () => {
                         <h2 className="text-5xl font-black mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-space">
                             Programming Courses
                         </h2>
-                        <p className="text-gray-400 text-lg max-w-2xl mx-auto font-inter">
+                        <p className="text-lg max-w-2xl mx-auto font-inter" style={{ color: 'var(--text-secondary)' }}>
                             Master cutting-edge programming languages and build your dream career in tech
                         </p>
                     </div>
@@ -269,7 +269,7 @@ const page = () => {
                         <h3 className="text-4xl font-black mb-6 bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 bg-clip-text text-transparent font-space">
                             Ready to Transform Your Career?
                         </h3>
-                        <p className="text-xl text-gray-300 mb-8 font-inter">
+                        <p className="text-xl mb-8 font-inter" style={{ color: 'var(--text-secondary)' }}>
                             Join thousands of developers who have accelerated their careers with UPCODE
                         </p>
                         <button 
@@ -277,7 +277,8 @@ const page = () => {
                             onClick={() => router.push('/premium')}
                         >
                             <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 rounded-3xl blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-                            <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl px-12 py-6 text-white font-bold text-xl border border theme-border backdrop-blur-sm flex items-center gap-3">
+                            <div className="relative rounded-3xl px-12 py-6 text-white font-bold text-xl border backdrop-blur-sm flex items-center gap-3"
+                                style={{ background: 'linear-gradient(135deg, var(--accent-dark), var(--accent))', borderColor: 'var(--border-primary)' }}>
                                 <span>Get Started Today</span>
                                 <FaChevronRight className="group-hover:translate-x-1 transition-transform" />
                             </div>

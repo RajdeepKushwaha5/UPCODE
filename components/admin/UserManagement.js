@@ -80,8 +80,8 @@ export default function UserManagement() {
     switch (role) {
       case "admin": return "theme-accent bg-purple-400/10";
       case "moderator": return "text-blue-400 bg-blue-400/10";
-      case "user": return "text-gray-400 bg-gray-400/10";
-      default: return "text-gray-400 bg-gray-400/10";
+      case "user": return "theme-text-secondary bg-gray-400/10";
+      default: return "theme-text-secondary bg-gray-400/10";
     }
   };
 
@@ -90,7 +90,7 @@ export default function UserManagement() {
       case "active": return "text-green-400 bg-green-400/10";
       case "banned": return "text-red-400 bg-red-400/10";
       case "suspended": return "text-yellow-400 bg-yellow-400/10";
-      default: return "text-gray-400 bg-gray-400/10";
+      default: return "theme-text-secondary bg-gray-400/10";
     }
   };
 
@@ -111,8 +111,8 @@ export default function UserManagement() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">User Management</h1>
-          <p className="text-gray-400">Manage platform users and permissions</p>
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>User Management</h1>
+          <p style={{ color: 'var(--text-secondary)' }}>Manage platform users and permissions</p>
         </div>
         <div className="flex space-x-3">
           <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
@@ -125,23 +125,23 @@ export default function UserManagement() {
       </div>
 
       {/* Filters */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="relative">
-            <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 theme-text-secondary w-5 h-5" />
             <input
               type="text"
               placeholder="Search users..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
+              className="w-full pl-10 pr-4 py-2 theme-surface-elevated/50 border theme-border rounded-lg theme-text placeholder-gray-400 focus:outline-none focus:border-blue-500"
             />
           </div>
           
           <select
             value={selectedRole}
             onChange={(e) => setSelectedRole(e.target.value)}
-            className="px-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+            className="px-4 py-2 theme-surface-elevated/50 border theme-border rounded-lg theme-text focus:outline-none focus:border-blue-500"
           >
             <option value="all">All Roles</option>
             <option value="admin">Admin</option>
@@ -152,7 +152,7 @@ export default function UserManagement() {
           <select
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
-            className="px-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+            className="px-4 py-2 theme-surface-elevated/50 border theme-border rounded-lg theme-text focus:outline-none focus:border-blue-500"
           >
             <option value="all">All Status</option>
             <option value="active">Active</option>
@@ -161,8 +161,8 @@ export default function UserManagement() {
           </select>
 
           <div className="flex items-center space-x-2">
-            <UserCircleIcon className="w-5 h-5 text-gray-400" />
-            <span className="text-gray-400">
+            <UserCircleIcon className="w-5 h-5 theme-text-secondary" />
+            <span className="theme-text-secondary">
               {filteredUsers.length} of {users.length} users
             </span>
           </div>
@@ -170,19 +170,19 @@ export default function UserManagement() {
       </div>
 
       {/* Users Table */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden">
+      <div className="theme-surface backdrop-blur-sm rounded-xl border theme-border overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="theme-surface-elevated/50">
               <tr>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">User</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Role</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Status</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Problems Solved</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Join Date</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Last Active</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Premium</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Actions</th>
+                <th className="px-6 py-4 text-left text-xs font-medium theme-text-secondary uppercase tracking-wider">User</th>
+                <th className="px-6 py-4 text-left text-xs font-medium theme-text-secondary uppercase tracking-wider">Role</th>
+                <th className="px-6 py-4 text-left text-xs font-medium theme-text-secondary uppercase tracking-wider">Status</th>
+                <th className="px-6 py-4 text-left text-xs font-medium theme-text-secondary uppercase tracking-wider">Problems Solved</th>
+                <th className="px-6 py-4 text-left text-xs font-medium theme-text-secondary uppercase tracking-wider">Join Date</th>
+                <th className="px-6 py-4 text-left text-xs font-medium theme-text-secondary uppercase tracking-wider">Last Active</th>
+                <th className="px-6 py-4 text-left text-xs font-medium theme-text-secondary uppercase tracking-wider">Premium</th>
+                <th className="px-6 py-4 text-left text-xs font-medium theme-text-secondary uppercase tracking-wider">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-700/50">
@@ -196,8 +196,8 @@ export default function UserManagement() {
                         </span>
                       </div>
                       <div>
-                        <div className="text-white font-medium">{user.username}</div>
-                        <div className="text-gray-400 text-sm">{user.email}</div>
+                        <div className="theme-text font-medium">{user.username}</div>
+                        <div className="theme-text-secondary text-sm">{user.email}</div>
                       </div>
                     </div>
                   </td>
@@ -211,14 +211,14 @@ export default function UserManagement() {
                       {user.status}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-gray-300">{user.problemsSolved}</td>
-                  <td className="px-6 py-4 text-gray-300">{user.joinDate}</td>
-                  <td className="px-6 py-4 text-gray-300">{user.lastActive}</td>
+                  <td className="px-6 py-4 theme-text-secondary">{user.problemsSolved}</td>
+                  <td className="px-6 py-4 theme-text-secondary">{user.joinDate}</td>
+                  <td className="px-6 py-4 theme-text-secondary">{user.lastActive}</td>
                   <td className="px-6 py-4">
                     {user.premium ? (
                       <span className="text-yellow-400">⭐ Premium</span>
                     ) : (
-                      <span className="text-gray-400">Free</span>
+                      <span className="theme-text-secondary">Free</span>
                     )}
                   </td>
                   <td className="px-6 py-4">
@@ -272,27 +272,27 @@ export default function UserManagement() {
 
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-          <div className="text-2xl font-bold text-white">{users.length}</div>
-          <div className="text-gray-400">Total Users</div>
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
+          <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{users.length}</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Total Users</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-green-400">
             {users.filter(u => u.status === "active").length}
           </div>
-          <div className="text-gray-400">Active Users</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Active Users</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-yellow-400">
             {users.filter(u => u.premium).length}
           </div>
-          <div className="text-gray-400">Premium Users</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Premium Users</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-red-400">
             {users.filter(u => u.status === "banned").length}
           </div>
-          <div className="text-gray-400">Banned Users</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Banned Users</div>
         </div>
       </div>
     </div>

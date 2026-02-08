@@ -409,8 +409,8 @@ export default function InterviewDashboard() {
                   stats.improvementTrend === 'improving' ? 'text-green-500' :
                   stats.improvementTrend === 'declining' ? 'text-red-500' : 'text-gray-500'
                 }`}>
-                  {stats.improvementTrend === 'improving' ? '📈 Improving' :
-                   stats.improvementTrend === 'declining' ? '📉 Declining' : '➡️ Stable'}
+                  {stats.improvementTrend === 'improving' ? 'Improving' :
+                   stats.improvementTrend === 'declining' ? 'Declining' : 'Stable'}
                 </p>
               </div>
               <div className="text-center">

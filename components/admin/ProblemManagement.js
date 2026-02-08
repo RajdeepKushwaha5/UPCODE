@@ -111,7 +111,7 @@ export default function ProblemManagement() {
     return (
       <div className="flex flex-col items-center justify-center h-64 space-y-4">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
-        <p className="text-gray-400">Loading problems...</p>
+        <p style={{ color: 'var(--text-secondary)' }}>Loading problems...</p>
       </div>
     );
   }
@@ -121,8 +121,8 @@ export default function ProblemManagement() {
       {/* Header - Responsive */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="min-w-0 flex-1">
-          <h1 className="text-2xl sm:text-3xl font-bold text-white truncate">Problem Management</h1>
-          <p className="text-gray-400 text-sm sm:text-base">Manage coding problems and challenges</p>
+          <h1 className="text-2xl sm:text-3xl font-bold truncate" style={{ color: 'var(--text-primary)' }}>Problem Management</h1>
+          <p className="text-sm sm:text-base" style={{ color: 'var(--text-secondary)' }}>Manage coding problems and challenges</p>
         </div>
         
         {/* Header Actions */}
@@ -162,7 +162,7 @@ export default function ProblemManagement() {
       </div>
 
       {/* Real-time Status */}
-      <div className="flex items-center justify-between text-xs text-gray-400 theme-surface/30 rounded-lg p-3">
+      <div className="flex items-center justify-between text-xs theme-surface/30 rounded-lg p-3" style={{ color: 'var(--text-secondary)' }}>
         <div className="flex items-center space-x-2">
           <ClockIcon className="w-4 h-4" />
           <span>Last updated: {lastUpdated.toLocaleTimeString()}</span>
@@ -175,7 +175,7 @@ export default function ProblemManagement() {
             </>
           ) : (
             <>
-              <XCircleIcon className="w-4 h-4 text-gray-400" />
+              <XCircleIcon className="w-4 h-4" style={{ color: 'var(--text-secondary)' }} />
               <span>Real-time updates disabled</span>
             </>
           )}
@@ -184,42 +184,43 @@ export default function ProblemManagement() {
 
       {/* Statistics Cards - Responsive Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
-          <div className="text-xl sm:text-2xl font-bold text-white">{problems.length}</div>
-          <div className="text-gray-400 text-xs sm:text-sm">Total Problems</div>
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border theme-border">
+          <div className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{problems.length}</div>
+          <div className="text-xs sm:text-sm" style={{ color: 'var(--text-secondary)' }}>Total Problems</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border theme-border">
           <div className="text-xl sm:text-2xl font-bold text-green-400">
             {problems.filter(p => p.status === "Published").length}
           </div>
-          <div className="text-gray-400 text-xs sm:text-sm">Published</div>
+          <div className="text-xs sm:text-sm" style={{ color: 'var(--text-secondary)' }}>Published</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border theme-border">
           <div className="text-xl sm:text-2xl font-bold text-yellow-400">
             {problems.filter(p => p.status === "Draft").length}
           </div>
-          <div className="text-gray-400 text-xs sm:text-sm">Drafts</div>
+          <div className="text-xs sm:text-sm" style={{ color: 'var(--text-secondary)' }}>Drafts</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-4 border theme-border">
           <div className="text-xl sm:text-2xl font-bold theme-accent">
             {problems.length > 0 ? Math.round(problems.reduce((acc, p) => acc + (p.acceptance || 0), 0) / problems.length) : 0}%
           </div>
-          <div className="text-gray-400 text-xs sm:text-sm">Avg Acceptance</div>
+          <div className="text-xs sm:text-sm" style={{ color: 'var(--text-secondary)' }}>Avg Acceptance</div>
         </div>
       </div>
 
       {/* Filters - Responsive */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50">
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-4 sm:p-6 border theme-border">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Search */}
           <div className="relative sm:col-span-2">
-            <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{ color: 'var(--text-secondary)' }} />
             <input
               type="text"
               placeholder="Search problems..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 text-sm"
+              className="w-full pl-10 pr-4 py-2 theme-surface-elevated/50 border theme-border rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500 text-sm"
+              style={{ color: 'var(--text-primary)' }}
             />
           </div>
 
@@ -227,7 +228,8 @@ export default function ProblemManagement() {
           <select
             value={selectedDifficulty}
             onChange={(e) => setSelectedDifficulty(e.target.value)}
-            className="px-3 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500 text-sm"
+            className="px-3 py-2 theme-surface-elevated/50 border theme-border rounded-lg focus:outline-none focus:border-blue-500 text-sm"
+            style={{ color: 'var(--text-primary)' }}
           >
             <option value="all">All Difficulties</option>
             <option value="easy">Easy</option>
@@ -239,7 +241,8 @@ export default function ProblemManagement() {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="px-3 py-2 theme-surface-elevated/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500 text-sm"
+            className="px-3 py-2 theme-surface-elevated/50 border theme-border rounded-lg focus:outline-none focus:border-blue-500 text-sm"
+            style={{ color: 'var(--text-primary)' }}
           >
             <option value="all">All Categories</option>
             {categories.map(category => (
@@ -251,8 +254,8 @@ export default function ProblemManagement() {
         {/* Filter Summary */}
         <div className="flex flex-wrap items-center justify-between mt-4 gap-2">
           <div className="flex items-center space-x-2 text-sm">
-            <FunnelIcon className="w-4 h-4 text-gray-400" />
-            <span className="text-gray-400">
+            <FunnelIcon className="w-4 h-4" style={{ color: 'var(--text-secondary)' }} />
+            <span style={{ color: 'var(--text-secondary)' }}>
               Showing {filteredProblems.length} of {problems.length} problems
             </span>
           </div>
@@ -286,20 +289,20 @@ export default function ProblemManagement() {
       {/* Problems Display - Responsive */}
       {viewMode === "table" ? (
         /* Table View - Desktop */
-        <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden">
+        <div className="theme-surface backdrop-blur-sm rounded-xl border theme-border overflow-hidden">
           {/* Desktop Table */}
           <div className="hidden lg:block">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="theme-surface-elevated/50">
                   <tr>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Problem</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Difficulty</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Category</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Submissions</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Acceptance</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Status</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Actions</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Problem</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Difficulty</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Category</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Submissions</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Acceptance</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Status</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-700/50">
@@ -307,8 +310,8 @@ export default function ProblemManagement() {
                     <tr key={problem._id || problem.id} className="hover:theme-surface-elevated/30 transition-colors">
                       <td className="px-6 py-4">
                         <div>
-                          <div className="text-white font-medium truncate max-w-xs">{problem.title}</div>
-                          <div className="text-gray-400 text-sm">#{problem._id?.slice(-6) || problem.id}</div>
+                        <div className="font-medium truncate max-w-xs" style={{ color: 'var(--text-primary)' }}>{problem.title}</div>
+                        <div className="text-sm" style={{ color: 'var(--text-secondary)' }}>#{problem._id?.slice(-6) || problem.id}</div>
                         </div>
                       </td>
                       <td className="px-6 py-4">
@@ -316,9 +319,9 @@ export default function ProblemManagement() {
                           {problem.difficulty}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-gray-300">{problem.category}</td>
-                      <td className="px-6 py-4 text-gray-300">{(problem.submissions || 0).toLocaleString()}</td>
-                      <td className="px-6 py-4 text-gray-300">{problem.acceptance || 0}%</td>
+                      <td className="px-6 py-4" style={{ color: 'var(--text-secondary)' }}>{problem.category}</td>
+                      <td className="px-6 py-4" style={{ color: 'var(--text-secondary)' }}>{(problem.submissions || 0).toLocaleString()}</td>
+                      <td className="px-6 py-4" style={{ color: 'var(--text-secondary)' }}>{problem.acceptance || 0}%</td>
                       <td className="px-6 py-4">
                         <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(problem.status || "Draft")}`}>
                           {problem.status || "Draft"}
@@ -351,8 +354,8 @@ export default function ProblemManagement() {
                 <div key={problem._id || problem.id} className="p-4 hover:theme-surface-elevated/30 transition-colors">
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-white font-medium truncate">{problem.title}</h3>
-                      <p className="text-gray-400 text-sm">#{problem._id?.slice(-6) || problem.id}</p>
+                      <h3 className="font-medium truncate" style={{ color: 'var(--text-primary)' }}>{problem.title}</h3>
+                      <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>#{problem._id?.slice(-6) || problem.id}</p>
                     </div>
                     <div className="flex items-center space-x-1 ml-2">
                       <button className="p-1.5 text-blue-400 hover:text-blue-300 hover:bg-blue-400/10 rounded">
@@ -374,12 +377,12 @@ export default function ProblemManagement() {
                     <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(problem.status || "Draft")}`}>
                       {problem.status || "Draft"}
                     </span>
-                    <span className="px-2 py-1 text-xs theme-surface-elevated/50 text-gray-300 rounded-full">
+                    <span className="px-2 py-1 text-xs theme-surface-elevated/50 rounded-full" style={{ color: 'var(--text-secondary)' }}>
                       {problem.category}
                     </span>
                   </div>
                   
-                  <div className="flex items-center justify-between text-sm text-gray-400">
+                  <div className="flex items-center justify-between text-sm" style={{ color: 'var(--text-secondary)' }}>
                     <span>{(problem.submissions || 0).toLocaleString()} submissions</span>
                     <span>{problem.acceptance || 0}% acceptance</span>
                   </div>
@@ -392,9 +395,9 @@ export default function ProblemManagement() {
         /* Grid View */
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredProblems.map((problem) => (
-            <div key={problem._id || problem.id} className="theme-surface backdrop-blur-sm rounded-xl p-4 border border-slate-700/50 hover:border-purple-500/30 transition-all">
+            <div key={problem._id || problem.id} className="theme-surface backdrop-blur-sm rounded-xl p-4 border theme-border hover:border-purple-500/30 transition-all">
               <div className="flex items-start justify-between mb-3">
-                <h3 className="text-white font-medium truncate flex-1">{problem.title}</h3>
+                <h3 className="font-medium truncate flex-1" style={{ color: 'var(--text-primary)' }}>{problem.title}</h3>
                 <div className="flex items-center space-x-1 ml-2">
                   <button className="p-1 text-blue-400 hover:text-blue-300 hover:bg-blue-400/10 rounded">
                     <EyeIcon className="w-3 h-3" />
@@ -417,10 +420,10 @@ export default function ProblemManagement() {
                     {problem.status || "Draft"}
                   </span>
                 </div>
-                <p className="text-gray-400 text-xs">{problem.category}</p>
+                <p className="text-xs" style={{ color: 'var(--text-secondary)' }}>{problem.category}</p>
               </div>
               
-              <div className="flex items-center justify-between text-xs text-gray-400 pt-2 border-t border-slate-700/50">
+              <div className="flex items-center justify-between text-xs pt-2 border-t theme-border" style={{ color: 'var(--text-secondary)' }}>
                 <div className="flex items-center space-x-1">
                   <ChartBarIcon className="w-3 h-3" />
                   <span>{(problem.submissions || 0).toLocaleString()}</span>
@@ -434,10 +437,10 @@ export default function ProblemManagement() {
 
       {/* Empty State */}
       {filteredProblems.length === 0 && !loading && (
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-12 border border-slate-700/50 text-center">
-          <ChartBarIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-xl font-medium text-white mb-2">No problems found</h3>
-          <p className="text-gray-400 mb-6">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-12 border theme-border text-center">
+          <ChartBarIcon className="w-16 h-16 mx-auto mb-4" style={{ color: 'var(--text-secondary)' }} />
+          <h3 className="text-xl font-medium mb-2" style={{ color: 'var(--text-primary)' }}>No problems found</h3>
+          <p className="mb-6" style={{ color: 'var(--text-secondary)' }}>
             {searchTerm || selectedDifficulty !== "all" || selectedCategory !== "all"
               ? "Try adjusting your filters"
               : "Get started by creating your first problem"
@@ -456,13 +459,14 @@ export default function ProblemManagement() {
       {/* Create Problem Modal - Enhanced */}
       {showCreateModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="theme-surface rounded-xl p-6 w-full max-w-md border border-slate-700 shadow-2xl">
-            <h3 className="text-xl font-bold text-white mb-4">Create New Problem</h3>
-            <p className="text-gray-400 mb-6">This will open the problem creation wizard.</p>
+          <div className="theme-surface rounded-xl p-6 w-full max-w-md border theme-border shadow-2xl">
+            <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Create New Problem</h3>
+            <p className="mb-6" style={{ color: 'var(--text-secondary)' }}>This will open the problem creation wizard.</p>
             <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3">
               <button
                 onClick={() => setShowCreateModal(false)}
-                className="px-4 py-2 text-gray-400 hover:text-white transition-colors rounded-lg border border-gray-600 hover:border-gray-500"
+                className="px-4 py-2 transition-colors rounded-lg border theme-border"
+                style={{ color: 'var(--text-secondary)' }}
               >
                 Cancel
               </button>

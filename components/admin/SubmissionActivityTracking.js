@@ -184,7 +184,7 @@ export default function SubmissionActivityTracking() {
 
   const getStatusColor = (status) => {
     const statusConfig = submissionStatuses.find(s => s.value === status);
-    return statusConfig?.color || "text-gray-400";
+    return statusConfig?.color || "theme-text-secondary";
   };
 
   const getStatusIcon = (status) => {
@@ -200,13 +200,13 @@ export default function SubmissionActivityTracking() {
       case "compile-error":
         return <ExclamationTriangleIcon className="w-5 h-5 text-orange-400" />;
       default:
-        return <ClockIcon className="w-5 h-5 text-gray-400" />;
+        return <ClockIcon className="w-5 h-5 theme-text-secondary" />;
     }
   };
 
   const getDifficultyColor = (difficulty) => {
     const diffConfig = difficulties.find(d => d.value === difficulty);
-    return diffConfig?.color || "text-gray-400";
+    return diffConfig?.color || "theme-text-secondary";
   };
 
   const formatDate = (date) => {
@@ -235,7 +235,7 @@ export default function SubmissionActivityTracking() {
       case "at-risk":
         return "bg-yellow-500/20 text-yellow-400";
       default:
-        return "bg-gray-500/20 text-gray-400";
+        return "bg-gray-500/20 theme-text-secondary";
     }
   };
 
@@ -290,7 +290,7 @@ export default function SubmissionActivityTracking() {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
-        <span className="ml-3 text-white">Loading activity data...</span>
+        <span className="ml-3" style={{ color: 'var(--text-primary)' }}>Loading activity data...</span>
       </div>
     );
   }
@@ -300,69 +300,69 @@ export default function SubmissionActivityTracking() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
         <div>
-          <h2 className="text-2xl font-bold text-white">Submission & Activity Tracking</h2>
-          <p className="text-gray-400">Monitor user submissions, streaks, and platform activity</p>
+          <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Submission & Activity Tracking</h2>
+          <p style={{ color: 'var(--text-secondary)' }}>Monitor user submissions, streaks, and platform activity</p>
         </div>
       </div>
 
       {/* Activity Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-        <div className="theme-surface-elevated/50 rounded-lg p-4 border border-slate-600/50">
+        <div className="theme-surface-elevated/50 rounded-lg p-4 border theme-border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Total Submissions</p>
-              <p className="text-2xl font-bold text-white">{activityStats.totalSubmissions.toLocaleString()}</p>
+              <p className="theme-text-secondary text-sm">Total Submissions</p>
+              <p className="text-2xl font-bold theme-text">{activityStats.totalSubmissions.toLocaleString()}</p>
             </div>
             <CodeBracketIcon className="w-8 h-8 text-blue-400" />
           </div>
         </div>
 
-        <div className="theme-surface-elevated/50 rounded-lg p-4 border border-slate-600/50">
+        <div className="theme-surface-elevated/50 rounded-lg p-4 border theme-border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Accepted</p>
-              <p className="text-2xl font-bold text-white">{activityStats.acceptedSubmissions.toLocaleString()}</p>
+              <p className="theme-text-secondary text-sm">Accepted</p>
+              <p className="text-2xl font-bold theme-text">{activityStats.acceptedSubmissions.toLocaleString()}</p>
             </div>
             <CheckCircleIcon className="w-8 h-8 text-green-400" />
           </div>
         </div>
 
-        <div className="theme-surface-elevated/50 rounded-lg p-4 border border-slate-600/50">
+        <div className="theme-surface-elevated/50 rounded-lg p-4 border theme-border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Acceptance Rate</p>
-              <p className="text-2xl font-bold text-white">{activityStats.acceptanceRate}%</p>
+              <p className="theme-text-secondary text-sm">Acceptance Rate</p>
+              <p className="text-2xl font-bold theme-text">{activityStats.acceptanceRate}%</p>
             </div>
             <ChartBarIcon className="w-8 h-8 theme-accent" />
           </div>
         </div>
 
-        <div className="theme-surface-elevated/50 rounded-lg p-4 border border-slate-600/50">
+        <div className="theme-surface-elevated/50 rounded-lg p-4 border theme-border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Active Users</p>
-              <p className="text-2xl font-bold text-white">{activityStats.activeUsers.toLocaleString()}</p>
+              <p className="theme-text-secondary text-sm">Active Users</p>
+              <p className="text-2xl font-bold theme-text">{activityStats.activeUsers.toLocaleString()}</p>
             </div>
             <UserGroupIcon className="w-8 h-8 text-cyan-400" />
           </div>
         </div>
 
-        <div className="theme-surface-elevated/50 rounded-lg p-4 border border-slate-600/50">
+        <div className="theme-surface-elevated/50 rounded-lg p-4 border theme-border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Active Streaks</p>
-              <p className="text-2xl font-bold text-white">{activityStats.streaksActive.toLocaleString()}</p>
+              <p className="theme-text-secondary text-sm">Active Streaks</p>
+              <p className="text-2xl font-bold theme-text">{activityStats.streaksActive.toLocaleString()}</p>
             </div>
             <FireIcon className="w-8 h-8 text-orange-400" />
           </div>
         </div>
 
-        <div className="theme-surface-elevated/50 rounded-lg p-4 border border-slate-600/50">
+        <div className="theme-surface-elevated/50 rounded-lg p-4 border theme-border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Problem of Day</p>
-              <p className="text-lg font-bold text-white">{activityStats.problemOfDay?.title.slice(0, 12)}...</p>
-              <p className="text-xs text-gray-400">{activityStats.problemOfDay?.submissions} submissions</p>
+              <p className="theme-text-secondary text-sm">Problem of Day</p>
+              <p className="text-lg font-bold theme-text">{activityStats.problemOfDay?.title.slice(0, 12)}...</p>
+              <p className="text-xs theme-text-secondary">{activityStats.problemOfDay?.submissions} submissions</p>
             </div>
             <CalendarDaysIcon className="w-8 h-8 text-yellow-400" />
           </div>
@@ -370,7 +370,7 @@ export default function SubmissionActivityTracking() {
       </div>
 
       {/* Tabs */}
-      <div className="border-b border-slate-600">
+      <div className="border-b theme-border">
         <nav className="-mb-px flex space-x-8">
           {tabs.map((tab) => (
             <button
@@ -379,7 +379,7 @@ export default function SubmissionActivityTracking() {
               className={`py-2 px-1 border-b-2 font-medium text-sm flex items-center space-x-2 transition-colors ${
                 activeTab === tab.id
                   ? "border-purple-500 theme-accent"
-                  : "border-transparent text-gray-400 hover:text-gray-300 hover:border-gray-300"
+                  : "border-transparent theme-text-secondary hover:text-gray-300 hover:border-gray-300"
               }`}
             >
               <tab.icon className="w-4 h-4" />
@@ -393,16 +393,16 @@ export default function SubmissionActivityTracking() {
       {activeTab === "submissions" && (
         <div className="space-y-6">
           {/* Filters */}
-          <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Filters</h3>
+          <div className="theme-surface backdrop-blur-sm rounded-xl border theme-border p-6">
+            <h3 className="text-lg font-semibold theme-text mb-4">Filters</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Status</label>
+                <label className="block text-sm font-medium theme-text-secondary mb-2">Status</label>
                 <select
                   value={filters.status}
                   onChange={(e) => setFilters(prev => ({ ...prev, status: e.target.value }))}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border theme-text px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   {submissionStatuses.map(status => (
                     <option key={status.value} value={status.value}>{status.label}</option>
@@ -411,11 +411,11 @@ export default function SubmissionActivityTracking() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Language</label>
+                <label className="block text-sm font-medium theme-text-secondary mb-2">Language</label>
                 <select
                   value={filters.language}
                   onChange={(e) => setFilters(prev => ({ ...prev, language: e.target.value }))}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border theme-text px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   {languages.map(lang => (
                     <option key={lang.value} value={lang.value}>{lang.label}</option>
@@ -424,11 +424,11 @@ export default function SubmissionActivityTracking() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Difficulty</label>
+                <label className="block text-sm font-medium theme-text-secondary mb-2">Difficulty</label>
                 <select
                   value={filters.difficulty}
                   onChange={(e) => setFilters(prev => ({ ...prev, difficulty: e.target.value }))}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border theme-text px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   {difficulties.map(diff => (
                     <option key={diff.value} value={diff.value}>{diff.label}</option>
@@ -437,11 +437,11 @@ export default function SubmissionActivityTracking() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Date Range</label>
+                <label className="block text-sm font-medium theme-text-secondary mb-2">Date Range</label>
                 <select
                   value={filters.dateRange}
                   onChange={(e) => setFilters(prev => ({ ...prev, dateRange: e.target.value }))}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border theme-text px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   {dateRanges.map(range => (
                     <option key={range.value} value={range.value}>{range.label}</option>
@@ -450,15 +450,15 @@ export default function SubmissionActivityTracking() {
               </div>
 
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-300 mb-2">Search</label>
+                <label className="block text-sm font-medium theme-text-secondary mb-2">Search</label>
                 <div className="relative">
-                  <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 theme-text-secondary" />
                   <input
                     type="text"
                     value={filters.searchTerm}
                     onChange={(e) => setFilters(prev => ({ ...prev, searchTerm: e.target.value }))}
                     placeholder="Search by user or problem..."
-                    className="w-full theme-surface-elevated border border-slate-600 text-white pl-10 pr-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border theme-border theme-text pl-10 pr-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
               </div>
@@ -466,10 +466,10 @@ export default function SubmissionActivityTracking() {
           </div>
 
           {/* Submissions Table */}
-          <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 p-6">
+          <div className="theme-surface backdrop-blur-sm rounded-xl border theme-border p-6">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-semibold text-white">Recent Submissions</h3>
-              <div className="text-sm text-gray-400">
+              <h3 className="text-lg font-semibold theme-text">Recent Submissions</h3>
+              <div className="text-sm theme-text-secondary">
                 {filteredSubmissions.length} submissions found
               </div>
             </div>
@@ -478,32 +478,32 @@ export default function SubmissionActivityTracking() {
               <table className="w-full">
                 <thead className="theme-surface-elevated/50">
                   <tr>
-                    <th className="text-left px-4 py-3 text-gray-300 font-medium">User</th>
-                    <th className="text-left px-4 py-3 text-gray-300 font-medium">Problem</th>
-                    <th className="text-left px-4 py-3 text-gray-300 font-medium">Language</th>
-                    <th className="text-left px-4 py-3 text-gray-300 font-medium">Status</th>
-                    <th className="text-left px-4 py-3 text-gray-300 font-medium">Runtime</th>
-                    <th className="text-left px-4 py-3 text-gray-300 font-medium">Memory</th>
-                    <th className="text-left px-4 py-3 text-gray-300 font-medium">Submitted</th>
-                    <th className="text-left px-4 py-3 text-gray-300 font-medium">Actions</th>
+                    <th className="text-left px-4 py-3 theme-text-secondary font-medium">User</th>
+                    <th className="text-left px-4 py-3 theme-text-secondary font-medium">Problem</th>
+                    <th className="text-left px-4 py-3 theme-text-secondary font-medium">Language</th>
+                    <th className="text-left px-4 py-3 theme-text-secondary font-medium">Status</th>
+                    <th className="text-left px-4 py-3 theme-text-secondary font-medium">Runtime</th>
+                    <th className="text-left px-4 py-3 theme-text-secondary font-medium">Memory</th>
+                    <th className="text-left px-4 py-3 theme-text-secondary font-medium">Submitted</th>
+                    <th className="text-left px-4 py-3 theme-text-secondary font-medium">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-600/50">
                   {filteredSubmissions.map((submission) => (
                     <tr key={submission._id} className="hover:theme-surface-elevated/30 transition-colors">
                       <td className="px-4 py-3">
-                        <span className="text-white font-medium">{submission.username}</span>
+                        <span className="theme-text font-medium">{submission.username}</span>
                       </td>
                       <td className="px-4 py-3">
                         <div>
-                          <p className="text-white font-medium">{submission.problemTitle}</p>
+                          <p className="theme-text font-medium">{submission.problemTitle}</p>
                           <span className={`text-sm font-medium ${getDifficultyColor(submission.difficulty)}`}>
                             {submission.difficulty?.toUpperCase()}
                           </span>
                         </div>
                       </td>
                       <td className="px-4 py-3">
-                        <span className="text-white capitalize">{submission.language}</span>
+                        <span className="theme-text capitalize">{submission.language}</span>
                       </td>
                       <td className="px-4 py-3">
                         <div className="flex items-center space-x-2">
@@ -513,23 +513,23 @@ export default function SubmissionActivityTracking() {
                           </span>
                         </div>
                         {submission.testCasesPassed !== undefined && (
-                          <p className="text-xs text-gray-400">
+                          <p className="text-xs theme-text-secondary">
                             {submission.testCasesPassed}/{submission.totalTestCases} test cases
                           </p>
                         )}
                       </td>
                       <td className="px-4 py-3">
-                        <span className="text-white">
+                        <span className="theme-text">
                           {submission.runtime ? `${submission.runtime}ms` : "-"}
                         </span>
                       </td>
                       <td className="px-4 py-3">
-                        <span className="text-white">
+                        <span className="theme-text">
                           {submission.memory ? `${submission.memory}MB` : "-"}
                         </span>
                       </td>
                       <td className="px-4 py-3">
-                        <span className="text-gray-300 text-sm">
+                        <span className="theme-text-secondary text-sm">
                           {formatDate(submission.submittedAt)}
                         </span>
                       </td>
@@ -558,16 +558,16 @@ export default function SubmissionActivityTracking() {
       {activeTab === "streaks" && (
         <div className="space-y-6">
           {/* Streak Filters */}
-          <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Streak Filters</h3>
+          <div className="theme-surface backdrop-blur-sm rounded-xl border theme-border p-6">
+            <h3 className="text-lg font-semibold theme-text mb-4">Streak Filters</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Streak Status</label>
+                <label className="block text-sm font-medium theme-text-secondary mb-2">Streak Status</label>
                 <select
                   value={streakFilters.status}
                   onChange={(e) => setStreakFilters(prev => ({ ...prev, status: e.target.value }))}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border theme-text px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="all">All Statuses</option>
                   <option value="active">Active</option>
@@ -577,11 +577,11 @@ export default function SubmissionActivityTracking() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Streak Length</label>
+                <label className="block text-sm font-medium theme-text-secondary mb-2">Streak Length</label>
                 <select
                   value={streakFilters.lengthFilter}
                   onChange={(e) => setStreakFilters(prev => ({ ...prev, lengthFilter: e.target.value }))}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border theme-text px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="all">All Lengths</option>
                   <option value="long">10+ Days</option>
@@ -590,15 +590,15 @@ export default function SubmissionActivityTracking() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Search User</label>
+                <label className="block text-sm font-medium theme-text-secondary mb-2">Search User</label>
                 <div className="relative">
-                  <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 theme-text-secondary" />
                   <input
                     type="text"
                     value={streakFilters.searchTerm}
                     onChange={(e) => setStreakFilters(prev => ({ ...prev, searchTerm: e.target.value }))}
                     placeholder="Search users..."
-                    className="w-full theme-surface-elevated border border-slate-600 text-white pl-10 pr-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border theme-border theme-text pl-10 pr-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
               </div>
@@ -606,21 +606,21 @@ export default function SubmissionActivityTracking() {
           </div>
 
           {/* Streak Management */}
-          <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 p-6">
+          <div className="theme-surface backdrop-blur-sm rounded-xl border theme-border p-6">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-semibold text-white">User Streaks</h3>
-              <div className="text-sm text-gray-400">
+              <h3 className="text-lg font-semibold theme-text">User Streaks</h3>
+              <div className="text-sm theme-text-secondary">
                 {filteredStreaks.length} users found
               </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {filteredStreaks.map((streak) => (
-                <div key={streak._id} className="theme-surface-elevated/50 rounded-lg p-6 border border-slate-600/50">
+                <div key={streak._id} className="theme-surface-elevated/50 rounded-lg p-6 border theme-border">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <h4 className="text-white font-semibold mb-1">{streak.username}</h4>
-                      <p className="text-gray-400 text-sm mb-2">{streak.email}</p>
+                      <h4 className="theme-text font-semibold mb-1">{streak.username}</h4>
+                      <p className="theme-text-secondary text-sm mb-2">{streak.email}</p>
                       <span className={`inline-flex items-center px-2 py-1 rounded-full text-sm font-medium ${getStreakStatusColor(streak.streakStatus)}`}>
                         {streak.streakStatus}
                       </span>
@@ -628,28 +628,28 @@ export default function SubmissionActivityTracking() {
                     <div className="text-right">
                       <div className="flex items-center space-x-1 mb-1">
                         <FireIcon className="w-5 h-5 text-orange-400" />
-                        <span className="text-2xl font-bold text-white">{streak.currentStreak}</span>
+                        <span className="text-2xl font-bold theme-text">{streak.currentStreak}</span>
                       </div>
-                      <p className="text-gray-400 text-xs">current streak</p>
+                      <p className="theme-text-secondary text-xs">current streak</p>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div>
-                      <p className="text-gray-400 text-sm">Longest Streak</p>
-                      <p className="text-white font-medium">{streak.longestStreak} days</p>
+                      <p className="theme-text-secondary text-sm">Longest Streak</p>
+                      <p className="theme-text font-medium">{streak.longestStreak} days</p>
                     </div>
                     <div>
-                      <p className="text-gray-400 text-sm">Total Solved</p>
-                      <p className="text-white font-medium">{streak.totalSolved}</p>
+                      <p className="theme-text-secondary text-sm">Total Solved</p>
+                      <p className="theme-text font-medium">{streak.totalSolved}</p>
                     </div>
                     <div>
-                      <p className="text-gray-400 text-sm">Last Solved</p>
-                      <p className="text-white font-medium">{formatDateShort(streak.lastSolved)}</p>
+                      <p className="theme-text-secondary text-sm">Last Solved</p>
+                      <p className="theme-text font-medium">{formatDateShort(streak.lastSolved)}</p>
                     </div>
                     <div>
-                      <p className="text-gray-400 text-sm">Days Ago</p>
-                      <p className="text-white font-medium">{calculateDaysSinceLastSolved(streak.lastSolved)}</p>
+                      <p className="theme-text-secondary text-sm">Days Ago</p>
+                      <p className="theme-text font-medium">{calculateDaysSinceLastSolved(streak.lastSolved)}</p>
                     </div>
                   </div>
 
@@ -687,22 +687,22 @@ export default function SubmissionActivityTracking() {
       {/* Problem of the Day Tab */}
       {activeTab === "problem-of-day" && (
         <div className="space-y-6">
-          <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 p-6">
-            <h3 className="text-lg font-semibold text-white mb-6">Problem of the Day Management</h3>
+          <div className="theme-surface backdrop-blur-sm rounded-xl border theme-border p-6">
+            <h3 className="text-lg font-semibold theme-text mb-6">Problem of the Day Management</h3>
             
             {activityStats.problemOfDay && (
-              <div className="theme-surface-elevated/50 rounded-lg p-6 border border-slate-600/50 mb-6">
+              <div className="theme-surface-elevated/50 rounded-lg p-6 border theme-border mb-6">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h4 className="text-white font-semibold text-lg">{activityStats.problemOfDay.title}</h4>
-                    <p className="text-gray-400">Problem ID: {activityStats.problemOfDay.id}</p>
+                    <h4 className="theme-text font-semibold text-lg">{activityStats.problemOfDay.title}</h4>
+                    <p className="theme-text-secondary">Problem ID: {activityStats.problemOfDay.id}</p>
                     <span className={`text-sm font-medium ${getDifficultyColor(activityStats.problemOfDay.difficulty)}`}>
                       {activityStats.problemOfDay.difficulty?.toUpperCase()}
                     </span>
                   </div>
                   <div className="text-right">
-                    <p className="text-2xl font-bold text-white">{activityStats.problemOfDay.submissions}</p>
-                    <p className="text-gray-400 text-sm">submissions today</p>
+                    <p className="text-2xl font-bold theme-text">{activityStats.problemOfDay.submissions}</p>
+                    <p className="theme-text-secondary text-sm">submissions today</p>
                     <p className="text-green-400 text-sm">{activityStats.problemOfDay.acceptanceRate}% accepted</p>
                   </div>
                 </div>
@@ -721,7 +721,7 @@ export default function SubmissionActivityTracking() {
                 <ExclamationTriangleIcon className="w-5 h-5 text-yellow-400 mt-0.5" />
                 <div>
                   <h4 className="text-yellow-400 font-medium">Manual Override</h4>
-                  <p className="text-gray-300 text-sm mt-1">
+                  <p className="theme-text-secondary text-sm mt-1">
                     Use the form below to manually set a specific problem as the Problem of the Day.
                   </p>
                 </div>
@@ -729,14 +729,14 @@ export default function SubmissionActivityTracking() {
             </div>
 
             <div className="mt-6">
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium theme-text-secondary mb-2">
                 Set New Problem of the Day
               </label>
               <div className="flex space-x-3">
                 <input
                   type="text"
                   placeholder="Enter Problem ID (e.g., two-sum)"
-                  className="flex-1 theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="flex-1 theme-surface-elevated border theme-border theme-text px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
                 <button
                   onClick={() => handleSetProblemOfDay("manual-selection")}
@@ -753,13 +753,13 @@ export default function SubmissionActivityTracking() {
       {/* Activity Analytics Tab */}
       {activeTab === "analytics" && (
         <div className="space-y-6">
-          <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 p-6">
-            <h3 className="text-lg font-semibold text-white mb-6">Activity Analytics</h3>
+          <div className="theme-surface backdrop-blur-sm rounded-xl border theme-border p-6">
+            <h3 className="text-lg font-semibold theme-text mb-6">Activity Analytics</h3>
             
             <div className="bg-blue-500/10 border border-blue-500/50 rounded-lg p-6 text-center">
               <ChartBarIcon className="w-12 h-12 text-blue-400 mx-auto mb-4" />
               <h4 className="text-blue-400 font-medium text-lg mb-2">Advanced Analytics</h4>
-              <p className="text-gray-300">
+              <p className="theme-text-secondary">
                 Detailed analytics charts and graphs for submission patterns, user activity trends, 
                 and performance metrics will be displayed here.
               </p>
@@ -772,12 +772,12 @@ export default function SubmissionActivityTracking() {
       {showSubmissionModal && selectedSubmission && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="theme-surface rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6 border-b border-slate-700">
+            <div className="p-6 border-b theme-border">
               <div className="flex items-center justify-between">
-                <h3 className="text-xl font-semibold text-white">Submission Details</h3>
+                <h3 className="text-xl font-semibold theme-text">Submission Details</h3>
                 <button
                   onClick={() => setShowSubmissionModal(false)}
-                  className="text-gray-400 hover:text-white"
+                  className="theme-text-secondary hover:text-white"
                 >
                   ✕
                 </button>
@@ -787,19 +787,19 @@ export default function SubmissionActivityTracking() {
             <div className="p-6 space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <p className="text-gray-400 text-sm">User</p>
-                  <p className="text-white font-medium">{selectedSubmission.username}</p>
+                  <p className="theme-text-secondary text-sm">User</p>
+                  <p className="theme-text font-medium">{selectedSubmission.username}</p>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm">Problem</p>
-                  <p className="text-white font-medium">{selectedSubmission.problemTitle}</p>
+                  <p className="theme-text-secondary text-sm">Problem</p>
+                  <p className="theme-text font-medium">{selectedSubmission.problemTitle}</p>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm">Language</p>
-                  <p className="text-white capitalize">{selectedSubmission.language}</p>
+                  <p className="theme-text-secondary text-sm">Language</p>
+                  <p className="theme-text capitalize">{selectedSubmission.language}</p>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm">Status</p>
+                  <p className="theme-text-secondary text-sm">Status</p>
                   <div className="flex items-center space-x-2">
                     {getStatusIcon(selectedSubmission.status)}
                     <span className={`font-medium ${getStatusColor(selectedSubmission.status)}`}>
@@ -809,20 +809,20 @@ export default function SubmissionActivityTracking() {
                 </div>
                 {selectedSubmission.runtime && (
                   <div>
-                    <p className="text-gray-400 text-sm">Runtime</p>
-                    <p className="text-white">{selectedSubmission.runtime}ms</p>
+                    <p className="theme-text-secondary text-sm">Runtime</p>
+                    <p className="theme-text">{selectedSubmission.runtime}ms</p>
                   </div>
                 )}
                 {selectedSubmission.memory && (
                   <div>
-                    <p className="text-gray-400 text-sm">Memory</p>
-                    <p className="text-white">{selectedSubmission.memory}MB</p>
+                    <p className="theme-text-secondary text-sm">Memory</p>
+                    <p className="theme-text">{selectedSubmission.memory}MB</p>
                   </div>
                 )}
               </div>
 
               <div>
-                <p className="text-gray-400 text-sm mb-2">Submitted Code</p>
+                <p className="theme-text-secondary text-sm mb-2">Submitted Code</p>
                 <div className="theme-bg rounded-lg p-4 overflow-x-auto">
                   <pre className="text-green-400 text-sm font-mono whitespace-pre-wrap">
                     {selectedSubmission.code}
@@ -833,7 +833,7 @@ export default function SubmissionActivityTracking() {
               <div className="flex justify-end">
                 <button
                   onClick={() => setShowSubmissionModal(false)}
-                  className="bg-slate-600 hover:theme-surface-elevated text-white px-4 py-2 rounded-lg transition-colors"
+                  className="theme-surface-elevated hover:opacity-80 text-white px-4 py-2 rounded-lg transition-colors"
                 >
                   Close
                 </button>
@@ -847,12 +847,12 @@ export default function SubmissionActivityTracking() {
       {showStreakModal && selectedUser && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="theme-surface rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6 border-b border-slate-700">
+            <div className="p-6 border-b theme-border">
               <div className="flex items-center justify-between">
-                <h3 className="text-xl font-semibold text-white">Streak Details</h3>
+                <h3 className="text-xl font-semibold theme-text">Streak Details</h3>
                 <button
                   onClick={() => setShowStreakModal(false)}
-                  className="text-gray-400 hover:text-white"
+                  className="theme-text-secondary hover:text-white"
                 >
                   ✕
                 </button>
@@ -861,34 +861,34 @@ export default function SubmissionActivityTracking() {
             
             <div className="p-6 space-y-6">
               <div className="text-center">
-                <h4 className="text-white font-semibold text-lg">{selectedUser.username}</h4>
-                <p className="text-gray-400">{selectedUser.email}</p>
+                <h4 className="theme-text font-semibold text-lg">{selectedUser.username}</h4>
+                <p className="theme-text-secondary">{selectedUser.email}</p>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center">
                   <div className="flex items-center justify-center space-x-1 mb-1">
                     <FireIcon className="w-6 h-6 text-orange-400" />
-                    <span className="text-3xl font-bold text-white">{selectedUser.currentStreak}</span>
+                    <span className="text-3xl font-bold theme-text">{selectedUser.currentStreak}</span>
                   </div>
-                  <p className="text-gray-400 text-sm">Current Streak</p>
+                  <p className="theme-text-secondary text-sm">Current Streak</p>
                 </div>
                 <div className="text-center">
                   <div className="flex items-center justify-center space-x-1 mb-1">
                     <TrophyIcon className="w-6 h-6 text-yellow-400" />
-                    <span className="text-3xl font-bold text-white">{selectedUser.longestStreak}</span>
+                    <span className="text-3xl font-bold theme-text">{selectedUser.longestStreak}</span>
                   </div>
-                  <p className="text-gray-400 text-sm">Longest Streak</p>
+                  <p className="theme-text-secondary text-sm">Longest Streak</p>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <h5 className="text-white font-medium">Recent Activity</h5>
+                <h5 className="theme-text font-medium">Recent Activity</h5>
                 {selectedUser.problems?.slice(0, 5).map((problem, index) => (
                   <div key={index} className="flex items-center justify-between py-2 px-3 theme-surface-elevated/50 rounded">
                     <div>
-                      <p className="text-white text-sm">{problem.problemId}</p>
-                      <p className="text-gray-400 text-xs">{problem.date}</p>
+                      <p className="theme-text text-sm">{problem.problemId}</p>
+                      <p className="theme-text-secondary text-xs">{problem.date}</p>
                     </div>
                     {problem.solved ? (
                       <CheckCircleIcon className="w-5 h-5 text-green-400" />
@@ -902,7 +902,7 @@ export default function SubmissionActivityTracking() {
               <div className="flex justify-end space-x-3">
                 <button
                   onClick={() => setShowStreakModal(false)}
-                  className="bg-slate-600 hover:theme-surface-elevated text-white px-4 py-2 rounded-lg transition-colors"
+                  className="theme-surface-elevated hover:opacity-80 text-white px-4 py-2 rounded-lg transition-colors"
                 >
                   Close
                 </button>

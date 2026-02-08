@@ -34,36 +34,36 @@ export default function PremiumControl() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-white">Premium Control</h1>
-        <p className="text-gray-400">Manage premium subscriptions and features</p>
+        <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Premium Control</h1>
+        <p style={{ color: 'var(--text-secondary)' }}>Manage premium subscriptions and features</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-yellow-400">{premiumStats.totalSubscribers}</div>
-          <div className="text-gray-400">Total Subscribers</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Total Subscribers</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-green-400">${premiumStats.monthlyRevenue}</div>
-          <div className="text-gray-400">Monthly Revenue</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Monthly Revenue</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-red-400">{premiumStats.churnRate}%</div>
-          <div className="text-gray-400">Churn Rate</div>
+          <div style={{ color: 'var(--text-secondary)' }}>Churn Rate</div>
         </div>
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="text-2xl font-bold text-blue-400">{premiumStats.newSubscriptions}</div>
-          <div className="text-gray-400">New This Month</div>
+          <div style={{ color: 'var(--text-secondary)' }}>New This Month</div>
         </div>
       </div>
 
-      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-        <h2 className="text-xl font-semibold text-white mb-4">Premium Features Control</h2>
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
+        <h2 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Premium Features Control</h2>
         <div className="space-y-4">
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">Advanced Problem Hints</h3>
-              <p className="text-gray-400 text-sm">Allow premium users to access detailed hints</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Advanced Problem Hints</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Allow premium users to access detailed hints</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input type="checkbox" className="sr-only peer" defaultChecked />
@@ -73,8 +73,8 @@ export default function PremiumControl() {
 
           <div className="flex items-center justify-between p-4 theme-surface-elevated/30 rounded-lg">
             <div>
-              <h3 className="text-white font-medium">Video Solutions</h3>
-              <p className="text-gray-400 text-sm">Access to video explanations for problems</p>
+              <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>Video Solutions</h3>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Access to video explanations for problems</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input type="checkbox" className="sr-only peer" defaultChecked />

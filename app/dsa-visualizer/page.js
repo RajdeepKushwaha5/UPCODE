@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { FaChartBar, FaTree, FaLink, FaLayerGroup, FaBrain, FaBullseye, FaPlay, FaSearch, FaStream } from 'react-icons/fa';
 
 export default function DSAVisualizer() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -14,7 +15,7 @@ export default function DSAVisualizer() {
     {
       title: "Arrays & Sorting",
       description: "Master array operations and sorting algorithms with step-by-step animations",
-      icon: "📊",
+      icon: <FaChartBar className="text-5xl" />,
       gradient: "from-purple-500 to-pink-500",
       path: "/dsa-visualizer/arrays",
       color: "purple",
@@ -33,7 +34,7 @@ export default function DSAVisualizer() {
     {
       title: "Trees",
       description: "Explore tree data structures with interactive visualizations",
-      icon: "🌳",
+      icon: <FaTree className="text-5xl" />,
       gradient: "from-green-500 to-teal-500",
       path: "/dsa-visualizer/trees",
       color: "green",
@@ -50,7 +51,7 @@ export default function DSAVisualizer() {
     {
       title: "Linked Lists",
       description: "Understand linked list operations and memory management",
-      icon: "🔗",
+      icon: <FaLink className="text-5xl" />,
       gradient: "from-blue-500 to-cyan-500",
       path: "/dsa-visualizer/linked-lists",
       color: "blue",
@@ -64,7 +65,7 @@ export default function DSAVisualizer() {
     {
       title: "Stacks & Queues",
       description: "Learn LIFO and FIFO data structure operations",
-      icon: "📚",
+      icon: <FaLayerGroup className="text-5xl" />,
       gradient: "from-orange-500 to-red-500",
       path: "/dsa-visualizer/stacks-queues",
       color: "orange",
@@ -136,12 +137,12 @@ export default function DSAVisualizer() {
         {/* Header Section */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="mb-6">
-            <span className="text-6xl mb-4 block animate-bounce">🧠</span>
+            <FaBrain className="text-5xl mb-4 mx-auto animate-bounce" style={{ color: 'var(--accent)' }} />
           </div>
           <h1 className="text-6xl max-lg:text-5xl max-md:text-4xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent mb-6 font-mono tracking-tight">
             DSA VISUALIZER
           </h1>
-          <p className="text-xl max-md:text-lg text-slate-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl max-md:text-lg max-w-4xl mx-auto leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             Master <span className="theme-accent font-semibold">Data Structures</span> and <span className="text-pink-400 font-semibold">Algorithms</span> through 
             interactive visualizations. See how your code comes to life!
           </p>
@@ -150,15 +151,15 @@ export default function DSAVisualizer() {
           <div className="flex justify-center items-center gap-8 mt-8 flex-wrap">
             <div className="text-center">
               <div className="text-3xl font-bold theme-accent">{categories.reduce((sum, cat) => sum + cat.visualizations, 0)}+</div>
-              <div className="text-sm text-slate-400">Visualizations</div>
+              <div className="text-sm" style={{ color: 'var(--text-secondary)' }}>Visualizations</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-pink-400">{categories.length}</div>
-              <div className="text-sm text-slate-400">Categories</div>
+              <div className="text-sm" style={{ color: 'var(--text-secondary)' }}>Categories</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-400">Interactive</div>
-              <div className="text-sm text-slate-400">Learning</div>
+              <div className="text-sm" style={{ color: 'var(--text-secondary)' }}>Learning</div>
             </div>
           </div>
         </div>
@@ -189,19 +190,19 @@ export default function DSAVisualizer() {
                   {/* Content */}
                   <div className="relative z-10">
                     <div className="text-center mb-6">
-                      <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                      <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300" style={{ color: 'var(--text-primary)' }}>
                         {category.icon}
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
+                      <h3 className="text-2xl font-bold mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300" style={{ color: 'var(--text-primary)' }}>
                         {category.title}
                       </h3>
-                      <p className="text-slate-400 text-sm leading-relaxed">
+                      <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                         {category.description}
                       </p>
                       
                       {/* Visualization Count */}
                       <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 theme-surface-elevated/50 rounded-full">
-                        <span className="text-xs text-slate-300">{category.visualizations} Visualizations</span>
+                        <span className="text-xs" style={{ color: 'var(--text-secondary)' }}>{category.visualizations} Visualizations</span>
                         <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                       </div>
                     </div>
@@ -211,14 +212,14 @@ export default function DSAVisualizer() {
                       isSelected ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                     }`}>
                       <div className="border-t border-slate-600/50 pt-4">
-                        <h4 className="font-semibold text-slate-300 mb-3 text-sm">Available Topics:</h4>
+                        <h4 className="font-semibold mb-3 text-sm" style={{ color: 'var(--text-secondary)' }}>Available Topics:</h4>
                         <div className="space-y-2">
                           {category.topics.map((topic, topicIndex) => (
                             <div
                               key={topicIndex}
                               className="flex items-center justify-between text-xs p-2 theme-surface-elevated/30 rounded-lg hover:theme-surface-elevated/50 transition-colors duration-200"
                             >
-                              <span className="text-slate-300">{topic.name}</span>
+                              <span style={{ color: 'var(--text-secondary)' }}>{topic.name}</span>
                               <span className="text-lg">{topic.status}</span>
                             </div>
                           ))}
@@ -249,38 +250,38 @@ export default function DSAVisualizer() {
 
         {/* Features Section */}
         <div className={`transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="theme-surface/30 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50">
+            <div className="theme-surface/30 backdrop-blur-sm rounded-3xl p-8 border" style={{ borderColor: 'var(--border-primary)' }}>
             <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               How to Master DSA
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center group hover:scale-105 transition-transform duration-300">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg group-hover:shadow-purple-500/30 transition-shadow duration-300">
-                  🎯
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl text-white shadow-lg group-hover:shadow-purple-500/30 transition-shadow duration-300">
+                  <FaBullseye />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:theme-accent transition-colors duration-300">Choose Your Path</h3>
-                <p className="text-slate-400 leading-relaxed">
+                <h3 className="text-xl font-bold mb-3 group-hover:theme-accent transition-colors duration-300" style={{ color: 'var(--text-primary)' }}>Choose Your Path</h3>
+                <p className="leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                   Select from arrays, trees, graphs, and advanced algorithms. Each path is carefully designed for progressive learning.
                 </p>
               </div>
               
               <div className="text-center group hover:scale-105 transition-transform duration-300">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg group-hover:shadow-green-500/30 transition-shadow duration-300">
-                  ▶️
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl text-white shadow-lg group-hover:shadow-green-500/30 transition-shadow duration-300">
+                  <FaPlay />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-green-400 transition-colors duration-300">Interactive Learning</h3>
-                <p className="text-slate-400 leading-relaxed">
+                <h3 className="text-xl font-bold mb-3 group-hover:text-green-400 transition-colors duration-300" style={{ color: 'var(--text-primary)' }}>Interactive Learning</h3>
+                <p className="leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                   Step through algorithms with real-time animations. Control the speed, pause, and replay to understand every detail.
                 </p>
               </div>
               
               <div className="text-center group hover:scale-105 transition-transform duration-300">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg group-hover:shadow-blue-500/30 transition-shadow duration-300">
-                  🧠
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl text-white shadow-lg group-hover:shadow-blue-500/30 transition-shadow duration-300">
+                  <FaBrain />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300">Deep Understanding</h3>
-                <p className="text-slate-400 leading-relaxed">
+                <h3 className="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors duration-300" style={{ color: 'var(--text-primary)' }}>Deep Understanding</h3>
+                <p className="leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                   Gain intuitive understanding of time complexity, space complexity, and optimal solutions through visualization.
                 </p>
               </div>
@@ -296,21 +297,21 @@ export default function DSAVisualizer() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: "Bubble Sort", path: "/dsa-visualizer/arrays/bubble-sort", icon: "🫧" },
-              { name: "Binary Search", path: "/dsa-visualizer/arrays/binary-search", icon: "🔍" },
-              { name: "Binary Tree", path: "/dsa-visualizer/trees/binary-tree", icon: "🌲" },
-              { name: "Stack Operations", path: "/dsa-visualizer/stacks-queues/stack", icon: "📚" }
+              { name: "Bubble Sort", path: "/dsa-visualizer/arrays/bubble-sort", icon: <FaStream className="text-3xl" /> },
+              { name: "Binary Search", path: "/dsa-visualizer/arrays/binary-search", icon: <FaSearch className="text-3xl" /> },
+              { name: "Binary Tree", path: "/dsa-visualizer/trees/binary-tree", icon: <FaTree className="text-3xl" /> },
+              { name: "Stack Operations", path: "/dsa-visualizer/stacks-queues/stack", icon: <FaLayerGroup className="text-3xl" /> }
             ].map((item, index) => (
               <Link key={index} href={item.path}>
-                <div className="group theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+                <div className="group theme-surface backdrop-blur-sm rounded-xl p-6 border hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer" style={{ borderColor: 'var(--border-primary)' }}>
                   <div className="text-center">
-                    <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300" style={{ color: 'var(--text-primary)' }}>
                       {item.icon}
                     </div>
-                    <h3 className="text-lg font-semibold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
+                    <h3 className="text-lg font-semibold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300" style={{ color: 'var(--text-primary)' }}>
                       {item.name}
                     </h3>
-                    <div className="mt-3 text-xs text-slate-400 group-hover:text-slate-300">
+                    <div className="mt-3 text-xs" style={{ color: 'var(--text-secondary)' }}>
                       Try it now →
                     </div>
                   </div>
@@ -326,7 +327,7 @@ export default function DSAVisualizer() {
             <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Ready to Visualize?
             </h2>
-            <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
+            <p className="mb-6 max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Start your journey with our most popular visualization and see algorithms come to life before your eyes!
             </p>
             <Link href="/dsa-visualizer/arrays/bubble-sort">

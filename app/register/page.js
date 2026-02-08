@@ -211,20 +211,20 @@ export default function RegisterPage() {
 
         {/* Welcome Message */}
         <div className="text-center mb-8 animate-fade-in-up animation-delay-200">
-          <h2 className="text-3xl font-bold theme-text mb-2">Join the Community 🚀</h2>
+          <h2 className="text-3xl font-bold theme-text mb-2">Join the Community</h2>
           <p className="theme-text-secondary">Create your account and start your coding journey</p>
         </div>
 
         {/* Error Message */}
         {error && (
-          <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-xl text-red-300 text-center backdrop-blur-sm">
+          <div className="mb-6 p-4 rounded-xl text-center backdrop-blur-sm" style={{ backgroundColor: 'var(--error-light)', border: '1px solid var(--error)', color: 'var(--error)' }}>
             {error}
           </div>
         )}
 
         {/* Success Message */}
         {success && (
-          <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-xl text-green-300 text-center backdrop-blur-sm">
+          <div className="mb-6 p-4 rounded-xl text-center backdrop-blur-sm" style={{ backgroundColor: 'var(--success-light)', border: '1px solid var(--success)', color: 'var(--success)' }}>
             {success}
           </div>
         )}
@@ -283,7 +283,8 @@ export default function RegisterPage() {
               value={formData.email}
               disabled={registerInProgress}
               onChange={handleInputChange}
-              className="w-full p-4 theme-surface backdrop-blur-sm border border-slate-600 rounded-xl text-white placeholder-gray-400 font-medium focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+              className="w-full p-4 theme-surface backdrop-blur-sm rounded-xl font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+              style={{ border: '1px solid var(--border-primary)', color: 'var(--text-primary)' }}
               required
             />
           </div>
@@ -300,16 +301,17 @@ export default function RegisterPage() {
               value={formData.password}
               disabled={registerInProgress}
               onChange={handleInputChange}
-              className="w-full p-4 theme-surface backdrop-blur-sm border border-slate-600 rounded-xl text-white placeholder-gray-400 font-medium focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+              className="w-full p-4 theme-surface backdrop-blur-sm rounded-xl font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+              style={{ border: '1px solid var(--border-primary)', color: 'var(--text-primary)' }}
               required
               minLength={6}
             />
-            <p className="text-xs text-gray-400 mt-1">Must be at least 6 characters long</p>
+            <p className="text-xs mt-1" style={{ color: 'var(--text-tertiary)' }}>Must be at least 6 characters long</p>
           </div>
 
           {/* Confirm Password Field */}
           <div>
-            <label className="block text-sm font-semibold text-gray-300 mb-2">
+            <label className="block text-sm font-semibold mb-2" style={{ color: 'var(--text-secondary)' }}>
               Confirm Password
             </label>
             <input
@@ -319,7 +321,8 @@ export default function RegisterPage() {
               value={formData.confirmPassword}
               disabled={registerInProgress}
               onChange={handleInputChange}
-              className="w-full p-4 theme-surface backdrop-blur-sm border border-slate-600 rounded-xl text-white placeholder-gray-400 font-medium focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+              className="w-full p-4 theme-surface backdrop-blur-sm rounded-xl font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+              style={{ border: '1px solid var(--border-primary)', color: 'var(--text-primary)' }}
               required
             />
             {formData.confirmPassword && (
@@ -349,16 +352,17 @@ export default function RegisterPage() {
 
         {/* Divider */}
         <div className="flex items-center my-8">
-          <div className="flex-1 border-t border-slate-600"></div>
-          <span className="px-4 text-gray-400 text-sm font-medium">Or continue with</span>
-          <div className="flex-1 border-t border-slate-600"></div>
+          <div className="flex-1" style={{ borderTop: '1px solid var(--border-primary)' }}></div>
+          <span className="px-4 text-sm font-medium" style={{ color: 'var(--text-tertiary)' }}>Or continue with</span>
+          <div className="flex-1" style={{ borderTop: '1px solid var(--border-primary)' }}></div>
         </div>
 
         {/* Social Authentication */}
         <div className="space-y-3">
           <button
             onClick={() => handleSocialAuth('google')}
-            className="w-full p-4 bg-white text-gray-800 font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl"
+            className="w-full p-4 font-semibold rounded-xl transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
+            style={{ backgroundColor: 'var(--surface-base)', color: 'var(--text-primary)', border: '1px solid var(--border-primary)' }}
           >
             <img src="/google.png" alt="Google" className="w-5 h-5" />
             <span>Continue with Google</span>
@@ -366,7 +370,7 @@ export default function RegisterPage() {
 
           <button
             onClick={() => handleSocialAuth('github')}
-            className="w-full p-4 theme-surface text-white font-semibold rounded-xl hover:theme-surface-elevated transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl border theme-border hover:scale-105 active:scale-95"
+            className="w-full p-4 bg-[#24292f] hover:bg-[#32383f] text-white font-semibold rounded-xl transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
@@ -377,7 +381,7 @@ export default function RegisterPage() {
 
         {/* Login Link */}
         <div className="text-center mt-8">
-          <p className="text-gray-400">
+          <p style={{ color: 'var(--text-tertiary)' }}>
             Already have an account?{' '}
             <Link href="/login" className="theme-accent hover:theme-text-secondary font-semibold transition-colors duration-300">
               Sign in here

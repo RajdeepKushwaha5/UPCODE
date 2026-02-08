@@ -160,7 +160,7 @@ export default function EnhancedPremiumControl() {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
-        <span className="ml-3 text-white">Loading premium data...</span>
+        <span className="ml-3" style={{ color: 'var(--text-primary)' }}>Loading premium data...</span>
       </div>
     );
   }
@@ -169,21 +169,21 @@ export default function EnhancedPremiumControl() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-white">Premium Control</h2>
-          <p className="text-gray-400">Manage premium subscriptions and revenue</p>
+          <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Premium Control</h2>
+          <p style={{ color: 'var(--text-secondary)' }}>Manage premium subscriptions and revenue</p>
           {lastUpdated && (
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs mt-1" style={{ color: 'var(--text-secondary)' }}>
               Last updated: {lastUpdated.toLocaleTimeString()}
             </p>
           )}
         </div>
         <div className="flex items-center gap-3">
-          <label className="flex items-center gap-2 text-sm text-gray-400">
+          <label className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
             <input
               type="checkbox"
               checked={autoRefresh}
               onChange={(e) => setAutoRefresh(e.target.checked)}
-              className="rounded border-slate-600 theme-surface-elevated text-purple-600 focus:ring-blue-500 focus:ring-offset-slate-800"
+              className="rounded theme-border theme-surface-elevated text-purple-600 focus:ring-blue-500 focus:ring-offset-slate-800"
             />
             Auto-refresh (30s)
           </label>
@@ -206,41 +206,41 @@ export default function EnhancedPremiumControl() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-400">Total Premium Users</p>
-              <p className="text-2xl font-bold text-white">{premiumStats.totalPremiumUsers}</p>
+              <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Total Premium Users</p>
+              <p className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{premiumStats.totalPremiumUsers}</p>
             </div>
             <StarIcon className="w-8 h-8 text-yellow-500" />
           </div>
         </div>
 
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-400">Active Premium</p>
-              <p className="text-2xl font-bold text-white">{premiumStats.activePremiumUsers}</p>
+              <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Active Premium</p>
+              <p className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{premiumStats.activePremiumUsers}</p>
             </div>
             <UserGroupIcon className="w-8 h-8 text-green-500" />
           </div>
         </div>
 
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-400">Monthly Revenue</p>
-              <p className="text-2xl font-bold text-white">${premiumStats.monthlyRevenue}</p>
+              <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Monthly Revenue</p>
+              <p className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>${premiumStats.monthlyRevenue}</p>
             </div>
             <CurrencyDollarIcon className="w-8 h-8 text-blue-500" />
           </div>
         </div>
 
-        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+        <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-400">Conversion Rate</p>
-              <p className="text-2xl font-bold text-white">{premiumStats.conversionRate}%</p>
+              <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Conversion Rate</p>
+              <p className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{premiumStats.conversionRate}%</p>
             </div>
             <ArrowTrendingUpIcon className="w-8 h-8 text-purple-500" />
           </div>
@@ -248,10 +248,10 @@ export default function EnhancedPremiumControl() {
       </div>
 
       {/* Users Table */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden">
-        <div className="p-6 border-b border-slate-700/50">
-          <h3 className="text-lg font-semibold text-white">Premium Users</h3>
-          <p className="text-gray-400">Manage premium subscriptions</p>
+      <div className="theme-surface backdrop-blur-sm rounded-xl border theme-border overflow-hidden">
+        <div className="p-6 border-b theme-border">
+          <h3 className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Premium Users</h3>
+          <p style={{ color: 'var(--text-secondary)' }}>Manage premium subscriptions</p>
         </div>
 
         <div className="p-6">
@@ -262,13 +262,15 @@ export default function EnhancedPremiumControl() {
                 placeholder="Search users..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full theme-surface-elevated border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full theme-surface-elevated border theme-border rounded-lg px-4 py-2 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                style={{ color: 'var(--text-primary)' }}
               />
             </div>
             <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              className="theme-surface-elevated border border-slate-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="theme-surface-elevated border theme-border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              style={{ color: 'var(--text-primary)' }}
             >
               {filters.map(filter => (
                 <option key={filter.value} value={filter.value}>{filter.label}</option>
@@ -279,21 +281,21 @@ export default function EnhancedPremiumControl() {
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="border-b border-slate-700">
-                  <th className="pb-3 text-sm font-medium text-gray-400">User</th>
-                  <th className="pb-3 text-sm font-medium text-gray-400">Status</th>
-                  <th className="pb-3 text-sm font-medium text-gray-400">Plan</th>
-                  <th className="pb-3 text-sm font-medium text-gray-400">Expires</th>
-                  <th className="pb-3 text-sm font-medium text-gray-400">Actions</th>
+                <tr className="border-b theme-border">
+                  <th className="pb-3 text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>User</th>
+                  <th className="pb-3 text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Status</th>
+                  <th className="pb-3 text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Plan</th>
+                  <th className="pb-3 text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Expires</th>
+                  <th className="pb-3 text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {subscribers.map((user) => (
-                  <tr key={user._id} className="border-b border-slate-700/50">
+                  <tr key={user._id} className="border-b theme-border">
                     <td className="py-4">
                       <div>
-                        <p className="text-white font-medium">{user.username}</p>
-                        <p className="text-gray-400 text-sm">{user.email}</p>
+                        <p className="font-medium" style={{ color: 'var(--text-primary)' }}>{user.username}</p>
+                        <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>{user.email}</p>
                       </div>
                     </td>
                     <td className="py-4">
@@ -305,8 +307,8 @@ export default function EnhancedPremiumControl() {
                         {user.status}
                       </span>
                     </td>
-                    <td className="py-4 text-gray-300">{user.premiumPlan}</td>
-                    <td className="py-4 text-gray-300">
+                    <td className="py-4" style={{ color: 'var(--text-secondary)' }}>{user.premiumPlan}</td>
+                    <td className="py-4" style={{ color: 'var(--text-secondary)' }}>
                       {user.premiumExpiry ? new Date(user.premiumExpiry).toLocaleDateString() : 'N/A'}
                     </td>
                     <td className="py-4">
@@ -333,27 +335,29 @@ export default function EnhancedPremiumControl() {
       {showActionModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="theme-surface rounded-xl p-6 max-w-md w-full">
-            <h3 className="text-xl font-semibold text-white mb-4">
+            <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>
               {actionType === 'grant' ? 'Grant Premium' : 'Revoke Premium'}
             </h3>
             
             {actionType === 'grant' && (
               <div className="space-y-4 mb-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">Duration (days)</label>
+                  <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>Duration (days)</label>
                   <input
                     type="number"
                     value={actionData.duration}
                     onChange={(e) => setActionData(prev => ({...prev, duration: parseInt(e.target.value)}))}
-                    className="w-full theme-surface-elevated border border-slate-600 rounded-lg px-3 py-2 text-white"
+                    className="w-full theme-surface-elevated border theme-border rounded-lg px-3 py-2"
+                    style={{ color: 'var(--text-primary)' }}
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">Plan Type</label>
+                  <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>Plan Type</label>
                   <select
                     value={actionData.plan}
                     onChange={(e) => setActionData(prev => ({...prev, plan: e.target.value}))}
-                    className="w-full theme-surface-elevated border border-slate-600 rounded-lg px-3 py-2 text-white"
+                    className="w-full theme-surface-elevated border theme-border rounded-lg px-3 py-2"
+                    style={{ color: 'var(--text-primary)' }}
                   >
                     <option value="monthly">Monthly</option>
                     <option value="yearly">Yearly</option>
@@ -365,7 +369,7 @@ export default function EnhancedPremiumControl() {
             <div className="flex justify-end space-x-3">
               <button
                 onClick={() => setShowActionModal(false)}
-                className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
+                className="px-4 py-2 theme-surface-elevated hover:opacity-80 rounded-lg transition-colors" style={{ color: 'var(--text-primary)' }}
               >
                 Cancel
               </button>

@@ -34,20 +34,20 @@ export default function ContentModeration() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-white">Content Moderation</h1>
-        <p className="text-gray-400">Review and moderate user-generated content</p>
+        <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Content Moderation</h1>
+        <p style={{ color: 'var(--text-secondary)' }}>Review and moderate user-generated content</p>
       </div>
 
-      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-        <h2 className="text-xl font-semibold text-white mb-4">Pending Reports</h2>
+      <div className="theme-surface backdrop-blur-sm rounded-xl p-6 border theme-border">
+        <h2 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Pending Reports</h2>
         <div className="space-y-4">
           {reports.map((report) => (
             <div key={report.id} className="p-4 theme-surface-elevated/30 rounded-lg">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="text-white font-medium">{report.type}</h3>
-                  <p className="text-gray-400 text-sm">{report.content}</p>
-                  <p className="text-gray-500 text-xs mt-2">
+                  <h3 className="font-medium" style={{ color: 'var(--text-primary)' }}>{report.type}</h3>
+                  <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>{report.content}</p>
+                  <p className="text-xs mt-2" style={{ color: 'var(--text-secondary)' }}>
                     Reported by {report.reporter} • {report.date}
                   </p>
                 </div>

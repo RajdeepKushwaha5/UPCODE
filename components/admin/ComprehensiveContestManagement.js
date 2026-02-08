@@ -342,7 +342,7 @@ export default function ComprehensiveContestManagement() {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
-        <span className="ml-3 text-white">Loading contests...</span>
+        <span className="ml-3" style={{ color: 'var(--text-primary)' }}>Loading contests...</span>
       </div>
     );
   }
@@ -352,8 +352,8 @@ export default function ComprehensiveContestManagement() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
         <div>
-          <h2 className="text-2xl font-bold text-white">Contest Management</h2>
-          <p className="text-gray-400">Create and manage programming contests</p>
+          <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Contest Management</h2>
+          <p style={{ color: 'var(--text-secondary)' }}>Create and manage programming contests</p>
         </div>
         <button
           onClick={() => setShowCreateModal(true)}
@@ -369,13 +369,13 @@ export default function ComprehensiveContestManagement() {
         {contests.map((contest) => (
           <div
             key={contest._id}
-            className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 p-6 hover:border-purple-500/50 transition-all duration-300"
+            className="theme-surface backdrop-blur-sm rounded-xl border theme-border p-6 hover:border-purple-500/50 transition-all duration-300"
           >
             {/* Contest Header */}
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
-                <h3 className="text-white font-semibold text-lg mb-2">{contest.title}</h3>
-                <p className="text-gray-400 text-sm line-clamp-2">{contest.description}</p>
+                <h3 className="font-semibold text-lg mb-2" style={{ color: 'var(--text-primary)' }}>{contest.title}</h3>
+                <p className="text-sm line-clamp-2" style={{ color: 'var(--text-secondary)' }}>{contest.description}</p>
               </div>
               <div className="flex items-center space-x-1 ml-4">
                 <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(contest.status)}`}>
@@ -386,21 +386,21 @@ export default function ComprehensiveContestManagement() {
 
             {/* Contest Details */}
             <div className="space-y-3 mb-6">
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
+              <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                 <CalendarDaysIcon className="w-4 h-4" />
                 <span>{formatDate(contest.startTime)}</span>
               </div>
               
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
+              <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                 <ClockIcon className="w-4 h-4" />
                 <span>{calculateDuration(contest.startTime, contest.endTime)}</span>
               </div>
               
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
+              <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                 <UserGroupIcon className="w-4 h-4" />
                 <span>{contest.participants} participants</span>
                 {contest.maxParticipants && (
-                  <span className="text-gray-400">/ {contest.maxParticipants}</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>/ {contest.maxParticipants}</span>
                 )}
               </div>
 
@@ -408,17 +408,17 @@ export default function ComprehensiveContestManagement() {
                 <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getTypeColor(contest.type)}`}>
                   {contest.type}
                 </span>
-                <span className="text-gray-400">{contest.problems.length} problems</span>
+                <span style={{ color: 'var(--text-secondary)' }}>{contest.problems.length} problems</span>
               </div>
             </div>
 
             {/* Problems Preview */}
             <div className="mb-6">
-              <h4 className="text-white font-medium mb-2 text-sm">Problems:</h4>
+              <h4 className="font-medium mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>Problems:</h4>
               <div className="space-y-1">
                 {contest.problems.slice(0, 3).map((problem, index) => (
                   <div key={index} className="flex items-center justify-between text-sm">
-                    <span className="text-gray-300">{problem.title}</span>
+                    <span style={{ color: 'var(--text-secondary)' }}>{problem.title}</span>
                     <div className="flex items-center space-x-2">
                       <span className={`px-2 py-1 rounded text-xs ${
                         problem.difficulty === 'Easy' ? 'bg-green-500/20 text-green-400' :
@@ -427,12 +427,12 @@ export default function ComprehensiveContestManagement() {
                       }`}>
                         {problem.difficulty}
                       </span>
-                      <span className="text-gray-400">{problem.points}pt</span>
+                      <span style={{ color: 'var(--text-secondary)' }}>{problem.points}pt</span>
                     </div>
                   </div>
                 ))}
                 {contest.problems.length > 3 && (
-                  <div className="text-gray-400 text-xs">
+                  <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>
                     +{contest.problems.length - 3} more problems
                   </div>
                 )}
@@ -440,7 +440,7 @@ export default function ComprehensiveContestManagement() {
             </div>
 
             {/* Actions */}
-            <div className="flex items-center justify-between pt-4 border-t border-slate-700">
+            <div className="flex items-center justify-between pt-4 border-t theme-border">
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => {
@@ -482,7 +482,7 @@ export default function ComprehensiveContestManagement() {
               </div>
 
               <div className="text-right">
-                <div className="text-xs text-gray-400">
+                <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>
                   {contest.totalSubmissions} submissions
                 </div>
               </div>
@@ -495,14 +495,14 @@ export default function ComprehensiveContestManagement() {
       {showDeleteModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="theme-surface rounded-xl p-6 max-w-md w-full">
-            <h3 className="text-xl font-semibold text-white mb-4">Delete Contest</h3>
-            <p className="text-gray-400 mb-6">
+            <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Delete Contest</h3>
+            <p className="mb-6" style={{ color: 'var(--text-secondary)' }}>
               Are you sure you want to delete "{selectedContest?.title}"? This action cannot be undone.
             </p>
             <div className="flex justify-end space-x-3">
               <button
                 onClick={() => setShowDeleteModal(false)}
-                className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
+                className="px-4 py-2 theme-surface-elevated hover:opacity-80 rounded-lg transition-colors" style={{ color: 'var(--text-primary)' }}
               >
                 Cancel
               </button>

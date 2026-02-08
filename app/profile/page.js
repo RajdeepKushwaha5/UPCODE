@@ -259,7 +259,7 @@ export default function ProfileSection() {
         <div className="relative">
           <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-purple-500"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="text-4xl animate-bounce">🚀</div>
+            <FaRocket className="text-3xl animate-bounce" style={{ color: 'var(--accent)' }} />
           </div>
         </div>
       </div>
@@ -280,9 +280,7 @@ export default function ProfileSection() {
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl animate-bounce"></div>
-        <div className="absolute top-20 right-20 text-4xl animate-float animation-delay-1000">⭐</div>
-        <div className="absolute bottom-20 left-20 text-3xl animate-float animation-delay-500">🎯</div>
-        <div className="absolute top-1/3 right-1/3 text-2xl animate-float">🚀</div>
+
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-8">
@@ -313,7 +311,8 @@ export default function ProfileSection() {
                         type="text"
                         value={editName}
                         onChange={(e) => setEditName(e.target.value)}
-                        className="text-3xl font-black bg-transparent border-b-2 border-purple-400 text-white focus:outline-none focus:border-pink-400 transition-colors"
+                        className="text-3xl font-black bg-transparent border-b-2 border-purple-400 focus:outline-none focus:border-pink-400 transition-colors"
+                        style={{ color: 'var(--text-primary)' }}
                         autoFocus
                       />
                       <button
@@ -335,18 +334,18 @@ export default function ProfileSection() {
                   ) : (
                     <>
                       <h1 className="text-4xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                        Welcome back, {userData.name} 👋
+                        Welcome back, {userData.name}
                       </h1>
                       <button
                         onClick={() => setIsEditingName(true)}
                         className="p-2 hover:bg-purple-500/20 rounded-lg transition-colors group"
                       >
-                        <FaEdit className="text-gray-400 group-hover:theme-accent" />
+                        <FaEdit className="group-hover:theme-accent" style={{ color: 'var(--text-secondary)' }} />
                       </button>
                     </>
                   )}
                 </div>
-                <p className="text-gray-400 text-lg">
+                <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
                   @{userData.username} • Member since {
                     userData.joinDate && userData.joinDate instanceof Date 
                       ? userData.joinDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
@@ -378,7 +377,7 @@ export default function ProfileSection() {
                 <div className="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-1">
                   {userData.currentRating}
                 </div>
-                <p className="text-gray-400 text-sm font-medium">Rating</p>
+                <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Rating</p>
               </div>
             </div>
           </div>
@@ -392,7 +391,7 @@ export default function ProfileSection() {
 
             {/* Problem Solving Progress */}
             <div className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-6 hover:border theme-border transition-all duration-300 animate-fade-in-up animation-delay-200">
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3" style={{ color: 'var(--text-primary)' }}>
                 <FaCode className="theme-accent" />
                 Problem Solving Progress
               </h2>
@@ -402,7 +401,7 @@ export default function ProfileSection() {
                   <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                     <span className="text-2xl font-black text-white">{userData.problemsSolved.total}</span>
                   </div>
-                  <p className="text-gray-400 font-medium">Total Solved</p>
+                  <p className="font-medium" style={{ color: 'var(--text-secondary)' }}>Total Solved</p>
                 </div>
 
                 <div className="text-center group">
@@ -430,10 +429,10 @@ export default function ProfileSection() {
               {/* Weekly Goal Progress */}
               <div className="theme-surface-elevated/30 rounded-2xl p-4">
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-white font-medium">Weekly Goal Progress</span>
+                  <span className="font-medium" style={{ color: 'var(--text-primary)' }}>Weekly Goal Progress</span>
                   <span className="theme-accent font-bold">{userData.completedToday}/{userData.weeklyGoal}</span>
                 </div>
-                <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
+                <div className="w-full rounded-full h-3 overflow-hidden" style={{ backgroundColor: 'var(--surface-raised)' }}>
                   <div
                     className="bg-gradient-to-r from-purple-500 to-pink-500 h-full rounded-full transition-all duration-1000"
                     style={{ width: `${Math.min(progressPercentage, 100)}%` }}
@@ -446,7 +445,7 @@ export default function ProfileSection() {
             <div className="grid md:grid-cols-2 gap-6">
               {/* Strong Areas */}
               <div className="theme-surface backdrop-blur-sm border border-green-500/20 rounded-3xl p-6 hover:border-green-400/50 transition-all duration-300 animate-fade-in-up animation-delay-400">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <h3 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
                   <FaCheckCircle className="text-green-400" />
                   Strong Areas
                 </h3>
@@ -461,15 +460,15 @@ export default function ProfileSection() {
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <FaLightbulb className="text-4xl text-gray-600 mx-auto mb-3" />
-                    <p className="text-gray-400">Keep solving problems to discover your strengths!</p>
+                    <FaLightbulb className="text-4xl mx-auto mb-3" style={{ color: 'var(--text-tertiary)' }} />
+                    <p style={{ color: 'var(--text-secondary)' }}>Keep solving problems to discover your strengths!</p>
                   </div>
                 )}
               </div>
 
               {/* Weak Areas */}
               <div className="theme-surface backdrop-blur-sm border border-orange-500/20 rounded-3xl p-6 hover:border-orange-400/50 transition-all duration-300 animate-fade-in-up animation-delay-500">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <h3 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
                   <FaChartLine className="text-orange-400" />
                   Areas to Improve
                 </h3>
@@ -489,8 +488,8 @@ export default function ProfileSection() {
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <FaTrophy className="text-4xl text-gray-600 mx-auto mb-3" />
-                    <p className="text-gray-400">You're doing great! No weak areas identified yet.</p>
+                    <FaTrophy className="text-4xl mx-auto mb-3" style={{ color: 'var(--text-tertiary)' }} />
+                    <p style={{ color: 'var(--text-secondary)' }}>You're doing great! No weak areas identified yet.</p>
                   </div>
                 )}
               </div>
@@ -498,7 +497,7 @@ export default function ProfileSection() {
 
             {/* Rating Chart */}
             <div className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-6 hover:border theme-border transition-all duration-300 animate-fade-in-up animation-delay-600">
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3" style={{ color: 'var(--text-primary)' }}>
                 <FaChartLine className="theme-accent" />
                 Rating Progress
               </h2>
@@ -513,7 +512,7 @@ export default function ProfileSection() {
 
             {/* Quick Actions */}
             <div className="theme-surface backdrop-blur-sm border border theme-border rounded-3xl p-6 hover:border theme-border transition-all duration-300 animate-fade-in-up animation-delay-300">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <h3 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
                 <FaRocket className="theme-accent" />
                 Quick Actions
               </h3>
@@ -547,7 +546,7 @@ export default function ProfileSection() {
 
             {/* Achievements & Badges */}
             <div className="theme-surface backdrop-blur-sm border border-yellow-500/20 rounded-3xl p-6 hover:border-yellow-400/50 transition-all duration-300 animate-fade-in-up animation-delay-700">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <h3 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
                 <FaTrophy className="text-yellow-400" />
                 Achievements
               </h3>
@@ -559,27 +558,27 @@ export default function ProfileSection() {
                       <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
                         <span className="text-2xl">{badge.icon}</span>
                       </div>
-                      <p className="text-xs text-gray-400 font-medium">{badge.name}</p>
+                      <p className="text-xs font-medium" style={{ color: 'var(--text-secondary)' }}>{badge.name}</p>
                     </div>
                   ))}
                 </div>
               ) : (
                 <div className="text-center py-8">
-                  <FaTrophy className="text-4xl text-gray-600 mx-auto mb-3" />
-                  <p className="text-gray-400 text-sm">Start solving problems to earn your first badge!</p>
+                  <FaTrophy className="text-4xl mx-auto mb-3" style={{ color: 'var(--text-tertiary)' }} />
+                  <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Start solving problems to earn your first badge!</p>
                 </div>
               )}
 
               {/* Locked badges preview */}
-              <div className="mt-4 pt-4 border-t border-slate-700">
-                <p className="text-xs text-gray-500 mb-2">Coming Soon:</p>
+              <div className="mt-4 pt-4 border-t" style={{ borderColor: 'var(--border-primary)' }}>
+                <p className="text-xs mb-2" style={{ color: 'var(--text-tertiary)' }}>Coming Soon:</p>
                 <div className="grid grid-cols-3 gap-3">
-                  {["🏆", "🔥", "⭐"].map((icon, index) => (
+                  {[<FaTrophy key="t" className="text-yellow-400" />, <FaFire key="f" className="text-orange-400" />, <FaStar key="s" className="text-blue-400" />].map((icon, index) => (
                     <div key={index} className="text-center opacity-50">
-                      <div className="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center mx-auto mb-1">
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-1" style={{ backgroundColor: 'var(--surface-raised)' }}>
                         <span className="text-lg">{icon}</span>
                       </div>
-                      <p className="text-xs text-gray-500">Locked</p>
+                      <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>Locked</p>
                     </div>
                   ))}
                 </div>
@@ -596,7 +595,7 @@ export default function ProfileSection() {
                   <h3 className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-2">
                     Upgrade to Premium
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-sm mb-4" style={{ color: 'var(--text-secondary)' }}>
                     Unlock AI assistance, premium problems, and advanced analytics
                   </p>
                   <Link href="/premium" className="inline-block bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 hover:scale-105">
@@ -611,7 +610,7 @@ export default function ProfileSection() {
 
         {/* Bookmarked Questions Section */}
         <div className="mt-8 theme-surface backdrop-blur-sm border border-yellow-500/20 rounded-3xl p-6 hover:border-yellow-400/50 transition-all duration-300 animate-fade-in-up animation-delay-800">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold mb-6 flex items-center gap-3" style={{ color: 'var(--text-primary)' }}>
             <FaHeart className="text-yellow-400" />
             Bookmarked Questions
           </h2>
@@ -622,10 +621,11 @@ export default function ProfileSection() {
                 <Link
                   key={index}
                   href={`/problems/${question.id}`}
-                  className="block p-4 theme-surface-elevated/50 hover:theme-surface-elevated/80 rounded-lg border border-slate-600/50 hover:border-yellow-400/50 transition-all duration-300 group"
+                  className="block p-4 theme-surface-elevated/50 hover:theme-surface-elevated/80 rounded-lg border hover:border-yellow-400/50 transition-all duration-300 group"
+                  style={{ borderColor: 'var(--border-primary)' }}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-white font-medium group-hover:text-yellow-300 transition-colors">
+                    <span className="font-medium group-hover:text-yellow-300 transition-colors" style={{ color: 'var(--text-primary)' }}>
                       {question.title}
                     </span>
                     <span className={`px-2 py-1 rounded text-xs font-medium ${question.difficulty === 'Easy' ? 'bg-green-500/20 text-green-300' :
@@ -635,7 +635,7 @@ export default function ProfileSection() {
                       {question.difficulty}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-400">
+                  <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                     <span>#{question.id}</span>
                     <span>•</span>
                     <span>{question.acceptanceRate}% acceptance</span>
@@ -645,9 +645,9 @@ export default function ProfileSection() {
             </div>
           ) : (
             <div className="text-center py-12">
-              <FaHeart className="text-6xl text-gray-600 mx-auto mb-4" />
-              <p className="text-gray-400 text-lg mb-2">No bookmarked questions yet</p>
-              <p className="text-gray-500 text-sm mb-4">Bookmark problems you want to revisit later</p>
+              <FaHeart className="text-6xl mx-auto mb-4" style={{ color: 'var(--text-tertiary)' }} />
+              <p className="text-lg mb-2" style={{ color: 'var(--text-secondary)' }}>No bookmarked questions yet</p>
+              <p className="text-sm mb-4" style={{ color: 'var(--text-tertiary)' }}>Bookmark problems you want to revisit later</p>
               <Link
                 href="/problems"
                 className="inline-flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-lg font-medium transition-colors"
@@ -667,8 +667,8 @@ export default function ProfileSection() {
                 <FaClock className="text-2xl text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">Next Contest</h3>
-                <p className="text-gray-400">Weekly Challenge #156</p>
+                <h3 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>Next Contest</h3>
+                <p style={{ color: 'var(--text-secondary)' }}>Weekly Challenge #156</p>
               </div>
             </div>
             <div className="text-right">
@@ -688,10 +688,10 @@ export default function ProfileSection() {
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="theme-bg border border-purple-500/30 rounded-3xl p-8 max-w-md w-full">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-white">Choose Your Pet</h2>
+              <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Choose Your Pet</h2>
               <button
                 onClick={() => setShowEmojiPicker(false)}
-                className="text-gray-400 hover:text-white text-2xl"
+                className="hover:text-white text-2xl" style={{ color: 'var(--text-secondary)' }}
               >
                 ×
               </button>

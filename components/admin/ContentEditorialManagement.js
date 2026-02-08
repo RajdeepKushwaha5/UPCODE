@@ -450,13 +450,13 @@ The recursive approach is more elegant but uses O(log n) space...
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {data.map((item) => (
-          <div key={item._id} className="theme-surface-elevated/50 rounded-lg p-6 border border-slate-600/50 hover:border-slate-500/50 transition-colors">
+          <div key={item._id} className="theme-surface-elevated/50 rounded-lg p-6 border theme-border hover:border-slate-500/50 transition-colors">
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
-                <h4 className="text-white font-semibold mb-1">
+                <h4 className="font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>
                   {item.problemTitle || item.title}
                 </h4>
-                <p className="text-gray-400 text-sm mb-2">
+                <p className="text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>
                   {item.problemId || `Problem: ${item.problemId}`}
                 </p>
                 <div className="flex items-center space-x-2">
@@ -471,15 +471,15 @@ The recursive approach is more elegant but uses O(log n) space...
             {/* Content specific details */}
             {activeTab === "solutions" && (
               <div className="space-y-2 mb-4">
-                <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                   <span className="font-medium">Language:</span>
                   <span className="capitalize">{item.language}</span>
                 </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                   <span className="font-medium">Complexity:</span>
                   <span>{item.timeComplexity} / {item.spaceComplexity}</span>
                 </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                   <span className="font-medium">Author:</span>
                   <span>{item.author}</span>
                 </div>
@@ -488,22 +488,22 @@ The recursive approach is more elegant but uses O(log n) space...
 
             {activeTab === "videos" && (
               <div className="space-y-2 mb-4">
-                <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                   <span className="font-medium">Duration:</span>
                   <span>{item.duration}</span>
                 </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                   <span className="font-medium">Instructor:</span>
                   <span>{item.instructor}</span>
                 </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                   <span className="font-medium">Views:</span>
                   <span>{item.views?.toLocaleString()}</span>
                 </div>
                 {item.rating && (
                   <div className="flex items-center space-x-1">
                     <StarIcon className="w-4 h-4 text-yellow-400 fill-current" />
-                    <span className="text-sm text-gray-300">{item.rating}</span>
+                    <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>{item.rating}</span>
                   </div>
                 )}
               </div>
@@ -511,10 +511,10 @@ The recursive approach is more elegant but uses O(log n) space...
 
             {activeTab === "hints" && (
               <div className="space-y-2 mb-4">
-                <div className="text-sm text-gray-300">
+                <div className="text-sm" style={{ color: 'var(--text-secondary)' }}>
                   <span className="font-medium">Hints:</span> {item.hints?.filter(h => h.trim()).length}
                 </div>
-                <div className="text-xs text-gray-400">
+                <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>
                   Created: {formatDate(item.createdAt)}
                 </div>
               </div>
@@ -522,22 +522,22 @@ The recursive approach is more elegant but uses O(log n) space...
 
             {activeTab === "editorials" && (
               <div className="space-y-2 mb-4">
-                <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                   <span className="font-medium">Author:</span>
                   <span>{item.author}</span>
                 </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                   <span className="font-medium">Read Time:</span>
                   <span>{item.readTime}</span>
                 </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                   <span className="font-medium">Views:</span>
                   <span>{item.views?.toLocaleString()}</span>
                 </div>
                 {item.tags && (
                   <div className="flex flex-wrap gap-1 mt-2">
                     {item.tags.slice(0, 3).map(tag => (
-                      <span key={tag} className="bg-slate-600/50 px-2 py-1 rounded text-xs text-gray-300">
+                      <span key={tag} className="theme-surface-elevated px-2 py-1 rounded text-xs" style={{ color: 'var(--text-secondary)' }}>
                         {tag}
                       </span>
                     ))}
@@ -546,8 +546,8 @@ The recursive approach is more elegant but uses O(log n) space...
               </div>
             )}
 
-            <div className="flex items-center justify-between pt-4 border-t border-slate-600/50">
-              <span className="text-gray-400 text-xs">
+            <div className="flex items-center justify-between pt-4 border-t theme-border">
+              <span className="text-xs" style={{ color: 'var(--text-secondary)' }}>
                 {formatDate(item.createdAt)}
               </span>
               <div className="flex items-center space-x-2">
@@ -591,7 +591,7 @@ The recursive approach is more elegant but uses O(log n) space...
     return (
       <div className="flex items-center justify-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
-        <span className="ml-3 text-white">Loading content...</span>
+        <span className="ml-3" style={{ color: 'var(--text-primary)' }}>Loading content...</span>
       </div>
     );
   }
@@ -601,13 +601,13 @@ The recursive approach is more elegant but uses O(log n) space...
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
         <div>
-          <h2 className="text-2xl font-bold text-white">Content & Editorial Management</h2>
-          <p className="text-gray-400">Manage problem solutions, videos, hints, and editorials</p>
+          <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Content & Editorial Management</h2>
+          <p style={{ color: 'var(--text-secondary)' }}>Manage problem solutions, videos, hints, and editorials</p>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="border-b border-slate-600">
+      <div className="border-b theme-border">
         <nav className="-mb-px flex space-x-8">
           {tabs.map((tab) => (
             <button
@@ -616,7 +616,7 @@ The recursive approach is more elegant but uses O(log n) space...
               className={`py-2 px-1 border-b-2 font-medium text-sm flex items-center space-x-2 transition-colors ${
                 activeTab === tab.id
                   ? "border-purple-500 theme-accent"
-                  : "border-transparent text-gray-400 hover:text-gray-300 hover:border-gray-300"
+                  : "border-transparent theme-text-secondary hover:opacity-80 hover:border-gray-300"
               }`}
             >
               <tab.icon className="w-4 h-4" />
@@ -653,7 +653,7 @@ The recursive approach is more elegant but uses O(log n) space...
       </div>
 
       {/* Content Cards */}
-      <div className="theme-surface backdrop-blur-sm rounded-xl border border-slate-600/50 p-6">
+      <div className="theme-surface backdrop-blur-sm rounded-xl border theme-border p-6">
         {renderContentCards()}
       </div>
 
@@ -661,33 +661,33 @@ The recursive approach is more elegant but uses O(log n) space...
       {showSolutionModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="theme-surface rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6 border-b border-slate-700">
-              <h3 className="text-xl font-semibold text-white">Add Code Solution</h3>
+            <div className="p-6 border-b theme-border">
+              <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Add Code Solution</h3>
             </div>
             
             <form onSubmit={handleCreateSolution} className="p-6 space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                     Problem ID *
                   </label>
                   <input
                     type="text"
                     value={solutionFormData.problemId}
                     onChange={(e) => setSolutionFormData(prev => ({ ...prev, problemId: e.target.value }))}
-                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                     Programming Language *
                   </label>
                   <select
                     value={solutionFormData.language}
                     onChange={(e) => setSolutionFormData(prev => ({ ...prev, language: e.target.value }))}
-                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                   >
                     {languages.map(lang => (
                       <option key={lang.value} value={lang.value}>{lang.label}</option>
@@ -696,7 +696,7 @@ The recursive approach is more elegant but uses O(log n) space...
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                     Time Complexity *
                   </label>
                   <input
@@ -704,13 +704,13 @@ The recursive approach is more elegant but uses O(log n) space...
                     value={solutionFormData.timeComplexity}
                     onChange={(e) => setSolutionFormData(prev => ({ ...prev, timeComplexity: e.target.value }))}
                     placeholder="e.g., O(n)"
-                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                     Space Complexity *
                   </label>
                   <input
@@ -718,40 +718,40 @@ The recursive approach is more elegant but uses O(log n) space...
                     value={solutionFormData.spaceComplexity}
                     onChange={(e) => setSolutionFormData(prev => ({ ...prev, spaceComplexity: e.target.value }))}
                     placeholder="e.g., O(1)"
-                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Solution Code *
                 </label>
                 <textarea
                   value={solutionFormData.code}
                   onChange={(e) => setSolutionFormData(prev => ({ ...prev, code: e.target.value }))}
                   rows={12}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
+                  className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm" style={{ color: 'var(--text-primary)' }}
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Explanation *
                 </label>
                 <textarea
                   value={solutionFormData.explanation}
                   onChange={(e) => setSolutionFormData(prev => ({ ...prev, explanation: e.target.value }))}
                   rows={4}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Key Insights
                 </label>
                 {solutionFormData.keyInsights.map((insight, index) => (
@@ -760,7 +760,7 @@ The recursive approach is more elegant but uses O(log n) space...
                       type="text"
                       value={insight}
                       onChange={(e) => updateKeyInsight(index, e.target.value)}
-                      className="flex-1 theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="flex-1 theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                       placeholder="Enter key insight"
                     />
                     <button
@@ -789,18 +789,18 @@ The recursive approach is more elegant but uses O(log n) space...
                     onChange={(e) => setSolutionFormData(prev => ({ ...prev, isVerified: e.target.checked }))}
                     className="rounded border-slate-500"
                   />
-                  <span className="text-gray-300">Mark as Verified</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>Mark as Verified</span>
                 </label>
               </div>
 
-              <div className="flex justify-end space-x-3 pt-6 border-t border-slate-700">
+              <div className="flex justify-end space-x-3 pt-6 border-t theme-border">
                 <button
                   type="button"
                   onClick={() => {
                     setShowSolutionModal(false);
                     resetSolutionForm();
                   }}
-                  className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
+                  className="px-4 py-2 theme-surface-elevated hover:opacity-80 rounded-lg transition-colors" style={{ color: 'var(--text-primary)' }}
                 >
                   Cancel
                 </button>
@@ -820,27 +820,27 @@ The recursive approach is more elegant but uses O(log n) space...
       {showVideoModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="theme-surface rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6 border-b border-slate-700">
-              <h3 className="text-xl font-semibold text-white">Add Video Solution</h3>
+            <div className="p-6 border-b theme-border">
+              <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Add Video Solution</h3>
             </div>
             
             <form onSubmit={handleCreateVideo} className="p-6 space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                     Problem ID *
                   </label>
                   <input
                     type="text"
                     value={videoFormData.problemId}
                     onChange={(e) => setVideoFormData(prev => ({ ...prev, problemId: e.target.value }))}
-                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                     Duration *
                   </label>
                   <input
@@ -848,60 +848,60 @@ The recursive approach is more elegant but uses O(log n) space...
                     value={videoFormData.duration}
                     onChange={(e) => setVideoFormData(prev => ({ ...prev, duration: e.target.value }))}
                     placeholder="e.g., 12:30"
-                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Video Title *
                 </label>
                 <input
                   type="text"
                   value={videoFormData.title}
                   onChange={(e) => setVideoFormData(prev => ({ ...prev, title: e.target.value }))}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Video URL *
                 </label>
                 <input
                   type="url"
                   value={videoFormData.videoUrl}
                   onChange={(e) => setVideoFormData(prev => ({ ...prev, videoUrl: e.target.value }))}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Description *
                 </label>
                 <textarea
                   value={videoFormData.description}
                   onChange={(e) => setVideoFormData(prev => ({ ...prev, description: e.target.value }))}
                   rows={4}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Instructor *
                 </label>
                 <input
                   type="text"
                   value={videoFormData.instructor}
                   onChange={(e) => setVideoFormData(prev => ({ ...prev, instructor: e.target.value }))}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                   required
                 />
               </div>
@@ -914,18 +914,18 @@ The recursive approach is more elegant but uses O(log n) space...
                     onChange={(e) => setVideoFormData(prev => ({ ...prev, isPublished: e.target.checked }))}
                     className="rounded border-slate-500"
                   />
-                  <span className="text-gray-300">Publish Immediately</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>Publish Immediately</span>
                 </label>
               </div>
 
-              <div className="flex justify-end space-x-3 pt-6 border-t border-slate-700">
+              <div className="flex justify-end space-x-3 pt-6 border-t theme-border">
                 <button
                   type="button"
                   onClick={() => {
                     setShowVideoModal(false);
                     resetVideoForm();
                   }}
-                  className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
+                  className="px-4 py-2 theme-surface-elevated hover:opacity-80 rounded-lg transition-colors" style={{ color: 'var(--text-primary)' }}
                 >
                   Cancel
                 </button>
@@ -945,38 +945,38 @@ The recursive approach is more elegant but uses O(log n) space...
       {showHintModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="theme-surface rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6 border-b border-slate-700">
-              <h3 className="text-xl font-semibold text-white">Add Problem Hints</h3>
+            <div className="p-6 border-b theme-border">
+              <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Add Problem Hints</h3>
             </div>
             
             <form onSubmit={handleCreateHint} className="p-6 space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Problem ID *
                 </label>
                 <input
                   type="text"
                   value={hintFormData.problemId}
                   onChange={(e) => setHintFormData(prev => ({ ...prev, problemId: e.target.value }))}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-4">
+                <label className="block text-sm font-medium mb-4" style={{ color: 'var(--text-secondary)' }}>
                   Hints (Progressive Difficulty)
                 </label>
                 {hintFormData.hints.map((hint, index) => (
                   <div key={index} className="mb-4">
-                    <label className="block text-xs text-gray-400 mb-2">
+                    <label className="block text-xs mb-2" style={{ color: 'var(--text-secondary)' }}>
                       Hint {index + 1}
                     </label>
                     <textarea
                       value={hint}
                       onChange={(e) => updateHint(index, e.target.value)}
                       rows={3}
-                      className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                       placeholder={`Enter hint ${index + 1} (should be ${index === 0 ? 'subtle' : index === 1 ? 'more specific' : 'most revealing'})`}
                     />
                   </div>
@@ -991,18 +991,18 @@ The recursive approach is more elegant but uses O(log n) space...
                     onChange={(e) => setHintFormData(prev => ({ ...prev, isActive: e.target.checked }))}
                     className="rounded border-slate-500"
                   />
-                  <span className="text-gray-300">Activate Hints</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>Activate Hints</span>
                 </label>
               </div>
 
-              <div className="flex justify-end space-x-3 pt-6 border-t border-slate-700">
+              <div className="flex justify-end space-x-3 pt-6 border-t theme-border">
                 <button
                   type="button"
                   onClick={() => {
                     setShowHintModal(false);
                     resetHintForm();
                   }}
-                  className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
+                  className="px-4 py-2 theme-surface-elevated hover:opacity-80 rounded-lg transition-colors" style={{ color: 'var(--text-primary)' }}
                 >
                   Cancel
                 </button>
@@ -1022,61 +1022,61 @@ The recursive approach is more elegant but uses O(log n) space...
       {showEditorialModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="theme-surface rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6 border-b border-slate-700">
-              <h3 className="text-xl font-semibold text-white">Create Editorial</h3>
+            <div className="p-6 border-b theme-border">
+              <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Create Editorial</h3>
             </div>
             
             <form onSubmit={handleCreateEditorial} className="p-6 space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                     Problem ID *
                   </label>
                   <input
                     type="text"
                     value={editorialFormData.problemId}
                     onChange={(e) => setEditorialFormData(prev => ({ ...prev, problemId: e.target.value }))}
-                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                     Author *
                   </label>
                   <input
                     type="text"
                     value={editorialFormData.author}
                     onChange={(e) => setEditorialFormData(prev => ({ ...prev, author: e.target.value }))}
-                    className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Editorial Title *
                 </label>
                 <input
                   type="text"
                   value={editorialFormData.title}
                   onChange={(e) => setEditorialFormData(prev => ({ ...prev, title: e.target.value }))}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" style={{ color: 'var(--text-primary)' }}
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Content (Markdown) *
                 </label>
                 <textarea
                   value={editorialFormData.content}
                   onChange={(e) => setEditorialFormData(prev => ({ ...prev, content: e.target.value }))}
                   rows={16}
-                  className="w-full theme-surface-elevated border border-slate-600 text-white px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
+                  className="w-full theme-surface-elevated border theme-border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm" style={{ color: 'var(--text-primary)' }}
                   placeholder="Write your editorial content using Markdown formatting..."
                   required
                 />
@@ -1090,18 +1090,18 @@ The recursive approach is more elegant but uses O(log n) space...
                     onChange={(e) => setEditorialFormData(prev => ({ ...prev, isPublished: e.target.checked }))}
                     className="rounded border-slate-500"
                   />
-                  <span className="text-gray-300">Publish Immediately</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>Publish Immediately</span>
                 </label>
               </div>
 
-              <div className="flex justify-end space-x-3 pt-6 border-t border-slate-700">
+              <div className="flex justify-end space-x-3 pt-6 border-t theme-border">
                 <button
                   type="button"
                   onClick={() => {
                     setShowEditorialModal(false);
                     resetEditorialForm();
                   }}
-                  className="px-4 py-2 bg-slate-600 hover:theme-surface-elevated text-white rounded-lg transition-colors"
+                  className="px-4 py-2 theme-surface-elevated hover:opacity-80 rounded-lg transition-colors" style={{ color: 'var(--text-primary)' }}
                 >
                   Cancel
                 </button>

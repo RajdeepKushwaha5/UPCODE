@@ -4,6 +4,7 @@ import rehypeRaw from "rehype-raw";
 import { useState, useEffect, useRef } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { FaBook, FaCubes, FaPencilAlt, FaClock } from 'react-icons/fa';
 import InteractiveQuiz from './InteractiveQuiz';
 import CodePlayground from './CodePlayground';
 
@@ -114,52 +115,52 @@ const Content = ({ content, title, isAnimating, currentModule, currentLesson, on
             );
         },
         h1: ({ children }) => (
-            <h1 className="text-3xl font-bold text-white mb-6 pb-3 border-b border-purple-500/30">
+            <h1 className="text-3xl font-bold mb-6 pb-3" style={{ color: 'var(--text-primary)', borderBottom: '1px solid var(--border-primary)' }}>
                 {children}
             </h1>
         ),
         h2: ({ children }) => (
-            <h2 className="text-2xl font-semibold theme-text-secondary mb-4 mt-8">
+            <h2 className="text-2xl font-semibold mb-4 mt-8" style={{ color: 'var(--accent)' }}>
                 {children}
             </h2>
         ),
         h3: ({ children }) => (
-            <h3 className="text-xl font-semibold text-pink-300 mb-3 mt-6">
+            <h3 className="text-xl font-semibold mb-3 mt-6" style={{ color: 'var(--text-primary)' }}>
                 {children}
             </h3>
         ),
         p: ({ children }) => (
-            <p className="text-slate-300 leading-relaxed mb-4 text-justify">
+            <p className="leading-relaxed mb-4 text-justify" style={{ color: 'var(--text-secondary)' }}>
                 {children}
             </p>
         ),
         ul: ({ children }) => (
-            <ul className="text-slate-300 space-y-2 mb-4 ml-6 list-disc">
+            <ul className="space-y-2 mb-4 ml-6 list-disc" style={{ color: 'var(--text-secondary)' }}>
                 {children}
             </ul>
         ),
         ol: ({ children }) => (
-            <ol className="text-slate-300 space-y-2 mb-4 ml-6 list-decimal">
+            <ol className="space-y-2 mb-4 ml-6 list-decimal" style={{ color: 'var(--text-secondary)' }}>
                 {children}
             </ol>
         ),
         li: ({ children }) => (
-            <li className="text-slate-300 leading-relaxed">
+            <li className="leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 {children}
             </li>
         ),
         blockquote: ({ children }) => (
-            <blockquote className="border-l-4 border-purple-500 bg-purple-500/10 pl-4 py-2 mb-4 italic theme-text-secondary">
+            <blockquote className="border-l-4 border-purple-500 bg-purple-500/10 pl-4 py-2 mb-4 italic" style={{ color: 'var(--text-secondary)' }}>
                 {children}
             </blockquote>
         ),
         strong: ({ children }) => (
-            <strong className="text-white font-semibold">
+            <strong className="font-semibold" style={{ color: 'var(--text-primary)' }}>
                 {children}
             </strong>
         ),
         em: ({ children }) => (
-            <em className="text-pink-300">
+            <em style={{ color: 'var(--accent)' }}>
                 {children}
             </em>
         ),
@@ -182,7 +183,7 @@ const Content = ({ content, title, isAnimating, currentModule, currentLesson, on
     };
 
     return (
-        <div className="flex-1 flex flex-col relative theme-surface/30 backdrop-blur-sm border border-purple-500/30 rounded-2xl overflow-hidden">
+        <div className="flex-1 flex flex-col relative theme-surface backdrop-blur-sm border rounded-2xl overflow-hidden" style={{ borderColor: 'var(--border-primary)' }}>
             {/* Progress bar */}
             <div className="w-full theme-surface-elevated h-1">
                 <div 
@@ -192,18 +193,18 @@ const Content = ({ content, title, isAnimating, currentModule, currentLesson, on
             </div>
 
             {/* Header */}
-            <div className="p-6 bg-gradient-to-r from-slate-800/80 to-purple-800/20 border-b border-purple-500/30">
+            <div className="p-6 border-b" style={{ backgroundColor: 'var(--surface-raised)', borderColor: 'var(--border-primary)' }}>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                            <span className="text-xl">📖</span>
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white text-xl">
+                            <FaBook />
                         </div>
                         <div>
-                            <h1 className="text-white font-bold text-xl capitalize">{title}</h1>
-                            <div className="flex items-center gap-4 text-sm text-slate-400 mt-1">
-                                <span>📚 Module {currentModule + 1}</span>
-                                <span>📝 Lesson {currentLesson + 1}</span>
-                                <span>⏱️ {readingTime} min read</span>
+                            <h1 className="font-bold text-xl capitalize" style={{ color: 'var(--text-primary)' }}>{title}</h1>
+                            <div className="flex items-center gap-4 text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
+                                <span className="flex items-center gap-1"><FaCubes className="text-xs" /> Module {currentModule + 1}</span>
+                                <span className="flex items-center gap-1"><FaPencilAlt className="text-xs" /> Lesson {currentLesson + 1}</span>
+                                <span className="flex items-center gap-1"><FaClock className="text-xs" /> {readingTime} min read</span>
                             </div>
                         </div>
                     </div>
@@ -256,8 +257,8 @@ const Content = ({ content, title, isAnimating, currentModule, currentLesson, on
                 <div className="mt-12 p-6 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border theme-border rounded-xl">
                     <div className="flex items-center justify-between">
                         <div>
-                            <h3 className="text-white font-semibold mb-2">Lesson Complete?</h3>
-                            <p className="text-slate-300 text-sm">
+                            <h3 className="font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Lesson Complete?</h3>
+                            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
                                 Mark this lesson as complete to track your progress
                             </p>
                         </div>
@@ -279,11 +280,11 @@ const Content = ({ content, title, isAnimating, currentModule, currentLesson, on
                     if (nextLesson) {
                         return (
                             <div className="mt-6 p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl">
-                                <h3 className="text-white font-semibold mb-2">Up Next</h3>
+                                <h3 className="font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Up Next</h3>
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <p className="text-blue-300 font-medium">{nextLesson.lesson.title}</p>
-                                        <p className="text-slate-400 text-sm">
+                                        <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
                                             Module {nextLesson.moduleIndex + 1}, Lesson {nextLesson.lessonIndex + 1}
                                         </p>
                                     </div>

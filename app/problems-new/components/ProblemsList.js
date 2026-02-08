@@ -481,7 +481,7 @@ export default function ProblemsList() {
                               href={`/problems-new/${problem._id}`}
                               className="flex-1 min-w-[200px] px-6 py-3 bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white rounded-lg font-bold text-center transition-all duration-300 transform hover:scale-105 shadow-lg"
                             >
-                              🚀 Start Solving This Problem
+                              Start Solving This Problem
                             </Link>
                           </div>
                         </motion.div>
