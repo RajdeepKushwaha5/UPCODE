@@ -63,7 +63,7 @@
     "razorpay": "^2.9.6",
     "react": "^19",
     "react-ace": "^14.0.1",
-    "react-chartjs-2": "^5.3.0",
+    "react-chartjs-2": "^5.3.1",
     "react-confetti": "^6.4.0",
     "react-dom": "^19",
     "react-hot-toast": "^2.6.0",
