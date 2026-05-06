@@ -26,7 +26,7 @@
     "clean-logs": "node scripts/clean-logs.js"
   },
   "dependencies": {
-    "@auth/mongodb-adapter": "^3.10.0",
+    "@auth/mongodb-adapter": "^3.11.2",
     "@codemirror/lang-cpp": "^6.0.3",
     "@codemirror/lang-java": "^6.0.2",
     "@codemirror/lang-javascript": "^6.2.4",
