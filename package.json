@@ -29,7 +29,7 @@
     "@auth/mongodb-adapter": "^3.11.2",
     "@codemirror/lang-cpp": "^6.0.3",
     "@codemirror/lang-java": "^6.0.2",
-    "@codemirror/lang-javascript": "^6.2.4",
+    "@codemirror/lang-javascript": "^6.2.5",
     "@codemirror/lang-python": "^6.2.1",
     "@google/generative-ai": "^0.24.1",
     "@heroicons/react": "^2.2.0",
