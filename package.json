@@ -46,7 +46,7 @@
     "canvas-confetti": "^1.9.3",
     "chart.js": "^4.5.0",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.1",
+    "dotenv": "^17.4.2",
     "express": "^5.1.0",
     "framer-motion": "^12.23.12",
     "helmet": "^8.0.0",
