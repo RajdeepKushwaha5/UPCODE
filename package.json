@@ -85,7 +85,7 @@
     "remark-gfm": "^4.0.1",
     "socket.io": "^4.8.3",
     "socket.io-client": "^4.8.3",
-    "tailwindcss": "^4.2.4",
+    "tailwindcss": "^4.3.0",
     "ws": "^8.20.0"
   },
   "overrides": {
