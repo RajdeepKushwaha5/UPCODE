@@ -54,7 +54,7 @@
     "js-cookie": "^3.0.8",
     "lucide-react": "^1.21.0",
     "monaco-editor": "^0.55.1",
-    "mongodb": "^7.3.0",
+    "mongodb": "^7.4.0",
     "mongoose": "^9.7.2",
     "next": "16.2.9",
     "next-auth": "^4.24.14",
