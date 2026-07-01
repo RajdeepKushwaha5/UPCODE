@@ -35,7 +35,7 @@
     "@heroicons/react": "^2.2.0",
     "@jitsi/react-sdk": "^1.4.4",
     "@monaco-editor/react": "^4.7.0",
-    "@radix-ui/react-slider": "^1.4.1",
+    "@radix-ui/react-slider": "^1.4.2",
     "@sendgrid/mail": "^8.1.6",
     "@uiw/codemirror-theme-eclipse": "^4.25.10",
     "@uiw/codemirror-theme-vscode": "^4.25.10",
