@@ -55,7 +55,7 @@
     "lucide-react": "^1.23.0",
     "monaco-editor": "^0.55.1",
     "mongodb": "^7.4.0",
-    "mongoose": "^9.7.3",
+    "mongoose": "^9.7.4",
     "next": "16.2.10",
     "next-auth": "^4.24.14",
     "nodemailer": "^9.0.3",
