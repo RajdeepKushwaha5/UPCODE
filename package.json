@@ -53,7 +53,7 @@
     "isomorphic-dompurify": "^3.19.0",
     "js-cookie": "^3.0.8",
     "lucide-react": "^1.25.0",
-    "monaco-editor": "^0.55.1",
+    "monaco-editor": "^0.56.0",
     "mongodb": "^7.5.0",
     "mongoose": "^9.7.4",
     "next": "16.2.10",
