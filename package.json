@@ -62,7 +62,7 @@
     "nodemon": "^3.1.14",
     "razorpay": "^2.9.8",
     "react": "^19",
-    "react-ace": "^14.0.1",
+    "react-ace": "^15.0.0",
     "react-chartjs-2": "^5.3.1",
     "react-confetti": "^6.4.0",
     "react-dom": "^19",
