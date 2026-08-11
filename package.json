@@ -109,7 +109,7 @@
   "devDependencies": {
     "@types/react": "19.2.18",
     "autoprefixer": "^10.5.4",
-    "eslint": "10.8.0",
+    "eslint": "10.8.1",
     "eslint-config-next": "16.2.12",
     "postcss": "^8",
     "typescript": "7.0.2"
