@@ -50,7 +50,7 @@
     "express": "^5.2.1",
     "framer-motion": "^13.1.1",
     "helmet": "^8.3.0",
-    "isomorphic-dompurify": "^3.23.0",
+    "isomorphic-dompurify": "^4.1.0",
     "js-cookie": "^3.0.8",
     "lucide-react": "^1.39.0",
     "monaco-editor": "^0.56.0",
