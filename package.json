@@ -58,7 +58,7 @@
     "mongoose": "^9.10.4",
     "next": "16.3.8",
     "next-auth": "^4.24.15",
-    "nodemailer": "^10.0.14",
+    "nodemailer": "^10.0.15",
     "nodemon": "^3.1.14",
     "razorpay": "^2.9.8",
     "react": "^19",
